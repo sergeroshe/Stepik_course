@@ -1,0 +1,33 @@
+Index: Valid_number.py
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>POSITIVE_ANSWER = 'YES'\r\nNEGATIVE_ANSWER = 'NO'\r\nMATCH_LIST = '375.,:;-'\r\nDIGIT_CHAR = 'd'\r\nSEP_CHAR = 'p'\r\nPATTERN_LIST = ['7-ddd-ddd-dddd', '7-dddpddpdd', 'ddd-ddd-dddd', '+375-dd-ddd-dddd']\r\n\r\nphone_num = input() #  7-111-111-1111, 7-111.11;11, 111-111-1111, +375-25-640-8668, 7,111.11;11\r\nphone_num_len = len(phone_num)\r\n\r\nis_valid = True\r\n\r\n\r\nfor pattern in PATTERN_LIST:\r\n    if phone_num_len != len(pattern):\r\n        is_valid = False\r\n        continue\r\n    else:\r\n        for i in range(phone_num_len):\r\n            if pattern[i] in MATCH_LIST:\r\n                if phone_num[i] != pattern[i]:\r\n                    is_valid = False\r\n                    break\r\n            elif pattern[i] == DIGIT_CHAR:\r\n                if not phone_num[i].isdigit():\r\n                    is_valid = False\r\n                    break\r\n            elif pattern[i] == SEP_CHAR:\r\n                if phone_num[i] not in MATCH_LIST:\r\n                    is_valid = False\r\n                    break\r\n            is_valid = True\r\n    if is_valid:\r\n        break\r\n\r\nif is_valid:\r\n    print(POSITIVE_ANSWER)\r\nelse:\r\n    print(NEGATIVE_ANSWER)\r\n\r\n\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/Valid_number.py b/Valid_number.py
+--- a/Valid_number.py	
++++ b/Valid_number.py	
+@@ -1,4 +1,4 @@
+-POSITIVE_ANSWER = 'YES'
++POSITIVE_ANSWER = 'YES' # test 9
+ NEGATIVE_ANSWER = 'NO'
+ MATCH_LIST = '375.,:;-'
+ DIGIT_CHAR = 'd'
+Index: .idea/vcs.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/vcs.xml b/.idea/vcs.xml
+new file mode 100644
+--- /dev/null	
++++ b/.idea/vcs.xml	
+@@ -0,0 +1,6 @@
++<?xml version="1.0" encoding="UTF-8"?>
++<project version="4">
++  <component name="VcsDirectoryMappings">
++    <mapping directory="$PROJECT_DIR$" vcs="Git" />
++  </component>
++</project>
+\ No newline at end of file

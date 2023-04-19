@@ -1,41 +1,43 @@
-POSITIVE_ANSWER = 'YES'
+POSITIVE_ANSWER = 'YES'  # test 8
 NEGATIVE_ANSWER = 'NO'
-MATCH_LIST = '375.,:;-'
+INITIAL_NUM_CHAR = '+'
+SEP_LIST = '.;:-'
 DIGIT_CHAR = 'd'
 SEP_CHAR = 'p'
 PATTERN_LIST = ['7-ddd-ddd-dddd', '7-dddpddpdd', 'ddd-ddd-dddd', '+375-dd-ddd-dddd']
 
-phone_num = input() #  7-111-111-1111, 7-111.11;11, 111-111-1111, +375-25-640-8668, 7,111.11;11
+phone_num = '+375-25-640-8668' #  7-111-111-1111, 7-111.11;11, 111-111-1111, +375-25-640-8668, 7,111.11;11
 phone_num_len = len(phone_num)
 
-is_valid = True
-
+pattern_found = False # is pattern mathing number found in PATTERN_LIST
 
 for pattern in PATTERN_LIST:
-    if phone_num_len != len(pattern):
-        is_valid = False
-        continue
-    else:
+    pattern_matches = True
+    if phone_num_len == len(pattern):
         for i in range(phone_num_len):
-            if pattern[i] in MATCH_LIST:
+            if pattern[i].isdigit() or pattern[i] == INITIAL_NUM_CHAR:
                 if phone_num[i] != pattern[i]:
-                    is_valid = False
+                    pattern_matches = False
                     break
             elif pattern[i] == DIGIT_CHAR:
                 if not phone_num[i].isdigit():
-                    is_valid = False
+                    pattern_matches = False
                     break
             elif pattern[i] == SEP_CHAR:
-                if phone_num[i] not in MATCH_LIST:
-                    is_valid = False
+                if phone_num[i] not in SEP_LIST:
+                    pattern_matches = False
                     break
-            is_valid = True
-    if is_valid:
+
+    else:
+        pattern_matches = False
+        # continue
+
+    if pattern_matches:
+        pattern_found = True
         break
 
-if is_valid:
+
+if pattern_found:
     print(POSITIVE_ANSWER)
 else:
     print(NEGATIVE_ANSWER)
-
-

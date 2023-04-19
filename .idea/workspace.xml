@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="e1c6cf06-878d-4162-81fe-390774938390" name="Changes" comment="arranging my branch" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <branch-grouping />
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="master" />
+      </map>
+    </option>
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="ROOT_SYNC" value="SYNC" />
+  </component>
+  <component name="ProjectId" id="2OMZXaKAJdv3XtxgAEKqlmqEp2f" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "ignore.virus.scanning.warn.message": "true",
+    "last_opened_file_path": "C:/Users/roshc/PycharmProjects/pythonProject",
+    "settings.editor.selected.configurable": "shared-indexes"
+  }
+}]]></component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="e1c6cf06-878d-4162-81fe-390774938390" name="Changes" comment="" />
+      <created>1681372452195</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1681372452195</updated>
+    </task>
+    <task id="LOCAL-00001" summary="test">
+      <created>1681928609742</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1681928609742</updated>
+    </task>
+    <task id="LOCAL-00002" summary="test">
+      <created>1681928637456</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1681928637456</updated>
+    </task>
+    <task id="LOCAL-00003" summary="test 3">
+      <created>1681928717774</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1681928717774</updated>
+    </task>
+    <task id="LOCAL-00004" summary="test 4">
+      <created>1681928831516</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1681928831516</updated>
+    </task>
+    <task id="LOCAL-00005" summary="test 4">
+      <created>1681928916946</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1681928916946</updated>
+    </task>
+    <task id="LOCAL-00006" summary="test 4">
+      <created>1681928964976</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1681928964976</updated>
+    </task>
+    <task id="LOCAL-00007" summary="Two variables added:pattern_found and pattern_matches;&#10;got rid of changing hypothesis">
+      <created>1681929156205</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1681929156205</updated>
+    </task>
+    <task id="LOCAL-00008" summary="Two variables added:pattern_found and pattern_matches;&#10;got rid of changing hypothesis">
+      <created>1681929302373</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1681929302373</updated>
+    </task>
+    <task id="LOCAL-00009" summary="arranging my branch">
+      <created>1681929913075</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1681929913075</updated>
+    </task>
+    <task id="LOCAL-00010" summary="arranging my branch">
+      <created>1681929938532</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1681929938532</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
+    <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="test 2" />
+    <MESSAGE value="test" />
+    <MESSAGE value="test 3" />
+    <MESSAGE value="test 4" />
+    <MESSAGE value="Two variables added:pattern_found and pattern_matches;&#10;got rid of changing hypothesis" />
+    <MESSAGE value="arranging my branch" />
+    <option name="LAST_COMMIT_MESSAGE" value="arranging my branch" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/Valid_number.py</url>
+          <line>11</line>
+          <option name="timeStamp" value="6" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+  </component>
+</project>
