@@ -4,9 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e1c6cf06-878d-4162-81fe-390774938390" name="Changes" comment="arranging my branch">
+    <list default="true" id="e1c6cf06-878d-4162-81fe-390774938390" name="Changes" comment="Added two variables: pattern_found and pattern_matches;&#10;Got rid of changing the hypothesis statement.">
+      <change afterPath="$PROJECT_DIR$/Сортировка_выбором.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Valid_number.py" beforeDir="false" afterPath="$PROJECT_DIR$/Valid_number.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -15,6 +15,7 @@
   </component>
   <component name="Git.Settings">
     <branch-grouping />
+    <option name="PUSH_AUTO_UPDATE" value="true" />
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
         <entry key="$PROJECT_DIR$" value="master" />
@@ -24,20 +25,27 @@
     <option name="ROOT_SYNC" value="SYNC" />
   </component>
   <component name="ProjectId" id="2OMZXaKAJdv3XtxgAEKqlmqEp2f" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/roshc/PycharmProjects/pythonProject&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;shared-indexes&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "git-widget-placeholder": "main",
+    "ignore.virus.scanning.warn.message": "true",
+    "last_opened_file_path": "C:/Users/roshc/PycharmProjects/pythonProject",
+    "settings.editor.selected.configurable": "shared-indexes"
+  },
+  "keyToStringList": {
+    "com.intellij.ide.scratch.ScratchImplUtil$2/New Scratch File": [
+      "Python"
+    ]
   }
-}</component>
+}]]></component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -131,7 +139,42 @@
       <option name="project" value="LOCAL" />
       <updated>1681930837824</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="test 10">
+      <created>1681932006424</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1681932006424</updated>
+    </task>
+    <task id="LOCAL-00014" summary="test 10">
+      <created>1681932061943</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1681932061943</updated>
+    </task>
+    <task id="LOCAL-00015" summary="test 11">
+      <created>1681932082182</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1681932082182</updated>
+    </task>
+    <task id="LOCAL-00016" summary="Added two variables: pattern_found and pattern_matches;&#10;Got rid of changing the hypothesis statement.">
+      <created>1681932237911</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1681932237911</updated>
+    </task>
+    <task id="LOCAL-00017" summary="Added two variables: pattern_found and pattern_matches;&#10;Got rid of changing the hypothesis statement.">
+      <created>1681932471031</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1681932471031</updated>
+    </task>
+    <option name="localTasksCounter" value="18" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -152,7 +195,10 @@
     <MESSAGE value="test 4" />
     <MESSAGE value="Two variables added:pattern_found and pattern_matches;&#10;got rid of changing hypothesis" />
     <MESSAGE value="arranging my branch" />
-    <option name="LAST_COMMIT_MESSAGE" value="arranging my branch" />
+    <MESSAGE value="test 10" />
+    <MESSAGE value="test 11" />
+    <MESSAGE value="Added two variables: pattern_found and pattern_matches;&#10;Got rid of changing the hypothesis statement." />
+    <option name="LAST_COMMIT_MESSAGE" value="Added two variables: pattern_found and pattern_matches;&#10;Got rid of changing the hypothesis statement." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
