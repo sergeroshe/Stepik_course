@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e1c6cf06-878d-4162-81fe-390774938390" name="Changes" comment="New_file: selection_sort">
+    <list default="true" id="e1c6cf06-878d-4162-81fe-390774938390" name="Changes" comment="Any valid symbol option added">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Valid_number.py" beforeDir="false" afterPath="$PROJECT_DIR$/Valid_number.py" afterDir="false" />
     </list>
@@ -32,20 +32,20 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "main",
-    "ignore.virus.scanning.warn.message": "true",
-    "last_opened_file_path": "C:/Users/roshc/PycharmProjects/pythonProject",
-    "settings.editor.selected.configurable": "shared-indexes"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/roshc/PycharmProjects/pythonProject&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;shared-indexes&quot;
   },
-  "keyToStringList": {
-    "com.intellij.ide.scratch.ScratchImplUtil$2/New Scratch File": [
-      "Python"
+  &quot;keyToStringList&quot;: {
+    &quot;com.intellij.ide.scratch.ScratchImplUtil$2/New Scratch File&quot;: [
+      &quot;Python&quot;
     ]
   }
-}]]></component>
+}</component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -188,7 +188,21 @@
       <option name="project" value="LOCAL" />
       <updated>1681933111699</updated>
     </task>
-    <option name="localTasksCounter" value="20" />
+    <task id="LOCAL-00020" summary="Any valid symbol option added">
+      <created>1681935136443</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1681935136443</updated>
+    </task>
+    <task id="LOCAL-00021" summary="Any valid symbol option added">
+      <created>1681935188088</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1681935188088</updated>
+    </task>
+    <option name="localTasksCounter" value="22" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -213,14 +227,15 @@
     <MESSAGE value="test 11" />
     <MESSAGE value="Added two variables: pattern_found and pattern_matches;&#10;Got rid of changing the hypothesis statement." />
     <MESSAGE value="New_file: selection_sort" />
-    <option name="LAST_COMMIT_MESSAGE" value="New_file: selection_sort" />
+    <MESSAGE value="Any valid symbol option added" />
+    <option name="LAST_COMMIT_MESSAGE" value="Any valid symbol option added" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/Valid_number.py</url>
-          <line>11</line>
+          <line>10</line>
           <option name="timeStamp" value="6" />
         </line-breakpoint>
       </breakpoints>
