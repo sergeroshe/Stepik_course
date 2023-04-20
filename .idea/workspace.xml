@@ -4,8 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e1c6cf06-878d-4162-81fe-390774938390" name="Changes" comment="Any valid symbol option added">
+    <list default="true" id="e1c6cf06-878d-4162-81fe-390774938390" name="Changes" comment="INITIAL_NUM_CHAR: removed">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Selection_sort.py" beforeDir="false" afterPath="$PROJECT_DIR$/Selection_sort.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Valid_number.py" beforeDir="false" afterPath="$PROJECT_DIR$/Valid_number.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -202,7 +203,14 @@
       <option name="project" value="LOCAL" />
       <updated>1681935188088</updated>
     </task>
-    <option name="localTasksCounter" value="22" />
+    <task id="LOCAL-00022" summary="INITIAL_NUM_CHAR: removed">
+      <created>1681936589332</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1681936589332</updated>
+    </task>
+    <option name="localTasksCounter" value="23" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -228,7 +236,8 @@
     <MESSAGE value="Added two variables: pattern_found and pattern_matches;&#10;Got rid of changing the hypothesis statement." />
     <MESSAGE value="New_file: selection_sort" />
     <MESSAGE value="Any valid symbol option added" />
-    <option name="LAST_COMMIT_MESSAGE" value="Any valid symbol option added" />
+    <MESSAGE value="INITIAL_NUM_CHAR: removed" />
+    <option name="LAST_COMMIT_MESSAGE" value="INITIAL_NUM_CHAR: removed" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -237,6 +246,11 @@
           <url>file://$PROJECT_DIR$/Valid_number.py</url>
           <line>10</line>
           <option name="timeStamp" value="6" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/Selection_sort.py</url>
+          <line>3</line>
+          <option name="timeStamp" value="7" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
