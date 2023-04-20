@@ -4,9 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e1c6cf06-878d-4162-81fe-390774938390" name="Changes" comment="INITIAL_NUM_CHAR: removed">
+    <list default="true" id="e1c6cf06-878d-4162-81fe-390774938390" name="Changes" comment="Replaced slices with loop">
+      <change afterPath="$PROJECT_DIR$/Days_in_month.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Selection_sort.py" beforeDir="false" afterPath="$PROJECT_DIR$/Selection_sort.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Valid_number.py" beforeDir="false" afterPath="$PROJECT_DIR$/Valid_number.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -210,7 +210,14 @@
       <option name="project" value="LOCAL" />
       <updated>1681936589332</updated>
     </task>
-    <option name="localTasksCounter" value="23" />
+    <task id="LOCAL-00023" summary="Replaced slices with loop">
+      <created>1681982227777</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1681982227778</updated>
+    </task>
+    <option name="localTasksCounter" value="24" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -237,7 +244,8 @@
     <MESSAGE value="New_file: selection_sort" />
     <MESSAGE value="Any valid symbol option added" />
     <MESSAGE value="INITIAL_NUM_CHAR: removed" />
-    <option name="LAST_COMMIT_MESSAGE" value="INITIAL_NUM_CHAR: removed" />
+    <MESSAGE value="Replaced slices with loop" />
+    <option name="LAST_COMMIT_MESSAGE" value="Replaced slices with loop" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
