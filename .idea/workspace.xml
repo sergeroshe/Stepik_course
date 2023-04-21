@@ -4,8 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e1c6cf06-878d-4162-81fe-390774938390" name="Changes" comment="Task: Dividers_2">
-      <change afterPath="$PROJECT_DIR$/Find_all.py" afterDir="false" />
+    <list default="true" id="e1c6cf06-878d-4162-81fe-390774938390" name="Changes" comment="Task: Find_all">
+      <change afterPath="$PROJECT_DIR$/Merge lists 1.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Valid_number.py" beforeDir="false" afterPath="$PROJECT_DIR$/Valid_number.py" afterDir="false" />
     </list>
@@ -238,7 +238,21 @@
       <option name="project" value="LOCAL" />
       <updated>1682068240855</updated>
     </task>
-    <option name="localTasksCounter" value="27" />
+    <task id="LOCAL-00027" summary="Task: Dividers_2">
+      <created>1682070568281</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1682070568281</updated>
+    </task>
+    <task id="LOCAL-00028" summary="Task: Find_all">
+      <created>1682070646129</created>
+      <option name="number" value="00028" />
+      <option name="presentableId" value="LOCAL-00028" />
+      <option name="project" value="LOCAL" />
+      <updated>1682070646129</updated>
+    </task>
+    <option name="localTasksCounter" value="29" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -269,7 +283,8 @@
     <MESSAGE value="Changed variable names" />
     <MESSAGE value="Arranged with main function, changed input parameter's name for better understanding" />
     <MESSAGE value="Task: Dividers_2" />
-    <option name="LAST_COMMIT_MESSAGE" value="Task: Dividers_2" />
+    <MESSAGE value="Task: Find_all" />
+    <option name="LAST_COMMIT_MESSAGE" value="Task: Find_all" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -302,6 +317,16 @@
           <url>file://$PROJECT_DIR$/Find_all.py</url>
           <line>2</line>
           <option name="timeStamp" value="11" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/Merge lists 1.py</url>
+          <line>1</line>
+          <option name="timeStamp" value="12" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/Merge lists 1.py</url>
+          <line>7</line>
+          <option name="timeStamp" value="13" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
