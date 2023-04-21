@@ -4,8 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e1c6cf06-878d-4162-81fe-390774938390" name="Changes" comment="Arranged with main function, changed input parameter's name for better understanding">
-      <change afterPath="$PROJECT_DIR$/Dividers_2.py" afterDir="false" />
+    <list default="true" id="e1c6cf06-878d-4162-81fe-390774938390" name="Changes" comment="Task: Dividers_2">
+      <change afterPath="$PROJECT_DIR$/Find_all.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Valid_number.py" beforeDir="false" afterPath="$PROJECT_DIR$/Valid_number.py" afterDir="false" />
     </list>
@@ -231,7 +231,14 @@
       <option name="project" value="LOCAL" />
       <updated>1682005263318</updated>
     </task>
-    <option name="localTasksCounter" value="26" />
+    <task id="LOCAL-00026" summary="Task: Dividers_2">
+      <created>1682068240855</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1682068240855</updated>
+    </task>
+    <option name="localTasksCounter" value="27" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -261,7 +268,8 @@
     <MESSAGE value="Replaced slices with loop" />
     <MESSAGE value="Changed variable names" />
     <MESSAGE value="Arranged with main function, changed input parameter's name for better understanding" />
-    <option name="LAST_COMMIT_MESSAGE" value="Arranged with main function, changed input parameter's name for better understanding" />
+    <MESSAGE value="Task: Dividers_2" />
+    <option name="LAST_COMMIT_MESSAGE" value="Task: Dividers_2" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -285,6 +293,15 @@
           <url>file://$PROJECT_DIR$/Dividers_2.py</url>
           <line>3</line>
           <option name="timeStamp" value="9" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/Find_all.py</url>
+          <option name="timeStamp" value="10" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/Find_all.py</url>
+          <line>2</line>
+          <option name="timeStamp" value="11" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
