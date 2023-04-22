@@ -1,15 +1,15 @@
    # объявление функции
 def merge(list1, list2):
-    final_list = list1 + list2
-    for i in range(len(final_list)):
-        min_num = final_list[i]
+    common_list = list1 + list2
+    for i in range(len(common_list)):
+        min_num = common_list[i]
         min_num_idx = i
-        for j in range(i + 1, len(final_list)):
-            if final_list[j] < min_num:
-                min_num = final_list[j]
+        for j in range(i + 1, len(common_list)):
+            if common_list[j] < min_num:
+                min_num = common_list[j]
                 min_num_idx = j
-        final_list[i], final_list[min_num_idx] = final_list[min_num_idx], final_list[i]
-    return final_list
+        common_list[i], common_list[min_num_idx] = common_list[min_num_idx], common_list[i]
+    return common_list
 
 
 def main():
