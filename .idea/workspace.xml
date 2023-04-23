@@ -4,7 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e1c6cf06-878d-4162-81fe-390774938390" name="Changes" comment="Task: Merge_lists, selection sort implemented&#10;Description added&#10;Project renamed">
+    <list default="true" id="e1c6cf06-878d-4162-81fe-390774938390" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/List_merge.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Merge lists 2.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Valid_number.py" beforeDir="false" afterPath="$PROJECT_DIR$/Valid_number.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -271,7 +274,14 @@
       <option name="project" value="LOCAL" />
       <updated>1682087139824</updated>
     </task>
-    <option name="localTasksCounter" value="32" />
+    <task id="LOCAL-00032" summary="Task: Merge_lists, selection sort implemented&#10;Final_list to common_list renamed">
+      <created>1682183804888</created>
+      <option name="number" value="00032" />
+      <option name="presentableId" value="LOCAL-00032" />
+      <option name="project" value="LOCAL" />
+      <updated>1682183804888</updated>
+    </task>
+    <option name="localTasksCounter" value="33" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -306,7 +316,8 @@
     <MESSAGE value="Task: Merge_lists, selection sort implemented" />
     <MESSAGE value="Task: Merge_lists, selection sort implemented&#10;Description added" />
     <MESSAGE value="Task: Merge_lists, selection sort implemented&#10;Description added&#10;Project renamed" />
-    <option name="LAST_COMMIT_MESSAGE" value="Task: Merge_lists, selection sort implemented&#10;Description added&#10;Project renamed" />
+    <MESSAGE value="Task: Merge_lists, selection sort implemented&#10;Final_list to common_list renamed" />
+    <option name="LAST_COMMIT_MESSAGE" value="Task: Merge_lists, selection sort implemented&#10;Final_list to common_list renamed" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -349,6 +360,15 @@
           <url>file://$PROJECT_DIR$/Merge lists 1.py</url>
           <line>7</line>
           <option name="timeStamp" value="13" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/List_merge.py</url>
+          <line>6</line>
+          <option name="timeStamp" value="18" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/Merge lists 2.py</url>
+          <option name="timeStamp" value="19" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
