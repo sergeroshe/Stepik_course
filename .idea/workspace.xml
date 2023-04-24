@@ -4,10 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e1c6cf06-878d-4162-81fe-390774938390" name="Changes" comment="Is valid triangle: brain training version">
+    <list default="true" id="e1c6cf06-878d-4162-81fe-390774938390" name="Changes" comment="Is number prime?">
       <change afterPath="$PROJECT_DIR$/Dividers_1_copy.py" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/Elements_shifting_training.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Is a Number Prime.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Next Prime.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Merge lists 1.py" beforeDir="false" afterPath="$PROJECT_DIR$/Merge lists 1.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Merge lists 2.py" beforeDir="false" afterPath="$PROJECT_DIR$/Merge lists 2.py" afterDir="false" />
@@ -374,7 +374,14 @@
       <option name="project" value="LOCAL" />
       <updated>1682353082442</updated>
     </task>
-    <option name="localTasksCounter" value="46" />
+    <task id="LOCAL-00046" summary="Is number prime?">
+      <created>1682356597179</created>
+      <option name="number" value="00046" />
+      <option name="presentableId" value="LOCAL-00046" />
+      <option name="project" value="LOCAL" />
+      <updated>1682356597179</updated>
+    </task>
+    <option name="localTasksCounter" value="47" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -389,7 +396,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Two variables added:pattern_found and pattern_matches;&#10;got rid of changing hypothesis" />
     <MESSAGE value="arranging my branch" />
     <MESSAGE value="test 10" />
     <MESSAGE value="test 11" />
@@ -414,7 +420,8 @@
     <MESSAGE value="Simple version" />
     <MESSAGE value="Is valid triangle: Simple version" />
     <MESSAGE value="Is valid triangle: brain training version" />
-    <option name="LAST_COMMIT_MESSAGE" value="Is valid triangle: brain training version" />
+    <MESSAGE value="Is number prime?" />
+    <option name="LAST_COMMIT_MESSAGE" value="Is number prime?" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -487,8 +494,11 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/Is a Number Prime.py</url>
-          <line>1</line>
           <option name="timeStamp" value="25" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/Next Prime.py</url>
+          <option name="timeStamp" value="26" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

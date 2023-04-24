@@ -1,5 +1,5 @@
 def is_prime(num):
-    answer = False
+    value = False
     count = 0
     for i in range(1, (num // 2) + 1):
         if num % i == 0:
@@ -8,9 +8,9 @@ def is_prime(num):
             break
     count += 1
     if count == 2:
-        answer = True
+        value = True
 
-    return answer
+    return value
 
 
 def main():
