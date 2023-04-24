@@ -4,10 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e1c6cf06-878d-4162-81fe-390774938390" name="Changes" comment="Task: Merge_lists_2, multiple lists sort used, needs a discussion for better understanding">
-      <change afterPath="$PROJECT_DIR$/List_merge.py" afterDir="false" />
+    <list default="true" id="e1c6cf06-878d-4162-81fe-390774938390" name="Changes" comment="Task: Merge_lists_2, multiple lists sort used, needs a discussion for better understanding&#10;Description added">
+      <change afterPath="$PROJECT_DIR$/Dividers_1_copy.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Valid_number.py" beforeDir="false" afterPath="$PROJECT_DIR$/Valid_number.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Dividers_1.py" beforeDir="false" afterPath="$PROJECT_DIR$/Dividers_1.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Find_all.py" beforeDir="false" afterPath="$PROJECT_DIR$/Find_all.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Merge lists 1.py" beforeDir="false" afterPath="$PROJECT_DIR$/Merge lists 1.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Merge lists 2.py" beforeDir="false" afterPath="$PROJECT_DIR$/Merge lists 2.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -287,7 +290,28 @@
       <option name="project" value="LOCAL" />
       <updated>1682266970388</updated>
     </task>
-    <option name="localTasksCounter" value="34" />
+    <task id="LOCAL-00034" summary="Task: Merge_lists_2, multiple lists sort used, needs a discussion for better understanding&#10;Description added">
+      <created>1682321529808</created>
+      <option name="number" value="00034" />
+      <option name="presentableId" value="LOCAL-00034" />
+      <option name="project" value="LOCAL" />
+      <updated>1682321529808</updated>
+    </task>
+    <task id="LOCAL-00035" summary="Task: Merge_lists_2, multiple lists sort used, needs a discussion for better understanding&#10;Description added">
+      <created>1682321574501</created>
+      <option name="number" value="00035" />
+      <option name="presentableId" value="LOCAL-00035" />
+      <option name="project" value="LOCAL" />
+      <updated>1682321574501</updated>
+    </task>
+    <task id="LOCAL-00036" summary="Task: Merge_lists_2, multiple lists sort used, needs a discussion for better understanding&#10;Description added">
+      <created>1682321588531</created>
+      <option name="number" value="00036" />
+      <option name="presentableId" value="LOCAL-00036" />
+      <option name="project" value="LOCAL" />
+      <updated>1682321588531</updated>
+    </task>
+    <option name="localTasksCounter" value="37" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -324,7 +348,8 @@
     <MESSAGE value="Task: Merge_lists, selection sort implemented&#10;Description added&#10;Project renamed" />
     <MESSAGE value="Task: Merge_lists, selection sort implemented&#10;Final_list to common_list renamed" />
     <MESSAGE value="Task: Merge_lists_2, multiple lists sort used, needs a discussion for better understanding" />
-    <option name="LAST_COMMIT_MESSAGE" value="Task: Merge_lists_2, multiple lists sort used, needs a discussion for better understanding" />
+    <MESSAGE value="Task: Merge_lists_2, multiple lists sort used, needs a discussion for better understanding&#10;Description added" />
+    <option name="LAST_COMMIT_MESSAGE" value="Task: Merge_lists_2, multiple lists sort used, needs a discussion for better understanding&#10;Description added" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -341,7 +366,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/Dividers_1.py</url>
-          <line>4</line>
+          <line>2</line>
           <option name="timeStamp" value="8" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
