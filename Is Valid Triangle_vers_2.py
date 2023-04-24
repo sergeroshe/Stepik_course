@@ -13,7 +13,7 @@ def is_valid_triangle(side_1, side_2, side_3):
             break
     return result
 
-
+#
 def main():
     a, b, c = [int(input()), int(input()), int(input())]
     print(is_valid_triangle(a, b, c))
