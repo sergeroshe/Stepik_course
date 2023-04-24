@@ -4,9 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e1c6cf06-878d-4162-81fe-390774938390" name="Changes" comment="Function is_invalid used for model number validation, works until it is valid">
+    <list default="true" id="e1c6cf06-878d-4162-81fe-390774938390" name="Changes" comment="Is valid triangle: brain training version">
       <change afterPath="$PROJECT_DIR$/Dividers_1_copy.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Is Valid Triangle .py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Elements_shifting_training.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Is a Number Prime.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Merge lists 1.py" beforeDir="false" afterPath="$PROJECT_DIR$/Merge lists 1.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Merge lists 2.py" beforeDir="false" afterPath="$PROJECT_DIR$/Merge lists 2.py" afterDir="false" />
@@ -338,7 +339,42 @@
       <option name="project" value="LOCAL" />
       <updated>1682340020695</updated>
     </task>
-    <option name="localTasksCounter" value="41" />
+    <task id="LOCAL-00041" summary="Simple version">
+      <created>1682351588979</created>
+      <option name="number" value="00041" />
+      <option name="presentableId" value="LOCAL-00041" />
+      <option name="project" value="LOCAL" />
+      <updated>1682351588979</updated>
+    </task>
+    <task id="LOCAL-00042" summary="Is valid triangle: Simple version">
+      <created>1682351635684</created>
+      <option name="number" value="00042" />
+      <option name="presentableId" value="LOCAL-00042" />
+      <option name="project" value="LOCAL" />
+      <updated>1682351635684</updated>
+    </task>
+    <task id="LOCAL-00043" summary="Is valid triangle: brain training version">
+      <created>1682351675118</created>
+      <option name="number" value="00043" />
+      <option name="presentableId" value="LOCAL-00043" />
+      <option name="project" value="LOCAL" />
+      <updated>1682351675118</updated>
+    </task>
+    <task id="LOCAL-00044" summary="Is valid triangle: brain training version">
+      <created>1682351698948</created>
+      <option name="number" value="00044" />
+      <option name="presentableId" value="LOCAL-00044" />
+      <option name="project" value="LOCAL" />
+      <updated>1682351698948</updated>
+    </task>
+    <task id="LOCAL-00045" summary="Is valid triangle: brain training version">
+      <created>1682353082442</created>
+      <option name="number" value="00045" />
+      <option name="presentableId" value="LOCAL-00045" />
+      <option name="project" value="LOCAL" />
+      <updated>1682353082442</updated>
+    </task>
+    <option name="localTasksCounter" value="46" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -353,9 +389,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="test" />
-    <MESSAGE value="test 3" />
-    <MESSAGE value="test 4" />
     <MESSAGE value="Two variables added:pattern_found and pattern_matches;&#10;got rid of changing hypothesis" />
     <MESSAGE value="arranging my branch" />
     <MESSAGE value="test 10" />
@@ -378,7 +411,10 @@
     <MESSAGE value="Task Dividers_1.py with old function reusing. Need a discussion about var. factor using" />
     <MESSAGE value="Method find used" />
     <MESSAGE value="Function is_invalid used for model number validation, works until it is valid" />
-    <option name="LAST_COMMIT_MESSAGE" value="Function is_invalid used for model number validation, works until it is valid" />
+    <MESSAGE value="Simple version" />
+    <MESSAGE value="Is valid triangle: Simple version" />
+    <MESSAGE value="Is valid triangle: brain training version" />
+    <option name="LAST_COMMIT_MESSAGE" value="Is valid triangle: brain training version" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -436,13 +472,23 @@
           <option name="timeStamp" value="20" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/Is Valid Triangle .py</url>
-          <line>26</line>
+          <url>file://$PROJECT_DIR$/Is Valid Triangle_vers_1 .py</url>
+          <line>7</line>
           <option name="timeStamp" value="22" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/Is Valid Triangle .py</url>
+          <url>file://$PROJECT_DIR$/Is Valid Triangle_vers_1 .py</url>
           <option name="timeStamp" value="23" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/Elements_shifting_training.py</url>
+          <line>7</line>
+          <option name="timeStamp" value="24" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/Is a Number Prime.py</url>
+          <line>1</line>
+          <option name="timeStamp" value="25" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
