@@ -1,9 +1,10 @@
 def is_prime(num):
-    count = 0
     next_prime_num = 0
-    for i in range(num + 1, (num + 1) + (num // 2 + 1)):
+    num += 1
+    half_num_len = num // 2 + 1
+    for i in range(num, num + half_num_len):
         count = 0
-        for j in range(1, ((num + 1) // 2) + 1):
+        for j in range(1, half_num_len):
             if i % j == 0:
                 count += 1
             if count > 2:
