@@ -4,10 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e1c6cf06-878d-4162-81fe-390774938390" name="Changes" comment="Task Dividers_1.py with old function reusing. Need a discussion about var. factor using">
+    <list default="true" id="e1c6cf06-878d-4162-81fe-390774938390" name="Changes" comment="Method find used">
       <change afterPath="$PROJECT_DIR$/Dividers_1_copy.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Func_is_invalid.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Find_all.py" beforeDir="false" afterPath="$PROJECT_DIR$/Find_all.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Merge lists 1.py" beforeDir="false" afterPath="$PROJECT_DIR$/Merge lists 1.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Merge lists 2.py" beforeDir="false" afterPath="$PROJECT_DIR$/Merge lists 2.py" afterDir="false" />
     </list>
@@ -317,7 +317,21 @@
       <option name="project" value="LOCAL" />
       <updated>1682334321492</updated>
     </task>
-    <option name="localTasksCounter" value="38" />
+    <task id="LOCAL-00038" summary="Method find used">
+      <created>1682335627547</created>
+      <option name="number" value="00038" />
+      <option name="presentableId" value="LOCAL-00038" />
+      <option name="project" value="LOCAL" />
+      <updated>1682335627547</updated>
+    </task>
+    <task id="LOCAL-00039" summary="Method find used">
+      <created>1682335644082</created>
+      <option name="number" value="00039" />
+      <option name="presentableId" value="LOCAL-00039" />
+      <option name="project" value="LOCAL" />
+      <updated>1682335644082</updated>
+    </task>
+    <option name="localTasksCounter" value="40" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -356,7 +370,8 @@
     <MESSAGE value="Task: Merge_lists_2, multiple lists sort used, needs a discussion for better understanding" />
     <MESSAGE value="Task: Merge_lists_2, multiple lists sort used, needs a discussion for better understanding&#10;Description added" />
     <MESSAGE value="Task Dividers_1.py with old function reusing. Need a discussion about var. factor using" />
-    <option name="LAST_COMMIT_MESSAGE" value="Task Dividers_1.py with old function reusing. Need a discussion about var. factor using" />
+    <MESSAGE value="Method find used" />
+    <option name="LAST_COMMIT_MESSAGE" value="Method find used" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -408,6 +423,10 @@
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/Merge lists 2.py</url>
           <option name="timeStamp" value="19" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/Func_is_invalid.py</url>
+          <option name="timeStamp" value="20" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
