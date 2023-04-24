@@ -1,16 +1,18 @@
 def find_all(target, symbol):
     symbol_idx_list = []
     for i in range(len(target)):
+        symbol_idx = target.find(symbol, i)
         if target[i] == symbol:
-            symbol_idx_list.append(i)
+            symbol_idx_list.append(symbol_idx)
 
     return symbol_idx_list
+# use find, var.:target_string
 
 
 def main():
-    s = input()
+    target_string = input()  # maybe source-string?
     char = input()
-    print(find_all(s, char))
+    print(find_all(target_string, char))
 
 
 main()
