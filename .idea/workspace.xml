@@ -4,9 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e1c6cf06-878d-4162-81fe-390774938390" name="Changes" comment="Method find used">
+    <list default="true" id="e1c6cf06-878d-4162-81fe-390774938390" name="Changes" comment="Function is_invalid used for model number validation, works until it is valid">
       <change afterPath="$PROJECT_DIR$/Dividers_1_copy.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Func_is_invalid.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Is Valid Triangle .py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Merge lists 1.py" beforeDir="false" afterPath="$PROJECT_DIR$/Merge lists 1.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Merge lists 2.py" beforeDir="false" afterPath="$PROJECT_DIR$/Merge lists 2.py" afterDir="false" />
@@ -331,7 +331,14 @@
       <option name="project" value="LOCAL" />
       <updated>1682335644082</updated>
     </task>
-    <option name="localTasksCounter" value="40" />
+    <task id="LOCAL-00040" summary="Function is_invalid used for model number validation, works until it is valid">
+      <created>1682340020695</created>
+      <option name="number" value="00040" />
+      <option name="presentableId" value="LOCAL-00040" />
+      <option name="project" value="LOCAL" />
+      <updated>1682340020695</updated>
+    </task>
+    <option name="localTasksCounter" value="41" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -346,7 +353,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="test 2" />
     <MESSAGE value="test" />
     <MESSAGE value="test 3" />
     <MESSAGE value="test 4" />
@@ -371,7 +377,8 @@
     <MESSAGE value="Task: Merge_lists_2, multiple lists sort used, needs a discussion for better understanding&#10;Description added" />
     <MESSAGE value="Task Dividers_1.py with old function reusing. Need a discussion about var. factor using" />
     <MESSAGE value="Method find used" />
-    <option name="LAST_COMMIT_MESSAGE" value="Method find used" />
+    <MESSAGE value="Function is_invalid used for model number validation, works until it is valid" />
+    <option name="LAST_COMMIT_MESSAGE" value="Function is_invalid used for model number validation, works until it is valid" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -427,6 +434,15 @@
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/Func_is_invalid.py</url>
           <option name="timeStamp" value="20" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/Is Valid Triangle .py</url>
+          <line>26</line>
+          <option name="timeStamp" value="22" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/Is Valid Triangle .py</url>
+          <option name="timeStamp" value="23" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
