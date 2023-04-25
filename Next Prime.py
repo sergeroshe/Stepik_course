@@ -1,8 +1,8 @@
 def is_prime(num):
     next_prime_num = 0
-    num += 1
-    half_num = num // 2 + 1
-    for i in range(num, num + half_num):
+    next_num = num + 1
+    half_num = next_num // 2 + 1
+    for i in range(next_num, next_num + half_num):
         count = 0
         for j in range(1, half_num):
             if i % j == 0:
