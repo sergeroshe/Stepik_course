@@ -4,10 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e1c6cf06-878d-4162-81fe-390774938390" name="Changes" comment="Just in one">
-      <change afterPath="$PROJECT_DIR$/BEEGEEK.py" afterDir="false" />
+    <list default="true" id="e1c6cf06-878d-4162-81fe-390774938390" name="Changes" comment="BEEGEEK task - generic way solving attempt">
       <change afterPath="$PROJECT_DIR$/Dividers_1_copy.py" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/Elements_shifting_training.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Valid_parenthesis_sequence️.py" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/slice_learning.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Merge lists 1.py" beforeDir="false" afterPath="$PROJECT_DIR$/Merge lists 1.py" afterDir="false" />
@@ -59,13 +59,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1681372452195</updated>
-    </task>
-    <task id="LOCAL-00005" summary="test 4">
-      <created>1681928916946</created>
-      <option name="number" value="00005" />
-      <option name="presentableId" value="LOCAL-00005" />
-      <option name="project" value="LOCAL" />
-      <updated>1681928916946</updated>
     </task>
     <task id="LOCAL-00006" summary="test 4">
       <created>1681928964976</created>
@@ -403,7 +396,14 @@
       <option name="project" value="LOCAL" />
       <updated>1682430845228</updated>
     </task>
-    <option name="localTasksCounter" value="54" />
+    <task id="LOCAL-00054" summary="BEEGEEK task - generic way solving attempt">
+      <created>1682512204880</created>
+      <option name="number" value="00054" />
+      <option name="presentableId" value="LOCAL-00054" />
+      <option name="project" value="LOCAL" />
+      <updated>1682512204880</updated>
+    </task>
+    <option name="localTasksCounter" value="55" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -418,7 +418,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Replaced slices with loop" />
     <MESSAGE value="Changed variable names" />
     <MESSAGE value="Arranged with main function, changed input parameter's name for better understanding" />
     <MESSAGE value="Task: Dividers_2" />
@@ -443,7 +442,8 @@
     <MESSAGE value="Is valid triangle, var. improved" />
     <MESSAGE value="Good password" />
     <MESSAGE value="Just in one" />
-    <option name="LAST_COMMIT_MESSAGE" value="Just in one" />
+    <MESSAGE value="BEEGEEK task - generic way solving attempt" />
+    <option name="LAST_COMMIT_MESSAGE" value="BEEGEEK task - generic way solving attempt" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -539,6 +539,11 @@
           <url>file://$PROJECT_DIR$/slice_learning.py</url>
           <line>7</line>
           <option name="timeStamp" value="30" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/Valid_parenthesis_sequence️.py</url>
+          <line>8</line>
+          <option name="timeStamp" value="33" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

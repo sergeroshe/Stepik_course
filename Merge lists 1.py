@@ -1,22 +1,22 @@
    # объявление функции
 def merge(list1, list2):
-    common_list = list1 + list2
-    for i in range(len(common_list)):
-        min_num = common_list[i]
+    result_list = list1 + list2
+    for i in range(len(result_list)):
+        min_num = result_list[i]
         min_num_idx = i
-        for j in range(i + 1, len(common_list)):
-            if common_list[j] < min_num:
-                min_num = common_list[j]
+        for j in range(i + 1, len(result_list)):
+            if result_list[j] < min_num:
+                min_num = result_list[j]
                 min_num_idx = j
-        common_list[i], common_list[min_num_idx] = common_list[min_num_idx], common_list[i]
-    return common_list
+        result_list[i], result_list[min_num_idx] = result_list[min_num_idx], result_list[i]
+    return result_list
 
 
 def main():
    # считываем данные
-    numbers1 = [int(c) for c in input().split()]
-    numbers2 = [int(c) for c in input().split()]
-    print(merge(numbers1, numbers2))
+    num_list_1 = [int(c) for c in input().split()]
+    num_list_2 = [int(c) for c in input().split()]
+    print(merge(num_list_1, num_list_2))
 
 
 main()
