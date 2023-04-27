@@ -3,7 +3,6 @@ def find_all(source, symbol):
     symbol_idx_list = []
     count = 0
     len_source = len(source)
-    symbol_idx = 0
 
     while count <= len_source - 1:
         symbol_idx = source.find(symbol, count)
