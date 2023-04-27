@@ -24,7 +24,7 @@ def is_correct_bracket(text):
 
 def main():
 
-    txt = '())()()()('  # input()
+    txt = input()
     print(is_correct_bracket(txt))
 
 
