@@ -1,17 +1,27 @@
-# объявление функции
-def get_factors(num):
-    div_amount = 0
-    for i in range(1, num + 1):
-        if num % i == 0:
-            div_amount += 1
 
-    return div_amount
+def get_factors(num):
+    dividers_list = []
+    for i in range(1, num // 2 + 1):
+        if num % i == 0:
+            dividers_list.append(i)
+
+    dividers_list.append(num)
+    return dividers_list
+
+
+def number_of_factors(num):
+    value = len(get_factors(num))
+    return value
 
 
 def main():
-    # считываем данные
-    given_num = int(input())
-    print(get_factors(given_num))
+    # input
+    number = int(input())
+    # business logic
+    factors_number = number_of_factors(number)
+    # output
+    print(factors_number)
+    # send_sms(factors_number)
 
 
 # вызываем функцию
