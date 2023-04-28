@@ -1,26 +1,21 @@
 def is_prime(num):
-    answer = False
-    count = 0
-    for i in range(1, (num // 2) + 1):
-        if num % i == 0:
-            count += 1
-        if count == 2:
-            break
-    count += 1
-    if count == 2:
-        answer = True
-
+    answer = True
+    if num > 1:
+        for i in range(2, (num // 2) + 1):
+            if num % i == 0:
+                answer = False
+                break
+    else:
+        answer = False
     return answer
 
 
 def get_next_prime(next_num):
     next_num += 1
-    next_prime_num = 0
-    half_num = next_num // 2 + 1
-    for i in range(next_num, next_num + half_num):
-        if is_prime(i):
-            next_prime_num = i
-            break
+    i = next_num
+    while not is_prime(i):  # until found
+        i += 1
+    next_prime_num = i
     return next_prime_num
 
 
