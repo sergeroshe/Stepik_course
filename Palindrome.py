@@ -1,25 +1,37 @@
-# объявление функции
+IGNORE_CHAR_LIST = ' ,.!?-'
+
+
 def is_palindrome(sentence):
-    value = True
-    ignore_chars_list = ' ,.!?-'
+    value = True  # move to constant
+    len_s = len(sentence) - 1
+    half_len = len_s // 2 + len_s % 2
+    left_side_count = 0
+    right_side_count = 0
+    i = 0
+    while i <= half_len + 3:
+        left_side = sentence[left_side_count]
+        right_side = sentence[len_s - right_side_count]
+        if left_side not in IGNORE_CHAR_LIST and right_side not in IGNORE_CHAR_LIST:
+            left_side_count += 1
+            right_side_count += 1
+            if right_side != left_side:
+                value = False
+                break
+        elif left_side in IGNORE_CHAR_LIST:
+            left_side_count += 1
+        elif right_side in IGNORE_CHAR_LIST:
+            right_side_count += 1
 
-    for char in ignore_chars_list:
-        if char in ignore_chars_list:
-            sentence = sentence.replace(char, '')
-
-    half_len = len(sentence) // 2 + len(sentence) % 2
-    len_s = len(sentence)
-
-    for i in range(half_len):
-        cat = sentence[len_s - 1 - i]
-        dog = sentence[i]
-        if cat != dog:
-            value = False
-            break
+        i += 1
     return value
 
 
 def main():
-    line = input().lower()
-    print(is_palindrome(line))
 
+    line = 'Тер жен, а нес токмо недаром кот сена не жрет.'.lower()
+
+    is_line_palindrome = is_palindrome(line)
+    print(is_line_palindrome)
+
+
+main()
