@@ -1,21 +1,22 @@
-def is_valid_triangle(side_1, side_2, side_3):
-    side_angles_list = [side_1, side_2, side_3]
+def is_valid_triangle(side_list):
     result = True
-    for i in range(len(side_angles_list)):
-        side_angle = side_angles_list[i]
-        other_sides_sum = side_angles_list[i - 1] + side_angles_list[i - 2]
-        if side_angle >= other_sides_sum:
+    for _ in range(len(side_list)):
+        side = side_list[0]
+        other_sides_sum = sum(side_list[1:])
+        if side >= other_sides_sum:
             result = False
             break
-        side_angles_list.remove(side_angle)
-        side_angles_list.append(side_angle)
+        del side_list[0]
+        side_list.append(side)
 
     return result
 
 
 def main():
-    a, b, c = [int(input()), int(input()), int(input())]
-    print(is_valid_triangle(a, b, c))
+    side_list = [int(input()), int(input()), int(input())]
+    is_valid = is_valid_triangle(side_list)
+
+    print(is_valid)
 
 
 main()
