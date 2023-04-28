@@ -1,24 +1,34 @@
 def is_prime(num):
+    answer = False
+    count = 0
+    for i in range(1, (num // 2) + 1):
+        if num % i == 0:
+            count += 1
+        if count == 2:
+            break
+    count += 1
+    if count == 2:
+        answer = True
+
+    return answer
+
+
+def get_next_prime(next_num):
+    next_num += 1
     next_prime_num = 0
-    next_num = num + 1
     half_num = next_num // 2 + 1
     for i in range(next_num, next_num + half_num):
-        count = 0
-        for j in range(1, half_num):
-            if i % j == 0:
-                count += 1
-            if count == 2:
-                break
-        count += 1
-        if count == 2:
+        if is_prime(i):
             next_prime_num = i
             break
     return next_prime_num
 
 
 def main():
-    num_value = int(input())
-    print(is_prime(num_value))
+    num = int(input())
+    greater_prime = get_next_prime(num)
+    print(greater_prime)
 
 
 main()
+
