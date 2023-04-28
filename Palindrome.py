@@ -2,7 +2,7 @@ IGNORE_CHAR_LIST = ' ,.!?-'
 
 
 def is_palindrome(sentence):
-    value = True  # move to constant
+    value = True
     len_s = len(sentence) - 1
     half_len = len_s // 2 + len_s % 2
     left_side_count = 0
