@@ -1,21 +1,19 @@
 def is_prime(num):
-    value = False
-    count = 0
-    for i in range(1, (num // 2) + 1):
-        if num % i == 0:
-            count += 1
-        if count == 2:
-            break
-    count += 1
-    if count == 2:
-        value = True
-
-    return value
+    answer = True
+    if num > 1:
+        for i in range(2, (num // 2) + 1):
+            if num % i == 0:
+                answer = False
+                break
+    else:
+        answer = False
+    return answer
 
 
 def main():
     num_value = int(input())
-    print(is_prime(num_value))
+    is_number_prime = is_prime(num_value)
+    print(is_number_prime)
 
 
 main()

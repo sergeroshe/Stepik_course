@@ -1,4 +1,4 @@
-def is_valid_password(password):
+def is_valid_password(password): # reuse old functions
     pattern = 'a:b:c'.split(':')
     palindrome_char = 'a'
     prime_num_char = 'b'
