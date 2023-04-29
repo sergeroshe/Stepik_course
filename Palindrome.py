@@ -1,14 +1,14 @@
-IGNORE_CHAR_LIST = ' ,.!?-'
+IGNORE_CHAR_LIST = ' ,/.!?-'
 
 
 def is_palindrome(sentence):
-    value = True
+    value = True  # move to constant
     len_s = len(sentence) - 1
-    half_len = len_s // 2 + len_s % 2
+    half_len = len(sentence) // 2 + 1
     left_side_count = 0
     right_side_count = 0
     i = 0
-    while i <= half_len + 3:
+    while i <= half_len + 2:
         left_side = sentence[left_side_count]
         right_side = sentence[len_s - right_side_count]
         if left_side not in IGNORE_CHAR_LIST and right_side not in IGNORE_CHAR_LIST:
@@ -27,10 +27,10 @@ def is_palindrome(sentence):
 
 
 def main():
-
-    line = 'Тер жен, а нес токмо недаром кот сена не жрет.'.lower()
+    line = 'Standart ---------------------- smal///////////////lest, sell Amstrad///////////// nats.'.lower()
 
     is_line_palindrome = is_palindrome(line)
+
     print(is_line_palindrome)
 
 
