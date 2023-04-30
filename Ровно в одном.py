@@ -1,3 +1,6 @@
+DIFF_COUNT = 1
+
+
 def is_one_away(word_1, word_2):
     value = True
     count = 0 # rename
@@ -5,7 +8,7 @@ def is_one_away(word_1, word_2):
         for i in range(len(word_1)):
             if word_1[i] != word_2[i]:
                 count += 1
-        if count != 1:  #  magic num
+        if count != DIFF_COUNT:    #  magic num
             value = False
     else:
         value = False
@@ -13,8 +16,12 @@ def is_one_away(word_1, word_2):
 
 
 def main():
+
     word, another_word = input(), input()
-    print(is_one_away(word, another_word))
+
+    is_difference_num_valid = is_one_away(word, another_word)    # variable name to improve
+
+    print(is_difference_num_valid)
 
 
 main()
