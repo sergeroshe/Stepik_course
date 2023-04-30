@@ -1,9 +1,11 @@
-def is_password_good(password):
+MIN_LEN = 8
+
+
+def is_password_good(password, min_len):
     value = False
     has_lower = False
     has_upper = False
     has_digit = False
-    min_len = 8
     pass_len = len(password)
 
     if pass_len >= min_len:
@@ -24,7 +26,10 @@ def is_password_good(password):
 
 def main():
     user_password = input()
-    print(is_password_good(user_password))
+
+    is_passwd_valid = is_password_good(user_password, MIN_LEN)
+
+    print(is_passwd_valid)
 
 
 main()
