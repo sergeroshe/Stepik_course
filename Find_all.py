@@ -1,14 +1,13 @@
 def find_all(source, symbol):
 
     symbol_idx_list = []
-    symbol_idx = 0
     start_idx = 0
+    symbol_idx = source.find(symbol, start_idx)
 
-    while symbol_idx != -1:                 #  remove break -1 in loop header
+    while symbol_idx != -1:  #remove break -1 in loop header
+        symbol_idx_list.append(symbol_idx)
+        start_idx = symbol_idx + 1
         symbol_idx = source.find(symbol, start_idx)
-        if symbol_idx != -1:
-            symbol_idx_list.append(symbol_idx)
-            start_idx = symbol_idx + 1
 
     return symbol_idx_list
 
