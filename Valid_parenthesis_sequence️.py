@@ -25,7 +25,10 @@ def is_correct_bracket(text):
 def main():
 
     txt = input()
-    print(is_correct_bracket(txt))
+
+    is_bracket_correct = is_correct_bracket(txt)
+
+    print(is_bracket_correct)
 
 
 main()
