@@ -1,4 +1,46 @@
-def is_valid_password(password): # reuse old functions
+IGNORE_CHAR_LIST = ' ,/.!?-'
+
+
+def is_palindrome(sentence):
+    value = True                                   # move to constant
+    len_s = len(sentence) - 1
+    half_len = len(sentence) // 2
+    left_side_count = 0
+    right_side_count = 0
+    i = 0
+
+    while left_side_count <= half_len and right_side_count <= half_len:
+        left_side = sentence[left_side_count]
+        right_side = sentence[len_s - right_side_count]
+        if left_side not in IGNORE_CHAR_LIST and right_side not in IGNORE_CHAR_LIST:
+            left_side_count += 1
+            right_side_count += 1
+            if right_side != left_side:
+                value = False
+                break
+        elif left_side in IGNORE_CHAR_LIST:
+            left_side_count += 1
+        elif right_side in IGNORE_CHAR_LIST:
+            right_side_count += 1
+
+        i += 1
+    return value
+
+
+def is_prime(num):
+    num = int(num)
+    answer = True
+    if num > 1:
+        for i in range(2, (num // 2) + 1):
+            if num % i == 0:
+                answer = False
+                break
+    else:
+        answer = False
+    return answer
+
+
+def is_valid_password(password):  # reuse old functions
     pattern = 'a:b:c'.split(':')
     palindrome_char = 'a'
     prime_num_char = 'b'
@@ -8,16 +50,12 @@ def is_valid_password(password): # reuse old functions
         password_num = password[i]
         password_len = len(password)
         if password_len == len(pattern):
-            half_len = len(password_num) // 2
-            if pattern[i] == palindrome_char:
-                if password_num[:half_len] != password_num[half_len + len(password_num) % 2:][::-1]:
-                    value = False
-                    break
-            elif pattern[i] == prime_num_char:
-                for j in range(2, half_len + 2):
-                    if int(password_num) % j == 0:
-                        value = False
-                        break
+            if pattern[i] == palindrome_char and not is_palindrome(password_num):
+                value = False
+                break
+            elif pattern[i] == prime_num_char and not is_prime(password_num):
+                value = False
+                break
             elif pattern[i] == even_num_char:
                 if int(password_num) % 2 != 0:
                     value = False
@@ -29,8 +67,12 @@ def is_valid_password(password): # reuse old functions
 
 
 def main():
+
     user_password = input().split(':')
-    print(is_valid_password(user_password))
+
+    is_password_valid = is_valid_password(user_password)
+
+    print(is_password_valid)
 
 
 main()
