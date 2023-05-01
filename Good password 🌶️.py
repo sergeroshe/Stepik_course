@@ -2,11 +2,11 @@ MIN_LEN = 8
 
 
 def is_password_good(password, min_len):
-    value = False
+    result = False
     has_lower = False
     has_upper = False
     has_digit = False
-    pass_len = len(password)
+    pass_len = len(password) #
 
     if pass_len >= min_len:
         for char in password:
@@ -16,12 +16,13 @@ def is_password_good(password, min_len):
                 has_upper = True
             elif char.isdigit():
                 has_digit = True
-        if has_lower and has_upper and has_digit:
-            value = True
+            if has_lower and has_upper and has_digit:
+                result = True
+                break
     else:
-        value = False
+        result = False
 
-    return value
+    return result
 
 
 def main():
