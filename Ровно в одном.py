@@ -1,15 +1,16 @@
 DIFF_COUNT = 1
 
 
-def is_one_away(word_1, word_2):
+def has_diff(word_1, word_2, diff_count):
     value = True
-    count = 0 # rename
-    if len(word_1) == len(word_2):
-        for i in range(len(word_1)):
+    count = 0
+    word_1_len = len(word_1)
+    word_2_len = len(word_2)
+    if word_1_len == word_2_len:
+        for i in range(word_1_len):
             if word_1[i] != word_2[i]:
                 count += 1
-        if count != DIFF_COUNT:    #  magic num
-            value = False
+        value = count == diff_count
     else:
         value = False
     return value
@@ -17,9 +18,9 @@ def is_one_away(word_1, word_2):
 
 def main():
 
-    word, another_word = input(), input()
+    word, another_word = 'asdfa', 'asdpl'
 
-    is_difference_num_valid = is_one_away(word, another_word)    # variable name to improve
+    is_difference_num_valid = has_diff(word, another_word, DIFF_COUNT)
 
     print(is_difference_num_valid)
 
