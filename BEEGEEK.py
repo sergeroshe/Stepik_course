@@ -1,4 +1,5 @@
 IGNORE_CHAR_LIST = ' ,/.!?-'
+SEPARATOR = ':'
 
 
 def is_palindrome(sentence):
@@ -39,7 +40,7 @@ def is_prime(num):
     return result
 
 
-def is_even_num(num):
+def is_even(num):
     answer = num % 2 == 0
 
     return answer
@@ -65,7 +66,7 @@ def is_valid_password(password):  # reuse old functions
                     result = False
                     break
             elif pattern[i] == even_num_char:
-                if not is_even_num(int(password_num)):
+                if not is_even(int(password_num)):
                     result = False
         else:
             result = False
@@ -75,7 +76,7 @@ def is_valid_password(password):  # reuse old functions
 
 def main():
 
-    user_password = input().split(':')
+    user_password = input().split(SEPARATOR)
 
     is_password_valid = is_valid_password(user_password)
 
