@@ -1,7 +1,8 @@
+IGNORE_CHAR_LIST = ' ,/.!?-'
 
 
 def is_palindrome(sentence):
-    value = True                                   # move to constant
+    result = True                                   # move to constant
     len_s = len(sentence) - 1
     half_len = len(sentence) // 2
     left_side_count = 0
@@ -15,7 +16,7 @@ def is_palindrome(sentence):
             left_side_count += 1
             right_side_count += 1
             if right_side != left_side:
-                value = False
+                result = False
                 break
         elif left_side in IGNORE_CHAR_LIST:
             left_side_count += 1
@@ -23,26 +24,24 @@ def is_palindrome(sentence):
             right_side_count += 1
 
         i += 1
-    return value
+    return result
 
 
 def is_prime(num):
     num = int(num)
-    answer = True
+    result = True
     if num > 1:
         for i in range(2, (num // 2) + 1):
             if num % i == 0:
-                answer = False
+                result = False
                 break
     else:
-        answer = False
-    return answer
+        result = False
+    return result
 
 
 def is_even_num(num):
-    answer = True
-    if int(num) % 2 != 0:
-        answer = False
+    answer = int(num) % 2 == 0
 
     return answer
 
@@ -73,11 +72,6 @@ def is_valid_password(password):  # reuse old functions
             result = False
             break
     return result
-
-############################################################################################################
-
-
-IGNORE_CHAR_LIST = ' ,/.!?-'
 
 
 def main():
