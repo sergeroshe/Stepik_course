@@ -1,18 +1,18 @@
+OPENING_PARENTHESIS = '('
+CLOSING_PARENTHESIS = ')'
+
+
 def is_correct_bracket(text):
-    opening_parenthesis = '('      # move to constant
-    closing_parenthesis = ')'           # is_parenthesis_open
     count = 0
 
-    value = False
     for char in text:
-        if char == opening_parenthesis:
+        if char == OPENING_PARENTHESIS:
             count += 1
-        elif char == closing_parenthesis:
+        elif char == CLOSING_PARENTHESIS:
             count -= 1
         if count < 0:
             break
-    if count == 0:
-        value = True
+    value = count == 0
 
     return value
 
