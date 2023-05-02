@@ -1,4 +1,3 @@
-IGNORE_CHAR_LIST = ' ,/.!?-'
 
 
 def is_palindrome(sentence):
@@ -40,30 +39,45 @@ def is_prime(num):
     return answer
 
 
+def is_even_num(num):
+    answer = True
+    if int(num) % 2 != 0:
+        answer = False
+
+    return answer
+
+
 def is_valid_password(password):  # reuse old functions
     pattern = 'a:b:c'.split(':')
-    palindrome_char = 'a'
+    palindrome_num_char = 'a'
     prime_num_char = 'b'
     even_num_char = 'c'
-    value = True
+    result = True
+
     for i in range(len(password)):
         password_num = password[i]
         password_len = len(password)
         if password_len == len(pattern):
-            if pattern[i] == palindrome_char and not is_palindrome(password_num):
-                value = False
-                break
-            elif pattern[i] == prime_num_char and not is_prime(password_num):
-                value = False
-                break
-            elif pattern[i] == even_num_char:
-                if int(password_num) % 2 != 0:
-                    value = False
+            if pattern[i] == palindrome_num_char:
+                if not is_palindrome(password_num):
+                    result = False
                     break
+            elif pattern[i] == prime_num_char:
+                if not is_prime(password_num):
+                    result = False
+                    break
+            elif pattern[i] == even_num_char:
+                if not is_even_num(password_num):
+                    result = False
         else:
-            value = False
+            result = False
             break
-    return value
+    return result
+
+############################################################################################################
+
+
+IGNORE_CHAR_LIST = ' ,/.!?-'
 
 
 def main():

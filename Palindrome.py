@@ -1,6 +1,3 @@
-IGNORE_CHAR_LIST = ' ,/.!?-'
-
-
 def is_palindrome(sentence):
     value = True
     len_s = len(sentence) - 1
@@ -23,6 +20,9 @@ def is_palindrome(sentence):
             right_side_idx += 1
 
     return value
+
+
+IGNORE_CHAR_LIST = ' ,/.!?-'
 
 
 def main():
