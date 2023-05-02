@@ -1,8 +1,8 @@
-def get_middle_point(x1, y1, x2, y2):
-    hor_coordinate = (x1 + x2) / 2
-    vert_coordinate = (y1 + y2) / 2
+def get_middle_point(x_1, y_1, x_2, y_2):
+    x_middle = (x_1 + x_2) / 2
+    y_middle = (y_1 + y_2) / 2
 
-    return hor_coordinate, vert_coordinate
+    return x_middle, y_middle
 
 
 def main():
