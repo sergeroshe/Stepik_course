@@ -50,8 +50,8 @@ def is_even(num):
     return answer
 
 
-def is_valid_password(password):  # reuse old functions
-    pattern_list = PATTERN.split(SEPARATOR)
+def is_valid_password(password, pattern):  # reuse old functions
+    pattern_list = pattern.split(SEPARATOR)
     password_list = password.split(SEPARATOR)
     result = True
 
@@ -83,7 +83,7 @@ def main():
 
     user_password = input()
 
-    is_password_valid = is_valid_password(user_password)
+    is_password_valid = is_valid_password(user_password, PATTERN)
 
     print(is_password_valid)
 
