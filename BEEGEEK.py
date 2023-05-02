@@ -3,6 +3,7 @@ SEPARATOR = ':'
 PALINDROME_NUM_CHAR = 'a'
 PRIME_NUM_CHAR = 'b'
 EVEN_NUM_CHAR = 'c'
+PATTERN = 'a:b:c'
 
 
 def is_palindrome(sentence):
@@ -50,7 +51,7 @@ def is_even(num):
 
 
 def is_valid_password(password):  # reuse old functions
-    pattern_list = 'a:b:c'.split(SEPARATOR)
+    pattern_list = PATTERN.split(SEPARATOR)
     password_list = password.split(SEPARATOR)
     result = True
 
