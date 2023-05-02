@@ -1,3 +1,6 @@
+DIFF_COUNT = 1
+
+
 def has_diff(word_1, word_2, diff_count):
     value = True
     count = 0
@@ -13,15 +16,9 @@ def has_diff(word_1, word_2, diff_count):
     return value
 
 
-####################################################
-
-
-DIFF_COUNT = 1
-
-
 def main():
 
-    word, another_word = 'asdfa', 'asdfl'
+    word, another_word = input(), input()
 
     is_difference_num_valid = has_diff(word, another_word, DIFF_COUNT)
 
