@@ -80,7 +80,6 @@ def is_valid_password(password, pattern, separator):  # reuse old functions
 
 
 def main():
-
     user_password = input()
 
     is_password_valid = is_valid_password(user_password, PATTERN, SEPARATOR)
