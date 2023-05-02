@@ -47,36 +47,40 @@ def is_even(num):
 
 
 def is_valid_password(password):  # reuse old functions
-    pattern = 'a:b:c'.split(':')
+    pattern_list = 'a:b:c'.split(SEPARATOR)
+    password_list = password.split(SEPARATOR)
     palindrome_num_char = 'a'
     prime_num_char = 'b'
     even_num_char = 'c'
     result = True
 
-    for i in range(len(password)):
-        password_num = password[i]
-        password_len = len(password)
-        if password_len == len(pattern):
-            if pattern[i] == palindrome_num_char:
-                if not is_palindrome(password_num):
+    if len(password_list) == len(pattern_list):
+        for i in range(len(password_list)):
+            password_part = password_list[i]
+            password_num = int(password_part)
+
+            if pattern_list[i] == palindrome_num_char:
+                if not is_palindrome(password_part):
                     result = False
                     break
-            elif pattern[i] == prime_num_char:
-                if not is_prime(int(password_num)):
+            elif pattern_list[i] == prime_num_char:
+                if not is_prime(password_num):
                     result = False
                     break
-            elif pattern[i] == even_num_char:
-                if not is_even(int(password_num)):
+            elif pattern_list[i] == even_num_char:
+                if not is_even(password_num):
                     result = False
-        else:
-            result = False
-            break
+                    break
+
+    else:
+        result = False
+
     return result
 
 
 def main():
 
-    user_password = input().split(SEPARATOR)
+    user_password = input()
 
     is_password_valid = is_valid_password(user_password)
 
