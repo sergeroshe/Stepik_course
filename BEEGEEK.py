@@ -28,7 +28,6 @@ def is_palindrome(sentence):
 
 
 def is_prime(num):
-    num = int(num)
     result = True
     if num > 1:
         for i in range(2, (num // 2) + 1):
@@ -41,7 +40,7 @@ def is_prime(num):
 
 
 def is_even_num(num):
-    answer = int(num) % 2 == 0
+    answer = num % 2 == 0
 
     return answer
 
@@ -62,11 +61,11 @@ def is_valid_password(password):  # reuse old functions
                     result = False
                     break
             elif pattern[i] == prime_num_char:
-                if not is_prime(password_num):
+                if not is_prime(int(password_num)):
                     result = False
                     break
             elif pattern[i] == even_num_char:
-                if not is_even_num(password_num):
+                if not is_even_num(int(password_num)):
                     result = False
         else:
             result = False
