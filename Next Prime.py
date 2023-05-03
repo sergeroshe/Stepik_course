@@ -11,17 +11,18 @@ def is_prime(num):
 
 
 def get_next_prime(next_num):
-    next_num += 1
-    i = next_num
-    while not is_prime(i):  # until found
-        i += 1
-    next_prime_num = i
+    next_prime_num = next_num + 1
+    while not is_prime(next_prime_num):  # until found
+        next_prime_num += 1
     return next_prime_num
 
 
 def main():
+
     num = int(input())
+
     greater_prime = get_next_prime(num)
+
     print(greater_prime)
 
 
