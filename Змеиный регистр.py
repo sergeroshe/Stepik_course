@@ -19,7 +19,7 @@ def convert_to_python_case(text):
 
 
 def main():
-    txt = 'ThisIsCamelCased'
+    txt = input()
 
     converted_to_python_string = convert_to_python_case(txt)
 
