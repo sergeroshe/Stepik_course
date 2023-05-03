@@ -9,5 +9,10 @@ def compute_binom(n, k):
 def main():
     n = int(input())
     k = int(input())
+
     bin_coefficient_value = compute_binom(n, k)
+
     print(bin_coefficient_value)
+
+
+main()
