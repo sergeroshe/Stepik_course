@@ -8,6 +8,7 @@ def get_middle_point(x_1, y_1, x_2, y_2):
 def main():
     x_1, y_1 = int(input()), int(input())
     x_2, y_2 = int(input()), int(input())
+
     x, y = get_middle_point(x_1, y_1, x_2, y_2)
 
     print(x, y)
