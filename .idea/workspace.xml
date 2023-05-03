@@ -4,14 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e1c6cf06-878d-4162-81fe-390774938390" name="Changes" comment="BEEGEEK task - generic way solving attempt">
-      <change afterPath="$PROJECT_DIR$/Dividers_1_copy.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Elements_shifting_training.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Valid_parenthesis_sequence️.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/slice_learning.py" afterDir="false" />
+    <list default="true" id="e1c6cf06-878d-4162-81fe-390774938390" name="Changes" comment="Replaced append with extend">
+      <change afterPath="$PROJECT_DIR$/CONSTANTS_UNDERSTANDING.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Merge lists 1.py" beforeDir="false" afterPath="$PROJECT_DIR$/Merge lists 1.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Merge lists 2.py" beforeDir="false" afterPath="$PROJECT_DIR$/Merge lists 2.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Find_all.py" beforeDir="false" afterPath="$PROJECT_DIR$/Find_all.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Is a Number Prime.py" beforeDir="false" afterPath="$PROJECT_DIR$/Is a Number Prime.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Next Prime.py" beforeDir="false" afterPath="$PROJECT_DIR$/Next Prime.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Змеиный регистр.py" beforeDir="false" afterPath="$PROJECT_DIR$/Змеиный регистр.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -60,350 +59,350 @@
       <option name="presentableId" value="Default" />
       <updated>1681372452195</updated>
     </task>
-    <task id="LOCAL-00006" summary="test 4">
-      <created>1681928964976</created>
-      <option name="number" value="00006" />
-      <option name="presentableId" value="LOCAL-00006" />
+    <task id="LOCAL-00057" summary="Reused previous function, split logic and output">
+      <created>1682591418778</created>
+      <option name="number" value="00057" />
+      <option name="presentableId" value="LOCAL-00057" />
       <option name="project" value="LOCAL" />
-      <updated>1681928964976</updated>
+      <updated>1682591418778</updated>
     </task>
-    <task id="LOCAL-00007" summary="Two variables added:pattern_found and pattern_matches;&#10;got rid of changing hypothesis">
-      <created>1681929156205</created>
-      <option name="number" value="00007" />
-      <option name="presentableId" value="LOCAL-00007" />
+    <task id="LOCAL-00058" summary="Refactoring best practices">
+      <created>1682593642126</created>
+      <option name="number" value="00058" />
+      <option name="presentableId" value="LOCAL-00058" />
       <option name="project" value="LOCAL" />
-      <updated>1681929156205</updated>
+      <updated>1682593642126</updated>
     </task>
-    <task id="LOCAL-00008" summary="Two variables added:pattern_found and pattern_matches;&#10;got rid of changing hypothesis">
-      <created>1681929302373</created>
-      <option name="number" value="00008" />
-      <option name="presentableId" value="LOCAL-00008" />
+    <task id="LOCAL-00059" summary="Iteration number reduced">
+      <created>1682603867458</created>
+      <option name="number" value="00059" />
+      <option name="presentableId" value="LOCAL-00059" />
       <option name="project" value="LOCAL" />
-      <updated>1681929302373</updated>
+      <updated>1682603867458</updated>
     </task>
-    <task id="LOCAL-00009" summary="arranging my branch">
-      <created>1681929913075</created>
-      <option name="number" value="00009" />
-      <option name="presentableId" value="LOCAL-00009" />
+    <task id="LOCAL-00060" summary="Find method calls number reduced">
+      <created>1682614344223</created>
+      <option name="number" value="00060" />
+      <option name="presentableId" value="LOCAL-00060" />
       <option name="project" value="LOCAL" />
-      <updated>1681929913075</updated>
+      <updated>1682614344223</updated>
     </task>
-    <task id="LOCAL-00010" summary="arranging my branch">
-      <created>1681929938532</created>
-      <option name="number" value="00010" />
-      <option name="presentableId" value="LOCAL-00010" />
+    <task id="LOCAL-00061" summary="Find method calls number reduced">
+      <created>1682615530401</created>
+      <option name="number" value="00061" />
+      <option name="presentableId" value="LOCAL-00061" />
       <option name="project" value="LOCAL" />
-      <updated>1681929938532</updated>
+      <updated>1682615530401</updated>
     </task>
-    <task id="LOCAL-00011" summary="arranging my branch">
-      <created>1681930745931</created>
-      <option name="number" value="00011" />
-      <option name="presentableId" value="LOCAL-00011" />
+    <task id="LOCAL-00062" summary="Find method calls number reduced">
+      <created>1682615577706</created>
+      <option name="number" value="00062" />
+      <option name="presentableId" value="LOCAL-00062" />
       <option name="project" value="LOCAL" />
-      <updated>1681930745931</updated>
+      <updated>1682615577706</updated>
     </task>
-    <task id="LOCAL-00012" summary="arranging my branch">
-      <created>1681930837824</created>
-      <option name="number" value="00012" />
-      <option name="presentableId" value="LOCAL-00012" />
+    <task id="LOCAL-00063" summary="Remove-append shift applied">
+      <created>1682621351702</created>
+      <option name="number" value="00063" />
+      <option name="presentableId" value="LOCAL-00063" />
       <option name="project" value="LOCAL" />
-      <updated>1681930837824</updated>
+      <updated>1682621351702</updated>
     </task>
-    <task id="LOCAL-00013" summary="test 10">
-      <created>1681932006424</created>
-      <option name="number" value="00013" />
-      <option name="presentableId" value="LOCAL-00013" />
+    <task id="LOCAL-00064" summary="Old function reused">
+      <created>1682675716012</created>
+      <option name="number" value="00064" />
+      <option name="presentableId" value="LOCAL-00064" />
       <option name="project" value="LOCAL" />
-      <updated>1681932006424</updated>
+      <updated>1682675716012</updated>
     </task>
-    <task id="LOCAL-00014" summary="test 10">
-      <created>1681932061943</created>
-      <option name="number" value="00014" />
-      <option name="presentableId" value="LOCAL-00014" />
+    <task id="LOCAL-00065" summary="Generic approach applied">
+      <created>1682677790809</created>
+      <option name="number" value="00065" />
+      <option name="presentableId" value="LOCAL-00065" />
       <option name="project" value="LOCAL" />
-      <updated>1681932061943</updated>
+      <updated>1682677790809</updated>
     </task>
-    <task id="LOCAL-00015" summary="test 11">
-      <created>1681932082182</created>
-      <option name="number" value="00015" />
-      <option name="presentableId" value="LOCAL-00015" />
+    <task id="LOCAL-00066" summary="Most rational approach applied">
+      <created>1682686843401</created>
+      <option name="number" value="00066" />
+      <option name="presentableId" value="LOCAL-00066" />
       <option name="project" value="LOCAL" />
-      <updated>1681932082182</updated>
+      <updated>1682686843401</updated>
     </task>
-    <task id="LOCAL-00016" summary="Added two variables: pattern_found and pattern_matches;&#10;Got rid of changing the hypothesis statement.">
-      <created>1681932237911</created>
-      <option name="number" value="00016" />
-      <option name="presentableId" value="LOCAL-00016" />
+    <task id="LOCAL-00067" summary="Ready function reused">
+      <created>1682687018731</created>
+      <option name="number" value="00067" />
+      <option name="presentableId" value="LOCAL-00067" />
       <option name="project" value="LOCAL" />
-      <updated>1681932237911</updated>
+      <updated>1682687018731</updated>
     </task>
-    <task id="LOCAL-00017" summary="Added two variables: pattern_found and pattern_matches;&#10;Got rid of changing the hypothesis statement.">
-      <created>1681932471031</created>
-      <option name="number" value="00017" />
-      <option name="presentableId" value="LOCAL-00017" />
+    <task id="LOCAL-00068" summary="No string changes approach applied">
+      <created>1682713244257</created>
+      <option name="number" value="00068" />
+      <option name="presentableId" value="LOCAL-00068" />
       <option name="project" value="LOCAL" />
-      <updated>1681932471031</updated>
+      <updated>1682713244257</updated>
     </task>
-    <task id="LOCAL-00018" summary="New_file: selection_sort">
-      <created>1681933054171</created>
-      <option name="number" value="00018" />
-      <option name="presentableId" value="LOCAL-00018" />
+    <task id="LOCAL-00069" summary="No string changes approach applied">
+      <created>1682713358018</created>
+      <option name="number" value="00069" />
+      <option name="presentableId" value="LOCAL-00069" />
       <option name="project" value="LOCAL" />
-      <updated>1681933054171</updated>
+      <updated>1682713358018</updated>
     </task>
-    <task id="LOCAL-00019" summary="New_file: selection_sort">
-      <created>1681933111699</created>
-      <option name="number" value="00019" />
-      <option name="presentableId" value="LOCAL-00019" />
+    <task id="LOCAL-00070" summary="No string changes approach applied. Loop length reduced (half_len + 2)">
+      <created>1682763825881</created>
+      <option name="number" value="00070" />
+      <option name="presentableId" value="LOCAL-00070" />
       <option name="project" value="LOCAL" />
-      <updated>1681933111699</updated>
+      <updated>1682763825881</updated>
     </task>
-    <task id="LOCAL-00020" summary="Any valid symbol option added">
-      <created>1681935136443</created>
-      <option name="number" value="00020" />
-      <option name="presentableId" value="LOCAL-00020" />
+    <task id="LOCAL-00071" summary="break op. removed. Value -1 in loop header used.">
+      <created>1682862097305</created>
+      <option name="number" value="00071" />
+      <option name="presentableId" value="LOCAL-00071" />
       <option name="project" value="LOCAL" />
-      <updated>1681935136443</updated>
+      <updated>1682862097305</updated>
     </task>
-    <task id="LOCAL-00021" summary="Any valid symbol option added">
-      <created>1681935188088</created>
-      <option name="number" value="00021" />
-      <option name="presentableId" value="LOCAL-00021" />
+    <task id="LOCAL-00072" summary="break op. removed. Value -1 in loop header used.">
+      <created>1682862149279</created>
+      <option name="number" value="00072" />
+      <option name="presentableId" value="LOCAL-00072" />
       <option name="project" value="LOCAL" />
-      <updated>1681935188088</updated>
+      <updated>1682862149279</updated>
     </task>
-    <task id="LOCAL-00022" summary="INITIAL_NUM_CHAR: removed">
-      <created>1681936589332</created>
-      <option name="number" value="00022" />
-      <option name="presentableId" value="LOCAL-00022" />
+    <task id="LOCAL-00073" summary="break op. removed. Value -1 in loop header used.">
+      <created>1682863722144</created>
+      <option name="number" value="00073" />
+      <option name="presentableId" value="LOCAL-00073" />
       <option name="project" value="LOCAL" />
-      <updated>1681936589332</updated>
+      <updated>1682863722145</updated>
     </task>
-    <task id="LOCAL-00023" summary="Replaced slices with loop">
-      <created>1681982227777</created>
-      <option name="number" value="00023" />
-      <option name="presentableId" value="LOCAL-00023" />
+    <task id="LOCAL-00074" summary="Loop's header changed">
+      <created>1682863786359</created>
+      <option name="number" value="00074" />
+      <option name="presentableId" value="LOCAL-00074" />
       <option name="project" value="LOCAL" />
-      <updated>1681982227778</updated>
+      <updated>1682863786359</updated>
     </task>
-    <task id="LOCAL-00024" summary="Changed variable names">
-      <created>1681985576109</created>
-      <option name="number" value="00024" />
-      <option name="presentableId" value="LOCAL-00024" />
+    <task id="LOCAL-00075" summary="Logic and output split, main function formatted">
+      <created>1682864217029</created>
+      <option name="number" value="00075" />
+      <option name="presentableId" value="LOCAL-00075" />
       <option name="project" value="LOCAL" />
-      <updated>1681985576109</updated>
+      <updated>1682864217029</updated>
     </task>
-    <task id="LOCAL-00025" summary="Arranged with main function, changed input parameter's name for better understanding">
-      <created>1682005263318</created>
-      <option name="number" value="00025" />
-      <option name="presentableId" value="LOCAL-00025" />
+    <task id="LOCAL-00076" summary="Logic and output split, main function formatted">
+      <created>1682864826190</created>
+      <option name="number" value="00076" />
+      <option name="presentableId" value="LOCAL-00076" />
       <option name="project" value="LOCAL" />
-      <updated>1682005263318</updated>
+      <updated>1682864826190</updated>
     </task>
-    <task id="LOCAL-00026" summary="Task: Dividers_2">
-      <created>1682068240855</created>
-      <option name="number" value="00026" />
-      <option name="presentableId" value="LOCAL-00026" />
+    <task id="LOCAL-00077" summary="Program formatted, old function reused">
+      <created>1682868797726</created>
+      <option name="number" value="00077" />
+      <option name="presentableId" value="LOCAL-00077" />
       <option name="project" value="LOCAL" />
-      <updated>1682068240855</updated>
+      <updated>1682868797726</updated>
     </task>
-    <task id="LOCAL-00027" summary="Task: Dividers_2">
-      <created>1682070568281</created>
-      <option name="number" value="00027" />
-      <option name="presentableId" value="LOCAL-00027" />
+    <task id="LOCAL-00078" summary="The program has been formatted for proper splitting of logic and output">
+      <created>1682869568138</created>
+      <option name="number" value="00078" />
+      <option name="presentableId" value="LOCAL-00078" />
       <option name="project" value="LOCAL" />
-      <updated>1682070568281</updated>
+      <updated>1682869568138</updated>
     </task>
-    <task id="LOCAL-00028" summary="Task: Find_all">
-      <created>1682070646129</created>
-      <option name="number" value="00028" />
-      <option name="presentableId" value="LOCAL-00028" />
+    <task id="LOCAL-00079" summary="Snake case task initial commit">
+      <created>1682874370037</created>
+      <option name="number" value="00079" />
+      <option name="presentableId" value="LOCAL-00079" />
       <option name="project" value="LOCAL" />
-      <updated>1682070646129</updated>
+      <updated>1682874370037</updated>
     </task>
-    <task id="LOCAL-00029" summary="Task: Merge_lists, selection sort implemented">
-      <created>1682085516228</created>
-      <option name="number" value="00029" />
-      <option name="presentableId" value="LOCAL-00029" />
+    <task id="LOCAL-00080" summary="idx symbol assigned before the loop">
+      <created>1682875528161</created>
+      <option name="number" value="00080" />
+      <option name="presentableId" value="LOCAL-00080" />
       <option name="project" value="LOCAL" />
-      <updated>1682085516228</updated>
+      <updated>1682875528161</updated>
     </task>
-    <task id="LOCAL-00030" summary="Task: Merge_lists, selection sort implemented&#10;Description added">
-      <created>1682087007422</created>
-      <option name="number" value="00030" />
-      <option name="presentableId" value="LOCAL-00030" />
+    <task id="LOCAL-00081" summary="Boolean value applied">
+      <created>1682942805963</created>
+      <option name="number" value="00081" />
+      <option name="presentableId" value="LOCAL-00081" />
       <option name="project" value="LOCAL" />
-      <updated>1682087007422</updated>
+      <updated>1682942805963</updated>
     </task>
-    <task id="LOCAL-00031" summary="Task: Merge_lists, selection sort implemented&#10;Description added&#10;Project renamed">
-      <created>1682087139824</created>
-      <option name="number" value="00031" />
-      <option name="presentableId" value="LOCAL-00031" />
+    <task id="LOCAL-00082" summary="Join method proper usage applied, 'if' conditions number reduced">
+      <created>1682960315109</created>
+      <option name="number" value="00082" />
+      <option name="presentableId" value="LOCAL-00082" />
       <option name="project" value="LOCAL" />
-      <updated>1682087139824</updated>
+      <updated>1682960315109</updated>
     </task>
-    <task id="LOCAL-00032" summary="Task: Merge_lists, selection sort implemented&#10;Final_list to common_list renamed">
-      <created>1682183804888</created>
-      <option name="number" value="00032" />
-      <option name="presentableId" value="LOCAL-00032" />
+    <task id="LOCAL-00083" summary="Join method proper usage applied, 'if' conditions number reduced">
+      <created>1682960397152</created>
+      <option name="number" value="00083" />
+      <option name="presentableId" value="LOCAL-00083" />
       <option name="project" value="LOCAL" />
-      <updated>1682183804888</updated>
+      <updated>1682960397153</updated>
     </task>
-    <task id="LOCAL-00033" summary="Task: Merge_lists_2, multiple lists sort used, needs a discussion for better understanding">
-      <created>1682266970388</created>
-      <option name="number" value="00033" />
-      <option name="presentableId" value="LOCAL-00033" />
+    <task id="LOCAL-00084" summary="Iteration number reduced">
+      <created>1682961286447</created>
+      <option name="number" value="00084" />
+      <option name="presentableId" value="LOCAL-00084" />
       <option name="project" value="LOCAL" />
-      <updated>1682266970388</updated>
+      <updated>1682961286448</updated>
     </task>
-    <task id="LOCAL-00034" summary="Task: Merge_lists_2, multiple lists sort used, needs a discussion for better understanding&#10;Description added">
-      <created>1682321529808</created>
-      <option name="number" value="00034" />
-      <option name="presentableId" value="LOCAL-00034" />
+    <task id="LOCAL-00085" summary="Useless i count deleted">
+      <created>1683017692610</created>
+      <option name="number" value="00085" />
+      <option name="presentableId" value="LOCAL-00085" />
       <option name="project" value="LOCAL" />
-      <updated>1682321529808</updated>
+      <updated>1683017692610</updated>
     </task>
-    <task id="LOCAL-00035" summary="Task: Merge_lists_2, multiple lists sort used, needs a discussion for better understanding&#10;Description added">
-      <created>1682321574501</created>
-      <option name="number" value="00035" />
-      <option name="presentableId" value="LOCAL-00035" />
+    <task id="LOCAL-00086" summary="All auxiliary functions are brought out.">
+      <created>1683019676710</created>
+      <option name="number" value="00086" />
+      <option name="presentableId" value="LOCAL-00086" />
       <option name="project" value="LOCAL" />
-      <updated>1682321574501</updated>
+      <updated>1683019676710</updated>
     </task>
-    <task id="LOCAL-00036" summary="Task: Merge_lists_2, multiple lists sort used, needs a discussion for better understanding&#10;Description added">
-      <created>1682321588531</created>
-      <option name="number" value="00036" />
-      <option name="presentableId" value="LOCAL-00036" />
+    <task id="LOCAL-00087" summary="Removed useless variable">
+      <created>1683020187649</created>
+      <option name="number" value="00087" />
+      <option name="presentableId" value="LOCAL-00087" />
       <option name="project" value="LOCAL" />
-      <updated>1682321588531</updated>
+      <updated>1683020187649</updated>
     </task>
-    <task id="LOCAL-00037" summary="Task Dividers_1.py with old function reusing. Need a discussion about var. factor using">
-      <created>1682334321492</created>
-      <option name="number" value="00037" />
-      <option name="presentableId" value="LOCAL-00037" />
+    <task id="LOCAL-00088" summary="Formatted">
+      <created>1683021226946</created>
+      <option name="number" value="00088" />
+      <option name="presentableId" value="LOCAL-00088" />
       <option name="project" value="LOCAL" />
-      <updated>1682334321492</updated>
+      <updated>1683021226946</updated>
     </task>
-    <task id="LOCAL-00038" summary="Method find used">
-      <created>1682335627547</created>
-      <option name="number" value="00038" />
-      <option name="presentableId" value="LOCAL-00038" />
+    <task id="LOCAL-00089" summary="Formatted">
+      <created>1683021720483</created>
+      <option name="number" value="00089" />
+      <option name="presentableId" value="LOCAL-00089" />
       <option name="project" value="LOCAL" />
-      <updated>1682335627547</updated>
+      <updated>1683021720483</updated>
     </task>
-    <task id="LOCAL-00039" summary="Method find used">
-      <created>1682335644082</created>
-      <option name="number" value="00039" />
-      <option name="presentableId" value="LOCAL-00039" />
+    <task id="LOCAL-00090" summary="Replaced if cond. with one-liner">
+      <created>1683022183620</created>
+      <option name="number" value="00090" />
+      <option name="presentableId" value="LOCAL-00090" />
       <option name="project" value="LOCAL" />
-      <updated>1682335644082</updated>
+      <updated>1683022183620</updated>
     </task>
-    <task id="LOCAL-00040" summary="Function is_invalid used for model number validation, works until it is valid">
-      <created>1682340020695</created>
-      <option name="number" value="00040" />
-      <option name="presentableId" value="LOCAL-00040" />
+    <task id="LOCAL-00091" summary="Var. names - consistent">
+      <created>1683022632085</created>
+      <option name="number" value="00091" />
+      <option name="presentableId" value="LOCAL-00091" />
       <option name="project" value="LOCAL" />
-      <updated>1682340020695</updated>
+      <updated>1683022632085</updated>
     </task>
-    <task id="LOCAL-00041" summary="Simple version">
-      <created>1682351588979</created>
-      <option name="number" value="00041" />
-      <option name="presentableId" value="LOCAL-00041" />
+    <task id="LOCAL-00092" summary="Arg. type converting removed">
+      <created>1683022938944</created>
+      <option name="number" value="00092" />
+      <option name="presentableId" value="LOCAL-00092" />
       <option name="project" value="LOCAL" />
-      <updated>1682351588979</updated>
+      <updated>1683022938944</updated>
     </task>
-    <task id="LOCAL-00042" summary="Is valid triangle: Simple version">
-      <created>1682351635684</created>
-      <option name="number" value="00042" />
-      <option name="presentableId" value="LOCAL-00042" />
+    <task id="LOCAL-00093" summary="Extracted SEPARATOR const">
+      <created>1683023201376</created>
+      <option name="number" value="00093" />
+      <option name="presentableId" value="LOCAL-00093" />
       <option name="project" value="LOCAL" />
-      <updated>1682351635684</updated>
+      <updated>1683023201376</updated>
     </task>
-    <task id="LOCAL-00043" summary="Is valid triangle: brain training version">
-      <created>1682351675118</created>
-      <option name="number" value="00043" />
-      <option name="presentableId" value="LOCAL-00043" />
+    <task id="LOCAL-00094" summary="Extracted SEPARATOR const, len check out of loop">
+      <created>1683024895503</created>
+      <option name="number" value="00094" />
+      <option name="presentableId" value="LOCAL-00094" />
       <option name="project" value="LOCAL" />
-      <updated>1682351675118</updated>
+      <updated>1683024895503</updated>
     </task>
-    <task id="LOCAL-00044" summary="Is valid triangle: brain training version">
-      <created>1682351698948</created>
-      <option name="number" value="00044" />
-      <option name="presentableId" value="LOCAL-00044" />
+    <task id="LOCAL-00095" summary="Extracted pattern constants">
+      <created>1683025136856</created>
+      <option name="number" value="00095" />
+      <option name="presentableId" value="LOCAL-00095" />
       <option name="project" value="LOCAL" />
-      <updated>1682351698948</updated>
+      <updated>1683025136856</updated>
     </task>
-    <task id="LOCAL-00045" summary="Is valid triangle: brain training version">
-      <created>1682353082442</created>
-      <option name="number" value="00045" />
-      <option name="presentableId" value="LOCAL-00045" />
+    <task id="LOCAL-00096" summary="Extracted pattern constant">
+      <created>1683025405083</created>
+      <option name="number" value="00096" />
+      <option name="presentableId" value="LOCAL-00096" />
       <option name="project" value="LOCAL" />
-      <updated>1682353082442</updated>
+      <updated>1683025405083</updated>
     </task>
-    <task id="LOCAL-00046" summary="Is number prime?">
-      <created>1682356597179</created>
-      <option name="number" value="00046" />
-      <option name="presentableId" value="LOCAL-00046" />
+    <task id="LOCAL-00097" summary="Added pattern param. to is_valid_password func">
+      <created>1683025718137</created>
+      <option name="number" value="00097" />
+      <option name="presentableId" value="LOCAL-00097" />
       <option name="project" value="LOCAL" />
-      <updated>1682356597179</updated>
+      <updated>1683025718137</updated>
     </task>
-    <task id="LOCAL-00047" summary="Is number prime? Return variable: value">
-      <created>1682361744628</created>
-      <option name="number" value="00047" />
-      <option name="presentableId" value="LOCAL-00047" />
+    <task id="LOCAL-00098" summary="Added separator param. to is_valid_password func">
+      <created>1683025859054</created>
+      <option name="number" value="00098" />
+      <option name="presentableId" value="LOCAL-00098" />
       <option name="project" value="LOCAL" />
-      <updated>1682361744628</updated>
+      <updated>1683025859054</updated>
     </task>
-    <task id="LOCAL-00048" summary="Is number prime? Worked on variables and range improving">
-      <created>1682363276001</created>
-      <option name="number" value="00048" />
-      <option name="presentableId" value="LOCAL-00048" />
+    <task id="LOCAL-00099" summary="Removed empty line">
+      <created>1683026810906</created>
+      <option name="number" value="00099" />
+      <option name="presentableId" value="LOCAL-00099" />
       <option name="project" value="LOCAL" />
-      <updated>1682363276001</updated>
+      <updated>1683026810906</updated>
     </task>
-    <task id="LOCAL-00049" summary="Is number prime? Variables and range improving">
-      <created>1682363752490</created>
-      <option name="number" value="00049" />
-      <option name="presentableId" value="LOCAL-00049" />
+    <task id="LOCAL-00100" summary="task init. commit">
+      <created>1683044809122</created>
+      <option name="number" value="00100" />
+      <option name="presentableId" value="LOCAL-00100" />
       <option name="project" value="LOCAL" />
-      <updated>1682363752490</updated>
+      <updated>1683044809122</updated>
     </task>
-    <task id="LOCAL-00050" summary="Next prime">
-      <created>1682409305118</created>
-      <option name="number" value="00050" />
-      <option name="presentableId" value="LOCAL-00050" />
+    <task id="LOCAL-00101" summary="Renamed variables to be consistent">
+      <created>1683049466094</created>
+      <option name="number" value="00101" />
+      <option name="presentableId" value="LOCAL-00101" />
       <option name="project" value="LOCAL" />
-      <updated>1682409305118</updated>
+      <updated>1683049466094</updated>
     </task>
-    <task id="LOCAL-00051" summary="Is valid triangle, var. improved">
-      <created>1682410193523</created>
-      <option name="number" value="00051" />
-      <option name="presentableId" value="LOCAL-00051" />
+    <task id="LOCAL-00102" summary="Task initial commit">
+      <created>1683102477002</created>
+      <option name="number" value="00102" />
+      <option name="presentableId" value="LOCAL-00102" />
       <option name="project" value="LOCAL" />
-      <updated>1682410193523</updated>
+      <updated>1683102477002</updated>
     </task>
-    <task id="LOCAL-00052" summary="Good password">
-      <created>1682429337014</created>
-      <option name="number" value="00052" />
-      <option name="presentableId" value="LOCAL-00052" />
+    <task id="LOCAL-00103" summary="Added empty line">
+      <created>1683107624862</created>
+      <option name="number" value="00103" />
+      <option name="presentableId" value="LOCAL-00103" />
       <option name="project" value="LOCAL" />
-      <updated>1682429337014</updated>
+      <updated>1683107624862</updated>
     </task>
-    <task id="LOCAL-00053" summary="Just in one">
-      <created>1682430845228</created>
-      <option name="number" value="00053" />
-      <option name="presentableId" value="LOCAL-00053" />
+    <task id="LOCAL-00104" summary="Added empty line">
+      <created>1683108125226</created>
+      <option name="number" value="00104" />
+      <option name="presentableId" value="LOCAL-00104" />
       <option name="project" value="LOCAL" />
-      <updated>1682430845228</updated>
+      <updated>1683108125226</updated>
     </task>
-    <task id="LOCAL-00054" summary="BEEGEEK task - generic way solving attempt">
-      <created>1682512204880</created>
-      <option name="number" value="00054" />
-      <option name="presentableId" value="LOCAL-00054" />
+    <task id="LOCAL-00105" summary="Replaced append with extend">
+      <created>1683108431891</created>
+      <option name="number" value="00105" />
+      <option name="presentableId" value="LOCAL-00105" />
       <option name="project" value="LOCAL" />
-      <updated>1682512204880</updated>
+      <updated>1683108431891</updated>
     </task>
-    <option name="localTasksCounter" value="55" />
+    <option name="localTasksCounter" value="106" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -418,32 +417,32 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Changed variable names" />
-    <MESSAGE value="Arranged with main function, changed input parameter's name for better understanding" />
-    <MESSAGE value="Task: Dividers_2" />
-    <MESSAGE value="Task: Find_all" />
-    <MESSAGE value="Task: Merge_lists, selection sort implemented" />
-    <MESSAGE value="Task: Merge_lists, selection sort implemented&#10;Description added" />
-    <MESSAGE value="Task: Merge_lists, selection sort implemented&#10;Description added&#10;Project renamed" />
-    <MESSAGE value="Task: Merge_lists, selection sort implemented&#10;Final_list to common_list renamed" />
-    <MESSAGE value="Task: Merge_lists_2, multiple lists sort used, needs a discussion for better understanding" />
-    <MESSAGE value="Task: Merge_lists_2, multiple lists sort used, needs a discussion for better understanding&#10;Description added" />
-    <MESSAGE value="Task Dividers_1.py with old function reusing. Need a discussion about var. factor using" />
-    <MESSAGE value="Method find used" />
-    <MESSAGE value="Function is_invalid used for model number validation, works until it is valid" />
-    <MESSAGE value="Simple version" />
-    <MESSAGE value="Is valid triangle: Simple version" />
-    <MESSAGE value="Is valid triangle: brain training version" />
-    <MESSAGE value="Is number prime?" />
-    <MESSAGE value="Is number prime? Return variable: value" />
-    <MESSAGE value="Is number prime? Worked on variables and range improving" />
-    <MESSAGE value="Is number prime? Variables and range improving" />
-    <MESSAGE value="Next prime" />
-    <MESSAGE value="Is valid triangle, var. improved" />
-    <MESSAGE value="Good password" />
-    <MESSAGE value="Just in one" />
-    <MESSAGE value="BEEGEEK task - generic way solving attempt" />
-    <option name="LAST_COMMIT_MESSAGE" value="BEEGEEK task - generic way solving attempt" />
+    <MESSAGE value="The program has been formatted for proper splitting of logic and output" />
+    <MESSAGE value="Snake case task initial commit" />
+    <MESSAGE value="idx symbol assigned before the loop" />
+    <MESSAGE value="Boolean value applied" />
+    <MESSAGE value="Join method proper usage applied, 'if' conditions number reduced" />
+    <MESSAGE value="Iteration number reduced" />
+    <MESSAGE value="Useless i count deleted" />
+    <MESSAGE value="All auxiliary functions are brought out." />
+    <MESSAGE value="Removed useless variable" />
+    <MESSAGE value="Formatted" />
+    <MESSAGE value="Replaced if cond. with one-liner" />
+    <MESSAGE value="Var. names - consistent" />
+    <MESSAGE value="Arg. type converting removed" />
+    <MESSAGE value="Extracted SEPARATOR const" />
+    <MESSAGE value="Extracted SEPARATOR const, len check out of loop" />
+    <MESSAGE value="Extracted pattern constants" />
+    <MESSAGE value="Extracted pattern constant" />
+    <MESSAGE value="Added pattern param. to is_valid_password func" />
+    <MESSAGE value="Added separator param. to is_valid_password func" />
+    <MESSAGE value="Removed empty line" />
+    <MESSAGE value="task init. commit" />
+    <MESSAGE value="Renamed variables to be consistent" />
+    <MESSAGE value="Task initial commit" />
+    <MESSAGE value="Added empty line" />
+    <MESSAGE value="Replaced append with extend" />
+    <option name="LAST_COMMIT_MESSAGE" value="Replaced append with extend" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -464,18 +463,8 @@
           <option name="timeStamp" value="8" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/Dividers_2.py</url>
-          <line>3</line>
-          <option name="timeStamp" value="9" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/Find_all.py</url>
           <option name="timeStamp" value="10" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/Find_all.py</url>
-          <line>2</line>
-          <option name="timeStamp" value="11" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/Merge lists 1.py</url>
@@ -501,15 +490,6 @@
           <option name="timeStamp" value="20" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/Is Valid Triangle_vers_1 .py</url>
-          <line>7</line>
-          <option name="timeStamp" value="22" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/Is Valid Triangle_vers_1 .py</url>
-          <option name="timeStamp" value="23" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/Elements_shifting_training.py</url>
           <line>7</line>
           <option name="timeStamp" value="24" />
@@ -523,16 +503,12 @@
           <option name="timeStamp" value="26" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/Ровно в одном.py</url>
-          <option name="timeStamp" value="27" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/Palindrome.py</url>
-          <line>1</line>
           <option name="timeStamp" value="28" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/BEEGEEK.py</url>
+          <line>52</line>
           <option name="timeStamp" value="29" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
@@ -542,8 +518,52 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/Valid_parenthesis_sequence️.py</url>
-          <line>8</line>
+          <line>7</line>
           <option name="timeStamp" value="33" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/Змеиный регистр.py</url>
+          <option name="timeStamp" value="34" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/Is Valid Triangle_vers_1 .py</url>
+          <line>6</line>
+          <option name="timeStamp" value="35" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/Is Valid Triangle_vers_2.py</url>
+          <line>2</line>
+          <option name="timeStamp" value="36" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/Next Prime.py</url>
+          <line>12</line>
+          <option name="timeStamp" value="38" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/Next Prime.py</url>
+          <line>19</line>
+          <option name="timeStamp" value="39" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/CONSTANTS_UNDERSTANDING.py</url>
+          <line>60</line>
+          <option name="timeStamp" value="41" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/Ровно в одном.py</url>
+          <line>8</line>
+          <option name="timeStamp" value="43" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/Змеиный регистр.py</url>
+          <line>15</line>
+          <option name="timeStamp" value="44" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/Корни уравнения 🌶️🌶️.py</url>
+          <line>3</line>
+          <option name="timeStamp" value="45" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
