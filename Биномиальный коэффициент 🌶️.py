@@ -1,13 +1,13 @@
 from math import factorial
 
+
 def compute_binom(n, k):
-    bin_cf_val = int(factorial(n) / (factorial(k) * factorial(n - k)))
-    return bin_cf_val
-# считываем данные
+    bin_coefficient = int(factorial(n) / (factorial(k) * factorial(n - k)))
+    return bin_coefficient
 
 
-n = int(input())
-k = int(input())
-
-# вызываем функцию
-print(compute_binom(n, k))
+def main():
+    n = int(input())
+    k = int(input())
+    bin_coefficient_value = compute_binom(n, k)
+    print(bin_coefficient_value)
