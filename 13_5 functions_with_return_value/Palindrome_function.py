@@ -5,7 +5,7 @@ def is_palindrome(sentence):
     left_side_idx = 0
     right_side_idx = 0
     valid_char_count = 0
-    ignore_char_count = 0
+    ignore_char_count = 0 ##
 
     while valid_char_count // 2 <= half_len - ignore_char_count // 2:
         left_side_element = sentence[left_side_idx]
