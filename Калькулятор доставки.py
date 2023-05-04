@@ -9,7 +9,9 @@ def get_shipping_cost(quantity):
 
 def main():
     item_amount = int(input())
+
     shipping_cost = get_shipping_cost(item_amount)
+
     print(shipping_cost)
 
 
