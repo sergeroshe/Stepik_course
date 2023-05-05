@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8dde5acf-80f4-42f7-872a-f6a157d159be" name="Changes" comment="Changed: i factor extracted">
+    <list default="true" id="8dde5acf-80f4-42f7-872a-f6a157d159be" name="Changes" comment="Simplified result_output calculation">
       <change beforePath="$PROJECT_DIR$/Звездный треугольник ️.py" beforePathEscaped="$PROJECT_DIR$/Звездный треугольник 🌶️.py" beforeDir="false" afterPath="$PROJECT_DIR$/Звездный треугольник ️.py" afterPathEscaped="$PROJECT_DIR$/Звездный треугольник 🌶️.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -35,12 +35,20 @@
       <option name="project" value="LOCAL" />
       <updated>1683280619945</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="Simplified result_output calculation">
+      <created>1683281130029</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1683281130029</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Moved: constants to main function" />
     <MESSAGE value="Changed: i factor extracted" />
-    <option name="LAST_COMMIT_MESSAGE" value="Changed: i factor extracted" />
+    <MESSAGE value="Simplified result_output calculation" />
+    <option name="LAST_COMMIT_MESSAGE" value="Simplified result_output calculation" />
   </component>
 </project>
