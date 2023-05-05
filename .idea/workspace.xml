@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e1c6cf06-878d-4162-81fe-390774938390" name="Changes" comment="Added PyCharm workspace.xml">
+    <list default="true" id="e1c6cf06-878d-4162-81fe-390774938390" name="Changes" comment="Math based expression simplified">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Звездный треугольник ️.py" beforePathEscaped="$PROJECT_DIR$/Звездный треугольник 🌶️.py" beforeDir="false" afterPath="$PROJECT_DIR$/Звездный треугольник ️.py" afterPathEscaped="$PROJECT_DIR$/Звездный треугольник 🌶️.py" afterDir="false" />
     </list>
@@ -54,13 +54,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1681372452195</updated>
-    </task>
-    <task id="LOCAL-00082" summary="Join method proper usage applied, 'if' conditions number reduced">
-      <created>1682960315109</created>
-      <option name="number" value="00082" />
-      <option name="presentableId" value="LOCAL-00082" />
-      <option name="project" value="LOCAL" />
-      <updated>1682960315109</updated>
     </task>
     <task id="LOCAL-00083" summary="Join method proper usage applied, 'if' conditions number reduced">
       <created>1682960397152</created>
@@ -398,7 +391,14 @@
       <option name="project" value="LOCAL" />
       <updated>1683230050916</updated>
     </task>
-    <option name="localTasksCounter" value="131" />
+    <task id="LOCAL-00131" summary="Math based expression simplified">
+      <created>1683276527883</created>
+      <option name="number" value="00131" />
+      <option name="presentableId" value="LOCAL-00131" />
+      <option name="project" value="LOCAL" />
+      <updated>1683276527883</updated>
+    </task>
+    <option name="localTasksCounter" value="132" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -413,7 +413,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Task initial commit" />
     <MESSAGE value="Added empty line" />
     <MESSAGE value="Replaced append with extend" />
     <MESSAGE value="Added CONSTANTS_UNDERSTANDING.py" />
@@ -438,7 +437,8 @@
     <MESSAGE value="Changed OUT_TEMPLATE char" />
     <MESSAGE value="Initial commit star_triangle.py" />
     <MESSAGE value="Added PyCharm workspace.xml" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added PyCharm workspace.xml" />
+    <MESSAGE value="Math based expression simplified" />
+    <option name="LAST_COMMIT_MESSAGE" value="Math based expression simplified" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -563,8 +563,8 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/Звездный треугольник 🌶️.py</url>
-          <line>7</line>
-          <option name="timeStamp" value="46" />
+          <line>10</line>
+          <option name="timeStamp" value="47" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

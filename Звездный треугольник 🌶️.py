@@ -5,14 +5,15 @@ OUT_TEMPLATE = '*'
 BORDER_WIDTH = len(OUT_TEMPLATE)
 
 
-def draw_triangle():
-    half_base = BASE // 2
+def draw_triangle(half_base):
     for i in range(HEIGHT):
-        print((FILL_SYM * BORDER_WIDTH * (half_base - i) + OUT_TEMPLATE * ((i + 1) + i)))
+        result_output = (FILL_SYM * BORDER_WIDTH * (half_base - i) + OUT_TEMPLATE * ((i + 1) + i))
+        print(result_output)
 
 
 def main():
-    draw_triangle()
+    half_base = BASE // 2
+    draw_triangle(half_base)
 
 
 main()
