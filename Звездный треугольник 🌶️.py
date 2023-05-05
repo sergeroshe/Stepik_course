@@ -8,7 +8,7 @@ BORDER_WIDTH = len(OUT_TEMPLATE)
 def draw_triangle():
     half_base = BASE // 2
     for i in range(HEIGHT):
-        print((FILL_SYM * (half_base * BORDER_WIDTH - i * BORDER_WIDTH)) + OUT_TEMPLATE * (i + 1) + OUT_TEMPLATE * i)
+        print((FILL_SYM * BORDER_WIDTH * (half_base - i) + OUT_TEMPLATE * ((i + 1) + i)))
 
 
 def main():
