@@ -20,3 +20,6 @@ def main():
     month_name = get_month(language, number, RUSSIAN_MONTHS_LIST,
                            ENGLISH_MONTHS_LIST, RUSSIAN_LANG)
     print(month_name)
+
+
+main()
