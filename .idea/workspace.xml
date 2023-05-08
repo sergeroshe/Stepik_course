@@ -4,10 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8dde5acf-80f4-42f7-872a-f6a157d159be" name="Changes" comment="Changed PyCharm workspace.xml">
-      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/venv/.gitignore" afterDir="false" />
+    <list default="true" id="8dde5acf-80f4-42f7-872a-f6a157d159be" name="Changes" comment="Initial commit 7_pangrams.py">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/14_exam_function/4_number_by_words.py" beforeDir="false" afterPath="$PROJECT_DIR$/14_exam_function/4_number_in_words.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Days_in_month.py" beforeDir="false" afterPath="$PROJECT_DIR$/Days_in_month.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Калькулятор доставки.py" beforeDir="false" afterPath="$PROJECT_DIR$/Калькулятор доставки.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -17,16 +18,26 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="main" />
+        <entry key="$PROJECT_DIR$" value="feature/14/14_1/6_magic_dates" />
       </map>
     </option>
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectId" id="2PTRZN8UXye3gvCX6WXTuA4qpex" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <ConfirmationsSetting value="2" id="Add" />
   </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
-    "git-widget-placeholder": "feature/git__ignore__setup"
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "git-widget-placeholder": "feature/14/14__1/7__pangrams"
   }
 }]]></component>
   <component name="RecentsManager">
@@ -34,6 +45,7 @@
       <recent name="C:\Users\roshc\PycharmProjects\pythonProject\14_exam_function" />
     </key>
   </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task id="LOCAL-00001" summary="Moved: constants to main function">
       <created>1683279046615</created>
@@ -70,8 +82,115 @@
       <option name="project" value="LOCAL" />
       <updated>1683281691769</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="Added .gitignore">
+      <created>1683284157848</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1683284157848</updated>
+    </task>
+    <task id="LOCAL-00007" summary="Initial commit 2_shipping_calc.py">
+      <created>1683285100648</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1683285100648</updated>
+    </task>
+    <task id="LOCAL-00008" summary="Added constants to parameters">
+      <created>1683291718419</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1683291718419</updated>
+    </task>
+    <task id="LOCAL-00009" summary="Added constants to parameters">
+      <created>1683292863608</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1683292863608</updated>
+    </task>
+    <task id="LOCAL-00010" summary="Initial commit 3_binomial_coefficient.py">
+      <created>1683293508147</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1683293508147</updated>
+    </task>
+    <task id="LOCAL-00011" summary="Initial commit 5_wanted_month.py">
+      <created>1683295072548</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1683295072548</updated>
+    </task>
+    <task id="LOCAL-00012" summary="Initial commit 3_binomial_coefficient.py">
+      <created>1683295755897</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1683295755897</updated>
+    </task>
+    <task id="LOCAL-00013" summary="Initial commit 3_binomial_coefficient.py">
+      <created>1683296316691</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1683296316691</updated>
+    </task>
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="8dde5acf-80f4-42f7-872a-f6a157d159be" name="Changes" comment="Initial commit 3_binomial_coefficient.py" />
+      <created>1683479143062</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1683479143062</updated>
+    </task>
+    <task id="LOCAL-00014" summary="Added main func. call">
+      <created>1683480744729</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1683480744729</updated>
+    </task>
+    <task id="LOCAL-00015" summary="Initial commit 6_magic_dates.py">
+      <created>1683532155351</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1683532155351</updated>
+    </task>
+    <task id="LOCAL-00016" summary="Initial commit 7_pangrams.py">
+      <created>1683533320265</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1683533320265</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
     <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State>
+              <option name="FILTERS">
+                <map>
+                  <entry key="branch">
+                    <value>
+                      <list>
+                        <option value="origin/feature/14/14_1/6_magic_dates" />
+                      </list>
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Moved: constants to main function" />
@@ -79,7 +198,15 @@
     <MESSAGE value="Simplified result_output calculation" />
     <MESSAGE value="Draw triangle: &#10;replaced half_base param. with base" />
     <MESSAGE value="Changed PyCharm workspace.xml" />
-    <option name="LAST_COMMIT_MESSAGE" value="Changed PyCharm workspace.xml" />
+    <MESSAGE value="Added .gitignore" />
+    <MESSAGE value="Initial commit 2_shipping_calc.py" />
+    <MESSAGE value="Added constants to parameters" />
+    <MESSAGE value="Initial commit 5_wanted_month.py" />
+    <MESSAGE value="Initial commit 3_binomial_coefficient.py" />
+    <MESSAGE value="Added main func. call" />
+    <MESSAGE value="Initial commit 6_magic_dates.py" />
+    <MESSAGE value="Initial commit 7_pangrams.py" />
+    <option name="LAST_COMMIT_MESSAGE" value="Initial commit 7_pangrams.py" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

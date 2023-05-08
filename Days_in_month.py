@@ -1,22 +1,25 @@
-def get_days(month_num):
-    month_day_number_list = [31, 30, 28]
-    long_months_idx_list = [1, 3, 5, 7, 8, 10, 12]
-    medium_months_idx_list = [4, 6, 9, 11]
-    result = 0
+RUSSIAN_MONTHS_LIST = ['январь', 'февраль', 'март', 'апрель', 'май', 'июнь',
+                       'июль', 'август', 'сентябрь', 'октябрь', 'ноябрь', 'декабрь']
+ENGLISH_MONTHS_LIST = ['january', 'february', 'march', 'april', 'may', 'june',
+                       'july', 'august', 'september', 'october', 'november', 'december']
+RUSSIAN_LANG = 'ru'
 
-    if month_num in long_months_idx_list:
-        result = month_day_number_list[0]
-    elif month_num in medium_months_idx_list:
-        result = month_day_number_list[1]
+
+def get_month(lang, num, russian_months_list, english_months_list, russian_lang):
+    if lang == russian_lang:
+        result_output = russian_months_list[num - 1]
     else:
-        result = month_day_number_list[2]
-
-    return result
+        result_output = english_months_list[num - 1]
+    return result_output
 
 
 def main():
-    month_number = int(input())
-    print(get_days(month_number))
+    language = input()
+    number = int(input())
+
+    month_name = get_month(language, number, RUSSIAN_MONTHS_LIST,
+                           ENGLISH_MONTHS_LIST, RUSSIAN_LANG)
+    print(month_name)
 
 
 main()
