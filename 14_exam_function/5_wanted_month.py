@@ -5,11 +5,11 @@ ENGLISH_MONTHS_LIST = ['january', 'february', 'march', 'april', 'may', 'june',
 RUSSIAN_LANG = 'ru'
 
 
-def get_month(lang, num, russian_months_list, english_months_list, russian_lang):
-    if lang == russian_lang:
-        result_output = russian_months_list[num - 1]
+def get_month(lang, num):
+    if lang == RUSSIAN_LANG:
+        result_output = RUSSIAN_MONTHS_LIST[num - 1]
     else:
-        result_output = english_months_list[num - 1]
+        result_output = ENGLISH_MONTHS_LIST[num - 1]
     return result_output
 
 
@@ -17,8 +17,7 @@ def main():
     language = input()
     number = int(input())
 
-    month_name = get_month(language, number, RUSSIAN_MONTHS_LIST,
-                           ENGLISH_MONTHS_LIST, RUSSIAN_LANG)
+    month_name = get_month(language, number)
     print(month_name)
 
 
