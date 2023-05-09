@@ -1,9 +1,9 @@
 ALFABET = 'abcdefghijklmnopqrstuvwxyz'
 LEN_ALFABET = len(ALFABET)
-skip_list = []
 
 
 def is_pangram(text):
+    skip_list = []
     match_count = 0
     result_output = True
     lower_text = text.lower()
