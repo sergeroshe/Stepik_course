@@ -5,7 +5,6 @@ LEN_ALFABET = len(ALFABET)
 def is_pangram(text):
     processed_chars = []
     match_count = 0
-    result_output = True
     lower_text = text.lower()
 
     for c in lower_text:
