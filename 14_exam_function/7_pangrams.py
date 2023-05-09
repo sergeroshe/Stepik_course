@@ -4,18 +4,18 @@ LEN_ALFABET = len(ALFABET)
 
 def is_pangram(text):
     processed_chars = []
-    match_count = 0
+    processed_chars_count = 0
     lower_text = text.lower()
 
     for c in lower_text:
         if c not in processed_chars:
             if c in ALFABET:
                 processed_chars.append(c)
-                match_count += 1
-        if match_count == LEN_ALFABET:
+                processed_chars_count += 1
+        if processed_chars_count == LEN_ALFABET:
             break
 
-    result_output = match_count >= LEN_ALFABET
+    result_output = processed_chars_count >= LEN_ALFABET
 
     return result_output
 
