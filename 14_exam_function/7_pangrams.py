@@ -10,22 +10,19 @@ def is_pangram(text):
 
     for c in lower_text:
         if c not in processed_chars:
-            for d in ALFABET:
-                if c == d:
-                    processed_chars.append(c)
-                    match_count += 1
-                    break
-        if len(processed_chars) == LEN_ALFABET or match_count == LEN_ALFABET:
+            if c in ALFABET:
+                processed_chars.append(c)
+                match_count += 1
+        if match_count == LEN_ALFABET:
             break
 
-    if match_count < LEN_ALFABET:
-        result_output = False
+    result_output = match_count >= LEN_ALFABET
 
     return result_output
 
 
 def main():
-    input_text = 'Jackdaws love my big sphinx of quartz'
+    input_text = 'jsdfhsadfhkljsad'
 
     is_input_text_pangram = is_pangram(input_text)
 
