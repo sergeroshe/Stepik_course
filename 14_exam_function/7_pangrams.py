@@ -3,19 +3,19 @@ LEN_ALFABET = len(ALFABET)
 
 
 def is_pangram(text):
-    skip_list = []
+    processed_chars = []
     match_count = 0
     result_output = True
     lower_text = text.lower()
 
     for c in lower_text:
-        if c not in skip_list:
+        if c not in processed_chars:
             for d in ALFABET:
                 if c == d:
-                    skip_list.append(c)
+                    processed_chars.append(c)
                     match_count += 1
                     break
-        if len(skip_list) == LEN_ALFABET or match_count == LEN_ALFABET:
+        if len(processed_chars) == LEN_ALFABET or match_count == LEN_ALFABET:
             break
 
     if match_count < LEN_ALFABET:
