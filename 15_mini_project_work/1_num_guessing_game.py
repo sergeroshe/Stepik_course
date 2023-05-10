@@ -16,9 +16,9 @@ def min_guaranteed_guess_count(start_range, end_range):
 def main():
     end_range = int(input())
 
-    try_count = min_guaranteed_guess_count(START_RANGE, end_range)
+    guaranteed_min_tries = min_guaranteed_guess_count(START_RANGE, end_range)
 
-    print(try_count)
+    print(guaranteed_min_tries)
 
 
 main()
