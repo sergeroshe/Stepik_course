@@ -3,6 +3,8 @@ import random
 GREETING = 'Добро пожаловать в числовую угадайку'
 START_RANGE = 1
 
+print(GREETING)
+
 
 def min_guaranteed_guess_count(start_range, end_range):
     middle = (start_range + end_range) // 2
