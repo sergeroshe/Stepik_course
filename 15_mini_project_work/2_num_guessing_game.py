@@ -28,4 +28,15 @@ def main():
     print(guaranteed_min_tries)
 
 
+def is_valid(input_string):
+    result = input_string.isdigit() and 1 < int(input_string) < 100
+    return result
+
+
+input_value = input()
+
+result_output = is_valid(input_value)
+
+print(result_output)
+
 main()
