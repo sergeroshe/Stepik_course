@@ -1,10 +1,11 @@
 import random
 
 GUESS_LEFT_BORDER = 1
-GREETING = 'Добро пожаловать в числовую угадайку!'
+GREETING = 'Добро пожаловать в числовую угадайку! \n'
 RANDOM_LEFT_BORDER = 1
 RANDOM_RIGHT_BORDER = 100
 ERROR_MESSAGE = 'А может быть все-таки введем целое число от 1 до 100?'
+GUESS_RIGHT_BORDER_PROMPT_MESSAGE = 'Введите верхний диапазон чисел:'
 
 
 def min_guaranteed_guess_count(left_border, right_border):
@@ -21,7 +22,8 @@ def min_guaranteed_guess_count(left_border, right_border):
 
 def main():
     print(GREETING)
-    guess_right_border = int(input())
+    guess_right_border = int(input(GUESS_RIGHT_BORDER_PROMPT_MESSAGE))
+
     rand_num = random.randint(RANDOM_LEFT_BORDER, RANDOM_RIGHT_BORDER)
 
     guaranteed_min_tries = min_guaranteed_guess_count(GUESS_LEFT_BORDER, guess_right_border)
