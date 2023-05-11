@@ -1,24 +1,19 @@
 import random
-
-GUESS_LEFT_BORDER = 1
 GREETING = 'Добро пожаловать в числовую угадайку! \n'
-RANDOM_LEFT_BORDER = 1
-RANDOM_RIGHT_BORDER = 100
-ERROR_MESSAGE = 'А может быть все-таки введем целое число от 1 до'
+GUESS_LEFT_BORDER = 1
 GUESS_RIGHT_BORDER_PROMPT_MESSAGE = 'Введите верхний диапазон чисел: \n'
 VALID_LEFT_BORDER = 1
 VALID_RIGHT_BORDER = 100
 
 
-
-def min_guaranteed_guess_count(left_border, right_border):
-    middle = (left_border + right_border) // 2
+def num_guessing_game(start_range, end_range):
+    middle = (start_range + end_range) // 2
     division_count = 0
 
-    while middle != left_border:
-        middle = (left_border + right_border) // 2
+    while middle != start_range:
+        middle = (start_range + end_range) // 2
         division_count += 1
-        right_border = middle
+        end_range = middle
 
     return division_count
 
@@ -31,22 +26,11 @@ def is_valid(input_string):
 
 def main():
     print(GREETING)
-    result = is_valid(input_value)
-    while result:
-        input_value = input()
-        if not is_valid(input_value):
-            print(ERROR_MESSAGE + str(guess_right_border))
-        else:
-            input_num = int(input_value)
-    is_valid(input())
+    end_range = int(input())
 
-    rand_num = random.randint(RANDOM_LEFT_BORDER, RANDOM_RIGHT_BORDER)
+    try_count = num_guessing_game(GUESS_LEFT_BORDER, end_range)
 
-    guaranteed_min_tries = min_guaranteed_guess_count(GUESS_LEFT_BORDER, guess_right_border)
-
-    # print(guaranteed_min_tries)
-
-    # return result
+    print(try_count)
 
 
 main()
