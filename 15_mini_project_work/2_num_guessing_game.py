@@ -7,7 +7,6 @@ GREETING = 'Добро пожаловать в числовую угадайку
 def min_guaranteed_guess_count(start_range, end_range):
     middle = (start_range + end_range) // 2
     division_count = 0
-    rand_num = random.randint(1, 100)
 
     while middle != start_range:
         middle = (start_range + end_range) // 2
@@ -20,6 +19,7 @@ def min_guaranteed_guess_count(start_range, end_range):
 def main():
     print(GREETING)
     end_range = int(input())
+    rand_num = random.randint(1, 100)
 
     guaranteed_min_tries = min_guaranteed_guess_count(START_RANGE, end_range)
 
