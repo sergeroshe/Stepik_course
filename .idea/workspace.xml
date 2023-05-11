@@ -4,7 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8dde5acf-80f4-42f7-872a-f6a157d159be" name="Changes" comment="Changed PyCharm workspace.xml" />
+    <list default="true" id="8dde5acf-80f4-42f7-872a-f6a157d159be" name="Changes" comment="Updated dev instructions">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/15_mini_project_work/2_num_guessing_game.py" beforeDir="false" afterPath="$PROJECT_DIR$/15_mini_project_work/2_num_guessing_game.py" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -22,7 +25,7 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
-    "git-widget-placeholder": "feature/14/14__1/7__pangrams"
+    "git-widget-placeholder": "feature/15/2/3__idiot__proof"
   }
 }]]></component>
   <component name="RecentsManager">
@@ -66,7 +69,14 @@
       <option name="project" value="LOCAL" />
       <updated>1683281691769</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="Updated dev instructions">
+      <created>1683803196012</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1683803196012</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -75,7 +85,8 @@
     <MESSAGE value="Simplified result_output calculation" />
     <MESSAGE value="Draw triangle: &#10;replaced half_base param. with base" />
     <MESSAGE value="Changed PyCharm workspace.xml" />
-    <option name="LAST_COMMIT_MESSAGE" value="Changed PyCharm workspace.xml" />
+    <MESSAGE value="Updated dev instructions" />
+    <option name="LAST_COMMIT_MESSAGE" value="Updated dev instructions" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

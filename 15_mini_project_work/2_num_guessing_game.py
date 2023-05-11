@@ -4,6 +4,8 @@ GUESS_LEFT_BORDER = 1
 GREETING = 'Добро пожаловать в числовую угадайку'
 RANDOM_LEFT_BORDER = 1
 RANDOM_RIGHT_BORDER = 100
+VALID_LEFT_BORDER = 1
+VALID_RIGHT_BORDER = 100
 
 
 def min_guaranteed_guess_count(left_border, right_border):
@@ -16,6 +18,11 @@ def min_guaranteed_guess_count(left_border, right_border):
         right_border = middle
 
     return division_count
+
+
+def is_valid(input_string):
+    result = input_string.isdigit() and VALID_LEFT_BORDER <= int(input_string) <= VALID_RIGHT_BORDER
+    return result
 
 
 def main():
