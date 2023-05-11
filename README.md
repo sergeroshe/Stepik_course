@@ -2,7 +2,7 @@
 
 1. Create branch
 Name: feature/<chapter_num>/<sub-chapter-num>/<ex. num>_<task_name>
-e.g. feature/4/4_4/5_check_number
+e.g. feature/4/3/5_check_number
 
 Notes:
 a. DO NOT USE capital letters
@@ -10,7 +10,7 @@ b. use undrscore between words
 
 2. Create the corresponding Pull Request (PR):
 Name: <sub-chapter-num>_<ex. num>_<task_name> 
-e.g. 4_4_5 Check Number
+e.g. 4_3_5 Check Number
 
 Notes:
 a. Use regular text: spaces, capital letters, e.g.
