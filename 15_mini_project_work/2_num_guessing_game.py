@@ -1,6 +1,7 @@
 import random
 
 START_RANGE = 1
+GREETING = 'Добро пожаловать в числовую угадайку'
 
 
 def min_guaranteed_guess_count(start_range, end_range):
@@ -17,6 +18,7 @@ def min_guaranteed_guess_count(start_range, end_range):
 
 
 def main():
+    print(GREETING)
     end_range = int(input())
 
     guaranteed_min_tries = min_guaranteed_guess_count(START_RANGE, end_range)
