@@ -6,6 +6,8 @@ RANDOM_LEFT_BORDER = 1
 RANDOM_RIGHT_BORDER = 100
 VALID_LEFT_BORDER = 1
 VALID_RIGHT_BORDER = 100
+ERROR_MESSAGE = 'А может быть все-таки введем целое число от 1 до 100?'
+PROMPT_MESSAGE = 'Введите число от 1 до 100'
 
 
 def min_guaranteed_guess_count(left_border, right_border):
@@ -23,6 +25,13 @@ def min_guaranteed_guess_count(left_border, right_border):
 def is_valid(input_string):
     result = input_string.isdigit() and VALID_LEFT_BORDER <= int(input_string) <= VALID_RIGHT_BORDER
     return result
+
+
+is_guess_wrong = True
+while is_guess_wrong:
+    guess = input()
+    if not is_valid(guess):
+        print(ERROR_MESSAGE)
 
 
 def main():
