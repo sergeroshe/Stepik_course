@@ -6,8 +6,10 @@ RANDOM_LEFT_BORDER = 1
 RANDOM_RIGHT_BORDER = 100
 VALID_LEFT_BORDER = 1
 VALID_RIGHT_BORDER = 100
-ERROR_MESSAGE = 'А может быть все-таки введем целое число от 1 до 100?'
-PROMPT_MESSAGE = 'Введите число от 1 до 100: \n'
+ERROR_MESSAGE = 'А может быть все-таки введем целое число от ' + \
+                str(VALID_LEFT_BORDER) + ' до ' + str(VALID_RIGHT_BORDER) + '? \n'
+PROMPT_MESSAGE = 'Введите число от ' + str(VALID_LEFT_BORDER) + \
+                 ' до ' + str(VALID_RIGHT_BORDER) + ': \n'
 
 
 def min_guaranteed_guess_count(left_border, right_border):
