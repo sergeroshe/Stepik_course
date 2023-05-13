@@ -1,8 +1,7 @@
 def is_palindrome(sentence):
     value = True
-    len_s = len(sentence) - 1
     left_side_idx = 0
-    right_side_idx = len_s
+    right_side_idx = len(sentence) - 1
 
     while left_side_idx != right_side_idx:
         left_side_element = sentence[left_side_idx]
