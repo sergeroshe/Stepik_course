@@ -1,5 +1,5 @@
 def is_palindrome(sentence):
-    value = True
+    result = True
     left_side_idx = 0
     right_side_idx = len(sentence) - 1
 
@@ -10,7 +10,7 @@ def is_palindrome(sentence):
             left_side_idx += 1
             right_side_idx -= 1
             if right_side_element != left_side_element:
-                value = False
+                result = False
                 break
         elif left_side_element not in VALID_CHAR_LIST:
             left_side_idx += 1
@@ -20,7 +20,7 @@ def is_palindrome(sentence):
             left_side_idx += 1
             right_side_idx -= 1
 
-    return value
+    return result
 
 
 VALID_CHAR_LIST = 'abcdefghijklmnopqrstuvwxyzабвгдеёжзийклмнопрстуфхцчшщъыьэюя'
