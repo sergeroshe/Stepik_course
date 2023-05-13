@@ -29,7 +29,6 @@ VALID_CHAR_LIST = 'abcdefghijklmnopqrstuvwxyzабвгдеёжзийклмноп�
 
 def main():
     line = input().lower()
-    # line = 'Карман, жена, но Какашкин - вор! О, Ковалева... Вела во коровник. Ша! Как она нежна! рак...'.lower()
 
     is_line_palindrome = is_palindrome(line)
 
