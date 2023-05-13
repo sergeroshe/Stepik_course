@@ -1,3 +1,6 @@
+IGNORE_CHAR_LIST = ' .,-_:!@#$%^&?'
+
+
 def is_palindrome(sentence):
     result = True
     left_side_idx = 0
@@ -6,34 +9,28 @@ def is_palindrome(sentence):
     while left_side_idx != right_side_idx:
         left_side_element = sentence[left_side_idx]
         right_side_element = sentence[right_side_idx]
-        if left_side_element in IGNORE_CHAR_LIST:
-            is_left_side_letter = True
+        left_side_letter = left_side_element not in IGNORE_CHAR_LIST
+        right_side_letter = right_side_element not in IGNORE_CHAR_LIST
+        if left_side_letter and right_side_letter:
             left_side_idx += 1
-        else:
-            left_side_other_char = True
-        if right_side_element in IGNORE_CHAR_LIST:
-            is_right_side_letter = True
             right_side_idx -= 1
-        else:
-            right_side_other_char = True
-        if left_side_element != right_side_element:
-            result = False
-            break
-
-        # elif left_side_element not in VALID_CHAR_LIST:
-        elif left_side_other_char and not right_side_other_char:
-            right_side_idx -= 1
-        else:
+            if left_side_element != right_side_element:
+                result = False
+                break
+        elif not left_side_letter and not right_side_letter:
             left_side_idx += 1
+            right_side_idx -= 1
+        elif not left_side_letter and right_side_letter:
+            left_side_idx += 1
+        elif not right_side_letter and left_side_letter:
+            right_side_idx -= 1
 
     return result
 
 
-IGNORE_CHAR_LIST = ' .,-_:!@#$%^&'
-
-
 def main():
     line = input().lower()
+    # line = ' Do me?.. Kill I victim? Must summit civil like mod.'.lower()
 
     is_line_palindrome = is_palindrome(line)
 
