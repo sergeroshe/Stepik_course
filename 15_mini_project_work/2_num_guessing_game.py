@@ -6,6 +6,10 @@ RANDOM_LEFT_BORDER = 1
 RANDOM_RIGHT_BORDER = 100
 VALID_LEFT_BORDER = 1
 VALID_RIGHT_BORDER = 100
+ERROR_MESSAGE = f'А может быть все-таки введем целое число от ' \
+                f'{VALID_LEFT_BORDER} до {VALID_RIGHT_BORDER}? \n'
+PROMPT_MESSAGE = f'Введите число от ' \
+                 f'{VALID_LEFT_BORDER} до {VALID_RIGHT_BORDER}: \n'
 
 
 def min_guaranteed_guess_count(left_border, right_border):
@@ -27,6 +31,16 @@ def is_valid(input_string):
 
 def main():
     print(GREETING)
+
+    is_guess_wrong = True
+    while is_guess_wrong:
+        guess = input(PROMPT_MESSAGE)
+        if not is_valid(guess):
+            print(ERROR_MESSAGE)
+        else:
+            guess_num = int(guess)
+            is_guess_wrong = False
+
     guess_right_border = int(input())
     rand_num = random.randint(RANDOM_LEFT_BORDER, RANDOM_RIGHT_BORDER)
 
