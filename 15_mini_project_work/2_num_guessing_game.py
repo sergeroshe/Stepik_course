@@ -41,6 +41,14 @@ def main():
             guess_num = int(guess)
             is_guess_wrong = False
 
+    # while True:
+    #     guess = input(PROMPT_MESSAGE)
+    #     if not is_valid(guess):
+    #         print(ERROR_MESSAGE)
+    #     else:
+    #         guess_num = int(guess)
+    #         break
+
     guess_right_border = int(input())
     rand_num = random.randint(RANDOM_LEFT_BORDER, RANDOM_RIGHT_BORDER)
 
