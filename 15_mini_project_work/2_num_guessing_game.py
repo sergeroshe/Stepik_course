@@ -33,28 +33,27 @@ def is_valid(input_string):
     return result
 
 
-def is_guessed():
-    answer = ''
+def main():
+    print(GREETING)
+
     is_guess_wrong = True
+    answer = ''
     rand_num = random.randint(RANDOM_LEFT_BORDER, RANDOM_RIGHT_BORDER)
+
     while is_guess_wrong:
         guess = input(PROMPT_MESSAGE)
         if not is_valid(guess):
-            print(ERROR_MESSAGE)
+            answer = ERROR_MESSAGE
         else:
             guess_num = int(guess)
-            if guess_num == rand_num:
-                is_guess_wrong = False
-                answer = WIN_MESSAGE
-            elif guess_num < rand_num:
+            if guess_num < rand_num:
                 answer = TOO_SMALL_MESSAGE
-            else:
+            elif guess_num > rand_num:
                 answer = TOO_BIG_MESSAGE
-    return answer
-
-
-def main():
-    print(GREETING)
+            else:
+                answer = WIN_MESSAGE
+                is_guess_wrong = False
+        print(answer)
 
     # while True:
     #     guess = input(PROMPT_MESSAGE)
@@ -64,11 +63,11 @@ def main():
     #         guess_num = int(guess)
     #         break
 
-    guess_right_border = int(input())
+    # guess_right_border = int(input())
 
-    guaranteed_min_tries = min_guaranteed_guess_count(GUESS_LEFT_BORDER, guess_right_border)
+    # guaranteed_min_tries = min_guaranteed_guess_count(GUESS_LEFT_BORDER, guess_right_border)
 
-    print(guaranteed_min_tries)
+    # print(guaranteed_min_tries)
 
 
 main()
