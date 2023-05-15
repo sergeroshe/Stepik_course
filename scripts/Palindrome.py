@@ -6,8 +6,7 @@ def is_palindrome(text):
     left_side_idx = 0
     right_side_idx = len(text) - 1
 
-    is_same_letter = True
-    while left_side_idx != right_side_idx and is_same_letter:
+    while left_side_idx != right_side_idx and result:
         left_side_char = text[left_side_idx]
         right_side_char = text[right_side_idx]
         is_left_side_letter = left_side_char not in IGNORE_CHAR_LIST
@@ -15,7 +14,6 @@ def is_palindrome(text):
 
         if is_left_side_letter and is_right_side_letter:
             if left_side_char != right_side_char:
-                is_same_letter = False
                 result = False
             else:
                 left_side_idx += 1
@@ -32,7 +30,6 @@ def is_palindrome(text):
 
 def main():
     line = input().lower()
-    # line = 'Карман, жена, но Какашкин - вор! О, Ковалева... Вела во коровник. Ша! Как она нежна! рак...'.lower()
 
     is_line_palindrome = is_palindrome(line)
 
