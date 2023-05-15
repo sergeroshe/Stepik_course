@@ -7,13 +7,13 @@ def is_palindrome(text):
     right_side_idx = len(text) - 1
 
     while left_side_idx != right_side_idx:
-        left_side_element = text[left_side_idx]
-        right_side_element = text[right_side_idx]
-        is_left_side_letter = left_side_element not in IGNORE_CHAR_LIST
-        is_right_side_letter = right_side_element not in IGNORE_CHAR_LIST
+        left_side_char = text[left_side_idx]
+        right_side_char = text[right_side_idx]
+        is_left_side_letter = left_side_char not in IGNORE_CHAR_LIST
+        is_right_side_letter = right_side_char not in IGNORE_CHAR_LIST
 
         if is_left_side_letter and is_right_side_letter:
-            if left_side_element != right_side_element:
+            if left_side_char != right_side_char:
                 result = False
                 break
             else:
