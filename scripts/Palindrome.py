@@ -1,33 +1,31 @@
-def is_palindrome(sentence):
-    value = True
-    len_s = len(sentence) - 1
-    half_len = len(sentence) // 2
+IGNORE_CHAR_LIST = ' .,-_:!@#$%^&?'
+
+
+def is_palindrome(text):
+    is_same_letter = True
     left_side_idx = 0
-    right_side_idx = 0
-    valid_char_count = 0
-    ignore_char_count = 0
+    right_side_idx = len(text) - 1
 
-    while valid_char_count // 2 <= half_len - ignore_char_count // 2:
-        left_side_element = sentence[left_side_idx]
-        right_side_element = sentence[len_s - right_side_idx]
-        if left_side_element not in IGNORE_CHAR_LIST and right_side_element not in IGNORE_CHAR_LIST:
-            left_side_idx += 1
-            right_side_idx += 1
-            valid_char_count += 1
-            if right_side_element != left_side_element:
-                value = False
-                break
-        elif left_side_element in IGNORE_CHAR_LIST:
-            left_side_idx += 1
-            ignore_char_count += 1
-        elif right_side_element in IGNORE_CHAR_LIST:
-            right_side_idx += 1
-            ignore_char_count += 1
+    while left_side_idx != right_side_idx and is_same_letter:
+        left_side_char = text[left_side_idx]
+        right_side_char = text[right_side_idx]
+        is_left_side_letter = left_side_char not in IGNORE_CHAR_LIST
+        is_right_side_letter = right_side_char not in IGNORE_CHAR_LIST
 
-    return value
+        if is_left_side_letter and is_right_side_letter:
+            if left_side_char != right_side_char:
+                is_same_letter = False
+            else:
+                left_side_idx += 1
+                right_side_idx -= 1
+        else:
+            if not is_left_side_letter:
+                left_side_idx += 1
 
+            if not is_right_side_letter:
+                right_side_idx -= 1
 
-IGNORE_CHAR_LIST = ' ,/.!?-'
+    return is_same_letter
 
 
 def main():
