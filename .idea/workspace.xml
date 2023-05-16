@@ -25,7 +25,7 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
-    "git-widget-placeholder": "feature/15/2/3__idiot__proof"
+    "git-widget-placeholder": "feature/15/2/5__Comparing__entered__…idden"
   }
 }]]></component>
   <component name="RecentsManager">
@@ -208,6 +208,11 @@
           <url>file://$PROJECT_DIR$/Корни уравнения 🌶️🌶️.py</url>
           <line>3</line>
           <option name="timeStamp" value="45" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/15_mini_project_work/2_num_guessing_game.py</url>
+          <line>39</line>
+          <option name="timeStamp" value="57" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
