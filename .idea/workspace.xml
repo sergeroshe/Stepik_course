@@ -4,9 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8dde5acf-80f4-42f7-872a-f6a157d159be" name="Changes" comment="Updated dev instructions">
+    <list default="true" id="8dde5acf-80f4-42f7-872a-f6a157d159be" name="Changes" comment="Added: prompt messages, yes and no responses. Border based vars modified, is_valid func params modified, changed main program cycle output approach.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/15_mini_project_work/2_num_guessing_game.py" beforeDir="false" afterPath="$PROJECT_DIR$/15_mini_project_work/2_num_guessing_game.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -19,13 +18,24 @@
         <entry key="$PROJECT_DIR$" value="main" />
       </map>
     </option>
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectId" id="2PjSIWvLSNcCeHRku3aObfKysP2" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <ConfirmationsSetting value="2" id="Add" />
   </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
-    "git-widget-placeholder": "feature/15/2/3__idiot__proof"
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "git-widget-placeholder": "feature/15/2/4__main__program__cycle"
   }
 }]]></component>
   <component name="RecentsManager">
@@ -33,6 +43,7 @@
       <recent name="C:\Users\roshc\PycharmProjects\pythonProject\14_exam_function" />
     </key>
   </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task id="LOCAL-00001" summary="Moved: constants to main function">
       <created>1683279046615</created>
@@ -76,8 +87,166 @@
       <option name="project" value="LOCAL" />
       <updated>1683803196012</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="Replaced concatenation with f-strings">
+      <created>1683919071712</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1683919071712</updated>
+    </task>
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="8dde5acf-80f4-42f7-872a-f6a157d159be" name="Changes" comment="Replaced concatenation with f-strings" />
+      <created>1683968924520</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1683968924520</updated>
+    </task>
+    <task id="LOCAL-00008" summary="Replaced IGNORE_CHAR_LIST with VALID_CHAR_LIST, added both sides not in VALID_CHAR_LIST checking">
+      <created>1683970605179</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1683970605179</updated>
+    </task>
+    <task id="LOCAL-00009" summary="Removed useless string">
+      <created>1683970763033</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1683970763033</updated>
+    </task>
+    <task id="LOCAL-00010" summary="Removed unnecessary var">
+      <created>1683982984225</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1683982984225</updated>
+    </task>
+    <task id="LOCAL-00011" summary="Renamed var value to result">
+      <created>1683983024065</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1683983024065</updated>
+    </task>
+    <task id="LOCAL-00012" summary="Renamed var value to result">
+      <created>1683983670482</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1683983670482</updated>
+    </task>
+    <task id="LOCAL-00013" summary="Renamed VALID_CHAR_LIST to IGNORE_CHAR_LIST and changed content of the const">
+      <created>1683989493250</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1683989493250</updated>
+    </task>
+    <task id="LOCAL-00014" summary="Fixed var names mistakes, tested algorithm with debugger">
+      <created>1683992048769</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1683992048769</updated>
+    </task>
+    <task id="LOCAL-00015" summary="Renamed left_side_letter to is_left_side_letter var., removed unnecessary calculation in 19 - 27 strings.">
+      <created>1684138097220</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1684138097220</updated>
+    </task>
+    <task id="LOCAL-00016" summary="Renamed sentence to text">
+      <created>1684144269115</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1684144269115</updated>
+    </task>
+    <task id="LOCAL-00017" summary="Renamed element based var names to char based">
+      <created>1684145616189</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1684145616189</updated>
+    </task>
+    <task id="LOCAL-00018" summary="Added infinite loop sample">
+      <created>1684146109948</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1684146109948</updated>
+    </task>
+    <task id="LOCAL-00019" summary="Changed while loop to condition to is_text_finished = False">
+      <created>1684153987288</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1684153987288</updated>
+    </task>
+    <task id="LOCAL-00020" summary="Changed while loop breaking out approach to is_same_letter boolean var evaluation">
+      <created>1684167731368</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1684167731368</updated>
+    </task>
+    <task id="LOCAL-00021" summary="Added is_guessed() func">
+      <created>1684172104541</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1684172104541</updated>
+    </task>
+    <task id="LOCAL-00022" summary="Removed unnecessary var is_same_letter">
+      <created>1684172373672</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1684172373672</updated>
+    </task>
+    <task id="LOCAL-00023" summary="Moved main program loop to main">
+      <created>1684174241208</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1684174241208</updated>
+    </task>
+    <task id="LOCAL-00024" summary="Renamed result var to is_same_letter">
+      <created>1684174414159</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1684174414159</updated>
+    </task>
+    <task id="LOCAL-00025" summary="Moved is_guess_wrong var declaration, F Strings used for output message">
+      <created>1684230928820</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1684230928820</updated>
+    </task>
+    <task id="LOCAL-00026" summary="Added: prompt messages, yes and no responses. Border based vars modified, is_valid func params modified, changed main program cycle output approach.">
+      <created>1684243999272</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1684243999272</updated>
+    </task>
+    <option name="localTasksCounter" value="27" />
     <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Moved: constants to main function" />
@@ -86,7 +255,26 @@
     <MESSAGE value="Draw triangle: &#10;replaced half_base param. with base" />
     <MESSAGE value="Changed PyCharm workspace.xml" />
     <MESSAGE value="Updated dev instructions" />
-    <option name="LAST_COMMIT_MESSAGE" value="Updated dev instructions" />
+    <MESSAGE value="Replaced concatenation with f-strings" />
+    <MESSAGE value="Replaced IGNORE_CHAR_LIST with VALID_CHAR_LIST, added both sides not in VALID_CHAR_LIST checking" />
+    <MESSAGE value="Removed useless string" />
+    <MESSAGE value="Removed unnecessary var" />
+    <MESSAGE value="Added int conversion and loop exit" />
+    <MESSAGE value="Renamed VALID_CHAR_LIST to IGNORE_CHAR_LIST and changed content of the const" />
+    <MESSAGE value="Fixed var names mistakes, tested algorithm with debugger" />
+    <MESSAGE value="Renamed left_side_letter to is_left_side_letter var., removed unnecessary calculation in 19 - 27 strings." />
+    <MESSAGE value="Renamed sentence to text" />
+    <MESSAGE value="Renamed element based var names to char based" />
+    <MESSAGE value="Added infinite loop sample" />
+    <MESSAGE value="Changed while loop to condition to is_text_finished = False" />
+    <MESSAGE value="Changed while loop breaking out approach to is_same_letter boolean var evaluation" />
+    <MESSAGE value="Added is_guessed() func" />
+    <MESSAGE value="Removed unnecessary var is_same_letter" />
+    <MESSAGE value="Moved main program loop to main" />
+    <MESSAGE value="Renamed result var to is_same_letter" />
+    <MESSAGE value="Moved is_guess_wrong var declaration, used F Strings for output message." />
+    <MESSAGE value="Added: prompt messages, yes and no responses. Border based vars modified, is_valid func params modified, changed main program cycle output approach." />
+    <option name="LAST_COMMIT_MESSAGE" value="Added: prompt messages, yes and no responses. Border based vars modified, is_valid func params modified, changed main program cycle output approach." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
