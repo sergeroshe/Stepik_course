@@ -8,8 +8,9 @@ VALID_LEFT_BORDER = 1
 VALID_RIGHT_BORDER = 100
 TOO_SMALL_MESSAGE = 'Ваше число меньше загаданного, попробуйте еще разок'
 TOO_BIG_MESSAGE = 'Ваше число больше загаданного, попробуйте еще разок'
-WIN_MESSAGE = 'Вы угадали, поздравляем!'
-FAREWELL_MESSAGE = 'Спасибо, что играли в числовую угадайку. Еще увидимся...'
+WIN_MESSAGE = 'Вы угадали, поздравляем!\n'
+FAREWELL_MESSAGE = 'Спасибо, что играли в числовую угадайку. Еще увидимся...\n'
+TRY_NUMBER_COUNT_MESSAGE = 'Число сделанных вами попыток:\n'
 ERROR_MESSAGE = f'А может быть все-таки введем целое число от ' \
                 f'{VALID_LEFT_BORDER} до {VALID_RIGHT_BORDER}? \n'
 PROMPT_MESSAGE = f'Введите число от ' \
@@ -36,6 +37,7 @@ def is_valid(input_string):
 def main():
     print(GREETING)
 
+    count = 1
     is_guess_wrong = True
     rand_num = random.randint(RANDOM_LEFT_BORDER, RANDOM_RIGHT_BORDER)
     while is_guess_wrong:
@@ -49,9 +51,9 @@ def main():
             elif guess_num > rand_num:
                 print(TOO_BIG_MESSAGE)
             else:
-                print(f'{WIN_MESSAGE} \n{FAREWELL_MESSAGE}')
+                print(f'{WIN_MESSAGE}{FAREWELL_MESSAGE}{TRY_NUMBER_COUNT_MESSAGE}{count}')
                 is_guess_wrong = False
-
+        count += 1
     # guess_right_border = int(input())
 
     # guaranteed_min_tries = min_guaranteed_guess_count(GUESS_LEFT_BORDER, guess_right_border)

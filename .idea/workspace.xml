@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8dde5acf-80f4-42f7-872a-f6a157d159be" name="Changes" comment="Updated dev instructions">
+    <list default="true" id="8dde5acf-80f4-42f7-872a-f6a157d159be" name="Changes" comment="Initial commit, farewell message added">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/15_mini_project_work/2_num_guessing_game.py" beforeDir="false" afterPath="$PROJECT_DIR$/15_mini_project_work/2_num_guessing_game.py" afterDir="false" />
     </list>
@@ -16,7 +16,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="main" />
+        <entry key="$PROJECT_DIR$" value="feature/15/2/5_1_farewell_message_adding" />
       </map>
     </option>
   </component>
@@ -25,7 +25,7 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
-    "git-widget-placeholder": "feature/15/2/5__Comparing__entered__…idden"
+    "git-widget-placeholder": "feature/15/2/6__1__user__try__count__adding"
   }
 }]]></component>
   <component name="RecentsManager">
@@ -76,7 +76,21 @@
       <option name="project" value="LOCAL" />
       <updated>1683803196012</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="Initial commit of the feature of comparing an entered num with the hidden one. Added entered num evaluation based consts, amended main program while loop with conditions.">
+      <created>1684254598743</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1684254598743</updated>
+    </task>
+    <task id="LOCAL-00008" summary="Initial commit, farewell message added">
+      <created>1684255848315</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1684255848315</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -86,7 +100,9 @@
     <MESSAGE value="Draw triangle: &#10;replaced half_base param. with base" />
     <MESSAGE value="Changed PyCharm workspace.xml" />
     <MESSAGE value="Updated dev instructions" />
-    <option name="LAST_COMMIT_MESSAGE" value="Updated dev instructions" />
+    <MESSAGE value="Initial commit of the feature of comparing an entered num with the hidden one. Added entered num evaluation based consts, amended main program while loop with conditions." />
+    <MESSAGE value="Initial commit, farewell message added" />
+    <option name="LAST_COMMIT_MESSAGE" value="Initial commit, farewell message added" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -211,7 +227,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/15_mini_project_work/2_num_guessing_game.py</url>
-          <line>39</line>
+          <line>42</line>
           <option name="timeStamp" value="57" />
         </line-breakpoint>
       </breakpoints>
