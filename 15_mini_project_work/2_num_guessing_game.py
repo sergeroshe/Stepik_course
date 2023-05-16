@@ -1,15 +1,10 @@
 import random
-
+YES_RESPONSE = 'д'
+NO_RESPONSE = 'н'
 GUESS_LEFT_BORDER = 1
 GREETING = 'Добро пожаловать в числовую угадайку'
-RANDOM_LEFT_BORDER = 1
-RANDOM_RIGHT_BORDER = 100
-VALID_LEFT_BORDER = 1
-VALID_RIGHT_BORDER = 100
-ERROR_MESSAGE = f'А может быть все-таки введем целое число от ' \
-                f'{VALID_LEFT_BORDER} до {VALID_RIGHT_BORDER}? \n'
-PROMPT_MESSAGE = f'Введите число от ' \
-                 f'{VALID_LEFT_BORDER} до {VALID_RIGHT_BORDER}: \n'
+PROMPT_RIGHT_BORDER_MESSAGE = 'Введите верхнюю границу числового диапазона: \n'
+NEW_GAME_PROPOSAL_MESSAGE = 'Хотите сыграть еще? \nНажмите "д", если ДА или нажмите любую клавишу, если НЕТ:\n'
 TOO_SMALL_MESSAGE = 'Ваше число меньше загаданного, попробуйте еще разок'
 TOO_BIG_MESSAGE = 'Ваше число больше загаданного, попробуйте еще разок'
 WIN_MESSAGE = 'Вы угадали, поздравляем!'
@@ -28,31 +23,39 @@ def min_guaranteed_guess_count(left_border, right_border):
     return division_count
 
 
-def is_valid(input_string):
-    result = input_string.isdigit() and VALID_LEFT_BORDER <= int(input_string) <= VALID_RIGHT_BORDER
+def is_valid(input_string, guess_right_border):
+    result = input_string.isdigit() and GUESS_LEFT_BORDER <= int(input_string) <= guess_right_border
     return result
 
 
 def main():
     print(GREETING)
-
-    rand_num = random.randint(RANDOM_LEFT_BORDER, RANDOM_RIGHT_BORDER)
+    guess_right_border = int(input(PROMPT_RIGHT_BORDER_MESSAGE))
+    guaranteed_min_tries = min_guaranteed_guess_count(GUESS_LEFT_BORDER, guess_right_border)
+    rand_num = random.randint(GUESS_LEFT_BORDER, guess_right_border)
+    enter_num_message = f'Введите число от {GUESS_LEFT_BORDER} до {guess_right_border}: \n'
+    error_message = f'А может быть все-таки введем целое число от ' \
+                    f'{GUESS_LEFT_BORDER} до {guess_right_border}? \n'
+    guess_count = 1
 
     is_guess_wrong = True
     while is_guess_wrong:
-        guess = input(PROMPT_MESSAGE)
-        if not is_valid(guess):
-            answer = ERROR_MESSAGE
+        guess = input(enter_num_message)
+        if not is_valid(guess, guess_right_border):
+            print(error_message)
         else:
             guess_num = int(guess)
             if guess_num < rand_num:
-                answer = TOO_SMALL_MESSAGE
+                print(TOO_SMALL_MESSAGE)
             elif guess_num > rand_num:
-                answer = TOO_BIG_MESSAGE
+                print(TOO_BIG_MESSAGE)
             else:
-                answer = f'{WIN_MESSAGE}\n{FAREWELL_MESSAGE}'
-                is_guess_wrong = False
-        print(answer)
+                print(f'{WIN_MESSAGE} \n')
+                new_game_wish = input(NEW_GAME_PROPOSAL_MESSAGE).lower()
+                if new_game_wish != YES_RESPONSE:
+                    print(f'{FAREWELL_MESSAGE}\nЧисло сделанных вами попыток:\n{guess_count}')
+                    is_guess_wrong = False
+        guess_count += 1
 
     # while True:
     #     guess = input(PROMPT_MESSAGE)
@@ -61,10 +64,6 @@ def main():
     #     else:
     #         guess_num = int(guess)
     #         break
-
-    # guess_right_border = int(input())
-
-    # guaranteed_min_tries = min_guaranteed_guess_count(GUESS_LEFT_BORDER, guess_right_border)
 
     # print(guaranteed_min_tries)
 
