@@ -13,7 +13,7 @@ PROMPT_MESSAGE = f'Введите число от ' \
 TOO_SMALL_MESSAGE = 'Ваше число меньше загаданного, попробуйте еще разок'
 TOO_BIG_MESSAGE = 'Ваше число больше загаданного, попробуйте еще разок'
 WIN_MESSAGE = 'Вы угадали, поздравляем!'
-FAREWALL_MESSAGE = 'Спасибо, что играли в числовую угадайку. Еще увидимся...'
+FAREWELL_MESSAGE = 'Спасибо, что играли в числовую угадайку. Еще увидимся...'
 
 
 def min_guaranteed_guess_count(left_border, right_border):
@@ -36,10 +36,9 @@ def is_valid(input_string):
 def main():
     print(GREETING)
 
-    is_guess_wrong = True
-    answer = ''
     rand_num = random.randint(RANDOM_LEFT_BORDER, RANDOM_RIGHT_BORDER)
 
+    is_guess_wrong = True
     while is_guess_wrong:
         guess = input(PROMPT_MESSAGE)
         if not is_valid(guess):
@@ -51,7 +50,7 @@ def main():
             elif guess_num > rand_num:
                 answer = TOO_BIG_MESSAGE
             else:
-                answer = WIN_MESSAGE
+                answer = f'{WIN_MESSAGE}\n{FAREWELL_MESSAGE}'
                 is_guess_wrong = False
         print(answer)
 
