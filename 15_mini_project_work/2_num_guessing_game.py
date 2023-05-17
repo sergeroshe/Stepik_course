@@ -48,7 +48,7 @@ def main():
             elif guess_num > hidden_num:
                 print(TOO_BIG_MESSAGE)
             else:
-                print(f'{WIN_MESSAGE} \n')
+                print(WIN_MESSAGE)
                 is_guess_wrong = False
 
     # guess_right_border = int(input())
