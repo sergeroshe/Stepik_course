@@ -25,7 +25,7 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
-    "git-widget-placeholder": "feature/15/2/5__Comparing__entered__…idden"
+    "git-widget-placeholder": "feature/15/2/5/2__farewell__message"
   }
 }]]></component>
   <component name="RecentsManager">
@@ -211,8 +211,13 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/15_mini_project_work/2_num_guessing_game.py</url>
-          <line>39</line>
-          <option name="timeStamp" value="57" />
+          <line>35</line>
+          <option name="timeStamp" value="59" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/15_mini_project_work/2_num_guessing_game.py</url>
+          <line>51</line>
+          <option name="timeStamp" value="60" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
