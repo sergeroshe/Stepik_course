@@ -16,16 +16,24 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="main" />
+        <entry key="$PROJECT_DIR$" value="feature/15/2/4_main_program_cycle" />
       </map>
     </option>
   </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectId" id="2Pv6H8YBlr45idaYkEvxVO35TLh" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <ConfirmationsSetting value="2" id="Add" />
   </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
-    "git-widget-placeholder": "feature/15/2/5__Comparing__entered__…idden"
+    "git-widget-placeholder": "feature/15/2/5__Entered__num__evaluation"
   }
 }]]></component>
   <component name="RecentsManager">
@@ -33,6 +41,7 @@
       <recent name="C:\Users\roshc\PycharmProjects\pythonProject\14_exam_function" />
     </key>
   </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task id="LOCAL-00001" summary="Moved: constants to main function">
       <created>1683279046615</created>
@@ -211,7 +220,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/15_mini_project_work/2_num_guessing_game.py</url>
-          <line>39</line>
+          <line>40</line>
           <option name="timeStamp" value="57" />
         </line-breakpoint>
       </breakpoints>

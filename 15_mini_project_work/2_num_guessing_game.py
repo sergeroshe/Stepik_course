@@ -37,6 +37,7 @@ def main():
 
     is_guess_wrong = True
     rand_num = random.randint(RANDOM_LEFT_BORDER, RANDOM_RIGHT_BORDER)
+    answer = ''
     while is_guess_wrong:
         guess = input(PROMPT_MESSAGE)
         if not is_valid(guess):
@@ -44,12 +45,13 @@ def main():
         else:
             guess_num = int(guess)
             if guess_num < rand_num:
-                print(TOO_SMALL_MESSAGE)
+                answer = TOO_SMALL_MESSAGE
             elif guess_num > rand_num:
-                print(TOO_BIG_MESSAGE)
+                answer = TOO_BIG_MESSAGE
             else:
-                print(f'{WIN_MESSAGE} \n')
+                answer = WIN_MESSAGE
                 is_guess_wrong = False
+        print(answer)
 
     # guess_right_border = int(input())
 
