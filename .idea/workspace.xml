@@ -5,8 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="8dde5acf-80f4-42f7-872a-f6a157d159be" name="Changes" comment="Updated dev instructions">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/15_mini_project_work/2_num_guessing_game.py" beforeDir="false" afterPath="$PROJECT_DIR$/15_mini_project_work/2_num_guessing_game.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/15_mini_project_work/3_magic_ball.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -25,7 +24,7 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
-    "git-widget-placeholder": "feature/15/2/5__Comparing__entered__…idden"
+    "git-widget-placeholder": "feature/15/3/1__magic__ball__program__header"
   }
 }]]></component>
   <component name="RecentsManager">
