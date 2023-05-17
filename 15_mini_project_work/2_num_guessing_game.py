@@ -42,7 +42,7 @@ def main():
             is_guess_wrong = False
 
     guess_right_border = int(input())
-    rand_num = random.randint(RANDOM_LEFT_BORDER, RANDOM_RIGHT_BORDER)
+    hidden_num = random.randint(RANDOM_LEFT_BORDER, RANDOM_RIGHT_BORDER)
 
     guaranteed_min_tries = min_guaranteed_guess_count(GUESS_LEFT_BORDER, guess_right_border)
 
