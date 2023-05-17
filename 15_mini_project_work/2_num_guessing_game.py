@@ -49,7 +49,8 @@ def main():
             elif guess_num > hidden_num:
                 print(TOO_BIG_MESSAGE)
             else:
-                print(f'{WIN_MESSAGE}\n{FAREWELL_MESSAGE}')
+                print(WIN_MESSAGE)
+                print(FAREWELL_MESSAGE)
                 is_guess_wrong = False
 
     # guaranteed_min_tries = min_guaranteed_guess_count(GUESS_LEFT_BORDER, guess_right_border)
