@@ -46,10 +46,6 @@ def main():
         guaranteed_min_tries = min_guaranteed_guess_count(guess_left_border, guess_right_border)
         print(guaranteed_min_tries)
         hidden_num = randint(guess_left_border, guess_right_border)
-        prompt_message = f'Введите число от ' \
-                         f'{guess_left_border} до {guess_right_border}: \n'
-        error_message = f'А может быть все-таки введем целое число от ' \
-                        f'{guess_left_border} до {guess_right_border}? \n'
         guess_count = 0
 
         is_guess_wrong = True
