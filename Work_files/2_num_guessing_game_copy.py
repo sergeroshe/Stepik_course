@@ -1,18 +1,21 @@
 from random import randint
 
-YES_RESPONSE = 'д'
+YES_RESPONSE = '1'
 GREETING = 'Добро пожаловать в числовую угадайку'
 GUESS_LEFT_BORDER = 1
 LEFT_BORDER_PROMPT_MESSAGE = 'Введите нижнюю границу числового диапазона: \n'
 RIGHT_BORDER_PROMPT_MESSAGE = 'Введите верхнюю границу числового диапазона: \n'
 MIN_GUARANTEED_GUESS_MESSAGE = 'Минимальное гарантированное число попыток угадывания в этом диапазоне:'
+PROMPT_MESSAGE = 'Введите число от '
+ERROR_MESSAGE = 'А может быть все-таки введем целое число от '
 TOO_SMALL_MESSAGE = 'Ваше число меньше загаданного, попробуйте еще разок'
 TOO_BIG_MESSAGE = 'Ваше число больше загаданного, попробуйте еще разок'
 WIN_MESSAGE = 'Вы угадали, поздравляем!'
-NEW_GAME_PROPOSAL_MESSAGE = 'Хотите сыграть еще? \nНажмите "д", если ДА или нажмите любую клавишу, если НЕТ:\n'
+NEW_GAME_PROPOSAL_MESSAGE = 'Хотите сыграть еще? \nНажмите "1", если ДА или нажмите любую клавишу, если НЕТ:\n'
 FAREWELL_MESSAGE = 'Спасибо, что играли в числовую угадайку. Еще увидимся...'
 TOTAL_GUESS_NUMBER_MESSAGE = 'Общее число сделанных вами попыток:'
 GUESS_NUMBER_MESSAGE = 'Число сделанных вами попыток:'
+SEP = ' до '
 
 
 def min_guaranteed_guess_count(left_border, right_border):
@@ -51,10 +54,10 @@ def main():
 
         is_guess_wrong = True
         while is_guess_wrong:
-            guess = input(prompt_message)
+            guess = input(PROMPT_MESSAGE + str(guess_left_border) + SEP + str(guess_right_border) + ':\n')
 
             if not is_valid(guess, guess_left_border, guess_right_border):
-                print(error_message)
+                print(PROMPT_MESSAGE, )
             else:
                 guess_num = int(guess)
                 if guess_num < hidden_num:
@@ -75,10 +78,6 @@ def main():
             print(TOTAL_GUESS_NUMBER_MESSAGE, guess_count, sep='\n')
             game_is_going_on = False
     print(FAREWELL_MESSAGE)
-
-    # guaranteed_min_tries = min_guaranteed_guess_count(GUESS_LEFT_BORDER, guess_right_border)
-
-    # print(guaranteed_min_tries)
 
 
 main()
