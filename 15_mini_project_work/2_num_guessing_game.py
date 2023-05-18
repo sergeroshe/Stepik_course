@@ -64,8 +64,8 @@ def main():
         new_game_wish = input(NEW_GAME_PROPOSAL_MESSAGE).lower()
         if new_game_wish != YES_RESPONSE:
             print(GUESS_NUMBER_MESSAGE, guess_count, sep='\n')
-            print(FAREWELL_MESSAGE)
             game_is_going_on = False
+    print(FAREWELL_MESSAGE)
 
     # guaranteed_min_tries = min_guaranteed_guess_count(GUESS_LEFT_BORDER, guess_right_border)
 
