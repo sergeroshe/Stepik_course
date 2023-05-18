@@ -15,7 +15,6 @@ TOTAL_GUESS_NUMBER_MESSAGE = 'Общее число сделанных вами 
 GUESS_NUMBER_MESSAGE = 'Число сделанных вами попыток:'
 
 
-
 def min_guaranteed_guess_count(left_border, right_border):
     middle = (left_border + right_border) // 2
     division_count = 0
@@ -70,6 +69,7 @@ def main():
                     print(WIN_MESSAGE)
                     is_guess_wrong = False
                     guess_count += 1
+                    print(GUESS_NUMBER_MESSAGE, guess_count, sep='\n')
         new_game_wish = input(NEW_GAME_PROPOSAL_MESSAGE).lower()
         if new_game_wish != YES_RESPONSE:
             print(TOTAL_GUESS_NUMBER_MESSAGE, guess_count, sep='\n')
