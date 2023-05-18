@@ -13,6 +13,8 @@ ERROR_MESSAGE = f'А может быть все-таки введем целое
                 f'{VALID_LEFT_BORDER} до {VALID_RIGHT_BORDER}? \n'
 PROMPT_MESSAGE = f'Введите число от ' \
                  f'{VALID_LEFT_BORDER} до {VALID_RIGHT_BORDER}: \n'
+FAREWELL_MESSAGE = 'Спасибо, что играли в числовую угадайку. Еще увидимся...'
+GUESS_NUMBER_MESSAGE = 'Число сделанных вами попыток: \n'
 
 
 def min_guaranteed_guess_count(left_border, right_border):
@@ -37,6 +39,8 @@ def main():
 
     is_guess_wrong = True
     hidden_num = random.randint(RANDOM_LEFT_BORDER, RANDOM_RIGHT_BORDER)
+    guess_count = 1
+
     while is_guess_wrong:
         guess = input(PROMPT_MESSAGE)
         if not is_valid(guess):
@@ -49,11 +53,14 @@ def main():
                 print(TOO_BIG_MESSAGE)
             else:
                 print(WIN_MESSAGE)
+                print(FAREWELL_MESSAGE)
+                print(GUESS_NUMBER_MESSAGE, guess_count)
                 is_guess_wrong = False
+        guess_count += 1
+
 
     # guaranteed_min_tries = min_guaranteed_guess_count(GUESS_LEFT_BORDER, guess_right_border)
 
     # print(guaranteed_min_tries)
-
 
 main()
