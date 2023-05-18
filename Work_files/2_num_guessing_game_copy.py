@@ -1,4 +1,4 @@
-import random
+from random import randint
 
 YES_RESPONSE = 'д'
 GREETING = 'Добро пожаловать в числовую угадайку'
@@ -11,7 +11,9 @@ TOO_BIG_MESSAGE = 'Ваше число больше загаданного, по
 WIN_MESSAGE = 'Вы угадали, поздравляем!'
 NEW_GAME_PROPOSAL_MESSAGE = 'Хотите сыграть еще? \nНажмите "д", если ДА или нажмите любую клавишу, если НЕТ:\n'
 FAREWELL_MESSAGE = 'Спасибо, что играли в числовую угадайку. Еще увидимся...'
+TOTAL_GUESS_NUMBER_MESSAGE = 'Общее число сделанных вами попыток:'
 GUESS_NUMBER_MESSAGE = 'Число сделанных вами попыток:'
+
 
 
 def min_guaranteed_guess_count(left_border, right_border):
@@ -41,7 +43,7 @@ def main():
         print(MIN_GUARANTEED_GUESS_MESSAGE)
         guaranteed_min_tries = min_guaranteed_guess_count(guess_left_border, guess_right_border)
         print(guaranteed_min_tries)
-        hidden_num = random.randint(guess_left_border, guess_right_border)
+        hidden_num = randint(guess_left_border, guess_right_border)
         prompt_message = f'Введите число от ' \
                          f'{guess_left_border} до {guess_right_border}: \n'
         error_message = f'А может быть все-таки введем целое число от ' \
@@ -58,17 +60,21 @@ def main():
                 guess_num = int(guess)
                 if guess_num < hidden_num:
                     print(TOO_SMALL_MESSAGE)
+                    guess_count += 1
+                    print(GUESS_NUMBER_MESSAGE, guess_count, sep='\n')
                 elif guess_num > hidden_num:
                     print(TOO_BIG_MESSAGE)
+                    guess_count += 1
+                    print(GUESS_NUMBER_MESSAGE, guess_count, sep='\n')
                 else:
                     print(WIN_MESSAGE)
                     is_guess_wrong = False
-            guess_count += 1
+                    guess_count += 1
         new_game_wish = input(NEW_GAME_PROPOSAL_MESSAGE).lower()
         if new_game_wish != YES_RESPONSE:
-            print(GUESS_NUMBER_MESSAGE, guess_count - 1, sep='\n')
-            print(FAREWELL_MESSAGE)
+            print(TOTAL_GUESS_NUMBER_MESSAGE, guess_count, sep='\n')
             game_is_going_on = False
+    print(FAREWELL_MESSAGE)
 
     # guaranteed_min_tries = min_guaranteed_guess_count(GUESS_LEFT_BORDER, guess_right_border)
 
