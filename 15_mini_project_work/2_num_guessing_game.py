@@ -14,7 +14,7 @@ ERROR_MESSAGE = f'А может быть все-таки введем целое
 PROMPT_MESSAGE = f'Введите число от ' \
                  f'{VALID_LEFT_BORDER} до {VALID_RIGHT_BORDER}: \n'
 FAREWELL_MESSAGE = 'Спасибо, что играли в числовую угадайку. Еще увидимся...'
-GUESS_NUMBER_MESSAGE = 'Число сделанных вами попыток: \n'
+GUESS_NUMBER_MESSAGE = 'Число сделанных вами попыток:'
 
 
 def min_guaranteed_guess_count(left_border, right_border):
@@ -54,7 +54,7 @@ def main():
             else:
                 print(WIN_MESSAGE)
                 print(FAREWELL_MESSAGE)
-                print(GUESS_NUMBER_MESSAGE, guess_count)
+                print(GUESS_NUMBER_MESSAGE, guess_count, sep='\n')
                 is_guess_wrong = False
         guess_count += 1
 
