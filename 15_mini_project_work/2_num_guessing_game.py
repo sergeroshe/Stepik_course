@@ -37,10 +37,10 @@ def is_valid(input_string):
 
 
 def main():
+    print(GREETING)
+
     game_is_going_on = True
     while game_is_going_on:
-
-        print(GREETING)
 
         hidden_num = random.randint(RANDOM_LEFT_BORDER, RANDOM_RIGHT_BORDER)
         guess_count = 1
