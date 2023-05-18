@@ -16,7 +16,7 @@ GUESS_NUMBER_MESSAGE = 'Число сделанных вами попыток:'
 
 
 def min_guaranteed_guess_count(left_border, right_border):
-    middle = (left_border + right_border) // 2
+    middle = (left_border + right_border) // 2 + 1
     division_count = 0
 
     while middle != left_border:
@@ -47,7 +47,7 @@ def main():
                          f'{guess_left_border} до {guess_right_border}: \n'
         error_message = f'А может быть все-таки введем целое число от ' \
                         f'{guess_left_border} до {guess_right_border}? \n'
-        guess_count = 1
+        guess_count = 0
 
         is_guess_wrong = True
         while is_guess_wrong:
