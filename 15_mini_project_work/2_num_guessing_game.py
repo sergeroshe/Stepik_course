@@ -53,8 +53,9 @@ def main():
                 print(TOO_BIG_MESSAGE)
             else:
                 print(WIN_MESSAGE)
-                print(FAREWELL_MESSAGE)
                 print(GUESS_NUMBER_MESSAGE, guess_count, sep='\n')
+                print(FAREWELL_MESSAGE)
+
                 is_guess_wrong = False
         guess_count += 1
 
