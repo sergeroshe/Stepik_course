@@ -5,6 +5,7 @@ GREETING = 'Добро пожаловать в числовую угадайку
 GUESS_LEFT_BORDER = 1
 LEFT_BORDER_PROMPT_MESSAGE = 'Введите нижнюю границу числового диапазона: \n'
 RIGHT_BORDER_PROMPT_MESSAGE = 'Введите верхнюю границу числового диапазона: \n'
+MIN_GUARANTEED_GUESS_MESSAGE = 'Минимальное гарантированное число попыток угадывания в этом диапазоне:'
 TOO_SMALL_MESSAGE = 'Ваше число меньше загаданного, попробуйте еще разок'
 TOO_BIG_MESSAGE = 'Ваше число больше загаданного, попробуйте еще разок'
 WIN_MESSAGE = 'Вы угадали, поздравляем!'
@@ -37,6 +38,9 @@ def main():
     while game_is_going_on:
         guess_left_border = int(input(LEFT_BORDER_PROMPT_MESSAGE))
         guess_right_border = int(input(RIGHT_BORDER_PROMPT_MESSAGE))
+        print(MIN_GUARANTEED_GUESS_MESSAGE)
+        guaranteed_min_tries = min_guaranteed_guess_count(guess_left_border, guess_right_border)
+        print(guaranteed_min_tries)
         hidden_num = random.randint(guess_left_border, guess_right_border)
         prompt_message = f'Введите число от ' \
                          f'{guess_left_border} до {guess_right_border}: \n'
