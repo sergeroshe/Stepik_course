@@ -1,4 +1,4 @@
-import random
+from random import randint
 
 YES_RESPONSE = 'д'
 GUESS_LEFT_BORDER = 1
@@ -42,7 +42,7 @@ def main():
     game_is_going_on = True
     while game_is_going_on:
 
-        hidden_num = random.randint(RANDOM_LEFT_BORDER, RANDOM_RIGHT_BORDER)
+        hidden_num = randint(RANDOM_LEFT_BORDER, RANDOM_RIGHT_BORDER)
         guess_count = 1
 
         is_guess_wrong = True
