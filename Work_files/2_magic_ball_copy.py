@@ -17,11 +17,13 @@ IMPOSSIBLE_QUESTION_ERROR = 'Я могу ответить только на во
 NO_CHAR_ERROR_MESSAGE = 'Ваш вопрос должен содержать хотя бы одну букву или цифру!'
 NO_QUESTION_MARK_ERROR = 'Ваш вопрос должен содержать вопросительный знак!'
 FAREWELL_MESSAGE = 'Возвращайся если возникнут вопросы!'
+OBLIGATORY_SIGN = '?'
+EXCLAMATION_SIGN = '!'
 
 
 def main():
     print(GREETING)
-    user_name = input(USER_NAME_PROMPT) + '!'
+    user_name = input(USER_NAME_PROMPT) + EXCLAMATION_SIGN
     print(USER_NAME_GREETING + user_name)
     game_is_on = True
     while game_is_on:
@@ -34,7 +36,7 @@ def main():
             for c in question:
                 if c.isalnum():
                     no_letters_in_question = False
-                if c == '?':
+                if c == OBLIGATORY_SIGN:
                     no_question_mark = False
             for word in IGNORE_QUESTION_LIST:
                 if word in question:
