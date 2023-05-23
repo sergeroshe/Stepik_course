@@ -47,9 +47,11 @@ def secure_password_generator():
         if len(char_list) > 0:
             for j in range(cur_passwd_len):
                 password += choice(char_list)
+            print('password_' + str(i + 1) + ':\n' + password)
         else:
-            print('Вы не выбрали достаточное количество символов для пароля')
-        print('password_' + str(i + 1) + ':\n' + password)
+            print('Вы не выбрали достаточное количество символов для пароля!\n'
+                  'Чтобы сгенерировать пароль, запустите программу еще раз.')
+
 
 
 secure_password_generator()
