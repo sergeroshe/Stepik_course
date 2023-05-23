@@ -7,14 +7,11 @@ PUNCTUATION = '!#$%&*+-=?@^_.'
 AMBIGUOUS_CHARS = 'il1Lo0O'
 
 Y_RESPONSE = '1'
-N_RESPONSE = 'N'.lower()
-
 
 def secure_password_generator():
     chars = ''
 
     passwd_num = int(input('Количество паролей для генерации: \n'))  # Количество паролей для генерации;
-    # passwd_len = int(input())  # Длину одного пароля;
 
     for i in range(passwd_num):
         password = ''
@@ -53,35 +50,11 @@ def secure_password_generator():
                   'Чтобы сгенерировать пароль, запустите программу еще раз.')
 
 
-
 secure_password_generator()
 
-# def main():
-#     pass
-#
-#
-# main()
 
-# has_passwd_digits = True  # Включать ли цифры 0123456789?
-# has_passwd_cap_letters = True  # Включать ли прописные буквы ABCDEFGHIJKLMNOPQRSTUVWXYZ?
-# has_passwd_low_letters = True  # Включать ли строчные буквы abcdefghijklmnopqrstuvwxyz?
-# has_passwd_spec_chars = True  # Включать ли символы !#$%&*+-=?@^_?
-# are_ambiguous_chars_exluded = True  # Исключать ли неоднозначные символы il1Lo0O?
-# DIGITS = '0123456789'
-# L_LETTERS_LIST = []
-# [L_LETTERS_LIST.append(c) for c in DIGITS]
-#
-# LOWERCASE_LETTERS = 'abcdefghijklmnopqrstuvwxyz'
-# L_LETTERS_LIST = []
-# [L_LETTERS_LIST.append(c) for c in DIGITS]
-#
-# UPPERCASE_LETTERS = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
-# U_LETTERS_LIST = []
-# [U_LETTERS_LIST.append(c) for c in DIGITS]
-#
-# PUNCTUATION = '!#$%&*+-=?@^_.'
-# PUNCT_LIST = []
-# [PUNCT_LIST.append(c) for c in DIGITS]
-#
-# Y_RESPONSE = 'Y'.lower()
-# N_RESPONSE = 'N'.lower()
+def main():
+    pass
+
+
+main()
