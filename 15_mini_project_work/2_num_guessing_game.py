@@ -1,21 +1,15 @@
 import random
 
 GUESS_LEFT_BORDER = 1
-GREETING = 'Добро пожаловать в числовую угадайку'
-RANDOM_LEFT_BORDER = 1
-RANDOM_RIGHT_BORDER = 100
-VALID_LEFT_BORDER = 1
-VALID_RIGHT_BORDER = 100
+GREETING = 'Добро пожаловать в числовую угадайку!'
 TOO_SMALL_MESSAGE = 'Ваше число меньше загаданного, попробуйте еще разок'
 TOO_BIG_MESSAGE = 'Ваше число больше загаданного, попробуйте еще разок'
 WIN_MESSAGE = 'Вы угадали, поздравляем!'
-ERROR_MESSAGE = f'А может быть все-таки введем целое число от ' \
-                f'{VALID_LEFT_BORDER} до {VALID_RIGHT_BORDER}? \n'
-PROMPT_MESSAGE = f'Введите число от ' \
-                 f'{VALID_LEFT_BORDER} до {VALID_RIGHT_BORDER}: \n'
+PROMPT_MESSAGE = 'Введите число от '
 RIGHT_BORDER_PROMPT_MESSAGE = 'Введите верхнюю границу числового диапазона: \n'
 FAREWELL_MESSAGE = 'Спасибо, что играли в числовую угадайку. Еще увидимся...'
 GUESS_NUMBER_MESSAGE = 'Число сделанных вами попыток:'
+COLON_SEP = ':'
 
 
 def min_guaranteed_guess_count(left_border, right_border):
@@ -31,7 +25,7 @@ def min_guaranteed_guess_count(left_border, right_border):
 
 
 def is_valid(input_string, guess_right_border):
-    result = input_string.isdigit() and VALID_LEFT_BORDER <= int(input_string) <= guess_right_border
+    result = input_string.isdigit() and guess_right_border <= int(input_string) <= guess_right_border
     return result
 
 
@@ -39,14 +33,16 @@ def main():
     print(GREETING)
 
     is_guess_wrong = True
-    hidden_num = random.randint(RANDOM_LEFT_BORDER, RANDOM_RIGHT_BORDER)
     guess_count = 1
 
     while is_guess_wrong:
         guess_right_border = int(input(RIGHT_BORDER_PROMPT_MESSAGE))
-        guess = input(PROMPT_MESSAGE)
+        hidden_num = random.randint(GUESS_LEFT_BORDER, guess_right_border)
+        guess = input(PROMPT_MESSAGE + str(guess_right_border) + COLON_SEP + '\n')
+        error_message = f'А может быть все-таки введем целое число от ' \
+                        f'{GUESS_LEFT_BORDER} до {guess_right_border}? \n'
         if not is_valid(guess, guess_right_border):
-            print(ERROR_MESSAGE)
+            print(error_message)
         else:
             guess_num = int(guess)
             if guess_num < hidden_num:
