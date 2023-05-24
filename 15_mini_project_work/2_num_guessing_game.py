@@ -13,6 +13,7 @@ ERROR_MESSAGE = f'А может быть все-таки введем целое
                 f'{VALID_LEFT_BORDER} до {VALID_RIGHT_BORDER}? \n'
 PROMPT_MESSAGE = f'Введите число от ' \
                  f'{VALID_LEFT_BORDER} до {VALID_RIGHT_BORDER}: \n'
+RIGHT_BORDER_PROMPT_MESSAGE = 'Введите верхнюю границу числового диапазона: \n'
 FAREWELL_MESSAGE = 'Спасибо, что играли в числовую угадайку. Еще увидимся...'
 GUESS_NUMBER_MESSAGE = 'Число сделанных вами попыток:'
 
