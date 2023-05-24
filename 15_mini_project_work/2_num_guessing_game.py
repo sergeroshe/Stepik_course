@@ -30,8 +30,8 @@ def min_guaranteed_guess_count(left_border, right_border):
     return division_count
 
 
-def is_valid(input_string):
-    result = input_string.isdigit() and VALID_LEFT_BORDER <= int(input_string) <= VALID_RIGHT_BORDER
+def is_valid(input_string, guess_right_border):
+    result = input_string.isdigit() and VALID_LEFT_BORDER <= int(input_string) <= guess_right_border
     return result
 
 
@@ -43,8 +43,9 @@ def main():
     guess_count = 1
 
     while is_guess_wrong:
+        guess_right_border = int(input(RIGHT_BORDER_PROMPT_MESSAGE))
         guess = input(PROMPT_MESSAGE)
-        if not is_valid(guess):
+        if not is_valid(guess, guess_right_border):
             print(ERROR_MESSAGE)
         else:
             guess_num = int(guess)
@@ -60,9 +61,7 @@ def main():
                 is_guess_wrong = False
         guess_count += 1
 
-
     # guaranteed_min_tries = min_guaranteed_guess_count(GUESS_LEFT_BORDER, guess_right_border)
-
     # print(guaranteed_min_tries)
 
 main()
