@@ -9,7 +9,9 @@ PROMPT_MESSAGE = 'Введите число от '
 RIGHT_BORDER_PROMPT_MESSAGE = 'Введите верхнюю границу числового диапазона: \n'
 FAREWELL_MESSAGE = 'Спасибо, что играли в числовую угадайку. Еще увидимся...'
 GUESS_NUMBER_MESSAGE = 'Число сделанных вами попыток:'
+ERROR_OUT_OF_GUESS_MESSAGE = 'А может быть все-таки введем целое число от '
 COLON_SEP = ':'
+UP_TO_SEP = ' до '
 
 
 def min_guaranteed_guess_count(left_border, right_border):
@@ -39,8 +41,7 @@ def main():
         guess_right_border = int(input(RIGHT_BORDER_PROMPT_MESSAGE))
         hidden_num = random.randint(GUESS_LEFT_BORDER, guess_right_border)
         guess = input(PROMPT_MESSAGE + str(guess_right_border) + COLON_SEP + '\n')
-        error_message = f'А может быть все-таки введем целое число от ' \
-                        f'{GUESS_LEFT_BORDER} до {guess_right_border}? \n'
+        error_message = f'{ERROR_OUT_OF_GUESS_MESSAGE}{GUESS_LEFT_BORDER}{UP_TO_SEP}{guess_right_border}? \n'
         if not is_valid(guess, guess_right_border):
             print(error_message)
         else:
