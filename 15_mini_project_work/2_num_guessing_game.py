@@ -1,4 +1,4 @@
-import random
+from random import randint
 
 GUESS_LEFT_BORDER = 1
 GREETING = 'Добро пожаловать в числовую угадайку!'
@@ -39,7 +39,7 @@ def main():
 
     while is_guess_wrong:
         guess_right_border = int(input(RIGHT_BORDER_PROMPT_MESSAGE))
-        hidden_num = random.randint(GUESS_LEFT_BORDER, guess_right_border)
+        hidden_num = randint(GUESS_LEFT_BORDER, guess_right_border)
         guess = input(f'{PROMPT_MESSAGE}{GUESS_LEFT_BORDER}{UP_TO_SEP}{guess_right_border}{COLON_SEP} \n')
         error_message = f'{ERROR_OUT_OF_GUESS_MESSAGE}{GUESS_LEFT_BORDER}{UP_TO_SEP}{guess_right_border}? \n'
         if not is_valid(guess, guess_right_border):
