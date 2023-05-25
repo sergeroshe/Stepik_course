@@ -10,6 +10,7 @@ ENTER_NUM_PROMPT = 'Введите число от '
 RIGHT_BORDER_PROMPT = 'Введите верхнюю границу числового диапазона: \n'
 FAREWELL_MESSAGE = 'Спасибо, что играли в числовую угадайку. Еще увидимся...'
 GUESS_NUMBER_MESSAGE = 'Число сделанных вами попыток:'
+TOTAL_GUESS_NUMBER_MESSAGE = 'Общее число сделанных вами попыток:'
 ERROR_OUT_OF_GUESS_MESSAGE = 'А может быть все-таки введем целое число от '
 NEW_GAME_PROPOSAL_MESSAGE = 'Хотите сыграть еще? \nНажмите: "1", затем: ENTER, ' \
                             'если ДА\nНажмите любую клавишу, затем: ENTER, если НЕТ\n'
@@ -55,9 +56,11 @@ def main():
                 if guess_num < hidden_num:
                     print(TOO_SMALL_MESSAGE)
                     guess_count += 1
+                    print(GUESS_NUMBER_MESSAGE, guess_count, sep='\n')
                 elif guess_num > hidden_num:
                     print(TOO_BIG_MESSAGE)
                     guess_count += 1
+                    print(GUESS_NUMBER_MESSAGE, guess_count, sep='\n')
                 else:
                     print(WIN_MESSAGE)
                     guess_count += 1
@@ -67,6 +70,7 @@ def main():
         new_game_wish = input(NEW_GAME_PROPOSAL_MESSAGE).lower()
         if new_game_wish != YES_RESPONSE:
             print(guess_count, sep='\n')
+            print(TOTAL_GUESS_NUMBER_MESSAGE, guess_count, sep='\n')
             game_is_going_on = False
     print(FAREWELL_MESSAGE)
     # guaranteed_min_tries = min_guaranteed_guess_count(GUESS_LEFT_BORDER, guess_right_border)
