@@ -75,8 +75,6 @@ def main():
         if new_game_wish != YES_RESPONSE:
             game_is_going_on = False
     print(FAREWELL_MESSAGE)
-    # guaranteed_min_tries = min_guaranteed_guess_count(GUESS_LEFT_BORDER, guess_right_border)
-    # print(guaranteed_min_tries)
 
 
 main()
