@@ -1,9 +1,9 @@
 import random
 
 DIGITS = '0123456789'
-CAP_LETTERS = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
+UPPER_LETTERS = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
 LOWER_LETTERS = 'abcdefghijklmnopqrstuvwxyz'
-PUNCTUATION = '!#$%&*+-=?@^_.'
+PUNCTUATION_CHARS = '!#$%&*+-=?@^_.'
 
 
 chars = ''
