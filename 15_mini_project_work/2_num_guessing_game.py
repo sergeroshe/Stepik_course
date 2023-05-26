@@ -44,7 +44,8 @@ def main():
         guess_count = 0
         guess_right_border = int(input(RIGHT_BORDER_PROMPT))
         guaranteed_min_tries = min_guaranteed_guess_count(GUESS_LEFT_BORDER, guess_right_border)
-        print(MIN_GUARANTEED_GUESS_MESSAGE, guaranteed_min_tries, sep='\n')
+        print(MIN_GUARANTEED_GUESS_MESSAGE)
+        print(guaranteed_min_tries)
         hidden_num = randint(GUESS_LEFT_BORDER, guess_right_border)
         error_message = f'{ERROR_OUT_OF_GUESS_MESSAGE}{GUESS_LEFT_BORDER}{UP_TO_SEP}{guess_right_border}? \n'
         guess_prompt = f'{ENTER_NUM_PROMPT}{GUESS_LEFT_BORDER}{UP_TO_SEP}{guess_right_border}{COLON_SEP} \n'
@@ -56,18 +57,22 @@ def main():
                 print(error_message)
             else:
                 guess_num = int(guess)
-                guess_count += 1
                 if guess_num < hidden_num:
-                    print(TOO_SMALL_MESSAGE, GUESS_NUMBER_MESSAGE, guess_count, sep='\n')
+                    print(TOO_SMALL_MESSAGE)
+                    guess_count += 1
+                    print(GUESS_NUMBER_MESSAGE, guess_count, sep='\n')
                 elif guess_num > hidden_num:
-                    print(TOO_BIG_MESSAGE, GUESS_NUMBER_MESSAGE, guess_count, sep='\n')
+                    print(TOO_BIG_MESSAGE)
+                    guess_count += 1
+                    print(GUESS_NUMBER_MESSAGE, guess_count, sep='\n')
                 else:
-                    print(WIN_MESSAGE, GUESS_NUMBER_MESSAGE, guess_count, sep='\n')
+                    print(WIN_MESSAGE)
+                    guess_count += 1
+                    print(GUESS_NUMBER_MESSAGE, guess_count, sep='\n')
 
                     is_guess_wrong = False
         new_game_wish = input(NEW_GAME_PROPOSAL_MESSAGE).lower()
-        if new_game_wish != YES_RESPONSE:
-            game_is_going_on = False
+        game_is_going_on = new_game_wish == YES_RESPONSE
     print(FAREWELL_MESSAGE)
 
 
