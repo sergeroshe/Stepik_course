@@ -57,17 +57,15 @@ def main():
                 print(error_message)
             else:
                 guess_num = int(guess)
+                guess_count += 1
                 if guess_num < hidden_num:
                     print(TOO_SMALL_MESSAGE)
-                    guess_count += 1
                     print(GUESS_NUMBER_MESSAGE, guess_count, sep='\n')
                 elif guess_num > hidden_num:
                     print(TOO_BIG_MESSAGE)
-                    guess_count += 1
                     print(GUESS_NUMBER_MESSAGE, guess_count, sep='\n')
                 else:
                     print(WIN_MESSAGE)
-                    guess_count += 1
                     print(GUESS_NUMBER_MESSAGE, guess_count, sep='\n')
 
                     is_guess_wrong = False
