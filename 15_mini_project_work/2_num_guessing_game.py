@@ -16,6 +16,7 @@ NEW_GAME_PROPOSAL_MESSAGE = 'Хотите сыграть еще? \nНажмит�
                             'если ДА\nНажмите любую клавишу, затем: ENTER, если НЕТ\n'
 COLON_SEP = ':'
 UP_TO_SEP = ' до '
+MIN_GUARANTEED_GUESS_MESSAGE = 'Минимальное гарантированное число попыток угадывания в этом диапазоне:'
 
 
 def min_guaranteed_guess_count(left_border, right_border):
@@ -42,6 +43,9 @@ def main():
         is_guess_wrong = True
         guess_count = 0
         guess_right_border = int(input(RIGHT_BORDER_PROMPT))
+        guaranteed_min_tries = min_guaranteed_guess_count(GUESS_LEFT_BORDER, guess_right_border)
+        print(MIN_GUARANTEED_GUESS_MESSAGE)
+        print(guaranteed_min_tries)
         hidden_num = randint(GUESS_LEFT_BORDER, guess_right_border)
         error_message = f'{ERROR_OUT_OF_GUESS_MESSAGE}{GUESS_LEFT_BORDER}{UP_TO_SEP}{guess_right_border}? \n'
         guess_prompt = f'{ENTER_NUM_PROMPT}{GUESS_LEFT_BORDER}{UP_TO_SEP}{guess_right_border}{COLON_SEP} \n'
