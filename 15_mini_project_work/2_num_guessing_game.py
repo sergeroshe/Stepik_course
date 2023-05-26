@@ -59,14 +59,11 @@ def main():
                 guess_num = int(guess)
                 guess_count += 1
                 if guess_num < hidden_num:
-                    print(TOO_SMALL_MESSAGE)
-                    print(GUESS_NUMBER_MESSAGE, guess_count, sep='\n')
+                    print(TOO_SMALL_MESSAGE, GUESS_NUMBER_MESSAGE, guess_count, sep='\n')
                 elif guess_num > hidden_num:
-                    print(TOO_BIG_MESSAGE)
-                    print(GUESS_NUMBER_MESSAGE, guess_count, sep='\n')
+                    print(TOO_BIG_MESSAGE, GUESS_NUMBER_MESSAGE, guess_count, sep='\n')
                 else:
-                    print(WIN_MESSAGE)
-                    print(GUESS_NUMBER_MESSAGE, guess_count, sep='\n')
+                    print(WIN_MESSAGE, GUESS_NUMBER_MESSAGE, guess_count, sep='\n')
 
                     is_guess_wrong = False
         new_game_wish = input(NEW_GAME_PROPOSAL_MESSAGE).lower()
