@@ -11,8 +11,8 @@ USER_NAME_GREETING = 'Добро пожаловать, '
 
 
 def main():
-    user_name = input(USER_NAME_PROMPT) + EXCLAMATION_SIGN
-    print(USER_NAME_GREETING + user_name)
+    user_name = input(USER_NAME_PROMPT)
+    print(f'{USER_NAME_GREETING}{user_name}{EXCLAMATION_SIGN}')
 
 
 main()
