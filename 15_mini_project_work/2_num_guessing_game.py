@@ -36,35 +36,39 @@ def is_valid(input_string, guess_right_border):
     return result
 
 
+def guessing_game_run():
+    is_guess_wrong = True
+    guess_count = 0
+    guess_right_border = int(input(RIGHT_BORDER_PROMPT))
+    guaranteed_min_tries = min_guaranteed_guess_count(GUESS_LEFT_BORDER, guess_right_border)
+    print(MIN_GUARANTEED_GUESS_MESSAGE, guaranteed_min_tries, sep='\n')
+    hidden_num = randint(GUESS_LEFT_BORDER, guess_right_border)
+    error_message = f'{ERROR_OUT_OF_GUESS_MESSAGE}{GUESS_LEFT_BORDER}{UP_TO_SEP}{guess_right_border}? \n'
+    guess_prompt = f'{ENTER_NUM_PROMPT}{GUESS_LEFT_BORDER}{UP_TO_SEP}{guess_right_border}{COLON_SEP} \n'
+
+    while is_guess_wrong:
+        guess = input(guess_prompt)
+
+        if not is_valid(guess, guess_right_border):
+            print(error_message)
+        else:
+            guess_num = int(guess)
+            guess_count += 1
+            if guess_num < hidden_num:
+                print(TOO_SMALL_MESSAGE, GUESS_NUMBER_MESSAGE, guess_count, sep='\n')
+            elif guess_num > hidden_num:
+                print(TOO_BIG_MESSAGE, GUESS_NUMBER_MESSAGE, guess_count, sep='\n')
+            else:
+                print(WIN_MESSAGE, GUESS_NUMBER_MESSAGE, guess_count, sep='\n')
+
+                is_guess_wrong = False
+
+
 def main():
     print(GREETING)
     game_is_going_on = True
     while game_is_going_on:
-        is_guess_wrong = True
-        guess_count = 0
-        guess_right_border = int(input(RIGHT_BORDER_PROMPT))
-        guaranteed_min_tries = min_guaranteed_guess_count(GUESS_LEFT_BORDER, guess_right_border)
-        print(MIN_GUARANTEED_GUESS_MESSAGE, guaranteed_min_tries, sep='\n')
-        hidden_num = randint(GUESS_LEFT_BORDER, guess_right_border)
-        error_message = f'{ERROR_OUT_OF_GUESS_MESSAGE}{GUESS_LEFT_BORDER}{UP_TO_SEP}{guess_right_border}? \n'
-        guess_prompt = f'{ENTER_NUM_PROMPT}{GUESS_LEFT_BORDER}{UP_TO_SEP}{guess_right_border}{COLON_SEP} \n'
-
-        while is_guess_wrong:
-            guess = input(guess_prompt)
-
-            if not is_valid(guess, guess_right_border):
-                print(error_message)
-            else:
-                guess_num = int(guess)
-                guess_count += 1
-                if guess_num < hidden_num:
-                    print(TOO_SMALL_MESSAGE, GUESS_NUMBER_MESSAGE, guess_count, sep='\n')
-                elif guess_num > hidden_num:
-                    print(TOO_BIG_MESSAGE, GUESS_NUMBER_MESSAGE, guess_count, sep='\n')
-                else:
-                    print(WIN_MESSAGE, GUESS_NUMBER_MESSAGE, guess_count, sep='\n')
-
-                    is_guess_wrong = False
+        guessing_game_run()
         new_game_wish = input(NEW_GAME_PROPOSAL_MESSAGE).lower()
         game_is_going_on = new_game_wish == YES_RESPONSE
 
