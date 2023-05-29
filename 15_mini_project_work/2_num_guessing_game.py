@@ -7,6 +7,7 @@ TOO_SMALL_MESSAGE = 'Ваше число МЕНЬШЕ загаданного, п
 TOO_BIG_MESSAGE = 'Ваше число БОЛЬШЕ загаданного, попробуйте еще разок'
 WIN_MESSAGE = 'ВЫ УГАДАЛИ, ПОЗДРАВЛЯЕМ!'
 ENTER_NUM_PROMPT = 'Введите число от '
+LEFT_BORDER_PROMPT_MESSAGE = 'Введите нижнюю границу числового диапазона: \n'
 RIGHT_BORDER_PROMPT = 'Введите верхнюю границу числового диапазона: \n'
 FAREWELL_MESSAGE = 'Спасибо, что играли в числовую угадайку. Еще увидимся...'
 GUESS_NUMBER_MESSAGE = 'Число сделанных вами попыток:'
@@ -31,25 +32,26 @@ def min_guaranteed_guess_count(left_border, right_border):
     return division_count
 
 
-def is_valid(input_string, guess_right_border):
-    result = input_string.isdigit() and GUESS_LEFT_BORDER <= int(input_string) <= guess_right_border
+def is_valid(input_string, guess_left_border, guess_right_border):
+    result = input_string.isdigit() and guess_left_border <= int(input_string) <= guess_right_border
     return result
 
 
 def guessing_game_run():
     is_guess_wrong = True
     guess_count = 0
+    guess_left_border = int(input(LEFT_BORDER_PROMPT_MESSAGE))
     guess_right_border = int(input(RIGHT_BORDER_PROMPT))
-    guaranteed_min_tries = min_guaranteed_guess_count(GUESS_LEFT_BORDER, guess_right_border)
+    guaranteed_min_tries = min_guaranteed_guess_count(guess_left_border, guess_right_border)
     print(MIN_GUARANTEED_GUESS_MESSAGE, guaranteed_min_tries, sep='\n')
-    hidden_num = randint(GUESS_LEFT_BORDER, guess_right_border)
-    error_message = f'{ERROR_OUT_OF_GUESS_MESSAGE}{GUESS_LEFT_BORDER}{UP_TO_SEP}{guess_right_border}? \n'
-    guess_prompt = f'{ENTER_NUM_PROMPT}{GUESS_LEFT_BORDER}{UP_TO_SEP}{guess_right_border}{COLON_SEP} \n'
+    hidden_num = randint(guess_left_border, guess_right_border)
+    error_message = f'{ERROR_OUT_OF_GUESS_MESSAGE}{guess_left_border}{UP_TO_SEP}{guess_right_border}? \n'
+    guess_prompt = f'{ENTER_NUM_PROMPT}{guess_left_border}{UP_TO_SEP}{guess_right_border}{COLON_SEP} \n'
 
     while is_guess_wrong:
         guess = input(guess_prompt)
 
-        if not is_valid(guess, guess_right_border):
+        if not is_valid(guess, guess_left_border, guess_right_border):
             print(error_message)
         else:
             guess_num = int(guess)
