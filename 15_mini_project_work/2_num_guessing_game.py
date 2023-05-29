@@ -44,7 +44,7 @@ def guessing_game_run():
     guess_right_border = int(input(RIGHT_BORDER_PROMPT))
     guaranteed_min_tries = min_guaranteed_guess_count(guess_left_border, guess_right_border)
     print(MIN_GUARANTEED_GUESS_MESSAGE, guaranteed_min_tries, sep='\n')
-    hidden_num = randint(GUESS_LEFT_BORDER, guess_right_border)
+    hidden_num = randint(guess_left_border, guess_right_border)
     error_message = f'{ERROR_OUT_OF_GUESS_MESSAGE}{guess_left_border}{UP_TO_SEP}{guess_right_border}? \n'
     guess_prompt = f'{ENTER_NUM_PROMPT}{guess_left_border}{UP_TO_SEP}{guess_right_border}{COLON_SEP} \n'
 
