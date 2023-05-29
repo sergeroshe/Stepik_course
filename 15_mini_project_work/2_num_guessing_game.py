@@ -15,6 +15,7 @@ GUESS_NUMBER_MESSAGE = 'Число сделанных вами попыток:'
 ERROR_OUT_OF_GUESS_MESSAGE = 'А может быть все-таки введем целое число от '
 NEW_GAME_PROPOSAL_MESSAGE = 'Хотите сыграть еще? \nНажмите: "1", затем: ENTER, ' \
                             'если ДА\nНажмите любую клавишу, затем: ENTER, если НЕТ\n'
+GAME_CONTINUING_WISH = 'Хотите продолжить игру?\nНажмите "1", если ДА или нажмите любую клавишу, если НЕТ'
 COLON_SEP = ':'
 UP_TO_SEP = ' до '
 MIN_GUARANTEED_GUESS_MESSAGE = 'Минимальное гарантированное число попыток угадывания в этом диапазоне:'
@@ -56,10 +57,19 @@ def guessing_game_run():
         else:
             guess_num = int(guess)
             guess_count += 1
+
             if guess_num < hidden_num:
                 print(TOO_SMALL_MESSAGE, GUESS_NUMBER_MESSAGE, guess_count, sep='\n')
+                game_continuing_wish = input(GAME_CONTINUING_WISH)
+                if game_continuing_wish != YES_RESPONSE:
+                    print(hidden_num)
+                    is_guess_wrong = False
             elif guess_num > hidden_num:
                 print(TOO_BIG_MESSAGE, GUESS_NUMBER_MESSAGE, guess_count, sep='\n')
+                game_continuing_wish = input(GAME_CONTINUING_WISH)
+                if game_continuing_wish != YES_RESPONSE:
+                    print(hidden_num)
+                    is_guess_wrong = False
             else:
                 print(WIN_MESSAGE, GUESS_NUMBER_MESSAGE, guess_count, sep='\n')
 
