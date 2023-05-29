@@ -15,6 +15,9 @@ GUESS_NUMBER_MESSAGE = 'Число сделанных вами попыток:'
 ERROR_OUT_OF_GUESS_MESSAGE = 'А может быть все-таки введем целое число от '
 NEW_GAME_PROPOSAL_MESSAGE = 'Хотите сыграть еще? \nНажмите: "1", затем: ENTER, ' \
                             'если ДА\nНажмите любую клавишу, затем: ENTER, если НЕТ\n'
+STOP_GAME_RESPONSE = '**'
+GIVE_UP_PROPOSAL = f'Если вы хотите досрочно закончить игру и узнать загаданное число, нажмите {STOP_GAME_RESPONSE}'
+HIDDEN_NUM_REVELATION = 'Загаданное число:\n'
 COLON_SEP = ':'
 UP_TO_SEP = ' до '
 MIN_GUARANTEED_GUESS_MESSAGE = 'Минимальное гарантированное число попыток угадывания в этом диапазоне:'
@@ -49,9 +52,11 @@ def guessing_game_run():
     guess_prompt = f'{ENTER_NUM_PROMPT}{guess_left_border}{UP_TO_SEP}{guess_right_border}{COLON_SEP} \n'
 
     while is_guess_wrong:
-        guess = input(guess_prompt)
-
-        if not is_valid(guess, guess_left_border, guess_right_border):
+        guess = input(f'{GIVE_UP_PROPOSAL}\n{guess_prompt}')
+        if guess == STOP_GAME_RESPONSE:
+            print(f'{HIDDEN_NUM_REVELATION}{hidden_num}')
+            is_guess_wrong = False
+        elif not is_valid(guess, guess_left_border, guess_right_border):
             print(error_message)
         else:
             guess_num = int(guess)
