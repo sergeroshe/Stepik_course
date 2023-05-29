@@ -20,7 +20,7 @@ MIN_GUARANTEED_GUESS_MESSAGE = 'Минимальное гарантирован�
 
 
 def min_guaranteed_guess_count(left_border, right_border):
-    middle = (left_border + right_border) // 2
+    middle = (left_border + right_border) // 2 + 1
     division_count = 0
 
     while middle != left_border:
