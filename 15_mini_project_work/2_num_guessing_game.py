@@ -38,7 +38,7 @@ def min_guaranteed_guess_count(left_border, right_border):
 
 
 def is_valid(input_string, guess_left_border, guess_right_border):
-    result = input_string.isdigit() and guess_left_border <= int(input_string) <= guess_right_border
+    result = input_string.lstrip('-').isdigit() and guess_left_border <= int(input_string) <= guess_right_border
     return result
 
 
