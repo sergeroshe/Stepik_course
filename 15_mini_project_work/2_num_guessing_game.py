@@ -51,7 +51,7 @@ def get_valid_border(input_string):
     while not is_string_num:
         if input_string[0] == MINUS_CHAR and input_string[1].isdigit():
             is_string_num = True
-        elif input_string.isalpha():
+        elif input_string.isdigit():
             is_string_num = True
         else:
             print(TYPE_ERROR_MESSAGE)
@@ -67,7 +67,8 @@ def guessing_game_run():
     guess_left_border = input(LEFT_BORDER_PROMPT_MESSAGE)
     guess_left_border = get_valid_border(guess_left_border)
 
-    guess_right_border = int(input(RIGHT_BORDER_PROMPT))
+    guess_right_border = input(RIGHT_BORDER_PROMPT)
+    guess_right_border = get_valid_border(guess_right_border)
     is_right_border_correct = guess_right_border > guess_left_border
     while not is_right_border_correct:
         print(f'{BORDER_ERROR_MESSAGE}{guess_left_border}{EXCLAMATION_SIGN}\n')
