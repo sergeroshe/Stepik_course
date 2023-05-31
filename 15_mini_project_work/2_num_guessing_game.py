@@ -24,6 +24,7 @@ GIVE_UP_PROPOSAL = f'Если вы хотите досрочно закончи�
 HIDDEN_NUM_REVELATION = 'Загаданное число:\n'
 COLON_SEP = ':'
 UP_TO_SEP = ' до '
+MINUS_CHAR = '-'
 MIN_GUARANTEED_GUESS_MESSAGE = 'Минимальное гарантированное число попыток угадывания в этом диапазоне:'
 EXCLAMATION_SIGN = '!'
 
@@ -46,14 +47,25 @@ def is_valid(input_string, guess_left_border, guess_right_border):
 
 
 def get_valid_border(input_string):
-    result = input_string.lstrip('-').isdigit()
-    while not result:
-        print(TYPE_ERROR_MESSAGE)
-        input_string = input(BORDER_PROMT)
-        if input_string.lstrip('-').isdigit():
-            result = True
-    result = int(input_string)
-    return result
+    is_string_num = False
+    while not is_string_num:
+        minus_count = 0
+        for c in input_string[::-1]:
+            if c == MINUS_CHAR:
+                minus_count += 1
+                if minus_count > 1:
+                    print(TYPE_ERROR_MESSAGE)
+                    input_string = input(BORDER_PROMT)
+                    break
+            elif not c.isdigit():
+                print(TYPE_ERROR_MESSAGE)
+                input_string = input(BORDER_PROMT)
+                break
+
+        is_string_num = True
+
+    is_string_num = int(input_string)
+    return is_string_num
 
 
 def guessing_game_run():
