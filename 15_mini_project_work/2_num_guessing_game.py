@@ -49,20 +49,13 @@ def is_valid(input_string, guess_left_border, guess_right_border):
 def get_valid_border(input_string):
     is_string_num = False
     while not is_string_num:
-        minus_count = 0
-        for c in input_string[::-1]:
-            if c == MINUS_CHAR:
-                minus_count += 1
-                if minus_count > 1:
-                    print(TYPE_ERROR_MESSAGE)
-                    input_string = input(BORDER_PROMT)
-                    break
-            elif not c.isdigit():
-                print(TYPE_ERROR_MESSAGE)
-                input_string = input(BORDER_PROMT)
-                break
-
-        is_string_num = True
+        if input_string[0] == MINUS_CHAR and input_string[1].isdigit():
+            is_string_num = True
+        elif input_string.isalpha():
+            is_string_num = True
+        else:
+            print(TYPE_ERROR_MESSAGE)
+            input_string = input(BORDER_PROMT)
 
     is_string_num = int(input_string)
     return is_string_num
@@ -119,3 +112,16 @@ def main():
 
 
 main()
+
+# minus_count = 0
+# for c in input_string[::-1]:
+#     if c == MINUS_CHAR:
+#         minus_count += 1
+#         if minus_count > 1:
+#             print(TYPE_ERROR_MESSAGE)
+#             input_string = input(BORDER_PROMT)
+#             break
+#     elif not c.isdigit():
+#         print(TYPE_ERROR_MESSAGE)
+#         input_string = input(BORDER_PROMT)
+#         break
