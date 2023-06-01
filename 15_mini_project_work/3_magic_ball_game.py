@@ -23,8 +23,9 @@ def game_run():
         print(answer)
 
         continue_game = input(CONTINUE_GAME_PROMPT)
-        if continue_game == NO_RESPONSE:
-            game_is_on = False
+        game_is_on = continue_game != NO_RESPONSE
+        # if continue_game == NO_RESPONSE:
+        #     game_is_on = False
     print(FAREWELL_MESSAGE)
 
 
