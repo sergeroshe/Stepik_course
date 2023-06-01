@@ -50,7 +50,7 @@ def is_valid(input_string, guess_left_border, guess_right_border):
 def get_num_input(input_string):
     is_string_num = False
     while not is_string_num:
-        if input_string[0] == MINUS_CHAR and input_string[1:].isdigit():
+        if input_string[0] == MINUS_CHAR and input_string[1:].isdigit() or input_string.isdigit():
             is_string_num = True
         else:
             print(TYPE_ERROR_MESSAGE)
