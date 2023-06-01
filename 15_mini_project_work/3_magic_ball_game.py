@@ -8,10 +8,10 @@ ANSWERS = ['Бесспорно', 'Предрешено', 'Никаких сом�
 USER_NAME_PROMPT = 'Введи свое имя:\n'
 EXCLAMATION_SIGN = '!'
 USER_NAME_GREETING = 'Добро пожаловать, '
-CONTINUE_GAME_PROMPT = 'Хочешь задать еще один вопрос?\nНажми "1", затем ENTER,' \
-                       ' если ДА\nНажми любую клавишу, затем ENTER, если НЕТ\n'
+CONTINUE_GAME_PROMPT = 'Хочешь задать еще один вопрос?\nНажми ЛЮБУЮ КЛАВИШУ, затем ENTER,' \
+                       ' если ДА\n"1", затем ENTER, если НЕТ\n'
 ENTER_QUESTION_PROMPT = 'Введи свой вопрос:\n'
-YES_RESPONSE = '1'
+NO_RESPONSE = '1'
 FAREWELL_MESSAGE = 'Возвращайся если возникнут вопросы!'
 
 
@@ -23,7 +23,7 @@ def game_run():
         print(answer)
 
         continue_game = input(CONTINUE_GAME_PROMPT)
-        if continue_game != YES_RESPONSE:
+        if continue_game == NO_RESPONSE:
             game_is_on = False
     print(FAREWELL_MESSAGE)
 
