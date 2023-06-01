@@ -113,15 +113,3 @@ def main():
 
 main()
 
-# minus_count = 0
-# for c in input_string[::-1]:
-#     if c == MINUS_CHAR:
-#         minus_count += 1
-#         if minus_count > 1:
-#             print(TYPE_ERROR_MESSAGE)
-#             input_string = input(BORDER_PROMT)
-#             break
-#     elif not c.isdigit():
-#         print(TYPE_ERROR_MESSAGE)
-#         input_string = input(BORDER_PROMT)
-#         break
