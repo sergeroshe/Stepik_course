@@ -24,7 +24,6 @@ GIVE_UP_PROPOSAL = f'Если вы хотите досрочно закончи�
 HIDDEN_NUM_REVELATION = 'Загаданное число:\n'
 COLON_SEP = ':'
 UP_TO_SEP = ' до '
-MINUS_CHAR = '-'
 MIN_GUARANTEED_GUESS_MESSAGE = 'Минимальное гарантированное число попыток угадывания в этом диапазоне:'
 EXCLAMATION_SIGN = '!'
 
@@ -51,7 +50,7 @@ def get_num_input(prompt):
     is_string_num = False
     input_string = input(prompt)
     while not is_string_num:
-        if input_string[0] == MINUS_CHAR and input_string[1:].isdigit() or input_string.isdigit():
+        if input_string[0] == '-' and input_string[1:].isdigit() or input_string.isdigit():
             is_string_num = True
         else:
             print(TYPE_ERROR_MESSAGE)
