@@ -31,6 +31,7 @@ def game_run():
             no_letter = True
             no_question_mark = True
             is_question_impossible = False
+
             for c in question:
                 if c.isalnum():
                     no_letter = False
@@ -40,12 +41,15 @@ def game_run():
                 if word in question:
                     is_question_impossible = True
                     break
+
+            #   extract blocks to function
             if is_question_impossible:
                 print(IMPOSSIBLE_QUESTION_ERROR)
             elif no_letter:
                 print(NON_LETTER_ERROR)
             elif no_question_mark:
                 print(NO_QUESTION_MARK_ERROR)
+
             if not no_letter and not no_question_mark and not is_question_impossible:
                 question_is_not_correct = False
             else:
