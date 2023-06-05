@@ -13,13 +13,44 @@ CONTINUE_GAME_PROMPT = 'Хочешь задать еще один вопрос?\
                        ' если ДА\n"1", затем ENTER, если НЕТ\n'
 ENTER_QUESTION_PROMPT = 'Введи свой вопрос:\n'
 IGNORE_WORD_LIST = ['где', 'когда', 'почему', 'сколько', 'кто',
-                        'с кем', 'кого', 'зачем', 'почему', 'чего',
-                        'как', 'какой', 'каком', 'какую', 'какие', 'какого']
+                    'с кем', 'кого', 'зачем', 'почему', 'чего',
+                    'как', 'какой', 'каком', 'какую', 'какие', 'какого']
 IMPOSSIBLE_QUESTION_ERROR = 'Я могу ответить только на вопрос, требующий ответа ДА или НЕТ'
 NON_LETTER_ERROR = 'Вопрос должен содержать хотя бы одну букву или цифру!'
 NO_QUESTION_MARK_ERROR = 'Вопрос должен содержать вопросительный знак!'
 NO_RESPONSE = '1'
 FAREWELL_MESSAGE = 'Возвращайся если возникнут вопросы!'
+
+
+def get_valid_question(question, ignore_word_list, no_question_mark_error, impossible_question_error,
+                       non_letter_error, ):
+    no_letter = True
+    no_question_mark = True
+    is_question_impossible = False
+
+    for c in question:
+        if c.isalnum():
+            no_letter = False
+            break
+    for c in question:
+        if c == '?':
+            no_question_mark = False
+            break
+    for word in ignore_word_list:
+        if word in question:
+            is_question_impossible = True
+            break
+
+    if is_question_impossible:
+        print(impossible_question_error)
+    if no_letter:
+        print(non_letter_error)
+    if no_question_mark:
+        print(no_question_mark_error)
+
+    result = not no_letter and not no_question_mark and not is_question_impossible
+
+    return result
 
 
 def game_run():
@@ -28,29 +59,8 @@ def game_run():
         question = input(ENTER_QUESTION_PROMPT).lower()
         question_is_not_correct = True
         while question_is_not_correct:
-            no_letter = True
-            no_question_mark = True
-            is_question_impossible = False
-
-            for c in question:
-                if c.isalnum():
-                    no_letter = False
-                if c == OBLIGATORY_SIGN:
-                    no_question_mark = False
-            for word in IGNORE_WORD_LIST:
-                if word in question:
-                    is_question_impossible = True
-                    break
-
-            #   extract blocks to function
-            if is_question_impossible:
-                print(IMPOSSIBLE_QUESTION_ERROR)
-            elif no_letter:
-                print(NON_LETTER_ERROR)
-            elif no_question_mark:
-                print(NO_QUESTION_MARK_ERROR)
-
-            if not no_letter and not no_question_mark and not is_question_impossible:
+            if get_valid_question(question, IGNORE_WORD_LIST, NO_QUESTION_MARK_ERROR,
+                                  IMPOSSIBLE_QUESTION_ERROR, NON_LETTER_ERROR):
                 question_is_not_correct = False
             else:
                 question = input(ENTER_QUESTION_PROMPT).lower()
