@@ -12,7 +12,7 @@ USER_NAME_GREETING = 'Добро пожаловать, '
 CONTINUE_GAME_PROMPT = 'Хочешь задать еще один вопрос?\nНажми ENTER,' \
                        ' если ДА\n"1", затем ENTER, если НЕТ\n'
 ENTER_QUESTION_PROMPT = 'Введи свой вопрос:\n'
-IGNORE_QUESTION_LIST = ['где', 'когда', 'почему', 'сколько', 'кто',
+IGNORE_WORD_LIST = ['где', 'когда', 'почему', 'сколько', 'кто',
                         'с кем', 'кого', 'зачем', 'почему', 'чего',
                         'как', 'какой', 'каком', 'какую', 'какие', 'какого']
 IMPOSSIBLE_QUESTION_ERROR = 'Я могу ответить только на вопрос, требующий ответа ДА или НЕТ'
@@ -36,7 +36,7 @@ def game_run():
                     no_letter = False
                 if c == OBLIGATORY_SIGN:
                     no_question_mark = False
-            for word in IGNORE_QUESTION_LIST:
+            for word in IGNORE_WORD_LIST:
                 if word in question:
                     is_question_impossible = True
             if is_question_impossible:
