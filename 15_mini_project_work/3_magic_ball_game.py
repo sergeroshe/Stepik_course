@@ -39,6 +39,7 @@ def game_run():
             for word in IGNORE_WORD_LIST:
                 if word in question:
                     is_question_impossible = True
+                    break
             if is_question_impossible:
                 print(IMPOSSIBLE_QUESTION_ERROR)
             elif no_letter:
