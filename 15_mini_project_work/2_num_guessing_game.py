@@ -46,14 +46,14 @@ def is_valid(input_string, guess_left_border, guess_right_border):
 
 
 #  returns integer input, asks untill get valid input
-def get_num_input(prompt):
+def get_num_input(prompt, error_message):
     is_string_num = False
     input_string = input(prompt)
     while not is_string_num:
         if input_string[0] == '-' and input_string[1:].isdigit() or input_string.isdigit():
             is_string_num = True
         else:
-            print(TYPE_ERROR_MESSAGE)
+            print(error_message)
             input_string = input(prompt)
 
     is_string_num = int(input_string)
@@ -64,8 +64,8 @@ def guessing_game_run():
     is_guess_wrong = True
     guess_count = 0
 
-    guess_left_border = get_num_input(LEFT_BORDER_PROMPT_MESSAGE)
-    guess_right_border = get_num_input(RIGHT_BORDER_PROMPT)
+    guess_left_border = get_num_input(LEFT_BORDER_PROMPT_MESSAGE, TYPE_ERROR_MESSAGE)
+    guess_right_border = get_num_input(RIGHT_BORDER_PROMPT, TYPE_ERROR_MESSAGE)
 
     is_right_border_correct = guess_right_border > guess_left_border
     while not is_right_border_correct:
