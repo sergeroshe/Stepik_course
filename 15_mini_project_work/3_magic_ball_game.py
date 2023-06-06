@@ -31,11 +31,11 @@ def is_question_valid(question, ignore_word_list, no_question_mark_error, imposs
     for c in question:
         if c.isalnum():
             no_letter = False
-            break
-    for c in question:
-        if c == '?':
+        elif c == '?':
             no_question_mark = False
+        if not no_letter and not no_question_mark:
             break
+
     for word in ignore_word_list:
         if word in question:
             is_question_impossible = True
