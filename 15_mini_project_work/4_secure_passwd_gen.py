@@ -37,7 +37,6 @@ def secure_password_generator():
     get_conf()
 
 
-
 def main():
     secure_password_generator()
 
