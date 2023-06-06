@@ -28,6 +28,9 @@ def get_conf():
     answer = input(EXCLUDE_AMBIG_CHARS_PROMPT)
     is_ambig_chars_excluded = answer != NO_RESPONSE
 
+    return passwd_num, cur_passwd_len, is_num_included, is_cap_letter_included, is_small_letter_included, \
+        is_punctuation_included, is_ambig_chars_excluded
+
 
 def secure_password_generator():
 
