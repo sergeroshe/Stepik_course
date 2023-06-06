@@ -22,8 +22,8 @@ NO_RESPONSE = '1'
 FAREWELL_MESSAGE = 'Возвращайся если возникнут вопросы!'
 
 
-def get_valid_question(question, ignore_word_list, no_question_mark_error, impossible_question_error,
-                       non_letter_error, ):
+def is_question_valid(question, ignore_word_list, no_question_mark_error, impossible_question_error,
+                      non_letter_error, ):
     no_letter = True
     no_question_mark = True
     is_question_impossible = False
@@ -59,8 +59,8 @@ def game_run():
         question = input(ENTER_QUESTION_PROMPT).lower()
         question_is_not_correct = True
         while question_is_not_correct:
-            if get_valid_question(question, IGNORE_WORD_LIST, NO_QUESTION_MARK_ERROR,
-                                  IMPOSSIBLE_QUESTION_ERROR, NON_LETTER_ERROR):
+            if is_question_valid(question, IGNORE_WORD_LIST, NO_QUESTION_MARK_ERROR,
+                                 IMPOSSIBLE_QUESTION_ERROR, NON_LETTER_ERROR):
                 question_is_not_correct = False
             else:
                 question = input(ENTER_QUESTION_PROMPT).lower()
