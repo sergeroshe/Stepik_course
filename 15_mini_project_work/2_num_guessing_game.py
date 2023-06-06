@@ -6,7 +6,9 @@ GREETING = 'Добро пожаловать в числовую угадайку
 TOO_SMALL_MESSAGE = 'Ваше число МЕНЬШЕ загаданного, попробуйте еще разок'
 TOO_BIG_MESSAGE = 'Ваше число БОЛЬШЕ загаданного, попробуйте еще разок'
 WIN_MESSAGE = 'ВЫ УГАДАЛИ, ПОЗДРАВЛЯЕМ!'
-ENTER_NUM_PROMPT = 'Введите число от '
+NUM_IN_RANGE_PROMPT = 'Введите число от '
+BORDER_PROMT = 'Введите числовую границу:\n'
+
 LEFT_BORDER_PROMPT_MESSAGE = 'Введите нижнюю границу числового диапазона: \n'
 RIGHT_BORDER_PROMPT = 'Введите верхнюю границу числового диапазона: \n'
 FAREWELL_MESSAGE = 'Спасибо, что играли в числовую угадайку. Еще увидимся...'
@@ -14,6 +16,7 @@ GUESS_NUMBER_MESSAGE = 'Число сделанных вами попыток:'
 # GAME_NUMBER_MESSAGE = 'Общее число сделанных вами попыток:'
 ERROR_OUT_OF_GUESS_MESSAGE = 'А может быть все-таки введем целое число от '
 BORDER_ERROR_MESSAGE = 'Это число должно быть больше чем '
+TYPE_ERROR_MESSAGE = 'Введенные данные должны быть числовыми!'
 NEW_GAME_PROPOSAL_MESSAGE = 'Хотите сыграть еще? \nНажмите: "1", затем: ENTER, ' \
                             'если ДА\nНажмите любую клавишу, затем: ENTER, если НЕТ\n'
 STOP_GAME_RESPONSE = '**'
@@ -42,11 +45,28 @@ def is_valid(input_string, guess_left_border, guess_right_border):
     return result
 
 
+#  returns integer input, asks untill get valid input
+def get_num_input(prompt, error_message):
+    is_string_num = False
+    input_string = input(prompt)
+    while not is_string_num:
+        if input_string[0] == '-' and input_string[1:].isdigit() or input_string.isdigit():
+            is_string_num = True
+        else:
+            print(error_message)
+            input_string = input(prompt)
+
+    is_string_num = int(input_string)
+    return is_string_num
+
+
 def guessing_game_run():
     is_guess_wrong = True
     guess_count = 0
-    guess_left_border = int(input(LEFT_BORDER_PROMPT_MESSAGE))
-    guess_right_border = int(input(RIGHT_BORDER_PROMPT))
+
+    guess_left_border = get_num_input(LEFT_BORDER_PROMPT_MESSAGE, TYPE_ERROR_MESSAGE)
+    guess_right_border = get_num_input(RIGHT_BORDER_PROMPT, TYPE_ERROR_MESSAGE)
+
     is_right_border_correct = guess_right_border > guess_left_border
     while not is_right_border_correct:
         print(f'{BORDER_ERROR_MESSAGE}{guess_left_border}{EXCLAMATION_SIGN}\n')
@@ -57,7 +77,7 @@ def guessing_game_run():
     print(MIN_GUARANTEED_GUESS_MESSAGE, guaranteed_min_tries, sep='\n')
     hidden_num = randint(guess_left_border, guess_right_border)
     error_message = f'{ERROR_OUT_OF_GUESS_MESSAGE}{guess_left_border}{UP_TO_SEP}{guess_right_border}? \n'
-    guess_prompt = f'{ENTER_NUM_PROMPT}{guess_left_border}{UP_TO_SEP}{guess_right_border}{COLON_SEP} \n'
+    guess_prompt = f'{NUM_IN_RANGE_PROMPT}{guess_left_border}{UP_TO_SEP}{guess_right_border}{COLON_SEP} \n'
 
     while is_guess_wrong:
         guess = input(f'{GIVE_UP_PROPOSAL}\n{guess_prompt}')
@@ -91,3 +111,4 @@ def main():
 
 
 main()
+
