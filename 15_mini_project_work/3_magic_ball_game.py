@@ -23,7 +23,7 @@ FAREWELL_MESSAGE = 'Возвращайся если возникнут вопр�
 
 
 def is_question_valid(question, ignore_word_list, no_question_mark_error, impossible_question_error,
-                      non_letter_error, ):
+                      non_letter_error):
     no_letter = True
     no_question_mark = True
     is_question_impossible = False
