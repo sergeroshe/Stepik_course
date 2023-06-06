@@ -14,7 +14,7 @@ INCLUDE_PUNCT_PROMPT = 'Включать ли символы !#$%&*+-=?@^_?\n'
 EXCLUDE_AMBIG_CHARS_PROMPT = 'Исключать ли неоднозначные символы il1Lo0O?\n'
 
 
-def get_conf():
+def get_password_config():
     passwd_num = int(input(PASSWD_NUM_PROMPT))
     cur_passwd_len = int(input(CUR_PASSWD_LEN_PROMPT))
     answer = input(INCLUDE_NUM_PROMPT)
@@ -34,7 +34,7 @@ def get_conf():
 
 def secure_password_generator():
     chars = ''
-    get_conf()
+    get_password_config()
 
 
 def main():
