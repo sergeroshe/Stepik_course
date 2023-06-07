@@ -6,7 +6,8 @@ LOWER_LETTERS = 'abcdefghijklmnopqrstuvwxyz'
 PUNCTUATION_CHARS = '!#$%&*+-=?@^_.'
 AMBIGUOUS_CHARS = 'il1Lo0O'
 PASSWD_COUNT_PROMPT = 'Количество паролей для генерации: \n'
-CUR_PASSWD_LEN_PROMPT = 'Введите длину пароля '
+CUR_PASSWD_LEN_PROMPT = 'Введите длину пароля:\n '
+TYPE_ERROR_MESSAGE = 'Введенные данные должны быть числовыми!'
 NO_RESPONSE = '1'
 INCLUDE_NUMBERS_PROMPT = 'Включать ли цифры 0123456789?\n'
 INCLUDE_UPPER_LETTERS_PROMPT = 'Включать ли прописные буквы ABCDEFGHIJKLMNOPQRSTUVWXYZ?\n'
@@ -15,11 +16,25 @@ INCLUDE_PUNCT_PROMPT = 'Включать ли символы !#$%&*+-=?@^_?\n'
 EXCLUDE_AMBIGUOUS_CHARS_PROMPT = 'Исключать ли неоднозначные символы il1Lo0O?\n'
 
 
+def get_num_input(prompt, error_message):
+    is_string_num = False
+    input_string = input(prompt)
+    while not is_string_num:
+        if input_string[0] == '-' and input_string[1:].isdigit() or input_string.isdigit():
+            is_string_num = True
+        else:
+            print(error_message)
+            input_string = input(prompt)
+
+    is_string_num = int(input_string)
+    return is_string_num
+
+
 def secure_password_generator():
     chars = ''
 
-    passwd_count = int(input(PASSWD_COUNT_PROMPT))
-    cur_passwd_len = int(input(CUR_PASSWD_LEN_PROMPT))
+    passwd_count = get_num_input(PASSWD_COUNT_PROMPT, TYPE_ERROR_MESSAGE)
+    cur_passwd_len = get_num_input(CUR_PASSWD_LEN_PROMPT, TYPE_ERROR_MESSAGE)
 
     numbers_included = input(INCLUDE_NUMBERS_PROMPT) != NO_RESPONSE
     upper_letters_included = input(INCLUDE_UPPER_LETTERS_PROMPT) != NO_RESPONSE
