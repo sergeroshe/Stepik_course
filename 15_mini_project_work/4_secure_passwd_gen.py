@@ -16,26 +16,44 @@ EXCLUDE_AMBIG_CHARS_PROMPT = 'Исключать ли неоднозначные
 
 
 def get_password_config():
-    passwd_num = int(input(PASSWD_NUM_PROMPT))
-    cur_passwd_len = int(input(CUR_PASSWD_LEN_PROMPT))
-    answer = input(INCLUDE_NUM_PROMPT)
+    passwd_num = int(input(PASSWD_NUM_PROMPT))  #  0
+    cur_passwd_len = int(input(CUR_PASSWD_LEN_PROMPT))  #  1
+    answer = input(INCLUDE_NUM_PROMPT)  #  2
     is_num_included = answer != NO_RESPONSE
-    answer = input(INCLUDE_CAP_LETTERS_PROMPT)
+    answer = input(INCLUDE_CAP_LETTERS_PROMPT)  #  3
     is_cap_letter_included = answer != NO_RESPONSE
-    answer = input(INCLUDE_SMALL_LETTERS_PROMPT)
+    answer = input(INCLUDE_SMALL_LETTERS_PROMPT)  #  4
     is_small_letter_included = answer != NO_RESPONSE
-    answer = input(INCLUDE_PUNCT_PROMPT)
+    answer = input(INCLUDE_PUNCT_PROMPT)  #  5
     is_punctuation_included = answer != NO_RESPONSE
-    answer = input(EXCLUDE_AMBIG_CHARS_PROMPT)
+    answer = input(EXCLUDE_AMBIG_CHARS_PROMPT)  #  6
     is_ambig_chars_excluded = answer != NO_RESPONSE
 
-    return passwd_num, cur_passwd_len, is_num_included, is_cap_letter_included, is_small_letter_included, \
+    return passwd_num, cur_passwd_len, is_num_included,\
+        is_cap_letter_included, is_small_letter_included, \
         is_punctuation_included, is_ambig_chars_excluded
 
 
 def secure_password_generator():
     chars = ''
-    get_password_config()
+    passwd_config = get_password_config()
+    passwd_num = passwd_config[0]
+    cur_passwd_len = passwd_config[1]
+    print(passwd_num, cur_passwd_len)
+    for i in range(passwd_num):
+        if passwd_config[2]:
+            chars += DIGITS
+        if passwd_config[3]:
+            chars += UPPER_LETTERS
+        if passwd_config[4]:
+            chars += LOWER_LETTERS
+        if passwd_config[5]:
+            chars += PUNCTUATION_CHARS
+        if passwd_config[6]:
+            for c in chars:
+                if c in AMBIGUOUS_CHARS:
+                    chars = chars.replace(c, '')
+    print(chars)
 
 
 def main():
