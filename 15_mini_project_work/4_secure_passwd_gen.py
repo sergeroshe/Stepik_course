@@ -16,18 +16,14 @@ EXCLUDE_AMBIG_CHARS_PROMPT = 'Исключать ли неоднозначные
 
 
 def get_password_config():
-    passwd_num = int(input(PASSWD_NUM_PROMPT))  #  0
-    cur_passwd_len = int(input(CUR_PASSWD_LEN_PROMPT))  #  1
-    answer = input(INCLUDE_NUM_PROMPT)  #  2
-    is_num_included = answer != NO_RESPONSE
-    answer = input(INCLUDE_CAP_LETTERS_PROMPT)  #  3
-    is_cap_letter_included = answer != NO_RESPONSE
-    answer = input(INCLUDE_SMALL_LETTERS_PROMPT)  #  4
-    is_small_letter_included = answer != NO_RESPONSE
-    answer = input(INCLUDE_PUNCT_PROMPT)  #  5
-    is_punctuation_included = answer != NO_RESPONSE
-    answer = input(EXCLUDE_AMBIG_CHARS_PROMPT)  #  6
-    is_ambig_chars_excluded = answer != NO_RESPONSE
+    passwd_num = int(input(PASSWD_NUM_PROMPT))
+    cur_passwd_len = int(input(CUR_PASSWD_LEN_PROMPT))
+
+    is_num_included = input(INCLUDE_NUM_PROMPT) != NO_RESPONSE
+    is_cap_letter_included = input(INCLUDE_CAP_LETTERS_PROMPT) != NO_RESPONSE
+    is_small_letter_included = input(INCLUDE_SMALL_LETTERS_PROMPT) != NO_RESPONSE
+    is_punctuation_included = input(INCLUDE_PUNCT_PROMPT) != NO_RESPONSE
+    is_ambig_chars_excluded = input(EXCLUDE_AMBIG_CHARS_PROMPT) != NO_RESPONSE
 
     return passwd_num, cur_passwd_len, is_num_included,\
         is_cap_letter_included, is_small_letter_included, \
