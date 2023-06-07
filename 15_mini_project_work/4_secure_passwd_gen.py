@@ -5,7 +5,7 @@ UPPER_LETTERS = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
 LOWER_LETTERS = 'abcdefghijklmnopqrstuvwxyz'
 PUNCTUATION_CHARS = '!#$%&*+-=?@^_.'
 AMBIGUOUS_CHARS = 'il1Lo0O'
-PASSWD_NUM_PROMPT = 'Количество паролей для генерации: \n'
+PASSWD_COUNT_PROMPT = 'Количество паролей для генерации: \n'
 CUR_PASSWD_LEN_PROMPT = 'Введите длину пароля '
 NO_RESPONSE = '1'
 INCLUDE_NUM_PROMPT = 'Включать ли цифры 0123456789?\n'
@@ -18,7 +18,7 @@ EXCLUDE_AMBIG_CHARS_PROMPT = 'Исключать ли неоднозначные
 def secure_password_generator():
     chars = ''
 
-    passwd_num = int(input(PASSWD_NUM_PROMPT))
+    passwd_count = int(input(PASSWD_COUNT_PROMPT))
     cur_passwd_len = int(input(CUR_PASSWD_LEN_PROMPT))
 
     is_num_included = input(INCLUDE_NUM_PROMPT) != NO_RESPONSE
@@ -27,7 +27,7 @@ def secure_password_generator():
     is_punctuation_included = input(INCLUDE_PUNCT_PROMPT) != NO_RESPONSE
     is_ambig_chars_excluded = input(EXCLUDE_AMBIG_CHARS_PROMPT) != NO_RESPONSE
 
-    for i in range(passwd_num):
+    for i in range(passwd_count):
         if is_num_included:
             chars += DIGITS
         if is_cap_letter_included:
