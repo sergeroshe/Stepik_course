@@ -27,7 +27,7 @@ def secure_password_generator():
     punctuation_included = input(INCLUDE_PUNCT_PROMPT) != NO_RESPONSE
     ambiguous_chars_excluded = input(EXCLUDE_AMBIGUOUS_CHARS_PROMPT) != NO_RESPONSE
 
-    for i in range(passwd_count):
+    for _ in range(passwd_count):
         if numbers_included:
             chars += DIGITS
         if upper_letters_included:
