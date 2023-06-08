@@ -14,6 +14,8 @@ INCLUDE_UPPER_LETTERS_PROMPT = 'Включать ли прописные бук�
 INCLUDE_LOWER_LETTERS_PROMPT = 'Включать ли строчные буквы abcdefghijklmnopqrstuvwxyz?\n'
 INCLUDE_PUNCT_PROMPT = 'Включать ли символы !#$%&*+-=?@^_?\n'
 EXCLUDE_AMBIGUOUS_CHARS_PROMPT = 'Исключать ли неоднозначные символы il1Lo0O?\n'
+CURRENT_PASSWORD_OUTPUT = 'Password # '
+COLON_SEP = ':\n'
 
 
 def get_num_input(prompt, error_message):
@@ -71,7 +73,7 @@ def main():
     passwd_count, chars, length = secure_password_configurator()
     for i in range(passwd_count):
         password = generate_password(chars, length)
-        current_passwd = 'Password # ' + str(i + 1) + ':\n' + password
+        current_passwd = CURRENT_PASSWORD_OUTPUT + str(i + 1) + COLON_SEP + password
         print(current_passwd)
 
 
