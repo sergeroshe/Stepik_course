@@ -1,4 +1,4 @@
-import random
+from random import choice
 
 DIGITS = '0123456789'
 UPPER_LETTERS = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
@@ -14,6 +14,8 @@ INCLUDE_UPPER_LETTERS_PROMPT = 'Включать ли прописные бук�
 INCLUDE_LOWER_LETTERS_PROMPT = 'Включать ли строчные буквы abcdefghijklmnopqrstuvwxyz?\n'
 INCLUDE_PUNCT_PROMPT = 'Включать ли символы !#$%&*+-=?@^_?\n'
 EXCLUDE_AMBIGUOUS_CHARS_PROMPT = 'Исключать ли неоднозначные символы il1Lo0O?\n'
+CURRENT_PASSWORD_OUTPUT = 'Password # '
+COLON_SEP = ':\n'
 
 
 def get_num_input(prompt, error_message):
@@ -30,7 +32,7 @@ def get_num_input(prompt, error_message):
     return is_string_num
 
 
-def secure_password_generator():
+def secure_password_configurator():
     chars = ''
 
     passwd_count = get_num_input(PASSWD_COUNT_PROMPT, TYPE_ERROR_MESSAGE)
@@ -56,9 +58,23 @@ def secure_password_generator():
                 if c in AMBIGUOUS_CHARS:
                     chars = chars.replace(c, '')
 
+    return passwd_count, cur_passwd_len, chars
+
+
+def generate_password(length, chars):
+    password = ''
+    for i in range(length):
+        password += choice(chars)
+
+    return password
+
 
 def main():
-    secure_password_generator()
+    passwd_count, chars, length = secure_password_configurator()
+    for i in range(passwd_count):
+        password = generate_password(chars, length)
+        current_passwd = CURRENT_PASSWORD_OUTPUT + str(i + 1) + COLON_SEP + password
+        print(current_passwd)
 
 
 main()
