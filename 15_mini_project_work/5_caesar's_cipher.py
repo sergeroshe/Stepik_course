@@ -10,10 +10,11 @@ IGNORE_CHAR_LIST = '!#$%&*+-=?@^_., '
 
 def get_num_input(prompt, error_message):
     is_string_num = False
+
     input_string = input(prompt)
-    is_input_non_empty = len(input_string) != 0
+
     while not is_string_num:
-        if is_input_non_empty and input_string[0] == '-' and input_string[1:].isdigit() or input_string.isdigit():
+        if input_string and input_string[0] == '-' and input_string[1:].isdigit() or input_string.isdigit():
             is_string_num = True
         else:
             print(error_message)
