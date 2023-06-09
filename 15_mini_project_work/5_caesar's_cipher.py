@@ -2,7 +2,7 @@
 MIN_ALPHABET_CHAR_IDX = 1040
 MAX_ALPHABET_CHAR_IDX = 1103
 ALPHABET_RANGE = 64
-# Latinic:
+# Cyrillic:
 
 # MIN_ALPHABET_CHAR_IDX = 97
 # MAX_ALPHABET_CHAR_IDX = 122
@@ -29,42 +29,48 @@ def get_num_input(prompt, error_message):
     return is_string_num
 
 
-shift = get_num_input(ENTER_SHIFT_PROMPT, TYPE_ERROR_MESSAGE)
-source_msg = input(ENTER_MESSAGE_PROMPT)
+def caesar_cypher():
 
-if shift < 0:
-    shift = ALPHABET_RANGE - shift
-shift %= ALPHABET_RANGE
+    shift = get_num_input(ENTER_SHIFT_PROMPT, TYPE_ERROR_MESSAGE)
+    source_msg = input(ENTER_MESSAGE_PROMPT)
 
-result_msg_letter_idx = 0
-upper_letter_idx_list = []
-result_msg_char_list = []
+    if shift < 0:
+        shift = ALPHABET_RANGE - shift
+    shift %= ALPHABET_RANGE
 
-for i in range(len(source_msg)):
-    letter = source_msg[i]
+    upper_letter_idx_list = []
+    result_msg_char_list = []
+    for i in range(len(source_msg)):
+        letter = source_msg[i]
 
-    if letter.isupper():
-        letter = letter.lower()
-        upper_letter_idx_list.append(i)
-    if letter not in IGNORE_CHAR_LIST:
-        result_msg_letter_idx = ord(letter) - shift
+        if letter.isupper():
+            letter = letter.lower()
+            upper_letter_idx_list.append(i)
+        if letter not in IGNORE_CHAR_LIST:
+            result_msg_letter_idx = ord(letter) + shift
 
-        if result_msg_letter_idx < MIN_ALPHABET_CHAR_IDX:
-            result_msg_letter_idx = (MAX_ALPHABET_CHAR_IDX + 1) \
-                                    - (MIN_ALPHABET_CHAR_IDX - result_msg_letter_idx) % ALPHABET_RANGE
-        elif result_msg_letter_idx > MAX_ALPHABET_CHAR_IDX:
-            result_msg_letter_idx = MIN_ALPHABET_CHAR_IDX + \
-                                    (result_msg_letter_idx - (MAX_ALPHABET_CHAR_IDX + 1)) % ALPHABET_RANGE
-    else:
-        result_msg_letter_idx = ord(letter)
+            if result_msg_letter_idx < MIN_ALPHABET_CHAR_IDX:
+                result_msg_letter_idx = (MAX_ALPHABET_CHAR_IDX + 1) \
+                                        - (MIN_ALPHABET_CHAR_IDX - result_msg_letter_idx) % ALPHABET_RANGE
+            elif result_msg_letter_idx > MAX_ALPHABET_CHAR_IDX:
+                result_msg_letter_idx = MIN_ALPHABET_CHAR_IDX + \
+                                        (result_msg_letter_idx - (MAX_ALPHABET_CHAR_IDX + 1)) % ALPHABET_RANGE
+        else:
+            result_msg_letter_idx = ord(letter)
 
-    result_msg_char_list.append(chr(result_msg_letter_idx))
+        result_msg_char_list.append(chr(result_msg_letter_idx))
 
-for c in upper_letter_idx_list:
-    for k in range(len(result_msg_char_list)):
-        if c == k:
-            result_msg_char_list[k] = result_msg_char_list[k].upper()
+    for c in upper_letter_idx_list:
+        for k in range(len(result_msg_char_list)):
+            if c == k:
+                result_msg_char_list[k] = result_msg_char_list[k].upper()
 
-print(*result_msg_char_list, sep='')
+    result_msg = ''.join(result_msg_char_list)
+    print(result_msg)
 
-# for i in range(len(result_msg_letter_idx))
+
+def main():
+    caesar_cypher()
+
+
+main()
