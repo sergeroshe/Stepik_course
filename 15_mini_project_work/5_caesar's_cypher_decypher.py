@@ -1,6 +1,5 @@
-#  Кириллица:
-MIN_ALPHABET_CHAR_IDX = ord('A')
-MAX_ALPHABET_CHAR_IDX = ord('z')
+MIN_ALPHABET_CHAR_IDX = ord('А')
+MAX_ALPHABET_CHAR_IDX = ord('я')
 ALPHABET_RANGE = MAX_ALPHABET_CHAR_IDX - MIN_ALPHABET_CHAR_IDX + 1
 
 ENTER_SHIFT_PROMPT = 'Enter shift:\n'
@@ -30,7 +29,7 @@ def caesar_cypher():
     source_msg = input(ENTER_MESSAGE_PROMPT)
 
     if shift < 0:
-        shift = ALPHABET_RANGE - shift
+        shift = ALPHABET_RANGE + shift
     shift %= ALPHABET_RANGE
 
     upper_letter_idx_list = []
@@ -55,12 +54,8 @@ def caesar_cypher():
         result_msg_char_list.append(chr(result_msg_letter_idx))
         #  if
 
-    for c in upper_letter_idx_list:
-        for k in range(len(result_msg_char_list)):
-            if c == k:
-                result_msg_char_list[k] = result_msg_char_list[k].upper()
-            else:
-                result_msg_char_list[k] = result_msg_char_list[k].lower()
+    for idx in upper_letter_idx_list:
+        result_msg_char_list[idx] = result_msg_char_list[idx].upper()
 
     result_msg = ''.join(result_msg_char_list)
 
