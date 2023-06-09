@@ -35,7 +35,7 @@ def caesar_cypher():
     source_msg = input(ENTER_MESSAGE_PROMPT)
 
     if shift < 0:
-        shift = ALPHABET_RANGE - shift
+        shift = ALPHABET_RANGE + shift
     shift %= ALPHABET_RANGE
 
     upper_letter_idx_list = []
