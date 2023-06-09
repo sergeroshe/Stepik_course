@@ -1,11 +1,11 @@
 #  Кириллица:
-MIN_ALPHABET_CHAR_IDX = 1040
-MAX_ALPHABET_CHAR_IDX = 1103
-ALPHABET_RANGE = 64
+MIN_ALPHABET_CHAR_IDX = ord('A')
+MAX_ALPHABET_CHAR_IDX = ord('z')
+ALPHABET_RANGE = MAX_ALPHABET_CHAR_IDX - MIN_ALPHABET_CHAR_IDX + 1
 
 ENTER_SHIFT_PROMPT = 'Enter shift:\n'
 TYPE_ERROR_MESSAGE = 'The entered data must be numeric!'
-ENTER_MESSAGE_PROMPT = 'Enter message in cyrillic to deciphre:\n'
+ENTER_MESSAGE_PROMPT = 'Enter message in Latin to deciphre:\n'
 IGNORE_CHAR_LIST = '!#$%&*+-=?@^_., '
 
 
@@ -26,8 +26,8 @@ def get_num_input(prompt, error_message):
 
 def caesar_cypher():
 
-    shift = 7 # get_num_input(ENTER_SHIFT_PROMPT, TYPE_ERROR_MESSAGE)
-    source_msg = 'Шсъцхр щмчжмщ йшм, нмтзж йшм лхшщзщг.'  # input(ENTER_MESSAGE_PROMPT)
+    shift = get_num_input(ENTER_SHIFT_PROMPT, TYPE_ERROR_MESSAGE)
+    source_msg = input(ENTER_MESSAGE_PROMPT)
 
     if shift < 0:
         shift = ALPHABET_RANGE - shift
