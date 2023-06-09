@@ -61,11 +61,13 @@ def caesar_cypher():
                 result_msg_char_list[k] = result_msg_char_list[k].upper()
 
     result_msg = ''.join(result_msg_char_list)
-    print(result_msg)
+
+    return result_msg
 
 
 def main():
-    caesar_cypher()
+    decrypted_msg = caesar_cypher()
+    print(decrypted_msg)
 
 
 main()
