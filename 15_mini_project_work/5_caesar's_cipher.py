@@ -1,12 +1,6 @@
-#  Кириллица:
 MIN_ALPHABET_CHAR_IDX = ord('А')
 MAX_ALPHABET_CHAR_IDX = ord('я')
 ALPHABET_RANGE = MAX_ALPHABET_CHAR_IDX - MIN_ALPHABET_CHAR_IDX + 1
-# Cyrillic:
-
-# MIN_ALPHABET_CHAR_IDX = 97
-# MAX_ALPHABET_CHAR_IDX = 122
-# ALPHABET_RANGE = 26
 
 ENTER_SHIFT_PROMPT = 'Enter shift:\n'
 TYPE_ERROR_MESSAGE = 'The entered data must be numeric!'
