@@ -9,7 +9,7 @@ ALPHABET_RANGE = MAX_ALPHABET_CHAR_IDX - MIN_ALPHABET_CHAR_IDX + 1
 # ALPHABET_RANGE = 26
 
 ENTER_SHIFT_PROMPT = 'Enter shift:\n'
-TYPE_ERROR_MESSAGE = 'Введенные данные должны быть числовыми!'
+TYPE_ERROR_MESSAGE = 'The entered data must be numeric!'
 ENTER_MESSAGE_PROMPT = 'Enter message in cyrillic to ciphre:\n'
 IGNORE_CHAR_LIST = '!#$%&*+-=?@^_., '
 
