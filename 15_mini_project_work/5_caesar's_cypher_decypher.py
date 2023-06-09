@@ -26,11 +26,11 @@ def get_num_input(prompt, error_message):
 
 def caesar_cypher():
 
-    shift = get_num_input(ENTER_SHIFT_PROMPT, TYPE_ERROR_MESSAGE)
-    source_msg = input(ENTER_MESSAGE_PROMPT)
+    shift = 7 # get_num_input(ENTER_SHIFT_PROMPT, TYPE_ERROR_MESSAGE)
+    source_msg = 'Шсъцхр щмчжмщ йшм, нмтзж йшм лхшщзщг.'  # input(ENTER_MESSAGE_PROMPT)
 
     if shift < 0:
-        shift = ALPHABET_RANGE + shift
+        shift = ALPHABET_RANGE - shift
     shift %= ALPHABET_RANGE
 
     upper_letter_idx_list = []
