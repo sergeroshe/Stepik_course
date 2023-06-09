@@ -39,7 +39,6 @@ def caesar_cypher():
         letter = source_msg[i]
 
         if letter.isupper():
-           #  letter = letter.lower()
             upper_letter_idx_list.append(i)
         if letter not in IGNORE_CHAR_LIST:
             result_msg_letter_idx = ord(letter) - shift
@@ -60,6 +59,8 @@ def caesar_cypher():
         for k in range(len(result_msg_char_list)):
             if c == k:
                 result_msg_char_list[k] = result_msg_char_list[k].upper()
+            else:
+                result_msg_char_list[k] = result_msg_char_list[k].lower()
 
     result_msg = ''.join(result_msg_char_list)
 
