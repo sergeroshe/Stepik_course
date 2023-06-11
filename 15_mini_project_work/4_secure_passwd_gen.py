@@ -8,11 +8,11 @@ AMBIGUOUS_CHARS = 'il1Lo0O'
 
 PASSWD_COUNT_PROMPT = 'Количество паролей для генерации: \n'
 CUR_PASSWD_LEN_PROMPT = 'Введите длину пароля:\n'
-INCLUDE_DIGITS_PROMPT = 'Включать ли цифры 0123456789?'
-INCLUDE_UPPER_LETTERS_PROMPT = 'Включать ли прописные буквы ABCDEFGHIJKLMNOPQRSTUVWXYZ?'
-INCLUDE_LOWER_LETTERS_PROMPT = 'Включать ли строчные буквы abcdefghijklmnopqrstuvwxyz?'
-INCLUDE_PUNCT_PROMPT = 'Включать ли символы !#$%&*+-=?@^_?'
-EXCLUDE_AMBIGUOUS_CHARS_PROMPT = 'Исключать ли неоднозначные символы il1Lo0O?'
+INCLUDE_DIGITS_PROMPT = 'Включать ли цифры 0123456789'
+INCLUDE_UPPER_LETTERS_PROMPT = 'Включать ли прописные буквы ABCDEFGHIJKLMNOPQRSTUVWXYZ'
+INCLUDE_LOWER_LETTERS_PROMPT = 'Включать ли строчные буквы abcdefghijklmnopqrstuvwxyz'
+INCLUDE_PUNCT_PROMPT = 'Включать ли символы !#$%&*+-=?@^_'
+EXCLUDE_AMBIGUOUS_CHARS_PROMPT = 'Исключать ли неоднозначные символы il1Lo0O'
 
 TYPE_ERROR_MESSAGE = 'Введенные данные должны быть числовыми!'
 NO_RESPONSE = '1'
@@ -24,6 +24,7 @@ NEGATIVE_ACTION_CONFIRM = 'НЕТ'
 CURRENT_PASSWORD_OUTPUT = 'Password # '
 SUMMARY_CONFIG_MESSAGE = 'Вы выбрали следующую конфигурацию паролей:'
 COLON_SEP = ':\n'
+QUESTION_MARK = '?'
 
 
 def get_num_input(prompt, error_message):
@@ -46,11 +47,11 @@ def secure_password_configurator():
     passwd_count = get_num_input(PASSWD_COUNT_PROMPT, TYPE_ERROR_MESSAGE)
     cur_passwd_len = get_num_input(CUR_PASSWD_LEN_PROMPT, TYPE_ERROR_MESSAGE)
 
-    digits_included = input(INCLUDE_DIGITS_PROMPT) != NO_RESPONSE
-    upper_letters_included = input(INCLUDE_UPPER_LETTERS_PROMPT) != NO_RESPONSE
-    lower_letters_included = input(INCLUDE_LOWER_LETTERS_PROMPT) != NO_RESPONSE
-    punctuation_included = input(INCLUDE_PUNCT_PROMPT) != NO_RESPONSE
-    ambiguous_chars_excluded = input(EXCLUDE_AMBIGUOUS_CHARS_PROMPT) != NO_RESPONSE
+    digits_included = input(f'{INCLUDE_DIGITS_PROMPT}{QUESTION_MARK}\n') != NO_RESPONSE
+    upper_letters_included = input(f'{INCLUDE_UPPER_LETTERS_PROMPT}{QUESTION_MARK}\n') != NO_RESPONSE
+    lower_letters_included = input(f'{INCLUDE_LOWER_LETTERS_PROMPT}{QUESTION_MARK}\n') != NO_RESPONSE
+    punctuation_included = input(f'{INCLUDE_PUNCT_PROMPT}{QUESTION_MARK}\n') != NO_RESPONSE
+    ambiguous_chars_excluded = input(f'{EXCLUDE_AMBIGUOUS_CHARS_PROMPT}{QUESTION_MARK}\n') != NO_RESPONSE
 
     # for _ in range(passwd_count):
     if digits_included:
@@ -111,11 +112,12 @@ def main():
         current_passwd = CURRENT_PASSWORD_OUTPUT + str(i + 1) + COLON_SEP + password
         passwd_list.append(current_passwd)
 
-    summary_config = SUMMARY_CONFIG_MESSAGE, PASSWD_COUNT_MESSAGE, passwd_count, \
-        PASSWD_LEN_MESSAGE, length, INCLUDE_DIGITS_PROMPT, dig_answer, INCLUDE_UPPER_LETTERS_PROMPT, \
-        upper_letters_answer, INCLUDE_LOWER_LETTERS_PROMPT, lower_letters_answer,\
-        INCLUDE_PUNCT_PROMPT, punctuation_answer,\
-        EXCLUDE_AMBIGUOUS_CHARS_PROMPT, ambiguous_chars_answer
+    summary_config = SUMMARY_CONFIG_MESSAGE, PASSWD_COUNT_MESSAGE + COLON_SEP, passwd_count, \
+        PASSWD_LEN_MESSAGE + COLON_SEP, length, INCLUDE_DIGITS_PROMPT + COLON_SEP, dig_answer,\
+        INCLUDE_UPPER_LETTERS_PROMPT + COLON_SEP, upper_letters_answer,\
+        INCLUDE_LOWER_LETTERS_PROMPT + COLON_SEP, lower_letters_answer,\
+        INCLUDE_PUNCT_PROMPT + COLON_SEP, punctuation_answer,\
+        EXCLUDE_AMBIGUOUS_CHARS_PROMPT + COLON_SEP, ambiguous_chars_answer
 
     print()
     print(*summary_config, sep='\n')
