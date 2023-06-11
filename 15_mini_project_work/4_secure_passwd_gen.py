@@ -80,29 +80,46 @@ def generate_password(chars, length):
 def main():
     passwd_count, chars, length = secure_password_configurator()
     passwd_list = []
-    digits_included = DIGITS in chars
-    upper_letters_included = UPPER_LETTERS in chars
-    lower_letters_included = LOWER_LETTERS in chars
+    digits_included = DIGITS[-1] in chars
+    if digits_included:
+        dig_answer = POSITIVE_ACTION_CONFIRM
+    else:
+        dig_answer = NEGATIVE_ACTION_CONFIRM
+    upper_letters_included = UPPER_LETTERS[-1] in chars
+    if upper_letters_included:
+        upper_letters_answer = POSITIVE_ACTION_CONFIRM
+    else:
+        upper_letters_answer = NEGATIVE_ACTION_CONFIRM
+    lower_letters_included = LOWER_LETTERS[-1] in chars
+    if lower_letters_included:
+        lower_letters_answer = POSITIVE_ACTION_CONFIRM
+    else:
+        lower_letters_answer = NEGATIVE_ACTION_CONFIRM
     punctuation_included = PUNCTUATION_CHARS in chars
+    if punctuation_included:
+        punctuation_answer = POSITIVE_ACTION_CONFIRM
+    else:
+        punctuation_answer = NEGATIVE_ACTION_CONFIRM
     ambiguous_chars_excluded = AMBIGUOUS_CHARS not in chars
+    if ambiguous_chars_excluded:
+        ambiguous_chars_answer = POSITIVE_ACTION_CONFIRM
+    else:
+        ambiguous_chars_answer = NEGATIVE_ACTION_CONFIRM
 
     for i in range(passwd_count):
         password = generate_password(chars, length)
         current_passwd = CURRENT_PASSWORD_OUTPUT + str(i + 1) + COLON_SEP + password
         passwd_list.append(current_passwd)
 
-    # digits_included = False
-    # upper_letters_included = False
-    # lower_letters_included = False
-    # punctuation_included = False
-    # ambiguous_chars_excluded = False
-
     summary_config = SUMMARY_CONFIG_MESSAGE, PASSWD_COUNT_MESSAGE, passwd_count, \
-        PASSWD_LEN_MESSAGE, length, INCLUDE_DIGITS_PROMPT, digits_included, INCLUDE_UPPER_LETTERS_PROMPT, \
-        upper_letters_included, INCLUDE_LOWER_LETTERS_PROMPT, lower_letters_included,\
-        INCLUDE_PUNCT_PROMPT, punctuation_included,\
-        EXCLUDE_AMBIGUOUS_CHARS_PROMPT, ambiguous_chars_excluded
+        PASSWD_LEN_MESSAGE, length, INCLUDE_DIGITS_PROMPT, dig_answer, INCLUDE_UPPER_LETTERS_PROMPT, \
+        upper_letters_answer, INCLUDE_LOWER_LETTERS_PROMPT, lower_letters_answer,\
+        INCLUDE_PUNCT_PROMPT, punctuation_answer,\
+        EXCLUDE_AMBIGUOUS_CHARS_PROMPT, ambiguous_chars_answer
+
+    print()
     print(*summary_config, sep='\n')
+    print('Ваши пароли:')
     print(*passwd_list, sep='\n')
 
 
