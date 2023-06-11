@@ -23,7 +23,7 @@ NEGATIVE_ACTION_CONFIRM = 'НЕТ'
 
 CURRENT_PASSWORD_OUTPUT = 'Password # '
 SUMMARY_CONFIG_MESSAGE = 'Вы выбрали следующую конфигурацию паролей:'
-COLON_SEP = ':\n'
+COLON_SEP = ': '
 QUESTION_MARK = '?'
 
 
@@ -109,18 +109,19 @@ def main():
 
     for i in range(passwd_count):
         password = generate_password(chars, length)
-        current_passwd = CURRENT_PASSWORD_OUTPUT + str(i + 1) + COLON_SEP + password
+        current_passwd = f'{CURRENT_PASSWORD_OUTPUT + str(i + 1) + COLON_SEP}\n{password}'
         passwd_list.append(current_passwd)
 
-    summary_config = SUMMARY_CONFIG_MESSAGE, PASSWD_COUNT_MESSAGE + COLON_SEP, passwd_count, \
-        PASSWD_LEN_MESSAGE + COLON_SEP, length, INCLUDE_DIGITS_PROMPT + COLON_SEP, dig_answer,\
-        INCLUDE_UPPER_LETTERS_PROMPT + COLON_SEP, upper_letters_answer,\
-        INCLUDE_LOWER_LETTERS_PROMPT + COLON_SEP, lower_letters_answer,\
-        INCLUDE_PUNCT_PROMPT + COLON_SEP, punctuation_answer,\
-        EXCLUDE_AMBIGUOUS_CHARS_PROMPT + COLON_SEP, ambiguous_chars_answer
+    summary_config = f'{SUMMARY_CONFIG_MESSAGE}\n{PASSWD_COUNT_MESSAGE} {passwd_count}\n'\
+                     f'{PASSWD_LEN_MESSAGE} {length}\n{INCLUDE_DIGITS_PROMPT + COLON_SEP + dig_answer}\n'\
+                     f'{INCLUDE_UPPER_LETTERS_PROMPT + COLON_SEP + upper_letters_answer}\n'\
+                     f'{INCLUDE_LOWER_LETTERS_PROMPT + COLON_SEP + lower_letters_answer}\n'\
+                     f'{INCLUDE_PUNCT_PROMPT + COLON_SEP + punctuation_answer}\n'\
+                     f'{EXCLUDE_AMBIGUOUS_CHARS_PROMPT + COLON_SEP + ambiguous_chars_answer}'
 
     print()
-    print(*summary_config, sep='\n')
+    print(summary_config)
+    print()
     print('Ваши пароли:')
     print(*passwd_list, sep='\n')
 
