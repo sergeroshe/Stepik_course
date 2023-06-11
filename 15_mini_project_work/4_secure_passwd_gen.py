@@ -107,6 +107,7 @@ def print_config(passwd_count, passwd_len, digits_included, upper_letters_includ
 
     print()
     print(summary_config)
+    print()
 
 
 def generate_password(chars, length):
@@ -126,7 +127,6 @@ def main():
         current_passwd = f'{CURRENT_PASSWORD_OUTPUT + str(i + 1) + COLON_SEP}\n{password}'
         passwd_list.append(current_passwd)
 
-    print()
     print('Ваши пароли:')
     print(*passwd_list, sep='\n')
 
