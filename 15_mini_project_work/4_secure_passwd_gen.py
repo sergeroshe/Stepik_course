@@ -53,7 +53,6 @@ def secure_password_configurator():
     punctuation_included = input(f'{INCLUDE_PUNCT_PROMPT}{QUESTION_MARK}\n') != NO_RESPONSE
     ambiguous_chars_excluded = input(f'{EXCLUDE_AMBIGUOUS_CHARS_PROMPT}{QUESTION_MARK}\n') != NO_RESPONSE
 
-    # for _ in range(passwd_count):
     if digits_included:
         chars += DIGITS
     if upper_letters_included:
@@ -75,28 +74,11 @@ def secure_password_configurator():
 def print_config(passwd_count, passwd_len, digits_included, upper_letters_included,
                  lower_letters_included, punctuation_included, ambiguous_chars_excluded):
 
-    if digits_included:
-        dig_answer = POSITIVE_ACTION_CONFIRM
-    else:
-        dig_answer = NEGATIVE_ACTION_CONFIRM
-
-    if upper_letters_included:
-        upper_letters_answer = POSITIVE_ACTION_CONFIRM
-    else:
-        upper_letters_answer = NEGATIVE_ACTION_CONFIRM
-
-    if lower_letters_included:
-        lower_letters_answer = POSITIVE_ACTION_CONFIRM
-    else:
-        lower_letters_answer = NEGATIVE_ACTION_CONFIRM
-    if punctuation_included:
-        punctuation_answer = POSITIVE_ACTION_CONFIRM
-    else:
-        punctuation_answer = NEGATIVE_ACTION_CONFIRM
-    if ambiguous_chars_excluded:
-        ambiguous_chars_answer = POSITIVE_ACTION_CONFIRM
-    else:
-        ambiguous_chars_answer = NEGATIVE_ACTION_CONFIRM
+    dig_answer = POSITIVE_ACTION_CONFIRM if digits_included else NEGATIVE_ACTION_CONFIRM
+    upper_letters_answer = POSITIVE_ACTION_CONFIRM if upper_letters_included else NEGATIVE_ACTION_CONFIRM
+    lower_letters_answer = POSITIVE_ACTION_CONFIRM if lower_letters_included else NEGATIVE_ACTION_CONFIRM
+    punctuation_answer = POSITIVE_ACTION_CONFIRM if punctuation_included else NEGATIVE_ACTION_CONFIRM
+    ambiguous_chars_answer = POSITIVE_ACTION_CONFIRM if ambiguous_chars_excluded else NEGATIVE_ACTION_CONFIRM
 
     summary_config = f'{SUMMARY_CONFIG_MESSAGE}\n{PASSWD_COUNT_MESSAGE} {passwd_count}\n' \
                      f'{PASSWD_LEN_MESSAGE} {passwd_len}\n{INCLUDE_DIGITS_PROMPT + COLON_SEP + dig_answer}\n' \
