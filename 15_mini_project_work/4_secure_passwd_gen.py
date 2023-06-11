@@ -18,6 +18,7 @@ TYPE_ERROR_MESSAGE = 'Введенные данные должны быть чи
 NO_RESPONSE = '1'
 PASSWD_COUNT_MESSAGE = 'Количество паролей:'
 PASSWD_LEN_MESSAGE = 'Длина пароля:'
+YOUR_PASSWORDS_MESSAGE = 'Ваши пароли:'
 POSITIVE_ACTION_CONFIRM = 'ДА'
 NEGATIVE_ACTION_CONFIRM = 'НЕТ'
 
@@ -109,7 +110,8 @@ def main():
         current_passwd = f'{CURRENT_PASSWORD_OUTPUT + str(i + 1) + COLON_SEP}\n{password}'
         passwd_list.append(current_passwd)
 
-    print('Ваши пароли:')
+    print(YOUR_PASSWORDS_MESSAGE)
+    print()
     print(*passwd_list, sep='\n')
 
 
