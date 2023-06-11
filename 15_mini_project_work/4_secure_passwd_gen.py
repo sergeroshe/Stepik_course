@@ -5,17 +5,27 @@ UPPER_LETTERS = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
 LOWER_LETTERS = 'abcdefghijklmnopqrstuvwxyz'
 PUNCTUATION_CHARS = '!#$%&*+-=?@^_.'
 AMBIGUOUS_CHARS = 'il1Lo0O'
+
 PASSWD_COUNT_PROMPT = 'Количество паролей для генерации: \n'
-CUR_PASSWD_LEN_PROMPT = 'Введите длину пароля:\n '
+CUR_PASSWD_LEN_PROMPT = 'Введите длину пароля:\n'
+INCLUDE_DIGITS_PROMPT = 'Включать ли цифры 0123456789'
+INCLUDE_UPPER_LETTERS_PROMPT = 'Включать ли прописные буквы ABCDEFGHIJKLMNOPQRSTUVWXYZ'
+INCLUDE_LOWER_LETTERS_PROMPT = 'Включать ли строчные буквы abcdefghijklmnopqrstuvwxyz'
+INCLUDE_PUNCT_PROMPT = 'Включать ли символы !#$%&*+-=?@^_'
+EXCLUDE_AMBIGUOUS_CHARS_PROMPT = 'Исключать ли неоднозначные символы il1Lo0O'
+
 TYPE_ERROR_MESSAGE = 'Введенные данные должны быть числовыми!'
 NO_RESPONSE = '1'
-INCLUDE_NUMBERS_PROMPT = 'Включать ли цифры 0123456789?\n'
-INCLUDE_UPPER_LETTERS_PROMPT = 'Включать ли прописные буквы ABCDEFGHIJKLMNOPQRSTUVWXYZ?\n'
-INCLUDE_LOWER_LETTERS_PROMPT = 'Включать ли строчные буквы abcdefghijklmnopqrstuvwxyz?\n'
-INCLUDE_PUNCT_PROMPT = 'Включать ли символы !#$%&*+-=?@^_?\n'
-EXCLUDE_AMBIGUOUS_CHARS_PROMPT = 'Исключать ли неоднозначные символы il1Lo0O?\n'
+PASSWD_COUNT_MESSAGE = 'Количество паролей:'
+PASSWD_LEN_MESSAGE = 'Длина пароля:'
+YOUR_PASSWORDS_MESSAGE = 'Ваши пароли:'
+POSITIVE_ACTION_CONFIRM = 'ДА'
+NEGATIVE_ACTION_CONFIRM = 'НЕТ'
+
 CURRENT_PASSWORD_OUTPUT = 'Password # '
-COLON_SEP = ':\n'
+SUMMARY_CONFIG_MESSAGE = 'Вы выбрали следующую конфигурацию паролей:'
+COLON_SEP = ': '
+QUESTION_MARK = '?'
 
 
 def get_num_input(prompt, error_message):
@@ -36,32 +46,54 @@ def secure_password_configurator():
     chars = ''
 
     passwd_count = get_num_input(PASSWD_COUNT_PROMPT, TYPE_ERROR_MESSAGE)
-    cur_passwd_len = get_num_input(CUR_PASSWD_LEN_PROMPT, TYPE_ERROR_MESSAGE)
+    passwd_len = get_num_input(CUR_PASSWD_LEN_PROMPT, TYPE_ERROR_MESSAGE)
 
-    numbers_included = input(INCLUDE_NUMBERS_PROMPT) != NO_RESPONSE
-    upper_letters_included = input(INCLUDE_UPPER_LETTERS_PROMPT) != NO_RESPONSE
-    lower_letters_included = input(INCLUDE_LOWER_LETTERS_PROMPT) != NO_RESPONSE
-    punctuation_included = input(INCLUDE_PUNCT_PROMPT) != NO_RESPONSE
-    ambiguous_chars_excluded = input(EXCLUDE_AMBIGUOUS_CHARS_PROMPT) != NO_RESPONSE
+    digits_included = input(f'{INCLUDE_DIGITS_PROMPT}{QUESTION_MARK}\n') != NO_RESPONSE
+    upper_letters_included = input(f'{INCLUDE_UPPER_LETTERS_PROMPT}{QUESTION_MARK}\n') != NO_RESPONSE
+    lower_letters_included = input(f'{INCLUDE_LOWER_LETTERS_PROMPT}{QUESTION_MARK}\n') != NO_RESPONSE
+    punctuation_included = input(f'{INCLUDE_PUNCT_PROMPT}{QUESTION_MARK}\n') != NO_RESPONSE
+    ambiguous_chars_excluded = input(f'{EXCLUDE_AMBIGUOUS_CHARS_PROMPT}{QUESTION_MARK}\n') != NO_RESPONSE
 
-    for _ in range(passwd_count):
-        if numbers_included:
-            chars += DIGITS
-        if upper_letters_included:
-            chars += UPPER_LETTERS
-        if lower_letters_included:
-            chars += LOWER_LETTERS
-        if punctuation_included:
-            chars += PUNCTUATION_CHARS
-        if ambiguous_chars_excluded:
-            for c in chars:
-                if c in AMBIGUOUS_CHARS:
-                    chars = chars.replace(c, '')
+    if digits_included:
+        chars += DIGITS
+    if upper_letters_included:
+        chars += UPPER_LETTERS
+    if lower_letters_included:
+        chars += LOWER_LETTERS
+    if punctuation_included:
+        chars += PUNCTUATION_CHARS
+    if ambiguous_chars_excluded:
+        for c in chars:
+            if c in AMBIGUOUS_CHARS:
+                chars = chars.replace(c, '')
 
-    return passwd_count, cur_passwd_len, chars
+    print_config(passwd_count, passwd_len, digits_included, upper_letters_included,
+                 lower_letters_included, punctuation_included, ambiguous_chars_excluded)
+    return passwd_count, chars, passwd_len
 
 
-def generate_password(length, chars):
+def print_config(passwd_count, passwd_len, digits_included, upper_letters_included,
+                 lower_letters_included, punctuation_included, ambiguous_chars_excluded):
+
+    dig_answer = POSITIVE_ACTION_CONFIRM if digits_included else NEGATIVE_ACTION_CONFIRM
+    upper_letters_answer = POSITIVE_ACTION_CONFIRM if upper_letters_included else NEGATIVE_ACTION_CONFIRM
+    lower_letters_answer = POSITIVE_ACTION_CONFIRM if lower_letters_included else NEGATIVE_ACTION_CONFIRM
+    punctuation_answer = POSITIVE_ACTION_CONFIRM if punctuation_included else NEGATIVE_ACTION_CONFIRM
+    ambiguous_chars_answer = POSITIVE_ACTION_CONFIRM if ambiguous_chars_excluded else NEGATIVE_ACTION_CONFIRM
+
+    summary_config = f'{SUMMARY_CONFIG_MESSAGE}\n{PASSWD_COUNT_MESSAGE} {passwd_count}\n' \
+                     f'{PASSWD_LEN_MESSAGE} {passwd_len}\n{INCLUDE_DIGITS_PROMPT + COLON_SEP + dig_answer}\n' \
+                     f'{INCLUDE_UPPER_LETTERS_PROMPT + COLON_SEP + upper_letters_answer}\n' \
+                     f'{INCLUDE_LOWER_LETTERS_PROMPT + COLON_SEP + lower_letters_answer}\n' \
+                     f'{INCLUDE_PUNCT_PROMPT + COLON_SEP + punctuation_answer}\n' \
+                     f'{EXCLUDE_AMBIGUOUS_CHARS_PROMPT + COLON_SEP + ambiguous_chars_answer}'
+
+    print()
+    print(summary_config)
+    print()
+
+
+def generate_password(chars, length):
     password = ''
     for i in range(length):
         password += choice(chars)
@@ -71,10 +103,16 @@ def generate_password(length, chars):
 
 def main():
     passwd_count, chars, length = secure_password_configurator()
+    passwd_list = []
+
     for i in range(passwd_count):
         password = generate_password(chars, length)
-        current_passwd = CURRENT_PASSWORD_OUTPUT + str(i + 1) + COLON_SEP + password
-        print(current_passwd)
+        current_passwd = f'{CURRENT_PASSWORD_OUTPUT + str(i + 1) + COLON_SEP}\n{password}'
+        passwd_list.append(current_passwd)
+
+    print(YOUR_PASSWORDS_MESSAGE)
+    print()
+    print(*passwd_list, sep='\n')
 
 
 main()
