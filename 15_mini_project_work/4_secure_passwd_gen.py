@@ -18,7 +18,7 @@ TYPE_ERROR_MESSAGE = 'Введенные данные должны быть чи
 NO_RESPONSE = '1'
 PASSWD_COUNT_MESSAGE = 'Количество паролей:'
 PASSWD_LEN_MESSAGE = 'Длина пароля:'
-YOUR_PASSWORDS_MESSAGE = 'Ваши пароли готовы:'
+YOUR_PASSWORDS_MESSAGE = 'Ваши пароли:'
 POSITIVE_ACTION_CONFIRM = 'ДА'
 NEGATIVE_ACTION_CONFIRM = 'НЕТ'
 
@@ -101,12 +101,7 @@ def generate_password(chars, length):
     return password
 
 
-def print_passwords(passwd_count, chars, length, passwd_list):
-    for i in range(passwd_count):
-        password = generate_password(chars, length)
-        current_passwd = f'{CURRENT_PASSWORD_OUTPUT + str(i + 1) + COLON_SEP}\n{password}'
-        passwd_list.append(current_passwd)
-
+def print_passwords(passwd_list):
     print(YOUR_PASSWORDS_MESSAGE)
     print()
     print(*passwd_list, sep='\n')
@@ -115,8 +110,13 @@ def print_passwords(passwd_count, chars, length, passwd_list):
 def main():
     passwd_count, chars, length = secure_password_configurator()
     passwd_list = []
-    print_passwords(passwd_count, chars, length, passwd_list)
+
+    for i in range(passwd_count):
+        password = generate_password(chars, length)
+        current_passwd = f'{CURRENT_PASSWORD_OUTPUT + str(i + 1) + COLON_SEP}\n{password}'
+        passwd_list.append(current_passwd)
+
+    print_passwords(passwd_list)
 
 
 main()
-
