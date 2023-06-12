@@ -101,26 +101,27 @@ def generate_password(chars, length):
     return password
 
 
-def print_passwords(passwd_list):
+def print_passwords(passwd_list, passwd_num):
     print(YOUR_PASSWORDS_MESSAGE)
-    print()
+    current_passwd = f'{CURRENT_PASSWORD_OUTPUT + str(passwd_num) + COLON_SEP}'
+    print(current_passwd)
     print(*passwd_list, sep='\n')
 
 
 def generate_passwords(passwd_count, chars, length):
     passwd_list = []
-
+    passwd_num_list = []
     for i in range(passwd_count):
         password = generate_password(chars, length)
-        current_passwd = f'{CURRENT_PASSWORD_OUTPUT + str(i + 1) + COLON_SEP}\n{password}'
-        passwd_list.append(current_passwd)
-    return passwd_list
+        passwd_num_list.append(i + 1)
+        passwd_list.append(password)
+    return passwd_list, passwd_num_list
 
 
 def main():
     passwd_count, chars, length = secure_password_configurator()
-    passwd_list = generate_passwords(passwd_count, chars, length)
-    print_passwords(passwd_list)
+    passwd_list, passwd_num_list = generate_passwords(passwd_count, chars, length)
+    print_passwords(passwd_list, passwd_num_list)
 
 
 main()
