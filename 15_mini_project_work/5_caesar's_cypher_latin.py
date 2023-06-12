@@ -52,12 +52,10 @@ def caesar_cypher():
         else:
             result_msg_letter_idx = ord(letter)
 
-        result_msg_char_list.append(chr(result_msg_letter_idx))
+        result_msg_char_list.append((chr(result_msg_letter_idx)).lower())
 
-    for c in upper_letter_idx_list:
-        for k in range(len(result_msg_char_list)):
-            if c == k:
-                result_msg_char_list[k] = result_msg_char_list[k].upper()
+    for idx in upper_letter_idx_list:
+        result_msg_char_list[idx] = result_msg_char_list[idx].upper()
 
     result_msg = ''.join(result_msg_char_list)
     print(result_msg)
