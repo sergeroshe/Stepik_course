@@ -1,11 +1,11 @@
-MIN_ALPHABET_CHAR_IDX = ord('А')
-MAX_ALPHABET_CHAR_IDX = ord('я')
+MIN_ALPHABET_CHAR_IDX = ord('A')
+MAX_ALPHABET_CHAR_IDX = ord('z')
 ALPHABET_RANGE = MAX_ALPHABET_CHAR_IDX - MIN_ALPHABET_CHAR_IDX + 1
 
 ENTER_SHIFT_PROMPT = 'Enter shift:\n'
 TYPE_ERROR_MESSAGE = 'The entered data must be numeric!'
 ENTER_MESSAGE_PROMPT = 'Enter message in Latin to ciphre:\n'
-IGNORE_CHAR_LIST = '!#$%&*+-=?@^_., '
+IGNORE_CHAR_LIST = '!#$%&*+-=?@^_.", '
 
 
 def get_num_input(prompt, error_message):
