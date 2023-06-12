@@ -103,8 +103,9 @@ def generate_password(chars, length):
 
 def print_passwords(passwd_list, passwd_num):
     print(YOUR_PASSWORDS_MESSAGE)
-    current_passwd = f'{CURRENT_PASSWORD_OUTPUT + str(passwd_num) + COLON_SEP}'
-    print(current_passwd)
+    for i in range(len(passwd_num)):
+        current_passwd = f'{CURRENT_PASSWORD_OUTPUT + str(i + 1) + COLON_SEP}'
+        print(current_passwd)
     print(*passwd_list, sep='\n')
 
 
