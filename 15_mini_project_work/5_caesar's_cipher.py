@@ -24,10 +24,7 @@ def get_num_input(prompt, error_message):
     return is_string_num
 
 
-def caesar_cypher():
-
-    shift = get_num_input(ENTER_SHIFT_PROMPT, TYPE_ERROR_MESSAGE)
-    source_msg = input(ENTER_MESSAGE_PROMPT)
+def caesar_cypher(shift, source_msg):
 
     if shift < 0:
         shift = ALPHABET_RANGE + shift
@@ -59,11 +56,15 @@ def caesar_cypher():
         result_msg_char_list[idx] = result_msg_char_list[idx].upper()
 
     result_msg = ''.join(result_msg_char_list)
-    print(result_msg)
+
+    return result_msg
 
 
 def main():
-    caesar_cypher()
+    shift = get_num_input(ENTER_SHIFT_PROMPT, TYPE_ERROR_MESSAGE)
+    source_msg = input(ENTER_MESSAGE_PROMPT)
+    result_msg = caesar_cypher(shift, source_msg)
+    print(result_msg)
 
 
 main()
