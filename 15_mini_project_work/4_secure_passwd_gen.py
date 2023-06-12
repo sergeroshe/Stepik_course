@@ -106,7 +106,7 @@ def print_passwords(passwd_list, passwd_num):
     for i in range(len(passwd_num)):
         passwd_num = f'{CURRENT_PASSWORD_OUTPUT + str(i + 1) + COLON_SEP}'
         print(passwd_num, passwd_list[i], sep='\n')
-
+        print()
 
 def generate_passwords(passwd_count, chars, length):
     passwd_list = []
