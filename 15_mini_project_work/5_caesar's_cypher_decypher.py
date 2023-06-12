@@ -51,8 +51,7 @@ def caesar_cypher():
         else:
             result_msg_letter_idx = ord(letter)
 
-        result_msg_char_list.append(chr(result_msg_letter_idx))
-        #  if
+        result_msg_char_list.append((chr(result_msg_letter_idx)).lower())
 
     for idx in upper_letter_idx_list:
         result_msg_char_list[idx] = result_msg_char_list[idx].upper()
