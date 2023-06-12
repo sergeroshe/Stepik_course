@@ -108,6 +108,7 @@ def print_passwords(passwd_list, passwd_num):
         print(passwd_num, passwd_list[i], sep='\n')
         print()
 
+
 def generate_passwords(passwd_count, chars, length):
     passwd_list = []
     passwd_num_list = []
