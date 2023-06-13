@@ -2,10 +2,14 @@ MIN_ALPHABET_CHAR_IDX = ord('А')
 MAX_ALPHABET_CHAR_IDX = ord('я')
 ALPHABET_RANGE = MAX_ALPHABET_CHAR_IDX - MIN_ALPHABET_CHAR_IDX + 1
 
-ENTER_SHIFT_PROMPT = 'Enter shift:\n'
-TYPE_ERROR_MESSAGE = 'The entered data must be numeric!'
-ENTER_MESSAGE_PROMPT = 'Enter message in Cyrillic to ciphre:\n'
-IGNORE_CHAR_LIST = '!#$%&*+-=?@^_., '
+ENTER_SHIFT_PROMPT = 'Введите сдвиг шифра:\n'
+TYPE_ERROR_MESSAGE = 'Введенные данные должны быть цифровыми!'
+ENTER_MESSAGE_PROMPT = 'Введите текст на русском языке для шифрования или дешифрования:\n'
+IGNORE_CHAR_LIST = '!#$%&*+-=?@^_.«», '
+
+CIPHER_ACTION_PROMPT = 'Если вы хотите зашифровать текст, нажмите ENTER,' \
+                       ' если расшифровать -  нажмите сначала "1", затем ENTER\n'
+DECRYPT_ACTION_CONFIRM = '1'
 
 
 def get_num_input(prompt, error_message):
@@ -24,7 +28,17 @@ def get_num_input(prompt, error_message):
     return is_string_num
 
 
-def caesar_cypher(source_msg, shift):
+def caesar_encrypt(source_msg, shift):
+    result_msg = caesar_cypher_helper(source_msg, shift)
+    return result_msg
+
+
+def caesar_decrypt(source_msg, shift):
+    result_msg = caesar_cypher_helper(source_msg, - shift)
+    return result_msg
+
+
+def caesar_cypher_helper(source_msg, shift):
 
     if shift < 0:
         shift = ALPHABET_RANGE + shift
@@ -61,10 +75,16 @@ def caesar_cypher(source_msg, shift):
 
 
 def main():
+    mode_option = input(CIPHER_ACTION_PROMPT)
     source_msg = input(ENTER_MESSAGE_PROMPT)
     shift = get_num_input(ENTER_SHIFT_PROMPT, TYPE_ERROR_MESSAGE)
 
-    result_msg = caesar_cypher(source_msg, shift)
+    is_encrypt_mode = mode_option != DECRYPT_ACTION_CONFIRM
+
+    if is_encrypt_mode:
+        result_msg = caesar_encrypt(source_msg, shift)
+    else:
+        result_msg = caesar_decrypt(source_msg, shift)
 
     print(result_msg)
 
