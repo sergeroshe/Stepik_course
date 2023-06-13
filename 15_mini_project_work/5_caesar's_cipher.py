@@ -63,7 +63,9 @@ def caesar_cypher(shift, source_msg):
 def main():
     shift = get_num_input(ENTER_SHIFT_PROMPT, TYPE_ERROR_MESSAGE)
     source_msg = input(ENTER_MESSAGE_PROMPT)
+
     result_msg = caesar_cypher(shift, source_msg)
+
     print(result_msg)
 
 
