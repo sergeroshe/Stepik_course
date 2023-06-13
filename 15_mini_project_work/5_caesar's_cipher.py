@@ -2,9 +2,9 @@ MIN_ALPHABET_CHAR_IDX = ord('А')
 MAX_ALPHABET_CHAR_IDX = ord('я')
 ALPHABET_RANGE = MAX_ALPHABET_CHAR_IDX - MIN_ALPHABET_CHAR_IDX + 1
 
-ENTER_SHIFT_PROMPT = 'Enter shift:\n'
-TYPE_ERROR_MESSAGE = 'The entered data must be numeric!'
-ENTER_MESSAGE_PROMPT = 'Enter message in Cyrillic to ciphre:\n'
+ENTER_SHIFT_PROMPT = 'Введите сдвиг шифра:\n'
+TYPE_ERROR_MESSAGE = 'Введенные данные должны быть цифровыми!'
+ENTER_MESSAGE_PROMPT = 'Введите текст на русском языке для шифрования или дешифрования:\n'
 IGNORE_CHAR_LIST = '!#$%&*+-=?@^_.«», '
 
 CIPHER_ACTION_PROMPT = 'Если вы хотите зашифровать текст, нажмите ENTER,' \
