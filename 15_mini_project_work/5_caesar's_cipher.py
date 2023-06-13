@@ -24,7 +24,23 @@ def get_num_input(prompt, error_message):
     return is_string_num
 
 
-def caesar_cypher(source_msg, shift):
+def encrypt(source_msg, shift):
+    result_msg = caesar_cypher_helper(source_msg, shift)
+    return result_msg
+
+
+def decrypt(source_msg, shift):
+    result_msg = caesar_cypher_helper(source_msg, -shift)
+    return result_msg
+
+
+# rename to encrypt ...
+#
+# helper function that perform both encryption and decryption
+# shift might be negative
+# edit main
+# add return to functions
+def caesar_cypher_helper(source_msg, shift):
 
     if shift < 0:
         shift = ALPHABET_RANGE + shift
@@ -62,9 +78,11 @@ def caesar_cypher(source_msg, shift):
 
 def main():
     source_msg = input(ENTER_MESSAGE_PROMPT)
+
     shift = get_num_input(ENTER_SHIFT_PROMPT, TYPE_ERROR_MESSAGE)
 
-    result_msg = caesar_cypher(source_msg, shift)
+    result_msg = caesar_cypher_helper(source_msg, shift)
+
 
     print(result_msg)
 
