@@ -38,12 +38,6 @@ def caesar_decrypt(source_msg, shift):
     return result_msg
 
 
-# rename to encrypt ...
-#
-# helper function that perform both encryption and decryption
-# shift might be negative
-# edit main
-# add return to functions
 def caesar_cypher_helper(source_msg, shift):
 
     if shift < 0:
