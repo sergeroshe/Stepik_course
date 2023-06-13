@@ -87,9 +87,11 @@ def main():
 
     answer = input(CIPHER_ACTION_PROMPT)
 
-    encrypt_mode = True
-    if answer == DECRYPT_ACTION_CONFIRM:
-        encrypt_mode = False
+    # encrypt_mode = True
+
+    encrypt_mode = answer != DECRYPT_ACTION_CONFIRM
+    # if answer == DECRYPT_ACTION_CONFIRM:
+    #     encrypt_mode = False
 
     result_msg = encrypt(source_msg, shift) if encrypt_mode else decrypt(source_msg, shift)
 
