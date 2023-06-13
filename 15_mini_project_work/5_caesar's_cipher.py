@@ -28,12 +28,12 @@ def get_num_input(prompt, error_message):
     return is_string_num
 
 
-def encrypt(source_msg, shift):
+def caesar_encrypt(source_msg, shift):
     result_msg = caesar_cypher_helper(source_msg, shift)
     return result_msg
 
 
-def decrypt(source_msg, shift):
+def caesar_decrypt(source_msg, shift):
     result_msg = caesar_cypher_helper(source_msg, - shift)
     return result_msg
 
@@ -81,19 +81,16 @@ def caesar_cypher_helper(source_msg, shift):
 
 
 def main():
+    mode_option = input(CIPHER_ACTION_PROMPT)
     source_msg = input(ENTER_MESSAGE_PROMPT)
-
     shift = get_num_input(ENTER_SHIFT_PROMPT, TYPE_ERROR_MESSAGE)
 
-    answer = input(CIPHER_ACTION_PROMPT)
+    is_encrypt_mode = mode_option != DECRYPT_ACTION_CONFIRM
 
-    # encrypt_mode = True
-
-    encrypt_mode = answer != DECRYPT_ACTION_CONFIRM
-    # if answer == DECRYPT_ACTION_CONFIRM:
-    #     encrypt_mode = False
-
-    result_msg = encrypt(source_msg, shift) if encrypt_mode else decrypt(source_msg, shift)
+    if is_encrypt_mode:
+        result_msg = caesar_encrypt(source_msg, shift)
+    else:
+        result_msg = caesar_decrypt(source_msg, shift)
 
     print(result_msg)
 
