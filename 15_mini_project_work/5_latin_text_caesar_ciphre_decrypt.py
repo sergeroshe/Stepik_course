@@ -40,9 +40,9 @@ def caesar_decrypt(source_msg, shift):
 
 def caesar_cypher_helper(source_msg, shift):
 
-    if shift < 0:
-        shift = ALPHABET_RANGE + shift
-    shift %= ALPHABET_RANGE
+    # Shift within range [0, ALPHABET_RANGE)
+    # Works for negative shifts as well
+    normalized_shift = shift % ALPHABET_RANGE
 
     upper_letter_idx_list = []
     result_msg_char_list = []
@@ -53,7 +53,7 @@ def caesar_cypher_helper(source_msg, shift):
             letter = letter.lower()
             upper_letter_idx_list.append(i)
         if letter not in IGNORE_CHAR_LIST:
-            result_msg_letter_idx = ord(letter) + shift
+            result_msg_letter_idx = ord(letter) + normalized_shift
 
             if result_msg_letter_idx < MIN_ALPHABET_CHAR_IDX:
                 result_msg_letter_idx = (MAX_ALPHABET_CHAR_IDX + 1) \
