@@ -55,10 +55,9 @@ def word_len_list_configurator(source_string):
             for char in IGNORE_CHAR_LIST:
                 if char in word:
                     result_word = word.replace(char, '')
-            result_word_len_list.append(len(result_word))
         else:
             result_word = word
-            result_word_len_list.append(len(result_word))
+        result_word_len_list.append(len(result_word))
 
     return result_word_len_list
 
@@ -77,7 +76,9 @@ def function(source_string):
 
 def main():
     source_string = input()
+
     result_word_list = function(source_string)
+
     print(*result_word_list)
 
 
