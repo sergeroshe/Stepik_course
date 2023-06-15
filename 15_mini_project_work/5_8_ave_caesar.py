@@ -2,7 +2,7 @@ MIN_ALPHABET_CHAR_IDX = ord('a')
 MAX_ALPHABET_CHAR_IDX = ord('z')
 ALPHABET_RANGE = MAX_ALPHABET_CHAR_IDX - MIN_ALPHABET_CHAR_IDX + 1
 ENTER_MESSAGE_PROMPT = 'Enter text in English to encrypt or decrypt:\n'
-IGNORE_CHAR_LIST = '!#$%&*+-=?@^_.«»,:; '
+IGNORE_CHAR_LIST = ',.!"!@#$%^&*((()))_+'
 
 
 def ave_caesar():
@@ -50,6 +50,34 @@ def caesar_cypher_helper(source_msg, shift):
     return result_msg
 
 
+def word_len_list_configurator(source_string):
+    raw_word_list = source_string.split()
+    result_word_len_list = []
+    for word in raw_word_list:
+        result_word = ''
+        if not word.isalnum():
+            for char in IGNORE_CHAR_LIST:
+                if char in word:
+                    result_word = word.replace(char, '')
+            result_word_len_list.append(len(result_word))
+        else:
+            result_word = word
+            result_word_len_list.append(len(result_word))
+
+    return result_word_len_list
 
 
+def main():
+    source_string = input()
+    result_word_len_list = word_len_list_configurator(source_string)
+    source_word_list = source_string.split()
+    result_word_list = []
+    for i in range(len(source_word_list)):
+        word = source_word_list[i]
+        result_word = caesar_encrypt(word, result_word_len_list[i])
+        result_word_list.append(result_word)
 
+    print(*result_word_list)
+
+
+main()
