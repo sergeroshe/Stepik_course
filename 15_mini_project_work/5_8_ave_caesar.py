@@ -5,10 +5,6 @@ ENTER_MESSAGE_PROMPT = 'Enter text in English to encrypt or decrypt:\n'
 IGNORE_CHAR_LIST = ',.!"!@#$%^&*((()))_+'
 
 
-def ave_caesar():
-    pass
-
-
 def caesar_encrypt(source_msg, shift):
     result_msg = caesar_cypher_helper(source_msg, shift)
     return result_msg
