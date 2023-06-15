@@ -2,7 +2,7 @@ MIN_ALPHABET_CHAR_IDX = ord('a')
 MAX_ALPHABET_CHAR_IDX = ord('z')
 ALPHABET_RANGE = MAX_ALPHABET_CHAR_IDX - MIN_ALPHABET_CHAR_IDX + 1
 ENTER_MESSAGE_PROMPT = 'Enter text in English to encrypt or decrypt:\n'
-IGNORE_CHAR_LIST = ',.!"!@#$%^&*((()))_+'
+IGNORE_CHAR_LIST = ',.!"!@#$%^&*()_+'
 
 
 def caesar_encrypt(source_msg, shift):
