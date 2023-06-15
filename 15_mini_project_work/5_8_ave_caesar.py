@@ -47,9 +47,9 @@ def caesar_cypher_helper(source_msg, shift):
 
 
 def word_len_list_configurator(source_string):
-    raw_word_list = source_string.split()
+    source_word_list = source_string.split()
     result_word_len_list = []
-    for word in raw_word_list:
+    for word in source_word_list:
         result_word = ''
         if not word.isalnum():
             for char in IGNORE_CHAR_LIST:
