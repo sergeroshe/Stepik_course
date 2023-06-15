@@ -67,8 +67,7 @@ def word_len_list_configurator(source_string):
     return result_word_len_list
 
 
-def main():
-    source_string = input()
+def function(source_string):
     result_word_len_list = word_len_list_configurator(source_string)
     source_word_list = source_string.split()
     result_word_list = []
@@ -77,6 +76,12 @@ def main():
         result_word = caesar_encrypt(word, result_word_len_list[i])
         result_word_list.append(result_word)
 
+    return result_word_list
+
+
+def main():
+    source_string = input()
+    result_word_list = function(source_string)
     print(*result_word_list)
 
 
