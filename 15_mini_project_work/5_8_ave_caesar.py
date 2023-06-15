@@ -1,7 +1,7 @@
 MIN_ALPHABET_CHAR_IDX = ord('a')
 MAX_ALPHABET_CHAR_IDX = ord('z')
 ALPHABET_RANGE = MAX_ALPHABET_CHAR_IDX - MIN_ALPHABET_CHAR_IDX + 1
-ENTER_MESSAGE_PROMPT = 'Enter text in English to encrypt or decrypt:\n'
+ENTER_MESSAGE_PROMPT = 'Enter text in English to encrypt:\n'
 IGNORE_CHAR_LIST = ',.!"!@#$%^&*()_+'
 
 
@@ -75,7 +75,7 @@ def word_len_shift_encryptor(source_string):
 
 
 def main():
-    source_string = input()
+    source_string = input(ENTER_MESSAGE_PROMPT)
 
     result_word_list = word_len_shift_encryptor(source_string)
 
