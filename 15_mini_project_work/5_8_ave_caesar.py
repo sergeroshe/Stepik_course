@@ -62,7 +62,7 @@ def word_len_list_configurator(source_string):
     return result_word_len_list
 
 
-def function(source_string):
+def word_len_shift_encryptor(source_string):
     result_word_len_list = word_len_list_configurator(source_string)
     source_word_list = source_string.split()
     result_word_list = []
@@ -77,7 +77,7 @@ def function(source_string):
 def main():
     source_string = input()
 
-    result_word_list = function(source_string)
+    result_word_list = word_len_shift_encryptor(source_string)
 
     print(*result_word_list)
 
