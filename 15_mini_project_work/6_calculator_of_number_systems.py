@@ -12,14 +12,14 @@ def number_sys_calc(num, base):
         remainder = HEX_SYSTEM_CHARS[remainder - 10]
     remainder_list_based_num_part = str(remainder)
 
-    while quotient > base:
+    while quotient >= base:
         num = quotient
         quotient = num // base
         remainder = num % base
         if base == 16 and remainder > 9:
             remainder = HEX_SYSTEM_CHARS[remainder - 10]
         remainder_list_based_num_part += str(remainder)
-    if base == 16 and quotient > 9:
+    if base == 16 and 9 < quotient < 16:
         quotient = HEX_SYSTEM_CHARS[quotient - 10]
     num_last_part = remainder_list_based_num_part[::-1]
     num_str = str(quotient) + num_last_part
