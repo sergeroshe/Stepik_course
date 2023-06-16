@@ -1,5 +1,6 @@
 ENTER_NUM_PROMPT = 'Enter a number in decimal number system:\n'
 ENTER_BASE_PROMPT = 'Enter a base of new number system:\n'
+HEX_SYSTEM_CHARS = ['A', 'B', 'C', 'D', 'E', 'F']
 
 
 def number_sys_calc(num, base):
@@ -13,6 +14,8 @@ def number_sys_calc(num, base):
         num = quotient
         quotient = num // base
         remainder = num % base
+        if base == 16 and remainder > 9:
+            remainder = HEX_SYSTEM_CHARS[remainder - 10]
         remainder_list.append(remainder)
 
     remainder_list.reverse()
