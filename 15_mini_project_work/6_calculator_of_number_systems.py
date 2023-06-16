@@ -4,8 +4,6 @@ HEX_SYSTEM_CHARS = ['A', 'B', 'C', 'D', 'E', 'F']
 
 
 def number_sys_calc(num, base):
-
-    # remainder_list = []
     quotient = num // base
     remainder = num % base
     if base == 16 and remainder > 9:
@@ -19,8 +17,12 @@ def number_sys_calc(num, base):
         if base == 16 and remainder > 9:
             remainder = HEX_SYSTEM_CHARS[remainder - 10]
         remainder_list_based_num_part += str(remainder)
-    if base == 16 and 9 < quotient < 16:
-        quotient = HEX_SYSTEM_CHARS[quotient - 10]
+    if base == 16:
+        if 9 < quotient < 16:
+            quotient = HEX_SYSTEM_CHARS[quotient - 10]
+        elif 0 == quotient:
+            quotient = ''
+
     num_last_part = remainder_list_based_num_part[::-1]
     num_str = str(quotient) + num_last_part
 
