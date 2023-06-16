@@ -8,16 +8,19 @@ def number_sys_calc(num, base):
     # remainder_list = []
     quotient = num // base
     remainder = num % base
+    if base == 16 and remainder > 9:
+        remainder = HEX_SYSTEM_CHARS[remainder - 10]
     remainder_list_based_num_part = str(remainder)
 
-    while quotient >= base:
+    while quotient > base:
         num = quotient
         quotient = num // base
         remainder = num % base
         if base == 16 and remainder > 9:
             remainder = HEX_SYSTEM_CHARS[remainder - 10]
         remainder_list_based_num_part += str(remainder)
-
+    if base == 16 and quotient > 9:
+        quotient = HEX_SYSTEM_CHARS[quotient - 10]
     num_last_part = remainder_list_based_num_part[::-1]
     num_str = str(quotient) + num_last_part
 
@@ -25,8 +28,8 @@ def number_sys_calc(num, base):
 
 
 def main():
-    num = 999999  # int(input(ENTER_NUM_PROMPT))
-    base = 16  # int(input(ENTER_BASE_PROMPT))
+    num = int(input(ENTER_NUM_PROMPT))
+    base = int(input(ENTER_BASE_PROMPT))
 
     new_number_system_num = number_sys_calc(num, base)
 
