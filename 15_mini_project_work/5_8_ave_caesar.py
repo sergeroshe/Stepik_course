@@ -77,9 +77,9 @@ def word_len_shift_encryptor(source_string):
 def main():
     source_string = input(ENTER_MESSAGE_PROMPT)
 
-    result_word_list = word_len_shift_encryptor(source_string)
+    encrypted_string = word_len_shift_encryptor(source_string)
 
-    print(*result_word_list)
+    print(encrypted_string)
 
 
 main()
