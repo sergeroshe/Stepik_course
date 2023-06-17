@@ -2,7 +2,7 @@ MIN_ALPHABET_CHAR_IDX = ord('a')
 MAX_ALPHABET_CHAR_IDX = ord('z')
 ALPHABET_RANGE = MAX_ALPHABET_CHAR_IDX - MIN_ALPHABET_CHAR_IDX + 1
 ENTER_MESSAGE_PROMPT = 'Enter text in English to encrypt:\n'
-PUNCTUATION = ',.!"!@#$%^&*()_+'
+PUNCTUATION = ',.!"!\'@#$%^&*()_+'
 SPACE_SEP = ' '
 
 
