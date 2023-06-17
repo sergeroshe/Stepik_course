@@ -47,7 +47,7 @@ def caesar_cypher_helper(source_msg, shift):
     return result_msg
 
 
-def word_len_list_config(source_string):
+def get_word_len_list(source_string):
     source_word_list = source_string.split()
     result_word_len_list = []
     for word in source_word_list:
@@ -64,7 +64,7 @@ def word_len_list_config(source_string):
 
 
 def caesar_encrypt_by_word_len(source_string):
-    result_word_len_list = word_len_list_config(source_string)
+    result_word_len_list = get_word_len_list(source_string)
     source_word_list = source_string.split()
     encrypted_msg = ''
     for i in range(len(source_word_list)):
