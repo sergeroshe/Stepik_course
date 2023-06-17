@@ -2,7 +2,7 @@ MIN_ALPHABET_CHAR_IDX = ord('a')
 MAX_ALPHABET_CHAR_IDX = ord('z')
 ALPHABET_RANGE = MAX_ALPHABET_CHAR_IDX - MIN_ALPHABET_CHAR_IDX + 1
 ENTER_MESSAGE_PROMPT = 'Enter text in English to encrypt:\n'
-IGNORE_CHAR_LIST = ',.!"!@#$%^&*()_+'
+PUNCTUATION = ',.!"!@#$%^&*()_+'
 SPACE_SEP = ' '
 
 
@@ -25,7 +25,7 @@ def caesar_cypher_helper(source_msg, shift):
         if letter.isupper():
             letter = letter.lower()
             upper_letter_idx_list.append(i)
-        if letter not in IGNORE_CHAR_LIST:
+        if letter not in PUNCTUATION:
             result_msg_letter_idx = ord(letter) + normalized_shift
 
             if result_msg_letter_idx < MIN_ALPHABET_CHAR_IDX:
@@ -53,7 +53,7 @@ def get_word_len_list(source_string):
     for word in source_word_list:
         result_word = ''
         if not word.isalnum():
-            for char in IGNORE_CHAR_LIST:
+            for char in PUNCTUATION:
                 if char in word:
                     result_word = word.replace(char, '')
         else:
