@@ -54,7 +54,7 @@ def get_word_len_list(source_word_list):
         if not word.isalnum():
             for char in PUNCTUATION:
                 if char in word:
-                    result_word = word.replace(char, '')
+                    result_word = word.strip(char)
         else:
             result_word = word
         result_word_len_list.append(len(result_word))
