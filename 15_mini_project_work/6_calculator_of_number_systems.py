@@ -6,21 +6,21 @@ NUMBER_SYSTEM_CHARS = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'A', 'B
 def number_sys_calc(num, base):
     quotient = num // base
     remainder = num % base
-    last_num_part = NUMBER_SYSTEM_CHARS[remainder]
+    converted_digits = NUMBER_SYSTEM_CHARS[remainder]
 
     while quotient >= base:
         num = quotient
         quotient = num // base
         remainder = num % base
 
-        last_num_part += NUMBER_SYSTEM_CHARS[remainder]
+        converted_digits += NUMBER_SYSTEM_CHARS[remainder]
 
     quotient = NUMBER_SYSTEM_CHARS[quotient]
 
     if quotient == NUMBER_SYSTEM_CHARS[0]:
         quotient = ''
 
-    num_last_part = last_num_part[::-1]
+    num_last_part = converted_digits[::-1]
     num_str = str(quotient) + num_last_part
 
     return num_str
