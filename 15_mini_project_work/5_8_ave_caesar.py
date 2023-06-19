@@ -3,7 +3,7 @@ MAX_ALPHABET_CHAR_IDX = ord('z')
 ALPHABET_RANGE = MAX_ALPHABET_CHAR_IDX - MIN_ALPHABET_CHAR_IDX + 1
 ENTER_MESSAGE_PROMPT = 'Enter text in English to encrypt:\n'
 PUNCTUATION_CHARS = ',.!"!\'@#$%^&*()_+-'
-SPACE_SEP = ' '
+WORD_SEP = ' '
 
 
 def caesar_encrypt(source_msg, shift):
@@ -70,7 +70,7 @@ def caesar_encrypt_by_word_len(source_string):
     for i in range(len(source_word_list)):
         word = source_word_list[i]
         result_word = caesar_encrypt(word, result_word_len_list[i])
-        encrypted_msg += result_word + SPACE_SEP
+        encrypted_msg += result_word + WORD_SEP
 
     return encrypted_msg
 
