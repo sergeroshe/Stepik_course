@@ -14,7 +14,7 @@ def number_sys_calc(num, base):
         remainder = num % base
 
         converted_digits += NUMBER_SYSTEM_CHARS[remainder]
-    #
+
     converted_num_first_part = NUMBER_SYSTEM_CHARS[quotient]
 
     if quotient == 0:
