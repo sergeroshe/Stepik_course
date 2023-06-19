@@ -15,10 +15,11 @@ def number_sys_calc(num, base):
 
         converted_digits += NUMBER_SYSTEM_CHARS[remainder]
 
-    converted_num_head = NUMBER_SYSTEM_CHARS[quotient]
+    # converted_num_head = NUMBER_SYSTEM_CHARS[quotient]
 
-    if quotient == 0:
-        converted_num_head = ''
+    converted_num_head = '' if quotient == 0 else NUMBER_SYSTEM_CHARS[quotient]
+    # if quotient == 0:
+    #     converted_num_head = ''
 
     reversed_converted_digits = converted_digits[::-1]
     num_str = converted_num_head + reversed_converted_digits
