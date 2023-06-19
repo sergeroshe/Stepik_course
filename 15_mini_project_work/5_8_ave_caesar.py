@@ -55,7 +55,7 @@ def get_word_len_list(source_word):
     else:
         result_word = source_word
 
-    result_word_len = len(result_word)
+        result_word_len = len(result_word)
 
     return result_word_len
 
