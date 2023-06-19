@@ -47,29 +47,28 @@ def caesar_cypher_helper(source_msg, shift):
     return result_msg
 
 
-def get_word_len_list(source_word_list):
-    result_word_len_list = []
-    for word in source_word_list:
-        result_word = ''
-        if not word.isalnum():
-            for char in PUNCTUATION_CHARS:
-                if char in word:
-                    result_word = word.strip(char)
-        else:
-            result_word = word
-        result_word_len_list.append(len(result_word))
+def get_word_len_list(source_word):
+    if not source_word.isalnum():
+        for char in PUNCTUATION_CHARS:
+            if char in source_word:
+                result_word = source_word.strip(char)
+    else:
+        result_word = source_word
 
-    return result_word_len_list
+    result_word_len = len(result_word)
+
+    return result_word_len
 
 
 def caesar_encrypt_by_word_len(source_string):
     source_word_list = source_string.split()
-    result_word_len_list = get_word_len_list(source_word_list)
+    # result_word_len_list = get_word_len_list(source_word_list)
 
     encrypted_msg = ''
     for i in range(len(source_word_list)):
         word = source_word_list[i]
-        encrypted_word = caesar_encrypt(word, result_word_len_list[i])
+        word_len = get_word_len_list(word)
+        encrypted_word = caesar_encrypt(word, word_len)
         encrypted_msg += encrypted_word + WORD_SEP
 
     return encrypted_msg
