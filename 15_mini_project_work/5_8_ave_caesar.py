@@ -69,8 +69,8 @@ def caesar_encrypt_by_word_len(source_string):
     encrypted_msg = ''
     for i in range(len(source_word_list)):
         word = source_word_list[i]
-        result_word = caesar_encrypt(word, result_word_len_list[i])
-        encrypted_msg += result_word + WORD_SEP
+        encrypted_word = caesar_encrypt(word, result_word_len_list[i])
+        encrypted_msg += encrypted_word + WORD_SEP
 
     return encrypted_msg
 
