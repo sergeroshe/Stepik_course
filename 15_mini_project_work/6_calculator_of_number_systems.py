@@ -33,16 +33,13 @@ def main():
     num = int(input(ENTER_NUM_PROMPT))
     # base = int(input(ENTER_BASE_PROMPT))
 
-    binary_number_system_num = number_sys_calc(num, 2)
-    octal_number_system_num = number_sys_calc(num, 8)
-    hexadecimal_number_system_num = number_sys_calc(num, 16)
+    binary_number_system_num = number_sys_calc(num, base=2)
+    octal_number_system_num = number_sys_calc(num, base=8)
+    hexadecimal_number_system_num = number_sys_calc(num, base=16)
 
     print(binary_number_system_num)
     print(octal_number_system_num)
     print(hexadecimal_number_system_num)
-
-
-
 
 
 main()
