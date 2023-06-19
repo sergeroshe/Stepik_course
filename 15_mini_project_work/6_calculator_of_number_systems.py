@@ -14,14 +14,14 @@ def number_sys_calc(num, base):
         remainder = num % base
 
         converted_digits += NUMBER_SYSTEM_CHARS[remainder]
+    #
+    converted_num_first_part = NUMBER_SYSTEM_CHARS[quotient]
 
-    quotient = NUMBER_SYSTEM_CHARS[quotient]
+    if quotient == 0:
+        converted_num_first_part = ''
 
-    if quotient == NUMBER_SYSTEM_CHARS[0]:
-        quotient = ''
-
-    num_last_part = converted_digits[::-1]
-    num_str = str(quotient) + num_last_part
+    reversed_converted_digits = converted_digits[::-1]
+    num_str = converted_num_first_part + reversed_converted_digits
 
     return num_str
 
