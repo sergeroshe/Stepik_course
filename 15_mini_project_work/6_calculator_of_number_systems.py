@@ -2,22 +2,22 @@ ENTER_NUM_PROMPT = 'Enter a number in decimal number system:\n'
 ENTER_BASE_PROMPT = 'Enter a base of new number system:\n'
 NUMBER_SYSTEM_CHARS = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'A', 'B', 'C', 'D', 'E', 'F']
 
+
 def number_sys_calc(num, base):
     quotient = num // base
     remainder = num % base
-    last_num_part = str(NUMBER_SYSTEM_CHARS[remainder])
+    last_num_part = NUMBER_SYSTEM_CHARS[remainder]
 
     while quotient >= base:
         num = quotient
         quotient = num // base
         remainder = num % base
 
-        last_num_part += str(remainder)
+        last_num_part += NUMBER_SYSTEM_CHARS[remainder]
 
-    if 9 < quotient < 16:
-        quotient = NUMBER_SYSTEM_CHARS[quotient]
+    quotient = NUMBER_SYSTEM_CHARS[quotient]
 
-    if 0 == quotient:
+    if quotient == NUMBER_SYSTEM_CHARS[0]:
         quotient = ''
 
     num_last_part = last_num_part[::-1]
