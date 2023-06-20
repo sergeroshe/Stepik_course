@@ -48,13 +48,16 @@ def caesar_cypher_helper(source_msg, shift):
 
 
 def get_unpunctuated_word_len(word):
+    # unpunctuated_word_len = len(word)
     unpunctuated_word = word
     if not word[0].isalnum() or not word[-1].isalnum():
         for char in PUNCTUATION_CHARS:
             if char == word[0] or char == word[-1]:
                 unpunctuated_word = word.strip(char)
+                break
 
     unpunctuated_word_len = len(unpunctuated_word)
+
     return unpunctuated_word_len
 
 
