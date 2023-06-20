@@ -3,8 +3,6 @@ MAX_ALPHABET_CHAR_IDX = ord('z')
 ALPHABET_RANGE = MAX_ALPHABET_CHAR_IDX - MIN_ALPHABET_CHAR_IDX + 1
 ENTER_MESSAGE_PROMPT = 'Enter text in English to encrypt:\n'
 PUNCTUATION_CHARS = ',.!"!\'@#$%^&*()_+-'
-# PUNCTUATION_CHARS = '!'
-
 WORD_SEP = ' '
 
 
@@ -57,8 +55,6 @@ def get_word_len(word):
                 result_word = word.strip(char)
 
     result_word_len = len(result_word)
-
-    # result_word_len = len(result_word)
 
     return result_word_len
 
