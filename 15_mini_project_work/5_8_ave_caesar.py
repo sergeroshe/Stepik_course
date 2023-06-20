@@ -73,7 +73,7 @@ def caesar_encrypt_by_word_len(source_string):
 
 
 def main():
-    source_string = input(ENTER_MESSAGE_PROMPT)
+    source_string = input()
 
     encrypted_string = caesar_encrypt_by_word_len(source_string)
 
