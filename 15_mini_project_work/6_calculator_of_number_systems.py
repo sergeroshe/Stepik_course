@@ -1,6 +1,44 @@
 ENTER_NUM_PROMPT = 'Enter a number in decimal number system:\n'
 ENTER_BASE_PROMPT = 'Enter a base of new number system:\n'
-NUMBER_SYSTEM_CHARS = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'A', 'B', 'C', 'D', 'E', 'F']
+NUMBER_SYSTEM_CHARS = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9',
+                       'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J',
+                       'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T',
+                       'U', 'V', 'W', 'X', 'Y', 'Z', 'ﺍ', 'ﺏ', 'ﺕ', 'ﺙ']
+TYPE_ERROR_MESSAGE = 'Введенные данные должны быть числовыми!'
+BASE_ERROR_MESSAGE = 'Число должно быть между 0 и 40!'
+
+
+def is_valid(input_string, guess_left_border, guess_right_border):
+    result = input_string.lstrip('-').isdigit() and guess_left_border <= int(input_string) <= guess_right_border
+    return result
+
+
+def get_num_input(prompt, error_message):
+    is_string_num = False
+    input_string = input(prompt)
+    while not is_string_num:
+        if input_string and input_string[0] == '-' and input_string[1:].isdigit() or input_string.isdigit():
+            is_string_num = True
+        else:
+            print(error_message)
+            input_string = input(prompt)
+
+    is_string_num = int(input_string)
+    return is_string_num
+
+
+def get_valid_base(prompt, error_message, left_border, right_border):
+    is_base_valid = False
+    base = get_num_input(prompt, error_message)
+    while not is_base_valid:
+        if left_border < base < right_border:
+            is_base_valid = True
+        else:
+            print(error_message)
+            base = input(prompt)
+
+    valid_base = int(base)
+    return valid_base
 
 
 def number_sys_calc(num, base):
@@ -24,16 +62,12 @@ def number_sys_calc(num, base):
 
 
 def main():
-    num = int(input(ENTER_NUM_PROMPT))
-    # base = int(input(ENTER_BASE_PROMPT))
+    num = get_num_input(ENTER_NUM_PROMPT, TYPE_ERROR_MESSAGE)
+    base = get_valid_base(ENTER_BASE_PROMPT, TYPE_ERROR_MESSAGE, 0, len(NUMBER_SYSTEM_CHARS))
 
-    binary_number_system_num = number_sys_calc(num, base=2)
-    octal_number_system_num = number_sys_calc(num, base=8)
-    hexadecimal_number_system_num = number_sys_calc(num, base=16)
+    converted_number_system_num = number_sys_calc(num, base)
 
-    print(binary_number_system_num)
-    print(octal_number_system_num)
-    print(hexadecimal_number_system_num)
+    print(converted_number_system_num)
 
 
 main()
