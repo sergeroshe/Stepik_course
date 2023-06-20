@@ -15,10 +15,10 @@ def number_sys_calc(num, base):
 
         converted_digits += NUMBER_SYSTEM_CHARS[remainder]
 
-    converted_first_digits = '' if quotient == 0 else NUMBER_SYSTEM_CHARS[quotient]
+    leading_converted_digit = '' if quotient == 0 else NUMBER_SYSTEM_CHARS[quotient]
 
     reversed_converted_digits = converted_digits[::-1]
-    num_str = converted_first_digits + reversed_converted_digits
+    num_str = leading_converted_digit + reversed_converted_digits
 
     return num_str
 
