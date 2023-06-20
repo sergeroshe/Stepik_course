@@ -47,13 +47,13 @@ def caesar_cypher_helper(source_msg, shift):
     return result_msg
 
 
-def get_word_len(source_word):
-    if not source_word.isalnum():
+def get_word_len(word):
+    if not word.isalnum():
         for char in PUNCTUATION_CHARS:
-            if char in source_word:
-                result_word = source_word.strip(char)
+            if char in word:
+                result_word = word.strip(char)
     else:
-        result_word = source_word
+        result_word = word
 
         result_word_len = len(result_word)
 
