@@ -5,7 +5,7 @@ NUMBER_SYSTEM_CHARS = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9',
                        'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T',
                        'U', 'V', 'W', 'X', 'Y', 'Z', 'ﺍ', 'ﺏ', 'ﺕ', 'ﺙ']
 TYPE_ERROR_MESSAGE = 'Введенные данные должны быть числовыми!'
-BASE_ERROR_MESSAGE = 'Число должно быть между 0 и 40!'
+BASE_ERROR_MESSAGE = 'Число должно быть между 0 и 39!'
 
 
 def is_valid(input_string, guess_left_border, guess_right_border):
