@@ -15,7 +15,7 @@ def number_sys_calc(num, base):
 
         converted_digits += NUMBER_SYSTEM_CHARS[remainder]
 
-    leading_converted_digit = '' if quotient == 0 else NUMBER_SYSTEM_CHARS[quotient]
+    leading_converted_digit = NUMBER_SYSTEM_CHARS[quotient] if quotient else ''
 
     reversed_converted_digits = converted_digits[::-1]
     converted_num = leading_converted_digit + reversed_converted_digits
