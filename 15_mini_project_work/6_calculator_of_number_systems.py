@@ -27,15 +27,15 @@ def get_num_input(prompt, error_message):
     return is_string_num
 
 
-def get_valid_base(prompt, error_message, left_border, right_border):
+def get_valid_base(enter_base_prompt, type_error_message, base_error_message, left_border, right_border):
     is_base_valid = False
-    base = get_num_input(prompt, error_message)
+    base = get_num_input(enter_base_prompt, type_error_message)
     while not is_base_valid:
         if left_border < base < right_border:
             is_base_valid = True
         else:
-            print(error_message)
-            base = input(prompt)
+            print(base_error_message)
+            base = get_num_input(enter_base_prompt, type_error_message)
 
     valid_base = int(base)
     return valid_base
@@ -63,7 +63,7 @@ def number_sys_calc(num, base):
 
 def main():
     num = get_num_input(ENTER_NUM_PROMPT, TYPE_ERROR_MESSAGE)
-    base = get_valid_base(ENTER_BASE_PROMPT, TYPE_ERROR_MESSAGE, 0, len(NUMBER_SYSTEM_CHARS))
+    base = get_valid_base(ENTER_BASE_PROMPT, TYPE_ERROR_MESSAGE, BASE_ERROR_MESSAGE, 0, len(NUMBER_SYSTEM_CHARS))
 
     converted_number_system_num = number_sys_calc(num, base)
 
