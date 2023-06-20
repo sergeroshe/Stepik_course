@@ -18,9 +18,9 @@ def number_sys_calc(num, base):
     leading_converted_digit = '' if quotient == 0 else NUMBER_SYSTEM_CHARS[quotient]
 
     reversed_converted_digits = converted_digits[::-1]
-    num_str = leading_converted_digit + reversed_converted_digits
+    converted_num = leading_converted_digit + reversed_converted_digits
 
-    return num_str
+    return converted_num
 
 
 def main():
