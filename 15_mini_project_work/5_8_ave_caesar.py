@@ -47,15 +47,14 @@ def caesar_cypher_helper(source_msg, shift):
     return result_msg
 
 
-def get_word_len(word):
+def get_unpunctuated_word_len(word):
     unpunctuated_word = word
     if not word[0].isalnum() or not word[-1].isalnum():
         for char in PUNCTUATION_CHARS:
-            if char in word:
+            if char == word[0] or char == word[-1]:
                 unpunctuated_word = word.strip(char)
 
     unpunctuated_word_len = len(unpunctuated_word)
-
     return unpunctuated_word_len
 
 
@@ -64,7 +63,7 @@ def caesar_encrypt_by_word_len(source_string):
 
     encrypted_msg = ''
     for word in source_word_list:
-        word_len = get_word_len(word)
+        word_len = get_unpunctuated_word_len(word)
         encrypted_word = caesar_encrypt(word, word_len)
         encrypted_msg += encrypted_word + WORD_SEP
 
