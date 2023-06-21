@@ -1,11 +1,9 @@
 ENTER_NUM_PROMPT = 'Enter a number in decimal number system:\n'
-ENTER_BASE_PROMPT = 'Enter a base of new number system:\n'
 NUMBER_SYSTEM_CHARS = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9',
                        'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J',
                        'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T',
                        'U', 'V', 'W', 'X', 'Y', 'Z', 'ﺍ', 'ﺏ', 'ﺕ', 'ﺙ']
 TYPE_ERROR_MESSAGE = 'The entered data must be numeric!'
-BASE_ERROR_MESSAGE = 'The number must be between 0 and 39!'
 
 
 def is_valid(input_string, guess_left_border, guess_right_border):
@@ -62,8 +60,15 @@ def number_sys_calc(num, base):
 
 
 def main():
+
     num = get_num_input(ENTER_NUM_PROMPT, TYPE_ERROR_MESSAGE)
-    base = get_constrained_num_input(ENTER_BASE_PROMPT, TYPE_ERROR_MESSAGE, BASE_ERROR_MESSAGE, 0, len(NUMBER_SYSTEM_CHARS))
+    left_border = 1
+    right_border = len(NUMBER_SYSTEM_CHARS) + 1
+    enter_base_prompt = f'Enter a number between {left_border} and {right_border}' \
+                        f' inclusive for base of a new number system:\n'
+    base_error_message = f'The number must be between {left_border} and {right_border} inclusive!'
+    base = get_constrained_num_input(enter_base_prompt, TYPE_ERROR_MESSAGE, base_error_message,
+                                     left_border, right_border)
 
     converted_number_system_num = number_sys_calc(num, base)
 
