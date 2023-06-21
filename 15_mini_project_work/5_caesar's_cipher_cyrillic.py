@@ -14,9 +14,7 @@ DECRYPT_ACTION_CONFIRM = '1'
 
 def get_num_input(prompt, error_message):
     is_string_num = False
-
     input_string = input(prompt)
-
     while not is_string_num:
         if input_string and input_string[0] == '-' and input_string[1:].isdigit() or input_string.isdigit():
             is_string_num = True
@@ -24,8 +22,8 @@ def get_num_input(prompt, error_message):
             print(error_message)
             input_string = input(prompt)
 
-    is_string_num = int(input_string)
-    return is_string_num
+    num = int(input_string)
+    return num
 
 
 def caesar_encrypt(source_msg, shift):
