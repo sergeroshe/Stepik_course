@@ -6,6 +6,9 @@ NUMBER_SYSTEM_CHARS = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9',
 TYPE_ERROR_MESSAGE = 'The entered data must be numeric!'
 BASE_LEFT_BORDER = 1
 BASE_RIGHT_BORDER = len(NUMBER_SYSTEM_CHARS) + 1
+ENTER_BASE_PROMPT = f'Enter a number between {BASE_LEFT_BORDER} and {BASE_RIGHT_BORDER}' \
+                        f' inclusive for base of a new number system:\n'
+BASE_ERROR_MESSAGE = f'The number must be between {BASE_LEFT_BORDER} and {BASE_RIGHT_BORDER} inclusive!'
 
 
 def get_num_input(prompt, error_message):
@@ -57,10 +60,7 @@ def number_sys_calc(num, base):
 
 
 def get_valid_base_num():
-    enter_base_prompt = f'Enter a number between {BASE_LEFT_BORDER} and {BASE_RIGHT_BORDER}' \
-                        f' inclusive for base of a new number system:\n'
-    base_error_message = f'The number must be between {BASE_LEFT_BORDER} and {BASE_RIGHT_BORDER} inclusive!'
-    base = get_constrained_num_input(enter_base_prompt, TYPE_ERROR_MESSAGE, base_error_message,
+    base = get_constrained_num_input(ENTER_BASE_PROMPT, TYPE_ERROR_MESSAGE, BASE_ERROR_MESSAGE,
                                      BASE_LEFT_BORDER, BASE_RIGHT_BORDER)
     return base
 
