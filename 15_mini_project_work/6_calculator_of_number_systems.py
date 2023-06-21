@@ -38,8 +38,7 @@ def get_constrained_num_input(enter_base_prompt, type_error_message, base_error_
             print(base_error_message)
             num = get_num_input(enter_base_prompt, type_error_message)
 
-    valid_base = int(num)
-    return valid_base
+    return num
 
 
 def number_sys_calc(num, base):
