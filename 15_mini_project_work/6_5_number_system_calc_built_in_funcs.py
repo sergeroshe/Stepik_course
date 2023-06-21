@@ -17,17 +17,19 @@ def get_num_input(prompt, error_message):
 
 
 def b_o_h_number_sys_calc_v2(num):
-    converted_num_string = str(bin(num))[2:] + '\n' + str(oct(num))[2:] + '\n' + str(hex(num))[2:].upper()
+    bin_converted_num = bin(num)
+    oct_converted_num = oct(num)
+    hex_converted_num = hex(num)
 
-    return converted_num_string
+    return bin_converted_num, oct_converted_num, hex_converted_num
 
 
 def main():
 
     num = get_num_input(ENTER_NUM_PROMPT, TYPE_ERROR_MESSAGE)
-    converted_nums = b_o_h_number_sys_calc_v2(num)
+    bin_converted_num, oct_converted_num, hex_converted_num = b_o_h_number_sys_calc_v2(num)
 
-    print(converted_nums)
+    print(bin_converted_num[2:], oct_converted_num[2:], hex_converted_num[2:].upper(), sep='\n')
 
 
 main()
