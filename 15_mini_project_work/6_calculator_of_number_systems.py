@@ -23,8 +23,9 @@ def get_num_input(prompt, error_message):
             print(error_message)
             input_string = input(prompt)
 
-    is_string_num = int(input_string)
-    return is_string_num
+    num = int(input_string)
+    return num
+
 
 
 def get_valid_base(enter_base_prompt, type_error_message, base_error_message, left_border, right_border):
