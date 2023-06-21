@@ -1,6 +1,5 @@
 ENTER_NUM_PROMPT = 'Enter a number in decimal number system:\n'
 TYPE_ERROR_MESSAGE = 'The entered data must be numeric!'
-NUMBER_SYSTEMS_BASE_LIST = [2, 8, 16]
 
 
 def get_num_input(prompt, error_message):
