@@ -4,6 +4,8 @@ NUMBER_SYSTEM_CHARS = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9',
                        'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T',
                        'U', 'V', 'W', 'X', 'Y', 'Z', 'ﺍ', 'ﺏ', 'ﺕ', 'ﺙ']
 TYPE_ERROR_MESSAGE = 'The entered data must be numeric!'
+BASE_LEFT_BORDER = 1
+BASE_RIGHT_BORDER = len(NUMBER_SYSTEM_CHARS) + 1
 
 
 def is_valid(input_string, guess_left_border, guess_right_border):
@@ -60,13 +62,11 @@ def number_sys_calc(num, base):
 
 
 def get_valid_base_num():
-    left_border = 1
-    right_border = len(NUMBER_SYSTEM_CHARS) + 1
-    enter_base_prompt = f'Enter a number between {left_border} and {right_border}' \
+    enter_base_prompt = f'Enter a number between {BASE_LEFT_BORDER} and {BASE_RIGHT_BORDER}' \
                         f' inclusive for base of a new number system:\n'
-    base_error_message = f'The number must be between {left_border} and {right_border} inclusive!'
+    base_error_message = f'The number must be between {BASE_LEFT_BORDER} and {BASE_RIGHT_BORDER} inclusive!'
     base = get_constrained_num_input(enter_base_prompt, TYPE_ERROR_MESSAGE, base_error_message,
-                                     left_border, right_border)
+                                     BASE_LEFT_BORDER, BASE_RIGHT_BORDER)
     return base
 
 
