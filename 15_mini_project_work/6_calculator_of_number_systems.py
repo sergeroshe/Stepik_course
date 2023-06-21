@@ -59,9 +59,7 @@ def number_sys_calc(num, base):
     return converted_num
 
 
-def main():
-
-    num = get_num_input(ENTER_NUM_PROMPT, TYPE_ERROR_MESSAGE)
+def get_valid_base_num():
     left_border = 1
     right_border = len(NUMBER_SYSTEM_CHARS) + 1
     enter_base_prompt = f'Enter a number between {left_border} and {right_border}' \
@@ -69,6 +67,13 @@ def main():
     base_error_message = f'The number must be between {left_border} and {right_border} inclusive!'
     base = get_constrained_num_input(enter_base_prompt, TYPE_ERROR_MESSAGE, base_error_message,
                                      left_border, right_border)
+    return base
+
+
+def main():
+
+    num = get_num_input(ENTER_NUM_PROMPT, TYPE_ERROR_MESSAGE)
+    base = get_valid_base_num()
 
     converted_number_system_num = number_sys_calc(num, base)
 
