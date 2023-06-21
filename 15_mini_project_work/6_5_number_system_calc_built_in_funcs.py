@@ -17,15 +17,8 @@ def get_num_input(prompt, error_message):
     return num
 
 
-def b_o_h_number_sys_calc(num):
-    converted_num_string = ''
-    for base in NUMBER_SYSTEMS_BASE_LIST:
-        if base == 2:
-            converted_num_string += str(bin(num))[2:] + '\n'
-        elif base == 8:
-            converted_num_string += str(oct(num))[2:] + '\n'
-        else:
-            converted_num_string += str(hex(num))[2:].upper() + '\n'
+def b_o_h_number_sys_calc_v2(num):
+    converted_num_string = str(bin(num))[2:] + '\n' + str(oct(num))[2:] + '\n' + str(hex(num))[2:].upper()
 
     return converted_num_string
 
@@ -33,7 +26,7 @@ def b_o_h_number_sys_calc(num):
 def main():
 
     num = get_num_input(ENTER_NUM_PROMPT, TYPE_ERROR_MESSAGE)
-    converted_nums = b_o_h_number_sys_calc(num)
+    converted_nums = b_o_h_number_sys_calc_v2(num)
 
     print(converted_nums)
 
