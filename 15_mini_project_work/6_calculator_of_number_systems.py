@@ -59,16 +59,11 @@ def number_sys_calc(num, base):
     return converted_num
 
 
-def get_valid_base_num():
-    base = get_constrained_num_input(ENTER_BASE_PROMPT, TYPE_ERROR_MESSAGE, BASE_ERROR_MESSAGE,
-                                     BASE_LEFT_BORDER, BASE_RIGHT_BORDER)
-    return base
-
-
 def main():
 
     num = get_num_input(ENTER_NUM_PROMPT, TYPE_ERROR_MESSAGE)
-    base = get_valid_base_num()
+    base = get_constrained_num_input(ENTER_BASE_PROMPT, TYPE_ERROR_MESSAGE, BASE_ERROR_MESSAGE,
+                                     BASE_LEFT_BORDER, BASE_RIGHT_BORDER)
 
     converted_number_system_num = number_sys_calc(num, base)
 
