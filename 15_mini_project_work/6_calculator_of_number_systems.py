@@ -8,11 +8,6 @@ BASE_LEFT_BORDER = 1
 BASE_RIGHT_BORDER = len(NUMBER_SYSTEM_CHARS) + 1
 
 
-def is_valid(input_string, guess_left_border, guess_right_border):
-    result = input_string.lstrip('-').isdigit() and guess_left_border <= int(input_string) <= guess_right_border
-    return result
-
-
 def get_num_input(prompt, error_message):
     is_string_num = False
     input_string = input(prompt)
