@@ -27,7 +27,6 @@ def get_num_input(prompt, error_message):
     return num
 
 
-
 def get_valid_base(enter_base_prompt, type_error_message, base_error_message, left_border, right_border):
     is_base_valid = False
     base = get_num_input(enter_base_prompt, type_error_message)
