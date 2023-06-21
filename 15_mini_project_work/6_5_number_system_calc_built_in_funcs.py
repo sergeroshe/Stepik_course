@@ -16,7 +16,7 @@ def get_num_input(prompt, error_message):
     return num
 
 
-def b_o_h_number_sys_calc_v2(num):
+def b_o_h_number_sys_calc(num):
     bin_converted_num = bin(num)
     oct_converted_num = oct(num)
     hex_converted_num = hex(num)
@@ -27,7 +27,7 @@ def b_o_h_number_sys_calc_v2(num):
 def main():
 
     num = get_num_input(ENTER_NUM_PROMPT, TYPE_ERROR_MESSAGE)
-    bin_converted_num, oct_converted_num, hex_converted_num = b_o_h_number_sys_calc_v2(num)
+    bin_converted_num, oct_converted_num, hex_converted_num = b_o_h_number_sys_calc(num)
 
     print(bin_converted_num[2:], oct_converted_num[2:], hex_converted_num[2:].upper(), sep='\n')
 
