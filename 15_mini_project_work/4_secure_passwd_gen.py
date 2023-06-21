@@ -38,8 +38,8 @@ def get_num_input(prompt, error_message):
             print(error_message)
             input_string = input(prompt)
 
-    is_string_num = int(input_string)
-    return is_string_num
+    num = int(input_string)
+    return num
 
 
 def secure_password_configurator():
