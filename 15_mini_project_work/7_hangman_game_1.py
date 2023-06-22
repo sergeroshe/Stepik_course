@@ -114,6 +114,19 @@ def get_word():
     return random_word
 
 
+def get_string_input(prompt, error_message):
+    is_input_string = False
+    input_string = input(prompt)
+    while not is_input_string:
+        if input_string.isalpha():
+            is_input_string = True
+        else:
+            print(error_message)
+            input_string = input(prompt)
+    valid_string_input = input_string
+    return valid_string_input
+
+
 #   отобразить текст 'Давайте играть в угадайку слов!'; done
 # отобразить текущее состояние игры, распечатав результат вызова функции display_hangman()
 # с начальным количеством допустимых промахов tries = 6;
