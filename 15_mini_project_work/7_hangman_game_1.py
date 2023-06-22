@@ -2,6 +2,7 @@ from random import choice
 GREETING = 'Давайте играть в угадайку слов!'
 ENTER_WORD_PROMPT = 'Введите слово в формате текста без символов пунктуации и цифр:\n'
 TYPE_ERROR_MESSAGE = 'Введенные данные должны содержать только текст!\n'
+WORD_COMPLETION_FILLING_CHAR = '_'
 STAGES = [  # финальное состояние: голова, торс, обе руки, обе ноги
                 '''
                    --------
