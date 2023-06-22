@@ -131,10 +131,6 @@ def get_string_input(prompt, error_message):
 def get_guessed_letters_indexes(word, guess_letter):
     guessed_letter_idx_list = []
     [guessed_letter_idx_list.append(i) for i in range(len(word)) if guess_letter == word[i]]
-    # for i in range(len(word)):
-    #     if guess_letter == word[i]:
-    #         guessed_letter_idx_list.append(i)
-
     return guessed_letter_idx_list
 
 
