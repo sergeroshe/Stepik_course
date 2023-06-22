@@ -123,6 +123,7 @@ def get_string_input(prompt, error_message):
         else:
             print(error_message)
             input_string = input(prompt)
+
     valid_string_input = input_string
     return valid_string_input
 
@@ -130,21 +131,34 @@ def get_string_input(prompt, error_message):
 def get_guessed_letters_indexes(word, guess_letter):
     guessed_letter_idx_list = []
     [guessed_letter_idx_list.append(i) for i in range(len(word)) if guess_letter == word[i]]
+    # for i in range(len(word)):
+    #     if guess_letter == word[i]:
+    #         guessed_letter_idx_list.append(i)
 
     return guessed_letter_idx_list
 
 
 def play(word):
     print(GREETING)
-    game_current_stage = get_hangman_picture(6)
-    print(game_current_stage)
-    word_completion = '_' * len(word) # строка, содержащая символы _ на каждую букву задуманного слова
-    print(word_completion)
-
-    guessed = False  # сигнальная метка
     guessed_letters = []  # список уже названных букв
-    guessed_words = []  # список уже названных слов
-    tries = 6  # количество попыток
+    guessed_words = []
+    word_completion = WORD_COMPLETION_FILLING_CHAR * len(word)
+    word_completion_list = list(word_completion)
+    guessed = False
+    i = len(STAGES) - 1
+    while not guessed:
+        game_current_stage = get_hangman_picture(i)
+        print(game_current_stage)
+        print(*word_completion_list)
+        guess_letter = get_string_input(ENTER_GUESS_PROMPT, TYPE_ERROR_MESSAGE)
+        if guess_letter in word:
+            guessed_letter_idx_list = get_guessed_letters_indexes(word, guess_letter)
+
+            for j in range(len(guessed_letter_idx_list)):
+                for k in range(len(word_completion_list)):
+                    if guessed_letter_idx_list[j] == k:
+                        word_completion_list[k] = guess_letter
+        i -= 1
 
 
 def main():
