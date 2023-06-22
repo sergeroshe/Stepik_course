@@ -111,8 +111,8 @@ def get_word():
 
 
 def main():
-    current_hangman_state = (get_hangman_picture(6))
-    print(current_hangman_state)
+    hangman_picture = get_hangman_picture(6)
+    print(hangman_picture)
 
 
 main()
