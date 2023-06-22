@@ -1,5 +1,5 @@
 from random import choice
-
+GREETING = 'Давайте играть в угадайку слов!'
 STAGES = [  # финальное состояние: голова, торс, обе руки, обе ноги
                 '''
                    --------
@@ -110,13 +110,28 @@ def get_word():
     return random_word
 
 
-def play():
-    pass
+#   отобразить текст 'Давайте играть в угадайку слов!'; done
+# отобразить текущее состояние игры, распечатав результат вызова функции display_hangman()
+# с начальным количеством допустимых промахов tries = 6;
+# отобразить начальное слово word_completion в виде строки с символом _ на каждую букву задуманного слова;
+
+def play(word):
+    print(GREETING)
+    game_current_stage = get_hangman_picture(6)
+    print(game_current_stage)
+    word_completion = '_' * len(word) # строка, содержащая символы _ на каждую букву задуманного слова
+    print(word_completion)
+    #  Необходимо обрабатывать ввод букв или слова целиком. Предусмотрите защиту от дурака,
+    #  на случай если пользователь ввел символ, не являющийся буквой;
+    guessed = False  # сигнальная метка
+    guessed_letters = []  # список уже названных букв
+    guessed_words = []  # список уже названных слов
+    tries = 6  # количество попыток
 
 
 def main():
-    hangman_picture = get_hangman_picture(6)
-    print(hangman_picture)
+    word = get_word()
+    play(word)
 
 
 main()
