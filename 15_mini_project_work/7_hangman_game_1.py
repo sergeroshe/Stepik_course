@@ -109,7 +109,7 @@ def get_hangman_picture(tries):
 
 
 def get_word():
-    random_word = choice(WORD_LIST)
+    random_word = 'лесенка' # choice(WORD_LIST)
 
     return random_word
 
