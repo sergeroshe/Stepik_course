@@ -127,10 +127,12 @@ def get_string_input(prompt, error_message):
     return valid_string_input
 
 
-#   отобразить текст 'Давайте играть в угадайку слов!'; done
-# отобразить текущее состояние игры, распечатав результат вызова функции display_hangman()
-# с начальным количеством допустимых промахов tries = 6;
-# отобразить начальное слово word_completion в виде строки с символом _ на каждую букву задуманного слова;
+def get_guessed_letters_indexes(word, guess_letter):
+    guessed_letter_idx_list = []
+    [guessed_letter_idx_list.append(i) for i in range(len(word)) if guess_letter == word[i]]
+
+    return guessed_letter_idx_list
+
 
 def play(word):
     print(GREETING)
@@ -138,8 +140,7 @@ def play(word):
     print(game_current_stage)
     word_completion = '_' * len(word) # строка, содержащая символы _ на каждую букву задуманного слова
     print(word_completion)
-    #  Необходимо обрабатывать ввод букв или слова целиком. Предусмотрите защиту от дурака,
-    #  на случай если пользователь ввел символ, не являющийся буквой;
+
     guessed = False  # сигнальная метка
     guessed_letters = []  # список уже названных букв
     guessed_words = []  # список уже названных слов
