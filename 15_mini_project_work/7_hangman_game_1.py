@@ -128,7 +128,7 @@ def get_string_input(prompt, error_message):
     return valid_string_input
 
 
-def get_guessed_letters_indexes(word, guess_letter):
+def get_guessed_letter_indexes(word, guess_letter):
     guessed_letter_idx_list = []
     [guessed_letter_idx_list.append(i) for i in range(len(word)) if guess_letter == word[i]]
     return guessed_letter_idx_list
@@ -148,7 +148,7 @@ def play(word):
         print(*word_completion_list)
         guess_letter = get_string_input(ENTER_GUESS_PROMPT, TYPE_ERROR_MESSAGE)
         if guess_letter in word:
-            guessed_letter_idx_list = get_guessed_letters_indexes(word, guess_letter)
+            guessed_letter_idx_list = get_guessed_letter_indexes(word, guess_letter)
 
             for j in range(len(guessed_letter_idx_list)):
                 for k in range(len(word_completion_list)):
