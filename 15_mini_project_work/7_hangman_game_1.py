@@ -151,23 +151,38 @@ def play(word):
     guessed_words = []
     word_completion = WORD_COMPLETION_FILLING_CHAR * len(word)
     word_completion_list = list(word_completion)
+    game_current_stage = ''
     guessed = False
+    game_lost = False
     i = len(STAGES) - 1
-    while not guessed:
+    while not guessed and not game_lost:
+
         game_current_stage = get_hangman_picture(i)
         print(game_current_stage)
         print(*word_completion_list)
         enter_guess_prompt = f'{ENTER_GUESS_PROMPT_P_1}{len(word)}{ENTER_GUESS_PROMPT_P_2}{COLON_SEP}\n'
         len_error_message = f'{LEN_ERROR_MESSAGE}{len(word)}{ENTER_GUESS_PROMPT_P_2}{EXCLAMATION_SIGN}'
         input_string = get_valid_string_input(word, enter_guess_prompt, len_error_message, TYPE_ERROR_MESSAGE)
+
         if input_string in word:
             guessed_letter_idx_list = get_guessed_letter_indexes(word, input_string)
             for idx in guessed_letter_idx_list:
                 for j in range(len(word_completion_list)):
                     if idx == j:
                         word_completion_list[j] = input_string
+        word_completion = ''.join(word_completion_list)
+
+        guessed = input_string == word or word_completion == word
 
         i -= 1
+        if i == 0:
+            break
+
+    if guessed:
+        print(WIN_MESSAGE)
+    else:
+        print(FATAL_GAME_STAGE)
+        print(LOSING_MESSAGE)
 
 
 def main():
