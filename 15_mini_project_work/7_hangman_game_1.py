@@ -164,6 +164,8 @@ def hangman_game(guessed_word):
     while not guessed and not game_lost:
 
         game_current_stage = get_hangman_picture(tries_remained)
+        if tries_remained < MAX_TRIES_COUNT:
+            print(WRONG_GUESS_MESSAGE)
         print(game_current_stage)
         print(*word_completion_list)
         enter_guess_prompt = f'{ENTER_GUESS_PROMPT_P_1}{len(guessed_word)}{ENTER_GUESS_PROMPT_P_2}{COLON_SEP}\n'
@@ -196,18 +198,20 @@ def hangman_game(guessed_word):
         guessed = input_string == guessed_word or word_completion == guessed_word
 
         tries_remained -= 1
-        print(WRONG_GUESS_MESSAGE)
+
         if tries_remained == 0:
             break
+    print(*word_char_list)
 
     if guessed:
-        print(*word_char_list)
+
         print(WIN_MESSAGE)
 
     else:
         print(FATAL_GAME_STAGE)
         print(LOSING_MESSAGE)
-        print(*word_char_list)
+
+
 
 
 def main():
