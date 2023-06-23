@@ -175,6 +175,9 @@ def hangman_game(guessed_word):
             guessed_letter = input_string
             guessed_letter_idx_list = get_guessed_letter_indexes(guessed_word, input_string)
             guessed_letters.append(guessed_letter)
+            if guessed_letter in word_completion_list:
+                print(REPEAT_ERROR)
+                break
 
             for idx in guessed_letter_idx_list:
                 for j in range(len(word_completion_list)):
@@ -189,9 +192,6 @@ def hangman_game(guessed_word):
                                                       TYPE_ERROR_MESSAGE)
 
                 successful_guess_processing = input_string in guessed_word and input_string != guessed_word
-                guessed_letter = input_string
-                if guessed_letter in word_completion_list:
-                    print(REPEAT_ERROR)
 
         guessed = input_string == guessed_word or word_completion == guessed_word
 
