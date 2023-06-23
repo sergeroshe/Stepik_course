@@ -2,12 +2,14 @@ from random import choice
 GREETING = 'Давайте играть в угадайку слов!'
 ENTER_GUESS_PROMPT_P_1 = 'Введите букву или всё слово, состоящее из '
 ENTER_GUESS_PROMPT_P_2 = ' букв'
+WIN_MESSAGE = 'Поздравляем, вы угадали слово! Вы победили!'
+LOSING_MESSAGE = 'Вы проиграли.'
 TYPE_ERROR_MESSAGE = 'Введенные данные должны содержать только текст!\n'
 LEN_ERROR_MESSAGE = 'Введенное слово должно состоять из '
 COLON_SEP = ':'
 EXCLAMATION_SIGN = '!'
 WORD_COMPLETION_FILLING_CHAR = '_'
-MAX_TRIES_COUNT = 6
+MAX_TRIES_COUNT = 7
 STAGES = [  # финальное состояние: голова, торс, обе руки, обе ноги
                 '''
                    --------
