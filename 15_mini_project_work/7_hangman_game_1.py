@@ -1,6 +1,7 @@
 from random import choice
 GREETING = 'Давайте играть в угадайку слов!'
-ENTER_GUESS_PROMPT = 'Введите букву или всё слово целиком:\n'
+ENTER_GUESS_PROMPT_P_1 = 'Введите букву или всё слово, состоящее из '
+ENTER_GUESS_PROMPT_P_2 = ' букв:\n'
 TYPE_ERROR_MESSAGE = 'Введенные данные должны содержать только текст!\n'
 WORD_COMPLETION_FILLING_CHAR = '_'
 MAX_TRIES_COUNT = 6
@@ -114,11 +115,11 @@ def get_word():
     return random_word
 
 
-def get_string_input(prompt, error_message):
+def get_string_input(guessed_word, prompt, error_message):
     is_input_string = False
     input_string = input(prompt)
     while not is_input_string:
-        if input_string.isalpha():
+        if input_string.isalpha() and len(input_string) == 1 or len(input_string) == len(guessed_word):
             is_input_string = True
         else:
             print(error_message)
@@ -146,20 +147,21 @@ def play(word):
         game_current_stage = get_hangman_picture(i)
         print(game_current_stage)
         print(*word_completion_list)
-        guess_letter = get_string_input(ENTER_GUESS_PROMPT, TYPE_ERROR_MESSAGE)
-        if guess_letter in word:
-            guessed_letter_idx_list = get_guessed_letter_indexes(word, guess_letter)
+        enter_guess_prompt = f'{ENTER_GUESS_PROMPT_P_1}{len(word)}{ENTER_GUESS_PROMPT_P_2}'
+        input_string = get_string_input(word, enter_guess_prompt, TYPE_ERROR_MESSAGE)
+        if input_string in word:
+            guessed_letter_idx_list = get_guessed_letter_indexes(word, input_string)
+            for idx in guessed_letter_idx_list:
+                for j in range(len(word_completion_list)):
+                    if idx == j:
+                        word_completion_list[j] = input_string
 
-            for j in range(len(guessed_letter_idx_list)):
-                for k in range(len(word_completion_list)):
-                    if guessed_letter_idx_list[j] == k:
-                        word_completion_list[k] = guess_letter
         i -= 1
 
 
 def main():
-    word = get_word()
-    play(word)
+    guessed_word = get_word()
+    play(guessed_word)
 
 
 main()
