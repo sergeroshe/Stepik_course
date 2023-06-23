@@ -1,8 +1,11 @@
 from random import choice
 GREETING = 'Давайте играть в угадайку слов!'
 ENTER_GUESS_PROMPT_P_1 = 'Введите букву или всё слово, состоящее из '
-ENTER_GUESS_PROMPT_P_2 = ' букв:\n'
+ENTER_GUESS_PROMPT_P_2 = ' букв'
 TYPE_ERROR_MESSAGE = 'Введенные данные должны содержать только текст!\n'
+LEN_ERROR_MESSAGE = 'Введенное слово должно состоять из '
+COLON_SEP = ':'
+EXCLAMATION_SIGN = '!'
 WORD_COMPLETION_FILLING_CHAR = '_'
 MAX_TRIES_COUNT = 6
 STAGES = [  # финальное состояние: голова, торс, обе руки, обе ноги
@@ -115,14 +118,18 @@ def get_word():
     return random_word
 
 
-def get_string_input(guessed_word, prompt, error_message):
-    is_input_string = False
+def get_valid_string_input(guessed_word, prompt, len_error_message, type_error_message):
+    valid_string_input = False
     input_string = input(prompt)
-    while not is_input_string:
-        if input_string.isalpha() and len(input_string) == 1 or len(input_string) == len(guessed_word):
-            is_input_string = True
+    while not valid_string_input:
+        if input_string.isalpha():
+            if len(input_string) == 1 or len(input_string) == len(guessed_word):
+                valid_string_input = True
+            else:
+                print(len_error_message)
+                input_string = input(prompt)
         else:
-            print(error_message)
+            print(type_error_message)
             input_string = input(prompt)
 
     valid_string_input = input_string
@@ -147,8 +154,9 @@ def play(word):
         game_current_stage = get_hangman_picture(i)
         print(game_current_stage)
         print(*word_completion_list)
-        enter_guess_prompt = f'{ENTER_GUESS_PROMPT_P_1}{len(word)}{ENTER_GUESS_PROMPT_P_2}'
-        input_string = get_string_input(word, enter_guess_prompt, TYPE_ERROR_MESSAGE)
+        enter_guess_prompt = f'{ENTER_GUESS_PROMPT_P_1}{len(word)}{ENTER_GUESS_PROMPT_P_2}{COLON_SEP}\n'
+        len_error_message = f'{LEN_ERROR_MESSAGE}{len(word)}{ENTER_GUESS_PROMPT_P_2}{EXCLAMATION_SIGN}'
+        input_string = get_valid_string_input(word, enter_guess_prompt, len_error_message, TYPE_ERROR_MESSAGE)
         if input_string in word:
             guessed_letter_idx_list = get_guessed_letter_indexes(word, input_string)
             for idx in guessed_letter_idx_list:
