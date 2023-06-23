@@ -6,6 +6,7 @@ WIN_MESSAGE = 'Поздравляем, вы угадали слово! Вы по
 LOSING_MESSAGE = 'Вы проиграли.'
 TYPE_ERROR_MESSAGE = 'Введенные данные должны содержать только текст!\n'
 LEN_ERROR_MESSAGE = 'Введенное слово должно состоять из '
+REPEAT_ERROR = 'Вы уже вводили эту букву, попробуйте другую'
 COLON_SEP = ':'
 EXCLAMATION_SIGN = '!'
 WORD_COMPLETION_FILLING_CHAR = '_'
@@ -183,7 +184,11 @@ def play(word):
             if word_completion == word or input_string == word:
                 break
             input_string = get_valid_string_input(word, enter_guess_prompt, len_error_message, TYPE_ERROR_MESSAGE)
+
             successful_guess_processing = input_string in word and input_string != word
+            guessed_letter = input_string
+            if guessed_letter in word_completion_list:
+                print(REPEAT_ERROR)
 
         guessed = input_string == word or word_completion == word
 
@@ -193,7 +198,7 @@ def play(word):
 
     if guessed:
         print(WIN_MESSAGE)
-        print(*word_char_list)
+
     else:
         print(FATAL_GAME_STAGE)
         print(LOSING_MESSAGE)
