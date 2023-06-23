@@ -118,7 +118,7 @@ def get_hangman_picture(tries):
 
 
 def get_word():
-    random_word = 'лесенка'  # choice(WORD_LIST)
+    random_word = choice(WORD_LIST)
 
     return random_word
 
@@ -210,8 +210,6 @@ def hangman_game(guessed_word):
     else:
         print(FATAL_GAME_STAGE)
         print(LOSING_MESSAGE)
-
-
 
 
 def main():
