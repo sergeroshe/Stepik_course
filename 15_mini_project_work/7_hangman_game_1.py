@@ -183,12 +183,13 @@ def play(word):
             word_completion = ''.join(word_completion_list)
             if word_completion == word or input_string == word:
                 break
-            input_string = get_valid_string_input(word, enter_guess_prompt, len_error_message, TYPE_ERROR_MESSAGE)
+            else:
+                input_string = get_valid_string_input(word, enter_guess_prompt, len_error_message, TYPE_ERROR_MESSAGE)
 
-            successful_guess_processing = input_string in word and input_string != word
-            guessed_letter = input_string
-            if guessed_letter in word_completion_list:
-                print(REPEAT_ERROR)
+                successful_guess_processing = input_string in word and input_string != word
+                guessed_letter = input_string
+                if guessed_letter in word_completion_list:
+                    print(REPEAT_ERROR)
 
         guessed = input_string == word or word_completion == word
 
@@ -197,6 +198,7 @@ def play(word):
             break
 
     if guessed:
+        print(*word_char_list)
         print(WIN_MESSAGE)
 
     else:
