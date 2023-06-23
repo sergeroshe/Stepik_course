@@ -182,6 +182,7 @@ def play(word):
             break
 
     if guessed:
+        print(word)
         print(WIN_MESSAGE)
     else:
         print(FATAL_GAME_STAGE)
