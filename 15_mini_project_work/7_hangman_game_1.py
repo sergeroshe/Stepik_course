@@ -153,6 +153,7 @@ def play(word):
 
     word_completion = WORD_COMPLETION_FILLING_CHAR * len(word)
     word_completion_list = list(word_completion)
+    word_char_list = list(word)
 
     guessed = False
     game_lost = False
@@ -167,9 +168,12 @@ def play(word):
         len_error_message = f'{LEN_ERROR_MESSAGE}{len(word)}{ENTER_GUESS_PROMPT_P_2}{EXCLAMATION_SIGN}'
         input_string = get_valid_string_input(word, enter_guess_prompt, len_error_message, TYPE_ERROR_MESSAGE)
 
-        successful_guess_processing = input_string in word
+        successful_guess_processing = input_string in word and input_string != word
         while successful_guess_processing:
+            guessed_letter = input_string
             guessed_letter_idx_list = get_guessed_letter_indexes(word, input_string)
+            guessed_letters.append(guessed_letter)
+
             for idx in guessed_letter_idx_list:
                 for j in range(len(word_completion_list)):
                     if idx == j:
@@ -179,7 +183,7 @@ def play(word):
             if word_completion == word or input_string == word:
                 break
             input_string = get_valid_string_input(word, enter_guess_prompt, len_error_message, TYPE_ERROR_MESSAGE)
-            successful_guess_processing = input_string in word
+            successful_guess_processing = input_string in word and input_string != word
 
         guessed = input_string == word or word_completion == word
 
@@ -189,10 +193,11 @@ def play(word):
 
     if guessed:
         print(WIN_MESSAGE)
+        print(*word_char_list)
     else:
         print(FATAL_GAME_STAGE)
         print(LOSING_MESSAGE)
-        print(word)
+        print(*word_char_list)
 
 
 def main():
