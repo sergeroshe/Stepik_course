@@ -5,7 +5,7 @@ ENTER_GUESS_PROMPT_P_1 = 'Введите букву или всё слово, с
 ENTER_GUESS_PROMPT_P_2 = ' букв'
 WIN_MESSAGE = 'Поздравляем, вы угадали слово! Вы победили!'
 WRONG_GUESS_MESSAGE = 'Ответ неверный'
-LOSING_MESSAGE = 'Вы проиграли.'
+GAME_LOST_MESSAGE = 'Вы проиграли.'
 TYPE_ERROR_MESSAGE = 'Введенные данные должны содержать только текст!\n'
 LEN_ERROR_MESSAGE = 'Введенное слово должно состоять из '
 REPEAT_ERROR = 'Вы уже вводили эту букву, попробуйте другую'
@@ -216,7 +216,7 @@ def hangman_game(guessed_word):
 
     else:
         print(FATAL_GAME_STAGE)
-        print(LOSING_MESSAGE)
+        print(GAME_LOST_MESSAGE)
 
 
 def main():
