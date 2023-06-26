@@ -222,6 +222,7 @@ def hangman_game(guessed_word):
 
         if tries_remained == 0:
             break
+
     print(*word_char_list)
 
     if guessed:
