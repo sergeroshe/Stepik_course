@@ -137,7 +137,7 @@ def get_valid_string_input(guessed_word, prompt, len_error_message, type_error_m
             print(type_error_message)
             input_string = input(prompt)
 
-    valid_string_input = input_string
+    valid_string_input = input_string.upper()
     return valid_string_input
 
 
@@ -213,7 +213,7 @@ def hangman_game(guessed_word):
 
 
 def main():
-    guessed_word = get_word()
+    guessed_word = get_word().upper()
     hangman_game(guessed_word)
 
 
