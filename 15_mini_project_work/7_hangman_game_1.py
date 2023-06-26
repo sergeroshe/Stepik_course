@@ -174,6 +174,7 @@ def get_prompt(guessed_word):
 
 
 def hangman_game(guessed_word):
+
     print(GREETING)
     print(guessed_word)
 
@@ -189,7 +190,6 @@ def hangman_game(guessed_word):
 
     tries_remained = MAX_TRIES_COUNT
     while not guessed and not game_lost:
-
         game_stage_display(tries_remained, word_completion_list)
         enter_guess_prompt, len_error_message = get_prompt(guessed_word)
         input_string = get_valid_string_input(guessed_word, enter_guess_prompt, len_error_message, TYPE_ERROR_MESSAGE)
