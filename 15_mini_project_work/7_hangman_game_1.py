@@ -184,13 +184,15 @@ def hangman_game(guessed_word):
 
     word_completion = WORD_COMPLETION_FILLING_CHAR * len(guessed_word)
     word_completion_list = list(word_completion)
+    print(*word_completion_list)
     word_char_list = list(guessed_word)
+    tries_remained = MAX_TRIES_COUNT
 
     guessed = word_completion == guessed_word
+    game_lost = False
 
-    tries_remained = MAX_TRIES_COUNT
-    game_lost = tries_remained == 0
     while not guessed and not game_lost:
+        game_lost = not tries_remained
         game_current_stage, word_completion_list = game_stage_display(tries_remained, word_completion_list)
 
         enter_guess_prompt, len_error_message = get_prompt(guessed_word)
@@ -210,24 +212,20 @@ def hangman_game(guessed_word):
 
             word_completion, word_completion_list = open_guessed_letters(guessed_letter_idx_list, word_completion_list, input_string)
 
-            print(*word_completion_list)
-
             if word_completion == guessed_word:
                 break
             else:
+                print(*word_completion_list)
                 input_string = get_valid_string_input(guessed_word, enter_guess_prompt, len_error_message,
                                                       TYPE_ERROR_MESSAGE)
 
             successful_guess_processing = input_string in guessed_word and input_string != guessed_word
 
+        print(*word_completion_list)
+
         guessed = input_string == guessed_word or word_completion == guessed_word
 
         tries_remained -= 1
-
-        if tries_remained == 0:
-            break
-
-    print(*word_char_list)
 
     if guessed:
         print(WIN_MESSAGE)
@@ -235,6 +233,7 @@ def hangman_game(guessed_word):
     else:
         print(FATAL_GAME_STAGE)
         print(GAME_LOST_MESSAGE)
+        print(*word_char_list)
 
 
 def main():
