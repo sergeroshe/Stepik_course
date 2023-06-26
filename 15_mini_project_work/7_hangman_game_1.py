@@ -198,7 +198,7 @@ def hangman_game(guessed_word):
 
         while successful_guess_processing:
             guessed_letter = input_string
-            guessed_letter_idx_list = get_guessed_letter_indexes(guessed_word, input_string)
+            guessed_letter_idx_list = get_guessed_letter_indexes(guessed_word, guessed_letter)
 
             if guessed_letter in guessed_letters:
                 print(REPEAT_ERROR)
