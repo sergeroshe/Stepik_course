@@ -186,9 +186,9 @@ def hangman_game(guessed_word):
     word_char_list = list(guessed_word)
 
     guessed = False
-    game_lost = False
 
     tries_remained = MAX_TRIES_COUNT
+    game_lost = tries_remained == 0
     while not guessed and not game_lost:
         game_stage_display(tries_remained, word_completion_list)
         enter_guess_prompt, len_error_message = get_prompt(guessed_word)
