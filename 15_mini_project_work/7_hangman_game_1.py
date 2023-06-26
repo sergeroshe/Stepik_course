@@ -185,7 +185,7 @@ def hangman_game(guessed_word):
     word_completion_list = list(word_completion)
     word_char_list = list(guessed_word)
 
-    guessed = False
+    guessed = word_completion == guessed_word
 
     tries_remained = MAX_TRIES_COUNT
     game_lost = tries_remained == 0
