@@ -147,6 +147,17 @@ def get_guessed_letter_indexes(word, guess_letter):
     return guessed_letter_idx_list
 
 
+def open_guessed_letters(guessed_letter_idx_list, word_completion_list, input_string):
+    for idx in guessed_letter_idx_list:
+        for j in range(len(word_completion_list)):
+            if idx == j:
+                word_completion_list[j] = input_string
+    print(*word_completion_list)
+    word_completion = ''.join(word_completion_list)
+
+    return word_completion
+
+
 def hangman_game(guessed_word):
     print(GREETING)
     print(guessed_word)
@@ -182,12 +193,8 @@ def hangman_game(guessed_word):
                 print(REPEAT_ERROR)
                 break
 
-            for idx in guessed_letter_idx_list:
-                for j in range(len(word_completion_list)):
-                    if idx == j:
-                        word_completion_list[j] = input_string
-            print(*word_completion_list)
-            word_completion = ''.join(word_completion_list)
+            word_completion = open_guessed_letters(guessed_letter_idx_list, word_completion_list, input_string)
+
             if word_completion == guessed_word or input_string == guessed_word:
                 break
             else:
