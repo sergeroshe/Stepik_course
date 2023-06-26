@@ -3,7 +3,6 @@ from random import choice
 GREETING = 'Давайте играть в угадайку слов!'
 ENTER_GUESS_PROMPT_P_1 = 'Введите букву или всё слово, состоящее из '
 ENTER_GUESS_PROMPT_P_2 = ' букв'
-LETTER_LEN = 1
 WIN_MESSAGE = 'Поздравляем, вы угадали слово! Вы победили!'
 WRONG_GUESS_MESSAGE = 'Ответ неверный'
 LOSING_MESSAGE = 'Вы проиграли.'
@@ -142,29 +141,22 @@ def get_valid_string_input(guessed_word, prompt, len_error_message, type_error_m
     return valid_string_input
 
 
-def get_guessed_letters_indexes(word, guess_letter):
+def get_guessed_letter_indexes(word, guess_letter):
     guessed_letter_idx_list = []
     [guessed_letter_idx_list.append(i) for i in range(len(word)) if guess_letter == word[i]]
     return guessed_letter_idx_list
 
 
-def expose_guessed_letters(input_string, guessed_letters_idx_list, hidden_letters_list):
-    for idx in guessed_letters_idx_list:
-        for i in range(len(hidden_letters_list)):
-            if idx == i:
-                hidden_letters_list[i] = input_string
-    return hidden_letters_list
-
-
-def hangman_game(hidden_word):
+def hangman_game(guessed_word):
     print(GREETING)
+    print(guessed_word)
 
     guessed_letters = []  # список уже названных букв
     guessed_words = []
 
-    word_completion = WORD_COMPLETION_FILLING_CHAR * len(hidden_word)
+    word_completion = WORD_COMPLETION_FILLING_CHAR * len(guessed_word)
     word_completion_list = list(word_completion)
-    word_char_list = list(hidden_word)
+    word_char_list = list(guessed_word)
 
     guessed = False
     game_lost = False
@@ -177,40 +169,39 @@ def hangman_game(hidden_word):
             print(WRONG_GUESS_MESSAGE)
         print(game_current_stage)
         print(*word_completion_list)
-        enter_guess_prompt = f'{ENTER_GUESS_PROMPT_P_1}{len(hidden_word)}{ENTER_GUESS_PROMPT_P_2}{COLON_SEP}\n'
-        len_error_message = f'{LEN_ERROR_MESSAGE}{len(hidden_word)}{ENTER_GUESS_PROMPT_P_2}{EXCLAMATION_SIGN}'
-        input_string = get_valid_string_input(hidden_word, enter_guess_prompt, len_error_message, TYPE_ERROR_MESSAGE)
-        if len(input_string) == LETTER_LEN:
-            guess_letter = input_string
-            guessed_letter_processing = guess_letter in hidden_word
-            while guessed_letter_processing:
-                guessed_letter = guess_letter
-                guessed_letters_idx_list = get_guessed_letters_indexes(hidden_word, input_string)
-                guessed_letters.append(guessed_letter)
-                if guessed_letter in word_completion_list:
-                    print(REPEAT_ERROR)
-                    break
-                word_completion_list = expose_guessed_letters(guessed_letter, guessed_letters_idx_list, word_completion_list)
+        enter_guess_prompt = f'{ENTER_GUESS_PROMPT_P_1}{len(guessed_word)}{ENTER_GUESS_PROMPT_P_2}{COLON_SEP}\n'
+        len_error_message = f'{LEN_ERROR_MESSAGE}{len(guessed_word)}{ENTER_GUESS_PROMPT_P_2}{EXCLAMATION_SIGN}'
+        input_string = get_valid_string_input(guessed_word, enter_guess_prompt, len_error_message, TYPE_ERROR_MESSAGE)
 
-                print(*word_completion_list)
-                word_completion = ''.join(word_completion_list)
-                if word_completion == hidden_word:
-                    break
-                else:
-                    input_string = get_valid_string_input(hidden_word, enter_guess_prompt, len_error_message,
-                                                          TYPE_ERROR_MESSAGE)
-                    if len(input_string) != LETTER_LEN:
-                        break
+        successful_guess_processing = input_string in guessed_word and input_string != guessed_word
+        while successful_guess_processing:
+            guessed_letter = input_string
+            guessed_letter_idx_list = get_guessed_letter_indexes(guessed_word, input_string)
+            guessed_letters.append(guessed_letter)
+            if guessed_letter in word_completion_list:
+                print(REPEAT_ERROR)
+                break
 
-                guessed_letter_processing = guess_letter in hidden_word
+            for idx in guessed_letter_idx_list:
+                for j in range(len(word_completion_list)):
+                    if idx == j:
+                        word_completion_list[j] = input_string
+            print(*word_completion_list)
+            word_completion = ''.join(word_completion_list)
+            if word_completion == guessed_word or input_string == guessed_word:
+                break
+            else:
+                input_string = get_valid_string_input(guessed_word, enter_guess_prompt, len_error_message,
+                                                      TYPE_ERROR_MESSAGE)
 
-        guessed = input_string == hidden_word or word_completion == hidden_word
+                successful_guess_processing = input_string in guessed_word and input_string != guessed_word
+
+        guessed = input_string == guessed_word or word_completion == guessed_word
 
         tries_remained -= 1
 
         if tries_remained == 0:
             break
-
     print(*word_char_list)
 
     if guessed:
