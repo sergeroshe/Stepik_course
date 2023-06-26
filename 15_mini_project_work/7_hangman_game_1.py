@@ -205,7 +205,6 @@ def hangman_game(guessed_word):
     print(*word_char_list)
 
     if guessed:
-
         print(WIN_MESSAGE)
 
     else:
