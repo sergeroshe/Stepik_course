@@ -152,10 +152,10 @@ def open_guessed_letters(guessed_letter_idx_list, word_completion_list, input_st
         for j in range(len(word_completion_list)):
             if idx == j:
                 word_completion_list[j] = input_string
-    print(*word_completion_list)
+
     word_completion = ''.join(word_completion_list)
 
-    return word_completion
+    return word_completion, word_completion_list
 
 
 def game_stage_display(tries_remained, word_completion_list):
@@ -163,7 +163,8 @@ def game_stage_display(tries_remained, word_completion_list):
     if tries_remained < MAX_TRIES_COUNT:
         print(WRONG_GUESS_MESSAGE)
     print(game_current_stage)
-    print(*word_completion_list)
+
+    return game_current_stage, word_completion_list
 
 
 def get_prompt(guessed_word):
@@ -190,7 +191,8 @@ def hangman_game(guessed_word):
     tries_remained = MAX_TRIES_COUNT
     game_lost = tries_remained == 0
     while not guessed and not game_lost:
-        game_stage_display(tries_remained, word_completion_list)
+        game_current_stage, word_completion_list = game_stage_display(tries_remained, word_completion_list)
+
         enter_guess_prompt, len_error_message = get_prompt(guessed_word)
         input_string = get_valid_string_input(guessed_word, enter_guess_prompt, len_error_message, TYPE_ERROR_MESSAGE)
 
@@ -206,7 +208,9 @@ def hangman_game(guessed_word):
 
             guessed_letters.append(guessed_letter)
 
-            word_completion = open_guessed_letters(guessed_letter_idx_list, word_completion_list, input_string)
+            word_completion, word_completion_list = open_guessed_letters(guessed_letter_idx_list, word_completion_list, input_string)
+
+            print(*word_completion_list)
 
             if word_completion == guessed_word:
                 break
@@ -214,7 +218,7 @@ def hangman_game(guessed_word):
                 input_string = get_valid_string_input(guessed_word, enter_guess_prompt, len_error_message,
                                                       TYPE_ERROR_MESSAGE)
 
-                successful_guess_processing = input_string in guessed_word and input_string != guessed_word
+            successful_guess_processing = input_string in guessed_word and input_string != guessed_word
 
         guessed = input_string == guessed_word or word_completion == guessed_word
 
