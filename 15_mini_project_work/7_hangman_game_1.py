@@ -208,7 +208,7 @@ def hangman_game(guessed_word):
 
             word_completion = open_guessed_letters(guessed_letter_idx_list, word_completion_list, input_string)
 
-            if word_completion == guessed_word or input_string == guessed_word:
+            if word_completion == guessed_word:
                 break
             else:
                 input_string = get_valid_string_input(guessed_word, enter_guess_prompt, len_error_message,
