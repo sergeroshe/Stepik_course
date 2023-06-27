@@ -173,36 +173,10 @@ def get_prompt(guessed_word):
     return enter_guess_prompt, len_error_message
 
 
-def guess_processing(guessed_word, input_string, guessed_letters, word_completion_list,
-                     word_char_list, enter_guess_prompt, len_error_message):
-    guessed = False
-    successful_guess_processing = input_string in guessed_word and input_string != guessed_word
-    while successful_guess_processing:
-        guessed_letter_idx_list = get_guessed_letter_indexes(guessed_word, input_string)
-
-        if input_string in guessed_letters:
-            print(REPEAT_ERROR)
-            guessed = False
-            break
-
-        guessed_letters.append(input_string)
-
-        word_completion_list = open_guessed_letters(guessed_letter_idx_list, word_completion_list, input_string)
-
-        if word_completion_list == word_char_list or input_string == guessed_word:
-            guessed = True
-            break
-        else:
-            print(*word_completion_list)
-            input_string = get_valid_string_input(guessed_word, enter_guess_prompt, len_error_message,
-                                                  TYPE_ERROR_MESSAGE)
-
-    return guessed, word_completion_list
-
-
 def game_run(tries_remained, guessed_word, guessed_letters, word_char_list, word_completion_list):
+    guessed = guessed_word == word_char_list
     game_lost = False
-    guessed = False
+
     while not guessed and not game_lost:
         game_lost = not tries_remained
 
@@ -213,12 +187,30 @@ def game_run(tries_remained, guessed_word, guessed_letters, word_char_list, word
         enter_guess_prompt, len_error_message = get_prompt(guessed_word)
         input_string = get_valid_string_input(guessed_word, enter_guess_prompt, len_error_message, TYPE_ERROR_MESSAGE)
 
-        if input_string in guessed_word and input_string != guessed_word:
-            guessed, word_completion_list = guess_processing(guessed_word, input_string, guessed_letters,
-                                                             word_completion_list,
-                                                             word_char_list, enter_guess_prompt, len_error_message)
-        else:
-            guessed = input_string == guessed_word or word_completion_list == word_char_list
+        successful_guess_processing = input_string in guessed_word and input_string != guessed_word
+
+        while successful_guess_processing:
+            input_letter = input_string
+            guessed_letter_idx_list = get_guessed_letter_indexes(guessed_word, input_letter)
+
+            if input_letter in guessed_letters:
+                print(REPEAT_ERROR)
+                break
+
+            guessed_letters.append(input_letter)
+
+            word_completion_list = open_guessed_letters(guessed_letter_idx_list, word_completion_list, input_string)
+
+            if word_completion_list == word_char_list:
+                break
+            else:
+                print(*word_completion_list)
+                input_string = get_valid_string_input(guessed_word, enter_guess_prompt, len_error_message,
+                                                      TYPE_ERROR_MESSAGE)
+
+            successful_guess_processing = input_string in guessed_word and input_string != guessed_word
+
+        guessed = input_string == guessed_word or word_completion_list == word_char_list
 
         tries_remained -= 1
 
@@ -231,6 +223,7 @@ def game_run(tries_remained, guessed_word, guessed_letters, word_char_list, word
 
 
 def hangman_game(guessed_word):
+
     print(GREETING)
     print(guessed_word)
 
