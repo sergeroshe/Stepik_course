@@ -221,19 +221,16 @@ def hangman_game(guessed_word):
 
             successful_guess_processing = input_string in guessed_word and input_string != guessed_word
 
-        print(*word_completion_list)
-
         guessed = input_string == guessed_word or word_completion == guessed_word
 
         tries_remained -= 1
 
+    print(*word_char_list)
     if guessed:
         print(WIN_MESSAGE)
-
     else:
         print(FATAL_GAME_STAGE)
         print(GAME_LOST_MESSAGE)
-        print(*word_char_list)
 
 
 def main():
