@@ -173,20 +173,7 @@ def get_prompt(guessed_word):
     return enter_guess_prompt, len_error_message
 
 
-def hangman_game(guessed_word):
-
-    print(GREETING)
-    print(guessed_word)
-
-    guessed_letters = []  # список уже названных букв
-    guessed_words = []
-
-    word_completion = FILLING_CHAR * len(guessed_word)
-    word_completion_list = list(word_completion)
-
-    word_char_list = list(guessed_word)
-    tries_remained = MAX_TRIES_COUNT
-
+def game_run(tries_remained, guessed_word, guessed_letters, word_char_list, word_completion_list):
     guessed = guessed_word == word_char_list
     game_lost = False
 
@@ -233,6 +220,23 @@ def hangman_game(guessed_word):
     else:
         print(FATAL_GAME_STAGE)
         print(GAME_LOST_MESSAGE)
+
+
+def hangman_game(guessed_word):
+
+    print(GREETING)
+    print(guessed_word)
+
+    guessed_letters = []  # список уже названных букв
+    guessed_words = []
+
+    word_completion = FILLING_CHAR * len(guessed_word)
+    word_completion_list = list(word_completion)
+
+    word_char_list = list(guessed_word)
+    tries_remained = MAX_TRIES_COUNT
+
+    game_run(tries_remained, guessed_word, guessed_letters, word_char_list, word_completion_list)
 
 
 def main():
