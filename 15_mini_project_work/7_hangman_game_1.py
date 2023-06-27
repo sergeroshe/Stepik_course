@@ -188,7 +188,7 @@ def hangman_game(guessed_word):
     word_char_list = list(guessed_word)
     tries_remained = MAX_TRIES_COUNT
 
-    guessed = word_completion == guessed_word
+    guessed = guessed_word == word_char_list
     game_lost = False
 
     while not guessed and not game_lost:
@@ -212,7 +212,7 @@ def hangman_game(guessed_word):
 
             word_completion, word_completion_list = open_guessed_letters(guessed_letter_idx_list, word_completion_list, input_string)
 
-            if word_completion == guessed_word:
+            if word_completion_list == word_char_list:
                 break
             else:
                 print(*word_completion_list)
@@ -221,7 +221,7 @@ def hangman_game(guessed_word):
 
             successful_guess_processing = input_string in guessed_word and input_string != guessed_word
 
-        guessed = input_string == guessed_word or word_completion == guessed_word
+        guessed = input_string == guessed_word or word_completion_list == word_char_list
 
         tries_remained -= 1
 
