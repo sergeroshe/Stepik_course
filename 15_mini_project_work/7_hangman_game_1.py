@@ -11,7 +11,7 @@ LEN_ERROR_MESSAGE = 'Введенное слово должно состоять
 REPEAT_ERROR = 'Вы уже вводили эту букву, попробуйте другую'
 COLON_SEP = ':'
 EXCLAMATION_SIGN = '!'
-WORD_COMPLETION_FILLING_CHAR = '_'
+FILLING_CHAR = '_'
 MAX_TRIES_COUNT = 6
 STAGES = [  # финальное состояние: голова, торс, обе руки, обе ноги
     '''
@@ -182,7 +182,7 @@ def hangman_game(guessed_word):
     guessed_letters = []  # список уже названных букв
     guessed_words = []
 
-    word_completion = WORD_COMPLETION_FILLING_CHAR * len(guessed_word)
+    word_completion = FILLING_CHAR * len(guessed_word)
     word_completion_list = list(word_completion)
     print(*word_completion_list)
     word_char_list = list(guessed_word)
@@ -201,14 +201,14 @@ def hangman_game(guessed_word):
         successful_guess_processing = input_string in guessed_word and input_string != guessed_word
 
         while successful_guess_processing:
-            guessed_letter = input_string
-            guessed_letter_idx_list = get_guessed_letter_indexes(guessed_word, guessed_letter)
+            input_letter = input_string
+            guessed_letter_idx_list = get_guessed_letter_indexes(guessed_word, input_letter)
 
-            if guessed_letter in guessed_letters:
+            if input_letter in guessed_letters:
                 print(REPEAT_ERROR)
                 break
 
-            guessed_letters.append(guessed_letter)
+            guessed_letters.append(input_letter)
 
             word_completion, word_completion_list = open_guessed_letters(guessed_letter_idx_list, word_completion_list, input_string)
 
