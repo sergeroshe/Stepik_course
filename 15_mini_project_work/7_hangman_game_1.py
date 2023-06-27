@@ -153,9 +153,7 @@ def open_guessed_letters(guessed_letter_idx_list, word_completion_list, input_st
             if idx == j:
                 word_completion_list[j] = input_string
 
-    word_completion = ''.join(word_completion_list)
-
-    return word_completion, word_completion_list
+    return word_completion_list
 
 
 def game_stage_display(tries_remained, word_completion_list):
@@ -210,7 +208,7 @@ def hangman_game(guessed_word):
 
             guessed_letters.append(input_letter)
 
-            word_completion, word_completion_list = open_guessed_letters(guessed_letter_idx_list, word_completion_list, input_string)
+            word_completion_list = open_guessed_letters(guessed_letter_idx_list, word_completion_list, input_string)
 
             if word_completion_list == word_char_list:
                 break
