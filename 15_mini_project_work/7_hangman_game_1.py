@@ -157,13 +157,13 @@ def open_guessed_letters(guessed_letter_idx_list, source_word_completion_list, i
     return result_word_completion_list
 
 
-def game_stage_display(tries_remained, word_completion_list):
+def game_stage_display(tries_remained):
     game_current_stage = get_hangman_picture(tries_remained)
     if tries_remained < MAX_TRIES_COUNT:
         print(WRONG_GUESS_MESSAGE)
     print(game_current_stage)
 
-    return game_current_stage, word_completion_list
+    return game_current_stage
 
 
 def get_prompt(guessed_word):
@@ -183,7 +183,7 @@ def hangman_game(guessed_word):
 
     word_completion = FILLING_CHAR * len(guessed_word)
     word_completion_list = list(word_completion)
-    print(*word_completion_list)
+
     word_char_list = list(guessed_word)
     tries_remained = MAX_TRIES_COUNT
 
@@ -192,7 +192,10 @@ def hangman_game(guessed_word):
 
     while not guessed and not game_lost:
         game_lost = not tries_remained
-        game_current_stage, word_completion_list = game_stage_display(tries_remained, word_completion_list)
+
+        game_stage_display(tries_remained)
+
+        print(*word_completion_list)
 
         enter_guess_prompt, len_error_message = get_prompt(guessed_word)
         input_string = get_valid_string_input(guessed_word, enter_guess_prompt, len_error_message, TYPE_ERROR_MESSAGE)
