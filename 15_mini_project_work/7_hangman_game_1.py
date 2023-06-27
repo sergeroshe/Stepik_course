@@ -185,6 +185,7 @@ def game_run(tries_remained, guessed_word, guessed_letters, word_char_list, word
         print(*word_completion_list)
 
         enter_guess_prompt, len_error_message = get_prompt(guessed_word)
+
         input_string = get_valid_string_input(guessed_word, enter_guess_prompt, len_error_message, TYPE_ERROR_MESSAGE)
 
         successful_guess_processing = input_string in guessed_word and input_string != guessed_word
@@ -227,13 +228,12 @@ def hangman_game(guessed_word):
     print(GREETING)
     print(guessed_word)
 
-    guessed_letters = []  # список уже названных букв
-    guessed_words = []
-
+    word_char_list = list(guessed_word)
     word_completion = FILLING_CHAR * len(guessed_word)
     word_completion_list = list(word_completion)
 
-    word_char_list = list(guessed_word)
+    guessed_letters = []  # список уже названных букв
+    guessed_words = []
     tries_remained = MAX_TRIES_COUNT
 
     game_run(tries_remained, guessed_word, guessed_letters, word_char_list, word_completion_list)
