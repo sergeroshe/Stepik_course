@@ -147,13 +147,14 @@ def get_guessed_letter_indexes(word, guess_letter):
     return guessed_letter_idx_list
 
 
-def open_guessed_letters(guessed_letter_idx_list, word_completion_list, input_string):
+def open_guessed_letters(guessed_letter_idx_list, source_word_completion_list, input_letter):
     for idx in guessed_letter_idx_list:
-        for j in range(len(word_completion_list)):
+        for j in range(len(source_word_completion_list)):
             if idx == j:
-                word_completion_list[j] = input_string
+                source_word_completion_list[j] = input_letter
 
-    return word_completion_list
+    result_word_completion_list = source_word_completion_list
+    return result_word_completion_list
 
 
 def game_stage_display(tries_remained, word_completion_list):
