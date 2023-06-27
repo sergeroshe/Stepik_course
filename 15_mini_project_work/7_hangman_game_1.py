@@ -179,7 +179,7 @@ def guess_processing(guessed_word, input_string, guessed_letters, word_completio
     successful_guess_processing = input_string in guessed_word and input_string != guessed_word
     while successful_guess_processing:
         guessed_letter_idx_list = get_guessed_letter_indexes(guessed_word, input_string)
-        word_completion_list = open_guessed_letters(guessed_letter_idx_list, word_completion_list, input_string)
+
         if input_string in guessed_letters:
             print(REPEAT_ERROR)
             guessed = False
@@ -187,10 +187,15 @@ def guess_processing(guessed_word, input_string, guessed_letters, word_completio
 
         guessed_letters.append(input_string)
 
+        word_completion_list = open_guessed_letters(guessed_letter_idx_list, word_completion_list, input_string)
+
         if word_completion_list == word_char_list or input_string == guessed_word:
             guessed = True
-        else:
             break
+        else:
+            print(*word_completion_list)
+            input_string = get_valid_string_input(guessed_word, enter_guess_prompt, len_error_message,
+                                                  TYPE_ERROR_MESSAGE)
 
     return guessed, word_completion_list
 
