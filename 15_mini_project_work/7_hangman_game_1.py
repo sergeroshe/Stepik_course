@@ -174,9 +174,9 @@ def get_prompt(guessed_word):
 
 
 def game_run(tries_remained, guessed_word, guessed_letters, word_char_list, word_completion_list):
+
     guessed = guessed_word == word_char_list
     game_lost = False
-
     while not guessed and not game_lost:
         game_lost = not tries_remained
 
@@ -189,7 +189,6 @@ def game_run(tries_remained, guessed_word, guessed_letters, word_char_list, word
         input_string = get_valid_string_input(guessed_word, enter_guess_prompt, len_error_message, TYPE_ERROR_MESSAGE)
 
         successful_guess_processing = input_string in guessed_word and input_string != guessed_word
-
         while successful_guess_processing:
             input_letter = input_string
             guessed_letter_idx_list = get_guessed_letter_indexes(guessed_word, input_letter)
@@ -216,6 +215,7 @@ def game_run(tries_remained, guessed_word, guessed_letters, word_char_list, word
         tries_remained -= 1
 
     print(*word_char_list)
+
     if guessed:
         print(WIN_MESSAGE)
     else:
