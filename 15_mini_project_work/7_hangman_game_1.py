@@ -8,7 +8,6 @@ WRONG_GUESS_MESSAGE = 'Ответ неверный'
 GAME_LOST_MESSAGE = 'Вы проиграли.'
 TYPE_ERROR_MESSAGE = 'Введенные данные должны содержать только текст!\n'
 LEN_ERROR_MESSAGE = 'Введенное слово должно состоять из '
-LETTER_LEN = 1
 REPEAT_ERROR = 'Вы уже вводили эту букву, попробуйте другую'
 COLON_SEP = ':'
 EXCLAMATION_SIGN = '!'
@@ -131,7 +130,7 @@ def get_constrained_alphabet_input(prompt, valid_len_list, len_error_message, ty
 
     while not valid_string_input:
         if input_string.isalpha():
-            if len(input_string) in valid_len_list:
+            if len(input_string) not in valid_len_list:
                 valid_string_input = True
             else:
                 print(len_error_message)
@@ -210,7 +209,7 @@ def guess_processing(input_string, valid_len_list, guessed_word, guessed_letters
 def game_run(tries_remained, guessed_word, guessed_letters, word_char_list, word_completion_list):
     guessed = guessed_word == word_char_list
     game_lost = False
-    valid_input_len_list = [LETTER_LEN, len(guessed_word)]
+    valid_input_len_list = []
 
     while not guessed and not game_lost:
 
