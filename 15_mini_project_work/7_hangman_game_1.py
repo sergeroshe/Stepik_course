@@ -195,7 +195,7 @@ def guess_processing(input_string, valid_len_list, guessed_word, guessed_letters
 
         guessed_letters.append(input_letter)
 
-    word_completion_list = open_guessed_letters(guessed_letter_idx_list, word_completion_list, input_string)
+    word_completion_list = open_guessed_letters(guessed_letter_idx_list, word_completion_list, input_string.upper())
 
     if word_completion_list == word_char_list:
         guessed = True
@@ -211,7 +211,7 @@ def guess_processing(input_string, valid_len_list, guessed_word, guessed_letters
 def game_run(tries_remained, guessed_word, guessed_letters, word_char_list, word_completion_list):
     guessed = guessed_word == word_char_list
     game_lost = False
-    valid_input_len_list = []
+    valid_input_len_list = [1, len(guessed_word)]
 
     while not guessed and not game_lost:
 
@@ -249,22 +249,22 @@ def game_run(tries_remained, guessed_word, guessed_letters, word_char_list, word
 
 def hangman_game(guessed_word):
     print(GREETING)
-    print(guessed_word)
+    print(guessed_word.upper())
 
     guessed_letters = []  # список уже названных букв
     guessed_words = []
 
     word_completion = FILLING_CHAR * len(guessed_word)
-    word_completion_list = list(word_completion)
+    word_completion_list = list(word_completion.upper())
 
-    word_char_list = list(guessed_word)
+    word_char_list = list(guessed_word.upper())
     tries_remained = MAX_TRIES_COUNT
 
     game_run(tries_remained, guessed_word, guessed_letters, word_char_list, word_completion_list)
 
 
 def main():
-    guessed_word = get_word().upper()
+    guessed_word = get_word()
     hangman_game(guessed_word)
 
 
