@@ -118,7 +118,7 @@ def get_hangman_stage(tries):
 
 
 def get_word():
-    random_word = choice(WORD_LIST)
+    random_word = choice(WORD_LIST).upper()
 
     return random_word
 
@@ -203,7 +203,7 @@ def guess_processing(input_string, valid_len_list, guessed_word, guessed_letters
         print(*word_completion_list)
         # get_constrained_alphabet_input(prompt, valid_len_list, len_error_message, type_error_message)
         input_string = get_constrained_alphabet_input(enter_guess_prompt, valid_len_list,
-                                                      len_error_message, TYPE_ERROR_MESSAGE)
+                                                      len_error_message, TYPE_ERROR_MESSAGE).upper()
 
     return guessed, input_string, word_completion_list
 
@@ -221,7 +221,7 @@ def game_run(tries_remained, guessed_word, guessed_letters, word_char_list, word
 
         enter_guess_prompt, len_error_message = get_prompt(guessed_word)
         input_string = get_constrained_alphabet_input(enter_guess_prompt, valid_input_len_list,
-                                                      len_error_message, TYPE_ERROR_MESSAGE)
+                                                      len_error_message, TYPE_ERROR_MESSAGE).upper()
         successful_guess_processing = (input_string in guessed_word and input_string != guessed_word
                                        and word_completion_list != word_char_list)
 
@@ -249,15 +249,15 @@ def game_run(tries_remained, guessed_word, guessed_letters, word_char_list, word
 
 def hangman_game(guessed_word):
     print(GREETING)
-    print(guessed_word.upper())
+    print(guessed_word)
 
     guessed_letters = []  # список уже названных букв
     guessed_words = []
 
     word_completion = FILLING_CHAR * len(guessed_word)
-    word_completion_list = list(word_completion.upper())
+    word_completion_list = list(word_completion)
 
-    word_char_list = list(guessed_word.upper())
+    word_char_list = list(guessed_word)
     tries_remained = MAX_TRIES_COUNT
 
     game_run(tries_remained, guessed_word, guessed_letters, word_char_list, word_completion_list)
