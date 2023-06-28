@@ -202,7 +202,6 @@ def game_run(tries_remained, guessed_word, guessed_letters, word_char_list, word
     game_lost = False
 
     while not guessed and not game_lost:
-        game_lost = not tries_remained
 
         game_stage_display(tries_remained)
 
@@ -225,6 +224,7 @@ def game_run(tries_remained, guessed_word, guessed_letters, word_char_list, word
         guessed = input_string == guessed_word or word_completion_list == word_char_list
 
         tries_remained -= 1
+        game_lost = not tries_remained
 
     print(*word_char_list)
     if guessed:
