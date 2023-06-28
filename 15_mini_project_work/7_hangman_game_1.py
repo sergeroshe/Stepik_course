@@ -141,10 +141,17 @@ def get_alphabet_input(guessed_word, prompt, len_error_message, type_error_messa
     return upper_input_string
 
 
-def get_guessed_letter_indexes(word, guess_letter):
-    guessed_letter_idx_list = []
-    [guessed_letter_idx_list.append(i) for i in range(len(word)) if guess_letter == word[i]]
-    return guessed_letter_idx_list
+def find_all(source, symbol):
+    symbol_idx_list = []
+    start_idx = 0
+    symbol_idx = source.find(symbol, start_idx)
+
+    while symbol_idx != -1:
+        symbol_idx_list.append(symbol_idx)
+        start_idx = symbol_idx + 1
+        symbol_idx = source.find(symbol, start_idx)
+
+    return symbol_idx_list
 
 
 def open_guessed_letters(guessed_letter_idx_list, source_word_completion_list, input_letter):
@@ -178,7 +185,7 @@ def guess_processing(input_string, guessed_word, guessed_letters,
     input_letter = input_string
 
     guessed = False
-    guessed_letter_idx_list = get_guessed_letter_indexes(guessed_word, input_letter)
+    guessed_letter_idx_list = find_all(guessed_word, input_letter)
 
     if input_letter in guessed_letters:
         print(REPEAT_ERROR)
