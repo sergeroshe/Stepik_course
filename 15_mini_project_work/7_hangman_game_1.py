@@ -123,7 +123,7 @@ def get_word():
     return random_word
 
 
-def get_valid_string_input(guessed_word, prompt, len_error_message, type_error_message):
+def get_alphabet_input(guessed_word, prompt, len_error_message, type_error_message):
     valid_string_input = False
     input_string = input(prompt)
     while not valid_string_input:
@@ -137,8 +137,8 @@ def get_valid_string_input(guessed_word, prompt, len_error_message, type_error_m
             print(type_error_message)
             input_string = input(prompt)
 
-    valid_string_input = input_string.upper()
-    return valid_string_input
+    upper_input_string = input_string.upper()
+    return upper_input_string
 
 
 def get_guessed_letter_indexes(word, guess_letter):
@@ -191,8 +191,8 @@ def guess_processing(input_string, guessed_word, guessed_letters,
         guessed = True
     else:
         print(*word_completion_list)
-        input_string = get_valid_string_input(guessed_word, enter_guess_prompt, len_error_message,
-                                              TYPE_ERROR_MESSAGE)
+        input_string = get_alphabet_input(guessed_word, enter_guess_prompt, len_error_message,
+                                          TYPE_ERROR_MESSAGE)
 
     return guessed, input_string, word_completion_list
 
@@ -209,7 +209,7 @@ def game_run(tries_remained, guessed_word, guessed_letters, word_char_list, word
         print(*word_completion_list)
 
         enter_guess_prompt, len_error_message = get_prompt(guessed_word)
-        input_string = get_valid_string_input(guessed_word, enter_guess_prompt, len_error_message, TYPE_ERROR_MESSAGE)
+        input_string = get_alphabet_input(guessed_word, enter_guess_prompt, len_error_message, TYPE_ERROR_MESSAGE)
 
         successful_guess_processing = (input_string in guessed_word and input_string != guessed_word
                                        and word_completion_list != word_char_list)
