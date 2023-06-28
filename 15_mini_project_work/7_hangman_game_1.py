@@ -211,15 +211,16 @@ def game_run(tries_remained, guessed_word, guessed_letters, word_char_list, word
         enter_guess_prompt, len_error_message = get_prompt(guessed_word)
         input_string = get_valid_string_input(guessed_word, enter_guess_prompt, len_error_message, TYPE_ERROR_MESSAGE)
 
-        successful_guess_processing = input_string in guessed_word and input_string != guessed_word
+        successful_guess_processing = input_string in guessed_word and input_string != guessed_word \
+                                      and word_completion_list != word_char_list
 
         while successful_guess_processing:
             guessed, input_string, word_completion_list = guess_processing(input_string, guessed_word, guessed_letters,
                                                                            word_completion_list, word_char_list,
                                                                            enter_guess_prompt, len_error_message)
-            successful_guess_processing = input_string in guessed_word and input_string != guessed_word
-            if word_completion_list == word_char_list:
-                break
+
+            successful_guess_processing = input_string in guessed_word and input_string != guessed_word and \
+                                          word_completion_list != word_char_list
 
         guessed = input_string == guessed_word or word_completion_list == word_char_list
 
