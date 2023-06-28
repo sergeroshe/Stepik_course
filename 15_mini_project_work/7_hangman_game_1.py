@@ -8,6 +8,7 @@ WRONG_GUESS_MESSAGE = 'Ответ неверный'
 GAME_LOST_MESSAGE = 'Вы проиграли.'
 TYPE_ERROR_MESSAGE = 'Введенные данные должны содержать только текст!\n'
 LEN_ERROR_MESSAGE = 'Введенное слово должно состоять из '
+LETTER_LEN = 1
 REPEAT_ERROR = 'Вы уже вводили эту букву, попробуйте другую'
 COLON_SEP = ':'
 EXCLAMATION_SIGN = '!'
@@ -125,10 +126,14 @@ def get_word():
 
 def get_constrained_alphabet_input(guessed_word, prompt, len_error_message, type_error_message):
     valid_string_input = False
+
     input_string = input(prompt)
+
+    valid_len_list = [LETTER_LEN, len(guessed_word)]
+
     while not valid_string_input:
         if input_string.isalpha():
-            if len(input_string) == 1 or len(input_string) == len(guessed_word):
+            if len(input_string) in valid_len_list:
                 valid_string_input = True
             else:
                 print(len_error_message)
