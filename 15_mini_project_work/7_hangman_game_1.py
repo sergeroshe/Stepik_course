@@ -142,8 +142,7 @@ def get_constrained_alphabet_input(prompt, valid_len_list, len_error_message, ty
             print(type_error_message)
             input_string = input(prompt)
 
-    upper_input_string = input_string.upper()
-    return upper_input_string
+    return input_string
 
 
 def find_all(source, symbol):
