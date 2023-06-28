@@ -118,27 +118,31 @@ def get_hangman_stage(tries):
 
 
 def get_word():
-    random_word = choice(WORD_LIST)
+    random_word = choice(WORD_LIST).upper()
 
     return random_word
 
 
-def get_alphabet_input(guessed_word, prompt, len_error_message, type_error_message):
+def get_constrained_alphabet_input(prompt, valid_len_list, len_error_message, type_error_message):
     valid_string_input = False
+
     input_string = input(prompt)
+
     while not valid_string_input:
         if input_string.isalpha():
-            if len(input_string) == 1 or len(input_string) == len(guessed_word):
+            if not valid_len_list:
                 valid_string_input = True
             else:
-                print(len_error_message)
-                input_string = input(prompt)
+                if len(input_string) in valid_len_list:
+                    valid_string_input = True
+                else:
+                    print(len_error_message)
+                    input_string = input(prompt)
         else:
             print(type_error_message)
             input_string = input(prompt)
 
-    upper_input_string = input_string.upper()
-    return upper_input_string
+    return input_string
 
 
 def find_all(source, symbol):
@@ -180,10 +184,9 @@ def get_prompt(guessed_word):
     return enter_guess_prompt, len_error_message
 
 
-def guess_processing(input_string, guessed_word, guessed_letters,
+def guess_processing(input_string, valid_len_list, guessed_word, guessed_letters,
                      word_completion_list, word_char_list, enter_guess_prompt, len_error_message):
     input_letter = input_string
-
     guessed = False
     guessed_letter_idx_list = find_all(guessed_word, input_letter)
 
@@ -192,14 +195,15 @@ def guess_processing(input_string, guessed_word, guessed_letters,
 
         guessed_letters.append(input_letter)
 
-    word_completion_list = open_guessed_letters(guessed_letter_idx_list, word_completion_list, input_string)
+    word_completion_list = open_guessed_letters(guessed_letter_idx_list, word_completion_list, input_string.upper())
 
     if word_completion_list == word_char_list:
         guessed = True
     else:
         print(*word_completion_list)
-        input_string = get_alphabet_input(guessed_word, enter_guess_prompt, len_error_message,
-                                          TYPE_ERROR_MESSAGE)
+        # get_constrained_alphabet_input(prompt, valid_len_list, len_error_message, type_error_message)
+        input_string = get_constrained_alphabet_input(enter_guess_prompt, valid_len_list,
+                                                      len_error_message, TYPE_ERROR_MESSAGE).upper()
 
     return guessed, input_string, word_completion_list
 
@@ -207,6 +211,7 @@ def guess_processing(input_string, guessed_word, guessed_letters,
 def game_run(tries_remained, guessed_word, guessed_letters, word_char_list, word_completion_list):
     guessed = guessed_word == word_char_list
     game_lost = False
+    valid_input_len_list = [1, len(guessed_word)]
 
     while not guessed and not game_lost:
 
@@ -215,13 +220,14 @@ def game_run(tries_remained, guessed_word, guessed_letters, word_char_list, word
         print(*word_completion_list)
 
         enter_guess_prompt, len_error_message = get_prompt(guessed_word)
-        input_string = get_alphabet_input(guessed_word, enter_guess_prompt, len_error_message, TYPE_ERROR_MESSAGE)
-
+        input_string = get_constrained_alphabet_input(enter_guess_prompt, valid_input_len_list,
+                                                      len_error_message, TYPE_ERROR_MESSAGE).upper()
         successful_guess_processing = (input_string in guessed_word and input_string != guessed_word
                                        and word_completion_list != word_char_list)
 
         while successful_guess_processing:
-            guessed, input_string, word_completion_list = guess_processing(input_string, guessed_word, guessed_letters,
+            guessed, input_string, word_completion_list = guess_processing(input_string, valid_input_len_list,
+                                                                           guessed_word, guessed_letters,
                                                                            word_completion_list, word_char_list,
                                                                            enter_guess_prompt, len_error_message)
 
@@ -258,7 +264,7 @@ def hangman_game(guessed_word):
 
 
 def main():
-    guessed_word = get_word().upper()
+    guessed_word = get_word()
     hangman_game(guessed_word)
 
 
