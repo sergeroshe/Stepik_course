@@ -61,13 +61,13 @@ def get_constrained_alphabet_input(prompt, valid_len_list, len_error_message, ty
 
 
 def get_alphabet_input(prompt, type_error_message):
-    valid_string_input = False
+    is_string_valid = False
 
     input_string = input(prompt)
 
-    while not valid_string_input:
+    while not is_string_valid:
         if input_string.isalpha():
-            valid_string_input = True
+            is_string_valid = True
         else:
             print(type_error_message)
             input_string = input(prompt)
