@@ -12,7 +12,6 @@ REPEAT_ERROR = 'Вы уже вводили эту букву, попробуйт
 COLON_SEP = ':'
 EXCLAMATION_SIGN = '!'
 FILLING_CHAR = '_'
-MAX_TRIES_COUNT = 6
 STAGES = [  # финальное состояние: голова, торс, обе руки, обе ноги
     '''
                    --------
@@ -110,6 +109,7 @@ WORD_LIST = ['арбуз', 'банан', 'вагон', 'гиббон', 'дом',
              'паркет', 'рассвет', 'сантехника', 'такси', 'увольнение', 'фальш', 'хрен', 'цветение', 'шкаф',
              'щиток', 'эмиграция', 'ядро']
 FATAL_GAME_STAGE = STAGES[0]
+MAX_TRIES_COUNT = len(STAGES)
 
 
 def get_hangman_stage(tries):
