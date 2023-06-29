@@ -60,7 +60,8 @@ def get_constrained_alphabet_input(prompt, valid_len_list, len_error_message, ty
     return input_string
 
 
-def get_alphabet_input(prompt, type_error_message):
+# potential alternative if basic wrapper implementation doesn't match (e.g. slow)
+def get_alphabet_input_v2(prompt, type_error_message):
     is_string_valid = False
 
     input_string = input(prompt)
@@ -74,3 +75,13 @@ def get_alphabet_input(prompt, type_error_message):
 
     return input_string
 
+
+# wrapper over get_constrained_alphabet_input
+def get_alphabet_input(prompt, type_error_message):
+
+    input_string = get_constrained_alphabet_input(prompt, [], '', type_error_message)
+
+    return input_string
+
+
+get_alphabet_input('Enter string:\n', 'Wrong input!')
