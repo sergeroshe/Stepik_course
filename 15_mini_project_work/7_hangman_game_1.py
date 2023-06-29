@@ -109,7 +109,7 @@ WORD_LIST = ['арбуз', 'банан', 'вагон', 'гиббон', 'дом',
              'паркет', 'рассвет', 'сантехника', 'такси', 'увольнение', 'фальш', 'хрен', 'цветение', 'шкаф',
              'щиток', 'эмиграция', 'ядро']
 FATAL_GAME_STAGE = STAGES[0]
-MAX_TRIES_COUNT = len(STAGES)
+MAX_TRIES_COUNT = len(STAGES) - 1
 
 
 def get_hangman_stage(tries):
