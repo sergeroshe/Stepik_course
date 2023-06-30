@@ -201,8 +201,8 @@ def game_run(tries_remained, hidden_word, guessed_letters, word_char_list, word_
 
         if input_string in guessed_letters:
             print(REPEAT_ERROR)
+        guessed_letters.append(input_string)
 
-            guessed_letters.append(input_string)
         if input_string != hidden_word:
             if input_string in hidden_word:
                 guessed_letter_idx_list = find_all(hidden_word, input_string)
