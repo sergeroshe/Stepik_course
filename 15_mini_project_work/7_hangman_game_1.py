@@ -158,14 +158,11 @@ def find_all(source, symbol):
     return symbol_idx_list
 
 
-def open_guessed_letters(guessed_letter_idx_list, source_word_completion_list, input_letter):
+def open_guessed_letters(guessed_letter_idx_list, word_char_completion_list, guessed_letter):
     for idx in guessed_letter_idx_list:
-        for j in range(len(source_word_completion_list)):
-            if idx == j:
-                source_word_completion_list[j] = input_letter
+        word_char_completion_list[idx] = guessed_letter
 
-    result_word_completion_list = source_word_completion_list
-    return result_word_completion_list
+    return word_char_completion_list
 
 
 def game_stage_display(tries_remained):
