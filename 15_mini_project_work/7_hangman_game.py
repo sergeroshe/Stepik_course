@@ -167,8 +167,7 @@ def open_guessed_letters(guessed_letter_idx_list, word_char_completion_list, gue
 
 def game_stage_display(tries_remained):
     game_current_stage = get_hangman_stage(tries_remained)
-    # if tries_remained < MAX_TRIES_COUNT:
-    #     print(WRONG_GUESS_MESSAGE)
+
     print(game_current_stage)
 
     return game_current_stage
