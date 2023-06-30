@@ -220,20 +220,20 @@ def game_run(tries_remained, guessed_word, guessed_letters, word_char_list, word
         input_string = get_constrained_alphabet_input(enter_guess_prompt, valid_input_len_list,
                                                       len_error_message, TYPE_ERROR_MESSAGE).upper()
         guessed_letter_idx_list = find_all(guessed_word, input_string)
+        guess_successful = False
 
         if input_string in guessed_letters:
             print(REPEAT_ERROR)
 
             guessed_letters.append(input_string)
         if input_string != guessed_word:
-            guess_succesfull = False
             if input_string in guessed_word:
                 word_completion_list = open_guessed_letters(guessed_letter_idx_list,
                                                             word_completion_list, input_string.upper())
-                guess_succesfull = True
+                guess_successful = True
             else:
                 print(WRONG_GUESS_MESSAGE)
-            if not guess_succesfull:
+            if not guess_successful:
                 tries_remained -= 1
 
         guessed = input_string == guessed_word or word_completion_list == word_char_list
