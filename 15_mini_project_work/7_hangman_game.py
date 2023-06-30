@@ -205,29 +205,29 @@ def guess_processing(input_string, valid_len_list, guessed_word, guessed_letters
     return guessed, input_string, word_completion_list
 
 
-def game_run(tries_remained, guessed_word, guessed_letters, word_char_list, word_completion_list):
-    guessed = guessed_word == word_char_list
-    game_lost = False
-    valid_input_len_list = [1, len(guessed_word)]
+def game_run(tries_remained, hidden_word, guessed_letters, word_char_list, word_completion_list):
+    game_won = False
 
-    while not guessed and not game_lost:
+    valid_input_len_list = [1, len(hidden_word)]
+
+    while not game_won and tries_remained:
 
         game_stage_display(tries_remained)
 
         print(*word_completion_list)
 
-        enter_guess_prompt, len_error_message = get_prompt(guessed_word)
+        enter_guess_prompt, len_error_message = get_prompt(hidden_word)
         input_string = get_constrained_alphabet_input(enter_guess_prompt, valid_input_len_list,
                                                       len_error_message, TYPE_ERROR_MESSAGE).upper()
-        guessed_letter_idx_list = find_all(guessed_word, input_string)
+        guessed_letter_idx_list = find_all(hidden_word, input_string)
         guess_successful = False
 
         if input_string in guessed_letters:
             print(REPEAT_ERROR)
 
             guessed_letters.append(input_string)
-        if input_string != guessed_word:
-            if input_string in guessed_word:
+        if input_string != hidden_word:
+            if input_string in hidden_word:
                 word_completion_list = open_guessed_letters(guessed_letter_idx_list,
                                                             word_completion_list, input_string.upper())
                 guess_successful = True
@@ -236,12 +236,10 @@ def game_run(tries_remained, guessed_word, guessed_letters, word_char_list, word
             if not guess_successful:
                 tries_remained -= 1
 
-        guessed = input_string == guessed_word or word_completion_list == word_char_list
-
-        game_lost = not tries_remained
+        game_won = input_string == hidden_word or word_completion_list == word_char_list
 
     print(*word_char_list)
-    if guessed:
+    if game_won:
         print(WIN_MESSAGE)
     else:
         print(FATAL_GAME_STAGE)
