@@ -197,7 +197,6 @@ def game_run(tries_remained, hidden_word, guessed_letters, word_char_list, word_
         input_string = get_constrained_alphabet_input(enter_guess_prompt, valid_input_len_list,
                                                       len_error_message, TYPE_ERROR_MESSAGE).upper()
 
-        guessed_letter_idx_list = find_all(hidden_word, input_string)
         guess_successful = False
 
         if input_string in guessed_letters:
@@ -206,6 +205,7 @@ def game_run(tries_remained, hidden_word, guessed_letters, word_char_list, word_
             guessed_letters.append(input_string)
         if input_string != hidden_word:
             if input_string in hidden_word:
+                guessed_letter_idx_list = find_all(hidden_word, input_string)
                 word_completion_list = open_guessed_letters(guessed_letter_idx_list,
                                                             word_completion_list, input_string.upper())
                 guess_successful = True
