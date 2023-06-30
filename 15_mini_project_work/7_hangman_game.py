@@ -181,30 +181,6 @@ def get_prompt(guessed_word):
     return enter_guess_prompt, len_error_message
 
 
-def guess_processing(input_string, valid_len_list, guessed_word, guessed_letters,
-                     word_completion_list, word_char_list, enter_guess_prompt, len_error_message):
-    input_letter = input_string
-    guessed = False
-    guessed_letter_idx_list = find_all(guessed_word, input_letter)
-
-    if input_letter in guessed_letters:
-        print(REPEAT_ERROR)
-
-        guessed_letters.append(input_letter)
-
-    word_completion_list = open_guessed_letters(guessed_letter_idx_list, word_completion_list, input_string.upper())
-
-    if word_completion_list == word_char_list:
-        guessed = True
-    else:
-        print(*word_completion_list)
-        # get_constrained_alphabet_input(prompt, valid_len_list, len_error_message, type_error_message)
-        input_string = get_constrained_alphabet_input(enter_guess_prompt, valid_len_list,
-                                                      len_error_message, TYPE_ERROR_MESSAGE).upper()
-
-    return guessed, input_string, word_completion_list
-
-
 def game_run(tries_remained, hidden_word, guessed_letters, word_char_list, word_completion_list):
     game_won = False
 
