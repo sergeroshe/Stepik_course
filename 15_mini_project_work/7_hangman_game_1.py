@@ -160,9 +160,7 @@ def find_all(source, symbol):
 
 def open_guessed_letters(guessed_letter_idx_list, word_char_completion_list, guessed_letter):
     for idx in guessed_letter_idx_list:
-        for j in range(len(word_char_completion_list)):
-            if idx == j:
-                word_char_completion_list[j] = guessed_letter
+        word_char_completion_list[idx] = guessed_letter
 
     return word_char_completion_list
 
