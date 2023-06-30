@@ -198,15 +198,17 @@ def game_run(tries_remained, hidden_word, guessed_letters, word_char_list, word_
 
         if input_string != hidden_word:
             if len(input_string) == 1:
-                if input_string in guessed_letters:
-                    print(REPEAT_ERROR)
-                guessed_letters.append(input_string)
-                if input_string in hidden_word:
-                    guessed_letter_idx_list = find_all(hidden_word, input_string)
-                    word_completion_list = open_guessed_letters(guessed_letter_idx_list,
-                                                                word_completion_list, input_string.upper())
+                if input_string not in guessed_letters:
+                    guessed_letters.append(input_string)
+                    if input_string in hidden_word:
+                        guessed_letter_idx_list = find_all(hidden_word, input_string)
+                        word_completion_list = open_guessed_letters(guessed_letter_idx_list,
+                                                                    word_completion_list, input_string.upper())
+                    else:
+                        print(WRONG_GUESS_MESSAGE)
+                        tries_remained -= 1
                 else:
-                    print(WRONG_GUESS_MESSAGE)
+                    print(REPEAT_ERROR)
                     tries_remained -= 1
             else:
                 print(WRONG_GUESS_MESSAGE)
