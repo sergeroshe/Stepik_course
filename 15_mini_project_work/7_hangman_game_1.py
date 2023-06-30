@@ -164,8 +164,7 @@ def open_guessed_letters(guessed_letter_idx_list, word_char_completion_list, gue
             if idx == j:
                 word_char_completion_list[j] = guessed_letter
 
-    result_word_completion_list = word_char_completion_list
-    return result_word_completion_list
+    return word_char_completion_list
 
 
 def game_stage_display(tries_remained):
