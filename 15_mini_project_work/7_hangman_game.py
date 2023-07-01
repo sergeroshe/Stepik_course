@@ -178,6 +178,12 @@ def get_prompt(guessed_word):
     return enter_guess_prompt, len_error_message
 
 
+def print_current_game_status(tries_remained, word_completion_list):
+    game_stage_display(tries_remained)
+
+    print(*word_completion_list)
+
+
 def game_run(tries_remained, hidden_word, guessed_letters, word_char_list, word_completion_list):
     game_won = False
 
@@ -186,15 +192,12 @@ def game_run(tries_remained, hidden_word, guessed_letters, word_char_list, word_
     while not game_won and tries_remained:
 
         # extract print actions to another func print_current_game_status
-        game_stage_display(tries_remained)
-
-        print(*word_completion_list)
+        print_current_game_status(tries_remained, word_completion_list)
 
         enter_guess_prompt, len_error_message = get_prompt(hidden_word)
 
         input_string = get_constrained_alphabet_input(enter_guess_prompt, valid_input_len_list,
                                                       len_error_message, TYPE_ERROR_MESSAGE).upper()
-
 
         if input_string != hidden_word:
             if len(input_string) == 1:
