@@ -165,12 +165,11 @@ def open_guessed_letters(guessed_letter_idx_list, word_char_completion_list, gue
     return word_char_completion_list
 
 
+#  remove unnecessary return
 def game_stage_display(tries_remained):
     game_current_stage = get_hangman_stage(tries_remained)
 
     print(game_current_stage)
-
-    return game_current_stage
 
 
 def get_prompt(guessed_word):
@@ -187,6 +186,7 @@ def game_run(tries_remained, hidden_word, guessed_letters, word_char_list, word_
 
     while not game_won and tries_remained:
 
+        # extract print actions to another func print_current_game_status
         game_stage_display(tries_remained)
 
         print(*word_completion_list)
@@ -196,14 +196,17 @@ def game_run(tries_remained, hidden_word, guessed_letters, word_char_list, word_
         input_string = get_constrained_alphabet_input(enter_guess_prompt, valid_input_len_list,
                                                       len_error_message, TYPE_ERROR_MESSAGE).upper()
 
+        # upper check
+
         if input_string != hidden_word:
             if len(input_string) == 1:
+                # create var input_letter
                 if input_string not in guessed_letters:
                     guessed_letters.append(input_string)
                     if input_string in hidden_word:
                         guessed_letter_idx_list = find_all(hidden_word, input_string)
                         word_completion_list = open_guessed_letters(guessed_letter_idx_list,
-                                                                    word_completion_list, input_string.upper())
+                                                                    word_completion_list, input_string)
                     else:
                         print(WRONG_GUESS_MESSAGE)
                         tries_remained -= 1
@@ -215,7 +218,8 @@ def game_run(tries_remained, hidden_word, guessed_letters, word_char_list, word_
                 tries_remained -= 1
 
         game_won = input_string == hidden_word or word_completion_list == word_char_list
-
+    #
+    #  print_game_result extract function
     print(*word_char_list)
     if game_won:
         print(WIN_MESSAGE)
