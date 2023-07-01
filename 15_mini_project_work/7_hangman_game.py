@@ -165,7 +165,6 @@ def open_guessed_letters(guessed_letter_idx_list, word_char_completion_list, gue
     return word_char_completion_list
 
 
-#  remove unnecessary return
 def game_stage_display(tries_remained):
     game_current_stage = get_hangman_stage(tries_remained)
 
