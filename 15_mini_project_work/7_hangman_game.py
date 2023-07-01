@@ -199,13 +199,13 @@ def game_run(tries_remained, hidden_word, guessed_letters, word_char_list, word_
 
         if input_string != hidden_word:
             if len(input_string) == 1:
-                # create var input_letter
-                if input_string not in guessed_letters:
-                    guessed_letters.append(input_string)
-                    if input_string in hidden_word:
-                        guessed_letter_idx_list = find_all(hidden_word, input_string)
+                input_letter = input_string
+                if input_letter not in guessed_letters:
+                    guessed_letters.append(input_letter)
+                    if input_letter in hidden_word:
+                        guessed_letter_idx_list = find_all(hidden_word, input_letter)
                         word_completion_list = open_guessed_letters(guessed_letter_idx_list,
-                                                                    word_completion_list, input_string)
+                                                                    word_completion_list, input_letter)
                     else:
                         print(WRONG_GUESS_MESSAGE)
                         tries_remained -= 1
