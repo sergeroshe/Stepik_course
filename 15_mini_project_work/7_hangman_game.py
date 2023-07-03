@@ -190,12 +190,12 @@ def print_game_result(word_char_list, game_won):
         print(GAME_LOST_MESSAGE)
 
 
-def game_run(tries_remained, hidden_word, guessed_letters, word_char_list, word_completion_list):
+def game_run(tries_remained, hidden_word, guessed_letters, word_char_list, word_char_completion_list):
     game_won = False
     valid_input_len_list = [1, len(hidden_word)]
 
     while not game_won and tries_remained:
-        print_current_game_status(tries_remained, word_completion_list)
+        print_current_game_status(tries_remained, word_char_completion_list)
         enter_guess_prompt, len_error_message = get_prompt(hidden_word)
 
         input_string = get_constrained_alphabet_input(enter_guess_prompt, valid_input_len_list,
@@ -208,8 +208,8 @@ def game_run(tries_remained, hidden_word, guessed_letters, word_char_list, word_
                     guessed_letters.append(input_letter)
                     if input_letter in hidden_word:
                         guessed_letter_idx_list = find_all(hidden_word, input_letter)
-                        word_completion_list = open_guessed_letters(guessed_letter_idx_list,
-                                                                    word_completion_list, input_letter)
+                        word_char_completion_list = open_guessed_letters(guessed_letter_idx_list,
+                                                                         word_char_completion_list, input_letter)
                     else:
                         print(WRONG_GUESS_MESSAGE)
                         tries_remained -= 1
@@ -220,7 +220,7 @@ def game_run(tries_remained, hidden_word, guessed_letters, word_char_list, word_
                 print(WRONG_GUESS_MESSAGE)
                 tries_remained -= 1
 
-        game_won = input_string == hidden_word or word_completion_list == word_char_list
+        game_won = input_string == hidden_word or word_char_completion_list == word_char_list
 
     print_game_result(word_char_list, game_won)
 
