@@ -119,7 +119,6 @@ def get_hangman_stage(tries):
 
 def get_word():
     random_word = choice(WORD_LIST).upper()
-
     return random_word
 
 
@@ -167,7 +166,6 @@ def open_guessed_letters(guessed_letter_idx_list, word_char_completion_list, gue
 
 def game_stage_display(tries_remained):
     game_current_stage = get_hangman_stage(tries_remained)
-
     print(game_current_stage)
 
 
@@ -190,7 +188,6 @@ def game_run(tries_remained, hidden_word, guessed_letters, word_char_list, word_
 
     while not game_won and tries_remained:
         print_current_game_status(tries_remained, word_completion_list)
-
         enter_guess_prompt, len_error_message = get_prompt(hidden_word)
 
         input_string = get_constrained_alphabet_input(enter_guess_prompt, valid_input_len_list,
