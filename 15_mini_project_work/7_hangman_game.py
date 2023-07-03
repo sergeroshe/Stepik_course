@@ -229,7 +229,7 @@ def hangman_game(guessed_word):
     print(GREETING)
     print(guessed_word)
 
-    guessed_letters = []  # список уже названных букв
+    guessed_letters = []
     guessed_words = []
     word_completion = FILLING_CHAR * len(guessed_word)
     word_completion_list = list(word_completion)
