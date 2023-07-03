@@ -182,6 +182,15 @@ def print_current_game_status(tries_remained, word_completion_list):
     print(*word_completion_list)
 
 
+def print_game_result(word_char_list, game_won):
+    print(*word_char_list)
+    if game_won:
+        print(WIN_MESSAGE)
+    else:
+        print(FATAL_GAME_STAGE)
+        print(GAME_LOST_MESSAGE)
+
+
 def game_run(tries_remained, hidden_word, guessed_letters, word_char_list, word_completion_list):
     game_won = False
     valid_input_len_list = [1, len(hidden_word)]
@@ -215,12 +224,7 @@ def game_run(tries_remained, hidden_word, guessed_letters, word_char_list, word_
         game_won = input_string == hidden_word or word_completion_list == word_char_list
 
     #  print_game_result extract function
-    print(*word_char_list)
-    if game_won:
-        print(WIN_MESSAGE)
-    else:
-        print(FATAL_GAME_STAGE)
-        print(GAME_LOST_MESSAGE)
+    print_game_result(word_char_list, game_won)
 
 
 def hangman_game(guessed_word):
