@@ -178,7 +178,6 @@ def get_prompt(guessed_word):
 
 def print_current_game_status(tries_remained, word_completion_list):
     game_stage_display(tries_remained)
-
     print(*word_completion_list)
 
 
