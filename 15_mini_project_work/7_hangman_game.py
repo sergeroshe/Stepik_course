@@ -224,15 +224,21 @@ def game_run(tries_remained, hidden_word, guessed_letters, word_char_list, word_
     print_game_result(word_char_list, game_won)
 
 
+def get_word_char_completion_list(guessed_word):
+    word_completion = FILLING_CHAR * len(guessed_word)
+    word_char_completion_list = list(word_completion)
+    word_char_list = list(guessed_word)
+
+    return word_completion, word_char_list, word_char_completion_list
+
+
 def hangman_game(guessed_word):
     print(GREETING)
     print(guessed_word)
 
     guessed_letters = []
     guessed_words = []
-    word_completion = FILLING_CHAR * len(guessed_word)
-    word_char_completion_list = list(word_completion)
-    word_char_list = list(guessed_word)
+    word_completion, word_char_list, word_char_completion_list = get_word_char_completion_list(guessed_word)
 
     game_run(MAX_TRIES_COUNT, guessed_word, guessed_letters, word_char_list, word_char_completion_list)
 
