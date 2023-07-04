@@ -200,29 +200,26 @@ def game_run(tries_remained, hidden_word, guessed_letters, word_char_list, word_
 
         input_string = get_constrained_alphabet_input(enter_guess_prompt, valid_input_len_list,
                                                       len_error_message, TYPE_ERROR_MESSAGE).upper()
+        game_won = input_string == hidden_word
 
-        if input_string == hidden_word:
-            game_won = True
-        else:
-            if len(input_string) == 1:
-                input_letter = input_string
-                if input_letter not in guessed_letters:
-                    guessed_letters.append(input_letter)
-                    if input_letter in hidden_word:
-                        guessed_letter_idx_list = find_all(hidden_word, input_letter)
-                        word_char_completion_list = open_guessed_letters(guessed_letter_idx_list,
-                                                                         word_char_completion_list, input_letter)
-                        if word_char_completion_list == word_char_list:
-                            game_won = True
-                    else:
-                        print(WRONG_GUESS_MESSAGE)
-                        tries_remained -= 1
+        if len(input_string) == 1:
+            input_letter = input_string
+            if input_letter not in guessed_letters:
+                guessed_letters.append(input_letter)
+                if input_letter in hidden_word:
+                    guessed_letter_idx_list = find_all(hidden_word, input_letter)
+                    word_char_completion_list = open_guessed_letters(guessed_letter_idx_list,
+                                                                     word_char_completion_list, input_letter)
+                    game_won = word_char_completion_list == word_char_list
                 else:
-                    print(REPEAT_ERROR)
+                    print(WRONG_GUESS_MESSAGE)
                     tries_remained -= 1
             else:
-                print(WRONG_GUESS_MESSAGE)
+                print(REPEAT_ERROR)
                 tries_remained -= 1
+        else:
+            print(WRONG_GUESS_MESSAGE)
+            tries_remained -= 1
 
     print_game_result(word_char_list, game_won)
 
