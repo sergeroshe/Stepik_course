@@ -212,6 +212,8 @@ def game_run(tries_remained, hidden_word, guessed_letters, word_char_list, word_
                         guessed_letter_idx_list = find_all(hidden_word, input_letter)
                         word_char_completion_list = open_guessed_letters(guessed_letter_idx_list,
                                                                          word_char_completion_list, input_letter)
+                        if word_char_completion_list == word_char_list:
+                            game_won = True
                     else:
                         print(WRONG_GUESS_MESSAGE)
                         tries_remained -= 1
@@ -221,9 +223,6 @@ def game_run(tries_remained, hidden_word, guessed_letters, word_char_list, word_
             else:
                 print(WRONG_GUESS_MESSAGE)
                 tries_remained -= 1
-
-        if word_char_completion_list == word_char_list:
-            game_won = True
 
     print_game_result(word_char_list, game_won)
 
