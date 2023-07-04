@@ -233,9 +233,8 @@ def hangman_game(guessed_word):
     word_completion = FILLING_CHAR * len(guessed_word)
     word_char_completion_list = list(word_completion)
     word_char_list = list(guessed_word)
-    tries_remained = MAX_TRIES_COUNT
 
-    game_run(tries_remained, guessed_word, guessed_letters, word_char_list, word_char_completion_list)
+    game_run(MAX_TRIES_COUNT, guessed_word, guessed_letters, word_char_list, word_char_completion_list)
 
 
 def main():
