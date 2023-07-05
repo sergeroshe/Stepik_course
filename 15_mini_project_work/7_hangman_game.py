@@ -166,7 +166,7 @@ def game_stage_display(tries_remained):
     print(game_current_stage)
 
 
-def get_prompt(hidden_word):
+def get_dialog_messages(hidden_word):
     hidden_word_len = len(hidden_word)
     enter_guess_prompt = ENTER_GUESS_PROMPT.format(word_len=hidden_word_len)
     len_error_message = LEN_ERROR_MESSAGE.format(word_len=hidden_word_len)
@@ -194,7 +194,7 @@ def game_run(tries_remained, hidden_word):
 
     game_won = False
     valid_input_len_list = [1, len(hidden_word)]
-    enter_guess_prompt, len_error_message = get_prompt(hidden_word)
+    enter_guess_prompt, len_error_message = get_dialog_messages(hidden_word)
     guessed_letters = []
     word_char_completion_list = get_word_char_completion_list(hidden_word)
     word_char_list = list(hidden_word)
