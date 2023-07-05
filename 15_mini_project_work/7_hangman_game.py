@@ -238,7 +238,7 @@ def hangman_game(guessed_word):
     print(GREETING)
     print(guessed_word)
 
-    guessed_words = []
+    # guessed_words = []
 
     game_run(MAX_TRIES_COUNT, guessed_word)
 
