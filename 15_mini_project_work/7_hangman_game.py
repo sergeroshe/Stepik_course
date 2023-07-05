@@ -11,6 +11,7 @@ REPEAT_ERROR = 'Вы уже вводили эту букву, попробуйт
 FILLING_CHAR = '_'
 NEW_GAME_PROPOSAL_MESSAGE = 'Хотите сыграть еще? \nНажмите: "1", затем: ENTER, ' \
                             'если ДА\nНажмите любую клавишу, затем: ENTER, если НЕТ\n'
+FAREWELL_MESSAGE = 'Спасибо, что играли в угадайку слов! Еще увидимся...'
 YES_RESPONSE = '1'
 STAGES = [  # финальное состояние: голова, торс, обе руки, обе ноги
     '''
@@ -245,6 +246,8 @@ def main():
         game_run(MAX_TRIES_COUNT, hidden_word)
         new_game_wish = input(NEW_GAME_PROPOSAL_MESSAGE).lower()
         game_is_going_on = new_game_wish == YES_RESPONSE
+
+    print(FAREWELL_MESSAGE)
 
 
 main()
