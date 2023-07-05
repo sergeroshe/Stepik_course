@@ -200,9 +200,9 @@ def game_run(tries_remained, hidden_word, guessed_letters, word_char_list, word_
 
         input_string = get_constrained_alphabet_input(enter_guess_prompt, valid_input_len_list,
                                                       len_error_message, TYPE_ERROR_MESSAGE).upper()
-        game_won = input_string == hidden_word
-
-        if len(input_string) == 1:
+        if input_string == hidden_word:
+            game_won = True
+        elif len(input_string) == 1:
             input_letter = input_string
             if input_letter not in guessed_letters:
                 guessed_letters.append(input_letter)
