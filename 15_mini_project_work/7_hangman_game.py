@@ -9,6 +9,10 @@ TYPE_ERROR_MESSAGE = 'Введенные данные должны содерж�
 LEN_ERROR_MESSAGE = 'Введенное слово должно состоять из {word_len} букв!'
 REPEAT_ERROR = 'Вы уже вводили эту букву, попробуйте другую'
 FILLING_CHAR = '_'
+NEW_GAME_PROPOSAL_MESSAGE = 'Хотите сыграть еще? \nНажмите: "1", затем: ENTER, ' \
+                            'если ДА\nНажмите любую клавишу, затем: ENTER, если НЕТ\n'
+FAREWELL_MESSAGE = 'Спасибо, что играли в угадайку слов! Еще увидимся...'
+YES_RESPONSE = '1'
 STAGES = [  # финальное состояние: голова, торс, обе руки, обе ноги
     '''
                    --------
@@ -236,8 +240,14 @@ def get_word_char_completion_list(hidden_word):
 
 
 def main():
-    hidden_word = get_word()
-    game_run(MAX_TRIES_COUNT, hidden_word)
+    game_is_going_on = True
+    while game_is_going_on:
+        hidden_word = get_word()
+        game_run(MAX_TRIES_COUNT, hidden_word)
+        new_game_wish = input(NEW_GAME_PROPOSAL_MESSAGE).lower()
+        game_is_going_on = new_game_wish == YES_RESPONSE
+
+    print(FAREWELL_MESSAGE)
 
 
 main()
