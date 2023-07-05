@@ -8,8 +8,6 @@ GAME_LOST_MESSAGE = 'Вы проиграли.'
 TYPE_ERROR_MESSAGE = 'Введенные данные должны содержать только текст!\n'
 LEN_ERROR_MESSAGE = 'Введенное слово должно состоять из {word_len} букв!'
 REPEAT_ERROR = 'Вы уже вводили эту букву, попробуйте другую'
-COLON_SEP = ':'
-EXCLAMATION_SIGN = '!'
 FILLING_CHAR = '_'
 STAGES = [  # финальное состояние: голова, торс, обе руки, обе ноги
     '''
