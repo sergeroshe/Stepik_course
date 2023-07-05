@@ -230,16 +230,16 @@ def game_run(tries_remained, hidden_word):
     print_game_result(word_char_list, game_won)
 
 
-def get_word_char_completion_list(guessed_word):
-    word_completion = FILLING_CHAR * len(guessed_word)
+def get_word_char_completion_list(hidden_word):
+    word_completion = FILLING_CHAR * len(hidden_word)
     word_char_completion_list = list(word_completion)
 
     return word_char_completion_list
 
 
 def main():
-    guessed_word = get_word()
-    game_run(MAX_TRIES_COUNT, guessed_word)
+    hidden_word = get_word()
+    game_run(MAX_TRIES_COUNT, hidden_word)
 
 
 main()
