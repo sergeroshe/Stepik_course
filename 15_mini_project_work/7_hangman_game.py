@@ -170,8 +170,9 @@ def game_stage_display(tries_remained):
 
 
 def get_prompt(hidden_word):
-    enter_guess_prompt = f'{ENTER_GUESS_PROMPT_P_1}{len(hidden_word)}{ENTER_GUESS_PROMPT_P_2}{COLON_SEP}\n'
-    len_error_message = f'{LEN_ERROR_MESSAGE}{len(hidden_word)}{ENTER_GUESS_PROMPT_P_2}{EXCLAMATION_SIGN}'
+    hidden_word_len = len(hidden_word)
+    enter_guess_prompt = f'{ENTER_GUESS_PROMPT_P_1}{hidden_word_len}{ENTER_GUESS_PROMPT_P_2}{COLON_SEP}\n'
+    len_error_message = f'{LEN_ERROR_MESSAGE}{hidden_word_len}{ENTER_GUESS_PROMPT_P_2}{EXCLAMATION_SIGN}'
 
     return enter_guess_prompt, len_error_message
 
