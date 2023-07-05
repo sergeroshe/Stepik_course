@@ -1,13 +1,12 @@
 from random import choice
 
 GREETING = 'Давайте играть в угадайку слов!'
-ENTER_GUESS_PROMPT_P_1 = 'Введите букву или всё слово, состоящее из '
-ENTER_GUESS_PROMPT_P_2 = ' букв'
+ENTER_GUESS_PROMPT = 'Введите букву или всё слово, состоящее из {word_len} букв:\n'
 WIN_MESSAGE = 'Поздравляем, вы угадали слово! Вы победили!'
 WRONG_GUESS_MESSAGE = 'Ответ неверный'
 GAME_LOST_MESSAGE = 'Вы проиграли.'
 TYPE_ERROR_MESSAGE = 'Введенные данные должны содержать только текст!\n'
-LEN_ERROR_MESSAGE = 'Введенное слово должно состоять из '
+LEN_ERROR_MESSAGE = 'Введенное слово должно состоять из {word_len} букв!'
 REPEAT_ERROR = 'Вы уже вводили эту букву, попробуйте другую'
 COLON_SEP = ':'
 EXCLAMATION_SIGN = '!'
@@ -171,9 +170,8 @@ def game_stage_display(tries_remained):
 
 def get_prompt(hidden_word):
     hidden_word_len = len(hidden_word)
-    enter_guess_prompt = '{}{}{}{}\n'.format(ENTER_GUESS_PROMPT_P_1,
-                                             hidden_word_len, ENTER_GUESS_PROMPT_P_2, COLON_SEP)
-    len_error_message = '{}{}{}{}'.format(LEN_ERROR_MESSAGE, hidden_word_len, ENTER_GUESS_PROMPT_P_2, EXCLAMATION_SIGN)
+    enter_guess_prompt = ENTER_GUESS_PROMPT.format(word_len=hidden_word_len)
+    len_error_message = LEN_ERROR_MESSAGE.format(word_len=hidden_word_len)
 
     return enter_guess_prompt, len_error_message
 
