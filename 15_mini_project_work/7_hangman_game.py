@@ -190,11 +190,14 @@ def print_game_result(word_char_list, game_won):
         print(GAME_LOST_MESSAGE)
 
 
-def game_run(tries_remained, hidden_word, word_char_list, word_char_completion_list):
+def game_run(tries_remained, hidden_word):
     game_won = False
     valid_input_len_list = [1, len(hidden_word)]
     enter_guess_prompt, len_error_message = get_prompt(hidden_word)
     guessed_letters = []
+    word_char_completion_list = get_word_char_completion_list(hidden_word)
+    word_char_list = list(hidden_word)
+
     while not game_won and tries_remained:
         print_current_game_status(tries_remained, word_char_completion_list)
 
@@ -236,9 +239,8 @@ def hangman_game(guessed_word):
     print(guessed_word)
 
     guessed_words = []
-    word_char_completion_list = get_word_char_completion_list(guessed_word)
-    word_char_list = list(guessed_word)
-    game_run(MAX_TRIES_COUNT, guessed_word, word_char_list, word_char_completion_list)
+
+    game_run(MAX_TRIES_COUNT, guessed_word)
 
 
 def main():
