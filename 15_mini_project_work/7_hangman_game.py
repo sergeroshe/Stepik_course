@@ -137,7 +137,9 @@ OTHER_WORDS = ['дом', 'железо',
                'ежеминутка', 'извинение', 'мелочь', 'ножка', 'определение',
                'паркет', 'рассвет', 'сантехника', 'увольнение', 'фальш', 'шкаф',
                'щиток', 'эмиграция', 'ядро']
-WORD_LIST = [FOODS, ANIMALS_PLANTS, NATURE, TRANSPORT, MUSICAL_INSTRUMENTS, OTHER_WORDS]
+CATEGORY_LIST = [FOODS, ANIMALS_PLANTS, NATURE, TRANSPORT, MUSICAL_INSTRUMENTS, OTHER_WORDS]
+CATEGORY_NAME_LIST = ['Продукты питания, еда', 'Животные и растения', 'Природа'
+                      'Транспорт', 'Музыкальные инструменты', 'Другие слова']
 FATAL_GAME_STAGE = STAGES[0]
 MAX_TRIES_COUNT = len(STAGES) - 1
 
@@ -147,11 +149,15 @@ def get_hangman_stage(tries):
     return stage
 
 
-def get_word():
-    word_list_el_num = randrange(0, len(WORD_LIST) - 1)
-    word_list_el_name = WORD_LIST[word_list_el_num]
-    random_word = choice(WORD_LIST[word_list_el_num]).upper()
-    return random_word, word_list_el_name
+def get_word(word_list_el_num):
+    random_word = choice(CATEGORY_LIST[word_list_el_num]).upper()
+    return random_word
+
+
+def get_word_category():
+    category_list_el_num = randrange(0, len(CATEGORY_LIST) - 1)
+    word_category_name = CATEGORY_LIST[category_list_el_num]
+    return word_category_name
 
 
 def get_constrained_alphabet_input(prompt, valid_len_list, len_error_message, type_error_message):
