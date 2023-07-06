@@ -138,7 +138,7 @@ OTHER_WORDS = ['дом', 'железо',
                'паркет', 'рассвет', 'сантехника', 'увольнение', 'фальш', 'шкаф',
                'щиток', 'эмиграция', 'ядро']
 CATEGORY_LIST = [FOODS, ANIMALS_PLANTS, NATURE, TRANSPORT, MUSICAL_INSTRUMENTS, OTHER_WORDS]
-CATEGORY_NAME_LIST = ['Продукты питания, еда', 'Животные и растения', 'Природа'
+CATEGORY_NAME_LIST = ['Продукты питания, еда', 'Животные и растения', 'Природа',
                       'Транспорт', 'Музыкальные инструменты', 'Другие слова']
 FATAL_GAME_STAGE = STAGES[0]
 MAX_TRIES_COUNT = len(STAGES) - 1
@@ -154,10 +154,14 @@ def get_word(word_category):
     return random_word
 
 
-def get_word_category(category_list):
-    category_num = randrange(0, len(category_list) - 1)
+def get_word_category(category_list, category_num):
     word_category = category_list[category_num]
     return word_category
+
+
+def get_word_category_name(category_name_list, category_num):
+    category_name = category_name_list[category_num]
+    return category_name
 
 
 def get_constrained_alphabet_input(prompt, valid_len_list, len_error_message, type_error_message):
@@ -279,9 +283,11 @@ def get_word_char_completion_list(hidden_word):
 def main():
     game_is_going_on = True
     while game_is_going_on:
-        word_category = get_word_category(CATEGORY_LIST)
+        category_num = randrange(0, len(CATEGORY_LIST) - 1)
+        word_category = get_word_category(CATEGORY_LIST, category_num)
         hidden_word = get_word(word_category)
-        game_run(MAX_TRIES_COUNT, hidden_word, word_category)
+        category_name = get_word_category_name(CATEGORY_NAME_LIST, category_num)
+        game_run(MAX_TRIES_COUNT, hidden_word, category_name)
         new_game_wish = input(NEW_GAME_PROPOSAL_MESSAGE).lower()
         game_is_going_on = new_game_wish == YES_RESPONSE
 
