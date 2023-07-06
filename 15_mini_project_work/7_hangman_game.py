@@ -1,7 +1,8 @@
-from random import choice
+from random import choice, randrange
 
 GREETING = 'Давайте играть в угадайку слов!'
-ENTER_GUESS_PROMPT = 'Введите букву или всё слово, состоящее из {word_len} букв:\n'
+ENTER_GUESS_PROMPT = 'Введите букву или всё слово, состоящее из {word_len} букв.' \
+                     ' Это слово относится к категории {category_name}:\n'
 WIN_MESSAGE = 'Поздравляем, вы угадали слово! Вы победили!'
 WRONG_GUESS_MESSAGE = 'Ответ неверный'
 GAME_LOST_MESSAGE = 'Вы проиграли.'
@@ -103,7 +104,6 @@ STAGES = [  # финальное состояние: голова, торс, о�
                    -
                 '''
 ]
-
 FOODS = ['желток', 'арбуз', 'банан', 'хлеб', 'яблоко', 'колбаса',
          'сахар', 'творог', 'хрен', 'шоколад', 'каша', 'макароны', 'рис', 'лаваш']
 ANIMALS_PLANTS = ['ягода', 'комар', 'фазан', 'таракан', 'ландыш', 'гиббон',
@@ -148,8 +148,10 @@ def get_hangman_stage(tries):
 
 
 def get_word():
-    random_word = choice(WORD_LIST).upper()
-    return random_word
+    word_list_el_num = randrange(0, len(WORD_LIST) - 1)
+    word_list_el_name = WORD_LIST[word_list_el_num]
+    random_word = choice(WORD_LIST[word_list_el_num]).upper()
+    return random_word, word_list_el_name
 
 
 def get_constrained_alphabet_input(prompt, valid_len_list, len_error_message, type_error_message):
@@ -199,9 +201,9 @@ def game_stage_display(tries_remained):
     print(game_current_stage)
 
 
-def get_dialog_messages(hidden_word):
+def get_dialog_messages(hidden_word, category_name):
     hidden_word_len = len(hidden_word)
-    enter_guess_prompt = ENTER_GUESS_PROMPT.format(word_len=hidden_word_len)
+    enter_guess_prompt = ENTER_GUESS_PROMPT.format(word_len=hidden_word_len, category_name=category_name)
     len_error_message = LEN_ERROR_MESSAGE.format(word_len=hidden_word_len)
 
     return enter_guess_prompt, len_error_message
@@ -221,13 +223,13 @@ def print_game_result(word_char_list, game_won):
         print(GAME_LOST_MESSAGE)
 
 
-def game_run(tries_remained, hidden_word):
+def game_run(tries_remained, hidden_word, category_name):
     print(GREETING)
     print(hidden_word)
 
     game_won = False
     valid_input_len_list = [1, len(hidden_word)]
-    enter_guess_prompt, len_error_message = get_dialog_messages(hidden_word)
+    enter_guess_prompt, len_error_message = get_dialog_messages(hidden_word, category_name)
     guessed_letters = []
     word_char_completion_list = get_word_char_completion_list(hidden_word)
     word_char_list = list(hidden_word)
@@ -271,8 +273,8 @@ def get_word_char_completion_list(hidden_word):
 def main():
     game_is_going_on = True
     while game_is_going_on:
-        hidden_word = get_word()
-        game_run(MAX_TRIES_COUNT, hidden_word)
+        hidden_word, category_name = get_word()
+        game_run(MAX_TRIES_COUNT, hidden_word, category_name)
         new_game_wish = input(NEW_GAME_PROPOSAL_MESSAGE).lower()
         game_is_going_on = new_game_wish == YES_RESPONSE
 
