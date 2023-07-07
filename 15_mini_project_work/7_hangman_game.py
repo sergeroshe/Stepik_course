@@ -158,16 +158,6 @@ def get_word(word_category):
     return random_word
 
 
-def get_word_category(category_list, category_num):
-    word_category = category_list[category_num][1]
-    return word_category
-
-
-def get_word_category_name(category_list, category_num):
-    category_name = category_list[category_num][0]
-    return category_name
-
-
 def get_constrained_alphabet_input(prompt, valid_len_list, len_error_message, type_error_message):
     valid_string_input = False
 
@@ -288,10 +278,11 @@ def main():
     game_is_going_on = True
     while game_is_going_on:
         category_num = randrange(0, len(CATEGORY_LIST) - 1)
-        # remove func
         word_category = CATEGORY_LIST[category_num]
-        hidden_word = get_word(word_category[1])
         category_name = word_category[0]
+
+        hidden_word = get_word(word_category[1])
+
         game_run(MAX_TRIES_COUNT, hidden_word, category_name)
         new_game_wish = input(NEW_GAME_PROPOSAL_MESSAGE).lower()
         game_is_going_on = new_game_wish == YES_RESPONSE
