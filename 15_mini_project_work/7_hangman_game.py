@@ -277,8 +277,8 @@ def main():
     game_is_going_on = True
     while game_is_going_on:
         # extract to get_word
-        category_num = randrange(0, len(CATEGORIZED_WORD_LIST) - 1)
-        word_category = CATEGORIZED_WORD_LIST[category_num]
+        category_idx = randrange(0, len(CATEGORIZED_WORD_LIST) - 1)
+        word_category = CATEGORIZED_WORD_LIST[category_idx]
         category_name = word_category[0]
 
         hidden_word = get_word(word_category[1])
