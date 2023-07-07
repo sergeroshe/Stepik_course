@@ -137,13 +137,10 @@ OTHER_WORDS = ['дом', 'железо',
                'ежеминутка', 'извинение', 'мелочь', 'ножка', 'определение',
                'паркет', 'рассвет', 'сантехника', 'увольнение', 'фальш', 'шкаф',
                'щиток', 'эмиграция', 'ядро']
-A = ['"Продукты"', FOODS]
-B = ['"Животные и растения"', ANIMALS_PLANTS]
-C = ['"Природа"', NATURE]
-D = ['"Транспорт"', TRANSPORT]
-E = ['"Музыкальные инструменты"', MUSICAL_INSTRUMENTS]
-F = ['"Другие слова"', OTHER_WORDS]
-CATEGORY_LIST = [A, B, C, D, E, F]
+CATEGORY_LIST = [['"Продукты"', FOODS], ['"Животные и растения"', ANIMALS_PLANTS],
+                 ['"Природа"', NATURE], ['"Транспорт"', TRANSPORT],
+                 ['"Музыкальные инструменты"', MUSICAL_INSTRUMENTS],
+                 ['"Другие слова"', OTHER_WORDS]]
 FATAL_GAME_STAGE = STAGES[0]
 MAX_TRIES_COUNT = len(STAGES) - 1
 
