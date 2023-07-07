@@ -2,7 +2,7 @@ from random import choice, randrange
 
 GREETING = 'Давайте играть в угадайку слов!'
 ENTER_GUESS_PROMPT = 'Введите букву или всё слово, состоящее из {word_len} букв.' \
-                     ' Это слово относится к категории {category_name}:\n'
+                     ' Это слово относится к категории "{category_name}":\n'
 WIN_MESSAGE = 'Поздравляем, вы угадали слово! Вы победили!'
 WRONG_GUESS_MESSAGE = 'Ответ неверный'
 GAME_LOST_MESSAGE = 'Вы проиграли.'
