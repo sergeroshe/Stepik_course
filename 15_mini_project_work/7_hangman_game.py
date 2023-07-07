@@ -152,9 +152,12 @@ def get_hangman_stage(tries):
     return stage
 
 
-def get_word(word_category):
+def get_word():
+    category_idx = randrange(0, len(CATEGORIZED_WORD_LIST) - 1)
+    word_category = CATEGORIZED_WORD_LIST[category_idx][1]
+    category_name = CATEGORIZED_WORD_LIST[category_idx][0]
     random_word = choice(word_category).upper()
-    return random_word
+    return random_word, category_name
 
 
 def get_constrained_alphabet_input(prompt, valid_len_list, len_error_message, type_error_message):
@@ -276,12 +279,8 @@ def get_word_char_completion_list(hidden_word):
 def main():
     game_is_going_on = True
     while game_is_going_on:
-        # extract to get_word
-        category_idx = randrange(0, len(CATEGORIZED_WORD_LIST) - 1)
-        word_category = CATEGORIZED_WORD_LIST[category_idx]
-        category_name = word_category[0]
 
-        hidden_word = get_word(word_category[1])
+        hidden_word, category_name = get_word()
 
         game_run(MAX_TRIES_COUNT, hidden_word, category_name)
         new_game_wish = input(NEW_GAME_PROPOSAL_MESSAGE).lower()
