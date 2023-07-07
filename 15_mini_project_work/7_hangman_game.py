@@ -152,7 +152,7 @@ def get_hangman_stage(tries):
     return stage
 
 
-def get_word():
+def get_hidden_word_with_category():
     category_idx = randrange(0, len(CATEGORIZED_WORD_LIST) - 1)
     word_category = CATEGORIZED_WORD_LIST[category_idx][1]
     category_name = CATEGORIZED_WORD_LIST[category_idx][0]
@@ -280,7 +280,7 @@ def main():
     game_is_going_on = True
     while game_is_going_on:
 
-        hidden_word, category_name = get_word()
+        hidden_word, category_name = get_hidden_word_with_category()
 
         game_run(MAX_TRIES_COUNT, hidden_word, category_name)
         new_game_wish = input(NEW_GAME_PROPOSAL_MESSAGE).lower()
