@@ -154,9 +154,9 @@ def get_hangman_stage(tries):
 
 def get_hidden_word_with_category():
     category_idx = randrange(0, len(CATEGORIZED_WORD_LIST) - 1)
-    word_category = CATEGORIZED_WORD_LIST[category_idx][1]
+    category_word_list = CATEGORIZED_WORD_LIST[category_idx][1]
     category_name = CATEGORIZED_WORD_LIST[category_idx][0]
-    random_word = choice(word_category).upper()
+    random_word = choice(category_word_list).upper()
     return random_word, category_name
 
 
