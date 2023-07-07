@@ -276,8 +276,8 @@ def get_word_char_completion_list(hidden_word):
 def main():
     game_is_going_on = True
     while game_is_going_on:
-        category_num = randrange(0, len(CATEGORY_LIST) - 1)
-        word_category = CATEGORY_LIST[category_num]
+        category_num = randrange(0, len(CATEGORIZED_WORD_LIST) - 1)
+        word_category = CATEGORIZED_WORD_LIST[category_num]
         category_name = word_category[0]
 
         hidden_word = get_word(word_category[1])
