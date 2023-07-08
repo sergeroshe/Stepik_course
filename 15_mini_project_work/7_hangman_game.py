@@ -1,15 +1,16 @@
 from random import choice, randrange
 
 GREETING = 'Давайте играть в угадайку слов!'
+FILLING_CHAR = '_'
 ENTER_GUESS_PROMPT = 'Введите букву или всё слово, состоящее из {word_len} букв.' \
                      ' Это слово относится к категории "{category_name}":\n'
+HIDDEN_WORD_TEMPLATE = '{first_letter}{word_hidden_part}{last_letter}'
 WIN_MESSAGE = 'Поздравляем, вы угадали слово! Вы победили!'
 WRONG_GUESS_MESSAGE = 'Ответ неверный'
 GAME_LOST_MESSAGE = 'Вы проиграли.'
 TYPE_ERROR_MESSAGE = 'Введенные данные должны содержать только текст!\n'
 LEN_ERROR_MESSAGE = 'Введенное слово должно состоять из {word_len} букв!'
 REPEAT_ERROR = 'Вы уже вводили эту букву, попробуйте другую'
-FILLING_CHAR = '_'
 NEW_GAME_PROPOSAL_MESSAGE = 'Хотите сыграть еще? \nНажмите: "1", затем: ENTER, ' \
                             'если ДА\nНажмите любую клавишу, затем: ENTER, если НЕТ\n'
 FAREWELL_MESSAGE = 'Спасибо, что играли в угадайку слов! Еще увидимся...'
@@ -231,8 +232,9 @@ def print_game_result(word_char_list, game_won):
 
 def game_run(tries_remained, hidden_word, category_name):
     print(GREETING)
-    print(hidden_word)
-
+    print(HIDDEN_WORD_TEMPLATE.format(first_letter=hidden_word[0],
+                                      word_hidden_part=FILLING_CHAR * (len(hidden_word) - 2),
+                                      last_letter=hidden_word[-1]))
     game_won = False
     valid_input_len_list = [1, len(hidden_word)]
     enter_guess_prompt, len_error_message = get_dialog_messages(hidden_word, category_name)
@@ -279,7 +281,6 @@ def get_word_char_completion_list(hidden_word):
 def main():
     game_is_going_on = True
     while game_is_going_on:
-
         hidden_word, category_name = get_hidden_word_with_category()
 
         game_run(MAX_TRIES_COUNT, hidden_word, category_name)
