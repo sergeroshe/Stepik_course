@@ -322,8 +322,8 @@ def get_word_char_completion_list(hidden_word):
 def main():
     game_is_going_on = True
     while game_is_going_on:
-        hidden_word, category_name = get_hidden_word_with_category()
-
+        # hidden_word, category_name = get_hidden_word_with_category()
+        hidden_word, category_name = 'БУЛЕРИАС', 'ЖАНРЫ ФЛАМЕНКО'
         game_run(MAX_TRIES_COUNT, hidden_word, category_name)
         new_game_wish = input(NEW_GAME_PROPOSAL_MESSAGE).lower()
         game_is_going_on = new_game_wish == YES_RESPONSE
