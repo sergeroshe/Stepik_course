@@ -282,7 +282,6 @@ def game_run(tries_remained, hidden_word, category_name):
     guessed_letters = []
     word_char_completion_list = get_word_char_completion_list(hidden_word)
 
-
     while not game_won and tries_remained:
         print_current_game_status(tries_remained, word_char_completion_list)
 
