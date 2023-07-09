@@ -260,29 +260,28 @@ def get_constrained_num_input(enter_base_prompt, type_error_message, base_error_
     return num
 
 
-def get_template_with_preguessed_letter(prompt, hidden_word):
-    word_template = (FILLING_CHAR * len(hidden_word)).split()
-    letter_position_chosen = False
-    while not letter_position_chosen:
-        letter_position = get_constrained_num_input(prompt,
-                                                    NOT_NUM_ERROR_MESSAGE, WORD_POSITION_ERROR_MESSAGE,
-                                                    1, hidden_word(len) + 1)
-        if letter_position != 0:
-            word_template[letter_position] = hidden_word[letter_position]
-            letter_position_chosen = True
-
-    return word_template
+def get_template_with_preguessed_letter(hidden_word, preguessed_letter_idx_list, word_char_list):
+    word_template = '_' * len(hidden_word)
+    word_template_list = list(word_template)
+    for i in range(len(preguessed_letter_idx_list)):
+        word_template_list[preguessed_letter_idx_list[i]] = word_char_list[preguessed_letter_idx_list[i]]
+    return word_template_list
 
 
 def game_run(tries_remained, hidden_word, category_name):
     print(GREETING)
-    get_template_with_preguessed_letter(ENTER_PRE_GUESSED_LETTER_POSITION_PROMPT, hidden_word)
+
+    word_char_list = list(hidden_word)
+    word_template = get_template_with_preguessed_letter(hidden_word, [0, 2, -1], word_char_list)
+
+    print(*word_template)
+
     game_won = False
     valid_input_len_list = [1, len(hidden_word)]
     enter_guess_prompt, len_error_message = get_dialog_messages(hidden_word, category_name)
     guessed_letters = []
     word_char_completion_list = get_word_char_completion_list(hidden_word)
-    word_char_list = list(hidden_word)
+
 
     while not game_won and tries_remained:
         print_current_game_status(tries_remained, word_char_completion_list)
