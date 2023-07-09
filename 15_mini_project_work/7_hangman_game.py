@@ -272,9 +272,9 @@ def game_run(tries_remained, hidden_word, category_name):
     print(GREETING)
 
     word_char_list = list(hidden_word)
-    word_template = get_template_with_preguessed_letter(hidden_word, [0, 2, -1], word_char_list)
+    word_template_list = get_template_with_preguessed_letter(hidden_word, [0, 2, -1], word_char_list)
 
-    print(*word_template)
+    print(*word_template_list)
 
     game_won = False
     valid_input_len_list = [1, len(hidden_word)]
