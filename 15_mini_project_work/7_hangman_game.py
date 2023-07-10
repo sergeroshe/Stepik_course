@@ -255,12 +255,14 @@ def get_pre_guessed_letters_idx_list(hidden_word):
     pre_guessed_letters_list_full = False
     while not pre_guessed_letters_list_full:
         if not pre_guessed_letters_list:
-            pre_guessed_letter_idx = input(ENTER_PRE_GUESSED_LETTER_POSITION_PROMPT.format(word_len=last_letter_position))
+            pre_guessed_letter_idx = input(ENTER_PRE_GUESSED_LETTER_POSITION_PROMPT.
+                                           format(word_len=last_letter_position))
         else:
             pre_guessed_letter_idx = input(RE_ENTER_PRE_GUESSED_LETTER_POSITION_PROMPT)
         if not pre_guessed_letter_idx.isdigit():
             pre_guessed_letters_list_full = True
         else:
+
             pre_guessed_letter_idx = get_constrained_num_input(int(pre_guessed_letter_idx),
                                                                ENTER_PRE_GUESSED_LETTER_POSITION_PROMPT
                                                                .format(word_len=last_letter_position),
@@ -269,7 +271,7 @@ def get_pre_guessed_letters_idx_list(hidden_word):
                                                                1, last_letter_position)
             pre_guessed_letter_position = pre_guessed_letter_idx - 1
             pre_guessed_letters_list.append(pre_guessed_letter_position)
-        pre_guessed_letters_list_full = len(pre_guessed_letters_list) == len(hidden_word)
+            pre_guessed_letters_list_full = len(pre_guessed_letters_list) == len(hidden_word)
 
     return pre_guessed_letters_list
 
