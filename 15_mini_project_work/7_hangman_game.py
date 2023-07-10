@@ -248,7 +248,7 @@ def get_constrained_num_input(num, enter_letter_position_prompt, range_error_mes
 
 
 def get_pre_guessed_letters_idx_list(hidden_word):
-    last_letter_position = len(hidden_word) + 1
+    last_letter_position = len(hidden_word)
     pre_guessed_letters_list = []
     pre_guessed_letters_list_full = False
     while not pre_guessed_letters_list_full:
