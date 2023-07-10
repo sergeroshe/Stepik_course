@@ -244,7 +244,7 @@ def get_constrained_num_input(num, enter_letter_position_prompt, range_error_mes
             is_num_valid = True
         else:
             print(range_error_message)
-            num = input(enter_letter_position_prompt)
+            num = int(input(enter_letter_position_prompt))
 
     return num
 
