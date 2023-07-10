@@ -264,13 +264,11 @@ def game_run(tries_remained, hidden_word, category_name):
     print(GREETING)
 
     word_char_list = list(hidden_word)
-    word_template_list = get_word_char_completion_list(hidden_word, [0, 2, -1])
-
     game_won = False
     valid_input_len_list = [1, len(hidden_word)]
     enter_guess_prompt, len_error_message = get_dialog_messages(hidden_word, category_name)
     guessed_letters = []
-    word_char_completion_list = word_template_list
+    word_char_completion_list = get_word_char_completion_list(hidden_word, [0, 2, -1])
     while not game_won and tries_remained:
         print_current_game_status(tries_remained, word_char_completion_list)
 
