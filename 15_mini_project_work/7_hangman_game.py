@@ -269,6 +269,8 @@ def get_pre_guessed_letters_idx_list(hidden_word):
                                                                1, last_letter_position)
             pre_guessed_letter_position = pre_guessed_letter_idx - 1
             pre_guessed_letters_list.append(pre_guessed_letter_position)
+        if len(pre_guessed_letters_list) == len(hidden_word):
+            pre_guessed_letters_list_full = True
     return pre_guessed_letters_list
 
 
