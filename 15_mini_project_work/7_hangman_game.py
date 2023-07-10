@@ -145,6 +145,7 @@ CATEGORIZED_WORD_LIST = [['Продукты', FOODS],
                          ['Транспорт', TRANSPORT],
                          ['Музыкальные инструменты', MUSICAL_INSTRUMENTS],
                          ['Другие слова', OTHER_WORDS]]
+PREGUESSED_LETTER_IDX_LIST = [0, 2, -1]
 FATAL_GAME_STAGE = STAGES[0]
 MAX_TRIES_COUNT = len(STAGES) - 1
 
@@ -266,7 +267,7 @@ def game_run(tries_remained, hidden_word, category_name):
     valid_input_len_list = [1, len(hidden_word)]
     enter_guess_prompt, len_error_message = get_dialog_messages(hidden_word, category_name)
     guessed_letters = []
-    word_char_completion_list = get_word_char_completion_list(hidden_word, [0, 2, -1])
+    word_char_completion_list = get_word_char_completion_list(hidden_word, PREGUESSED_LETTER_IDX_LIST)
     while not game_won and tries_remained:
         print_current_game_status(tries_remained, word_char_completion_list)
 
@@ -296,11 +297,11 @@ def game_run(tries_remained, hidden_word, category_name):
     print_game_result(word_char_list, game_won)
 
 
-def get_word_char_completion_list(hidden_word, preguessed_char_idx_list):
+def get_word_char_completion_list(hidden_word, preguessed_letter_idx_list):
     word_completion = FILLING_CHAR * len(hidden_word)
     word_char_completion_list = list(word_completion)
-    for i in range(len(preguessed_char_idx_list)):
-        word_char_completion_list[preguessed_char_idx_list[i]] = hidden_word[preguessed_char_idx_list[i]]
+    for i in range(len(preguessed_letter_idx_list)):
+        word_char_completion_list[preguessed_letter_idx_list[i]] = hidden_word[preguessed_letter_idx_list[i]]
 
     return word_char_completion_list
 
