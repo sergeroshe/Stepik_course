@@ -1,7 +1,6 @@
 from random import choice, randrange
 
 GREETING = 'Давайте играть в угадайку слов!'
-FILLING_CHAR = '_'
 ENTER_GUESS_PROMPT = 'Введите букву или всё слово, состоящее из {word_len} букв.' \
                      ' Это слово относится к категории "{category_name}":\n'
 WIN_MESSAGE = 'Поздравляем, вы угадали слово! Вы победили!'
@@ -10,6 +9,7 @@ GAME_LOST_MESSAGE = 'Вы проиграли.'
 TYPE_ERROR_MESSAGE = 'Введенные данные должны содержать только текст!\n'
 LEN_ERROR_MESSAGE = 'Введенное слово должно состоять из {word_len} букв!'
 REPEAT_ERROR = 'Вы уже вводили эту букву, попробуйте другую'
+FILLING_CHAR = '*'
 NEW_GAME_PROPOSAL_MESSAGE = 'Хотите сыграть еще? \nНажмите: "1", затем: ENTER, ' \
                             'если ДА\nНажмите любую клавишу, затем: ENTER, если НЕТ\n'
 FAREWELL_MESSAGE = 'Спасибо, что играли в угадайку слов! Еще увидимся...'
