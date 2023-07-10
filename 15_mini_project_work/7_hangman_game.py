@@ -3,12 +3,16 @@ from random import choice, randrange
 GREETING = 'Давайте играть в угадайку слов!'
 ENTER_GUESS_PROMPT = 'Введите букву или всё слово, состоящее из {word_len} букв.' \
                      ' Это слово относится к категории "{category_name}":\n'
+ENTER_PRE_GUESSED_LETTER_POSITION_PROMPT = 'Загаданное слово состоит из {word_len} букв.\n' \
+                                           'Введите номер буквы, которую необходимо открыть.\n' \
+                                           'Если вы хотите самостоятельно угадать ВСЕ буквы слова, нажмите ENTER:\n'
 WIN_MESSAGE = 'Поздравляем, вы угадали слово! Вы победили!'
 WRONG_GUESS_MESSAGE = 'Ответ неверный'
 GAME_LOST_MESSAGE = 'Вы проиграли.'
 TYPE_ERROR_MESSAGE = 'Введенные данные должны содержать только текст!\n'
 LEN_ERROR_MESSAGE = 'Введенное слово должно состоять из {word_len} букв!'
 REPEAT_ERROR = 'Вы уже вводили эту букву, попробуйте другую'
+RANGE_ERROR_MESSAGE = 'Число должно быть от 1 до {last_letter_position} включительно!'
 FILLING_CHAR = '_'
 NEW_GAME_PROPOSAL_MESSAGE = 'Хотите сыграть еще? \nНажмите: "1", затем: ENTER, ' \
                             'если ДА\nНажмите любую клавишу, затем: ENTER, если НЕТ\n'
@@ -230,18 +234,40 @@ def print_game_result(word_char_list, game_won):
         print(GAME_LOST_MESSAGE)
 
 
-def get_constrained_num_input(num, enter_base_prompt, type_error_message,
-                              base_error_message, left_border, right_border):
+def get_constrained_num_input(num, enter_letter_position_prompt, range_error_message,
+                              left_border, right_border):
     is_num_valid = False
     while not is_num_valid:
         if left_border <= num <= right_border:
             is_num_valid = True
         else:
-            print(base_error_message)
-            num = get_num_input(enter_base_prompt, type_error_message)
+            print(range_error_message)
+            num = input(enter_letter_position_prompt)
 
     return num
 
+
+def get_pre_guessed_letters_idx_list(hidden_word):
+    last_letter_position = len(hidden_word) + 1
+    pre_guessed_letters_list = []
+    pre_guessed_letters_list_full = False
+    while not pre_guessed_letters_list_full:
+        if not pre_guessed_letters_list:
+            pre_guessed_letter_idx = input(ENTER_PRE_GUESSED_LETTER_POSITION_PROMPT.format(word_len=last_letter_position))
+        else:
+            pre_guessed_letter_idx = input('Хотите открыть еще одну букву? Если да - '
+                                           'введите число - номер позиции открываемой буквы в слове:\n')
+        if not pre_guessed_letter_idx.isdigit():
+            pre_guessed_letters_list_full = True
+        else:
+            pre_guessed_letter_idx = get_constrained_num_input(int(pre_guessed_letter_idx),
+                                                               ENTER_PRE_GUESSED_LETTER_POSITION_PROMPT,
+                                                               RANGE_ERROR_MESSAGE.format
+                                                               (last_letter_position=last_letter_position),
+                                                               1, last_letter_position)
+            pre_guessed_letter_position = pre_guessed_letter_idx - 1
+            pre_guessed_letters_list.append(pre_guessed_letter_position)
+    return pre_guessed_letters_list
 
 
 def game_run(tries_remained, hidden_word, category_name):
@@ -252,7 +278,8 @@ def game_run(tries_remained, hidden_word, category_name):
     valid_input_len_list = [1, len(hidden_word)]
     enter_guess_prompt, len_error_message = get_dialog_messages(hidden_word, category_name)
     guessed_letters = []
-    word_char_completion_list = get_word_char_completion_list(hidden_word, PREGUESSED_LETTER_IDX_LIST)
+    pre_guessed_letters_list = get_pre_guessed_letters_idx_list(hidden_word)
+    word_char_completion_list = get_word_char_completion_list(hidden_word, pre_guessed_letters_list)
     while not game_won and tries_remained:
         print_current_game_status(tries_remained, word_char_completion_list)
 
