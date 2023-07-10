@@ -260,11 +260,11 @@ def get_constrained_num_input(enter_base_prompt, type_error_message, base_error_
     return num
 
 
-def get_word_template_list(hidden_word, preguessed_letter_idx_list, word_char_list):
+def get_word_template_list(hidden_word, preguessed_letter_idx_list):
     word_template = '_' * len(hidden_word)
     word_template_list = list(word_template)
     for i in range(len(preguessed_letter_idx_list)):
-        word_template_list[preguessed_letter_idx_list[i]] = word_char_list[preguessed_letter_idx_list[i]]
+        word_template_list[preguessed_letter_idx_list[i]] = hidden_word[preguessed_letter_idx_list[i]]
     return word_template_list
 
 
@@ -272,7 +272,7 @@ def game_run(tries_remained, hidden_word, category_name):
     print(GREETING)
 
     word_char_list = list(hidden_word)
-    word_template_list = get_word_template_list(hidden_word, [0, 2, -1], word_char_list)
+    word_template_list = get_word_template_list(hidden_word, [0, 2, -1])
 
     game_won = False
     valid_input_len_list = [1, len(hidden_word)]
@@ -319,7 +319,7 @@ def main():
     game_is_going_on = True
     while game_is_going_on:
         # hidden_word, category_name = get_hidden_word_with_category()
-        hidden_word, category_name = 'БУЛЕРИАС', 'ЖАНРЫ ФЛАМЕНКО'
+        hidden_word, category_name = 'АБРАКАДАБРА', 'ЖАНРЫ ФЛАМЕНКО'
         game_run(MAX_TRIES_COUNT, hidden_word, category_name)
         new_game_wish = input(NEW_GAME_PROPOSAL_MESSAGE).lower()
         game_is_going_on = new_game_wish == YES_RESPONSE
