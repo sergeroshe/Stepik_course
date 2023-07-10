@@ -230,6 +230,20 @@ def print_game_result(word_char_list, game_won):
         print(GAME_LOST_MESSAGE)
 
 
+def get_constrained_num_input(num, enter_base_prompt, type_error_message,
+                              base_error_message, left_border, right_border):
+    is_num_valid = False
+    while not is_num_valid:
+        if left_border <= num <= right_border:
+            is_num_valid = True
+        else:
+            print(base_error_message)
+            num = get_num_input(enter_base_prompt, type_error_message)
+
+    return num
+
+
+
 def game_run(tries_remained, hidden_word, category_name):
     print(GREETING)
 
