@@ -1,10 +1,8 @@
 from random import choice, randrange
 
 GREETING = 'Давайте играть в угадайку слов!'
-ENTER_GUESS_PROMPT = 'Введите букву или всё слово, состоящее из {word_len} букв.' \
-                     ' Это слово относится к категории "{category_name}":\n'
-ENTER_PRE_GUESSED_LETTER_POSITION_PROMPT = 'Загаданное слово состоит из {word_len} букв.\n' \
-                                           'Введите номер буквы, которую необходимо открыть.\n' \
+ENTER_GUESS_PROMPT = 'Введите букву или всё слово, состоящее из {word_len} букв:\n'
+ENTER_PRE_GUESSED_LETTER_POSITION_PROMPT = 'Введите номер буквы, которую необходимо открыть.\n' \
                                            'Если вы хотите самостоятельно угадать ВСЕ буквы слова, нажмите ENTER:\n'
 RE_ENTER_PRE_GUESSED_LETTER_POSITION_PROMPT = 'Хотите открыть еще одну букву? ' \
                                               'Если да - введите число - номер позиции открываемой буквы в слове:\n'
@@ -15,6 +13,7 @@ TYPE_ERROR_MESSAGE = 'Введенные данные должны содерж�
 LEN_ERROR_MESSAGE = 'Введенное слово должно состоять из {word_len} букв!'
 REPEAT_ERROR = 'Вы уже вводили эту букву, попробуйте другую'
 RANGE_ERROR_MESSAGE = 'Число должно быть от 1 до {last_letter_position} включительно!'
+NON_NUMERIC_ERROR_MESSAGE = 'Введенные данные должны быть числовыми!'
 FILLING_CHAR = '_'
 NEW_GAME_PROPOSAL_MESSAGE = 'Хотите сыграть еще? \nНажмите: "1", затем: ENTER, ' \
                             'если ДА\nНажмите любую клавишу, затем: ENTER, если НЕТ\n'
@@ -254,7 +253,7 @@ def get_distinct_num_input(num, num_list,
     num_distinct = False
     while not num_distinct:
         print(repeat_error)
-        num = int(input())
+        num = get_num_input(ENTER_PRE_GUESSED_LETTER_POSITION_PROMPT.format(word_len=max_num), NON_NUMERIC_ERROR_MESSAGE)
         get_constrained_num_input(num,
                                   ENTER_PRE_GUESSED_LETTER_POSITION_PROMPT
                                   .format(word_len=max_num),
@@ -262,6 +261,20 @@ def get_distinct_num_input(num, num_list,
                                   (last_letter_position=max_num),
                                   1, max_num)
         num_distinct = num not in num_list
+    return num
+
+
+def get_num_input(prompt, error_message):
+    is_string_num = False
+    input_string = input(prompt)
+    while not is_string_num:
+        if input_string and input_string[0] == '-' and input_string[1:].isdigit() or input_string.isdigit():
+            is_string_num = True
+        else:
+            print(error_message)
+            input_string = input(prompt)
+
+    num = int(input_string)
     return num
 
 
