@@ -6,6 +6,7 @@ ENTER_PRE_GUESSED_LETTER_POSITION_PROMPT = 'Введите номер буквы
                                            'Если вы хотите самостоятельно угадать ВСЕ буквы слова, нажмите ENTER:\n'
 RE_ENTER_PRE_GUESSED_LETTER_POSITION_PROMPT = 'Хотите открыть еще одну букву? ' \
                                               'Если да - введите число - номер позиции открываемой буквы в слове:\n'
+WORD_DESCRIPTION_MESSAGE = 'Загаданное слово состоит из {word_len} букв и относится к категории "{category_name}"'
 WIN_MESSAGE = 'Поздравляем, вы угадали слово! Вы победили!'
 WRONG_GUESS_MESSAGE = 'Ответ неверный'
 GAME_LOST_MESSAGE = 'Вы проиграли.'
@@ -313,10 +314,11 @@ def get_pre_guessed_letters_idx_list(hidden_word):
 
 def game_run(tries_remained, hidden_word, category_name):
     print(GREETING)
-
+    hidden_word_len = len(hidden_word)
+    print(WORD_DESCRIPTION_MESSAGE.format(word_len=hidden_word_len, category_name=category_name))
     word_char_list = list(hidden_word)
     game_won = False
-    valid_input_len_list = [1, len(hidden_word)]
+    valid_input_len_list = [1, hidden_word_len]
     enter_guess_prompt, len_error_message = get_dialog_messages(hidden_word, category_name)
     guessed_letters = []
     pre_guessed_letters_list = get_pre_guessed_letters_idx_list(hidden_word)
