@@ -254,12 +254,13 @@ def get_distinct_num_input(num, num_list,
     num_distinct = False
     while not num_distinct:
         print(repeat_error)
-        num = get_constrained_num_input(num,
-                                        ENTER_PRE_GUESSED_LETTER_POSITION_PROMPT
-                                        .format(word_len=max_num),
-                                        RANGE_ERROR_MESSAGE.format
-                                                                (last_letter_position=max_num),
-                                        1, max_num)
+        num = int(input())
+        get_constrained_num_input(num,
+                                  ENTER_PRE_GUESSED_LETTER_POSITION_PROMPT
+                                  .format(word_len=max_num),
+                                  RANGE_ERROR_MESSAGE.format
+                                  (last_letter_position=max_num),
+                                  1, max_num)
         num_distinct = num not in num_list
     return num
 
