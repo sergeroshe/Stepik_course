@@ -4,8 +4,6 @@ GREETING = 'Давайте играть в угадайку слов!'
 FILLING_CHAR = '_'
 ENTER_GUESS_PROMPT = 'Введите букву или всё слово, состоящее из {word_len} букв.' \
                      ' Это слово относится к категории "{category_name}":\n'
-ENTER_PRE_GUESSED_LETTER_POSITION_PROMPT = 'Введите номер буквы, которую необходимо открыть.' \
-                                           ' Если вы хотите угадать все буквы слова, нажмите НОЛЬ'
 WIN_MESSAGE = 'Поздравляем, вы угадали слово! Вы победили!'
 WRONG_GUESS_MESSAGE = 'Ответ неверный'
 GAME_LOST_MESSAGE = 'Вы проиграли.'
@@ -310,8 +308,7 @@ def get_word_char_completion_list(hidden_word, preguessed_letter_idx_list):
 def main():
     game_is_going_on = True
     while game_is_going_on:
-        # hidden_word, category_name = get_hidden_word_with_category()
-        hidden_word, category_name = 'АБРАКАДАБРА', 'ЖАНРЫ ФЛАМЕНКО'
+        hidden_word, category_name = get_hidden_word_with_category()
         game_run(MAX_TRIES_COUNT, hidden_word, category_name)
         new_game_wish = input(NEW_GAME_PROPOSAL_MESSAGE).lower()
         game_is_going_on = new_game_wish == YES_RESPONSE
