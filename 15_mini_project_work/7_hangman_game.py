@@ -2,8 +2,8 @@ from random import choice, randrange
 
 GREETING = 'Давайте играть в угадайку слов!'
 ENTER_GUESS_PROMPT = 'Введите букву или всё слово, состоящее из {word_len} букв:\n'
-ENTER_PRE_GUESSED_LETTER_POSITION_PROMPT = 'Введите номер буквы, которую необходимо открыть.\n' \
-                                           'Если вы хотите самостоятельно угадать ВСЕ буквы слова, нажмите ENTER:\n'
+ENTER_PRE_GUESSED_LETTER_POSITION_PROMPT = 'Чтобы открыть букву - введите номер ее позиции' \
+                                           ' в слове, или нажмите ENTER, чтобы продолжить:\n'
 RE_ENTER_PRE_GUESSED_LETTER_POSITION_PROMPT = 'Хотите открыть еще одну букву? ' \
                                               'Если да - введите число - номер позиции открываемой буквы в слове:\n'
 WORD_DESCRIPTION_MESSAGE = 'Загаданное слово состоит из {word_len} букв и относится к категории "{category_name}"'
@@ -325,6 +325,8 @@ def game_run(tries_remained, hidden_word, category_name):
     word_char_completion_list = get_word_char_completion_list(hidden_word, pre_guessed_letters_list)
     while not game_won and tries_remained:
         print_current_game_status(tries_remained, word_char_completion_list)
+        pre_guessed_letters_list = get_pre_guessed_letters_idx_list(hidden_word)
+        word_char_completion_list = get_word_char_completion_list(hidden_word, pre_guessed_letters_list)
 
         input_string = get_constrained_alphabet_input(enter_guess_prompt, valid_input_len_list,
                                                       len_error_message, TYPE_ERROR_MESSAGE).upper()
