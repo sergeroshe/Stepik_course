@@ -292,7 +292,6 @@ def get_pre_guessed_letters_idx_list(hidden_word):
         if not pre_guessed_letter_idx.isdigit():
             pre_guessed_letters_list_full = True
         else:
-
             pre_guessed_letter_idx = get_constrained_num_input(int(pre_guessed_letter_idx),
                                                                ENTER_PRE_GUESSED_LETTER_POSITION_PROMPT
                                                                .format(word_len=last_letter_position),
