@@ -313,15 +313,15 @@ def get_pre_guessed_letters_idx_list(hidden_word):
 
 
 def game_run(tries_remained, hidden_word, category_name):
-    print(GREETING)
     hidden_word_len = len(hidden_word)
+    print(GREETING)
     print(WORD_DESCRIPTION_MESSAGE.format(word_len=hidden_word_len, category_name=category_name))
     word_char_list = list(hidden_word)
     game_won = False
     valid_input_len_list = [1, hidden_word_len]
     enter_guess_prompt, len_error_message = get_dialog_messages(hidden_word, category_name)
     guessed_letters = []
-    pre_guessed_letters_list = get_pre_guessed_letters_idx_list(hidden_word)
+    pre_guessed_letters_list = []
     word_char_completion_list = get_word_char_completion_list(hidden_word, pre_guessed_letters_list)
     while not game_won and tries_remained:
         print_current_game_status(tries_remained, word_char_completion_list)
