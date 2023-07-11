@@ -327,7 +327,8 @@ def game_run(tries_remained, hidden_word, category_name):
         print_current_game_status(tries_remained, word_char_completion_list)
         pre_guessed_letters_list = get_pre_guessed_letters_idx_list(hidden_word)
         word_char_completion_list = get_word_char_completion_list(hidden_word, pre_guessed_letters_list)
-
+        if pre_guessed_letters_list:
+            print(*word_char_completion_list)
         input_string = get_constrained_alphabet_input(enter_guess_prompt, valid_input_len_list,
                                                       len_error_message, TYPE_ERROR_MESSAGE).upper()
         if input_string == hidden_word:
