@@ -254,7 +254,8 @@ def get_distinct_num_input(num, num_list,
     num_distinct = False
     while not num_distinct:
         print(repeat_error)
-        num = get_num_input(ENTER_PRE_GUESSED_LETTER_POSITION_PROMPT.format(word_len=max_num), NON_NUMERIC_ERROR_MESSAGE)
+        num = get_num_input(ENTER_PRE_GUESSED_LETTER_POSITION_PROMPT.format(word_len=max_num),
+                            NON_NUMERIC_ERROR_MESSAGE)
         get_constrained_num_input(num,
                                   ENTER_PRE_GUESSED_LETTER_POSITION_PROMPT
                                   .format(word_len=max_num),
@@ -279,36 +280,24 @@ def get_num_input(prompt, error_message):
     return num
 
 
-def get_pre_guessed_letters_idx_list(hidden_word):
+def get_pre_guessed_letter_positions_list(hidden_word):
     last_letter_position = len(hidden_word)
-    pre_guessed_letters_list = []
-    pre_guessed_letters_list_full = False
-    while not pre_guessed_letters_list_full:
-        if not pre_guessed_letters_list:
-            pre_guessed_letter_idx = input(ENTER_PRE_GUESSED_LETTER_POSITION_PROMPT.
-                                           format(word_len=last_letter_position))
-        else:
-            pre_guessed_letter_idx = input(RE_ENTER_PRE_GUESSED_LETTER_POSITION_PROMPT)
-        if not pre_guessed_letter_idx.isdigit():
-            pre_guessed_letters_list_full = True
-        else:
-            pre_guessed_letter_idx = get_constrained_num_input(int(pre_guessed_letter_idx),
-                                                               ENTER_PRE_GUESSED_LETTER_POSITION_PROMPT
-                                                               .format(word_len=last_letter_position),
-                                                               RANGE_ERROR_MESSAGE.format
-                                                               (last_letter_position=last_letter_position),
-                                                               1, last_letter_position)
-            pre_guessed_letter_position = pre_guessed_letter_idx - 1
-            if pre_guessed_letter_position not in pre_guessed_letters_list:
-                distinct_pre_guessed_letter_position = pre_guessed_letter_position
+    pre_guessed_letter_positions_list = []
+    pre_guessed_letter_position_str = input(ENTER_PRE_GUESSED_LETTER_POSITION_PROMPT.
+                                            format(word_len=last_letter_position))
+    if pre_guessed_letter_position_str.isdigit():
+        pre_guessed_letter_position = int(pre_guessed_letter_position_str) - 1
+        pre_guessed_letter_positions_list.append(pre_guessed_letter_position)
+        pre_guessed_letter_positions_list_full = False
+        while not pre_guessed_letter_positions_list_full:
+            pre_guessed_letter_position_str = input(RE_ENTER_PRE_GUESSED_LETTER_POSITION_PROMPT)
+            if pre_guessed_letter_position_str.isdigit():
+                pre_guessed_letter_position = int(pre_guessed_letter_position_str) - 1
+                pre_guessed_letter_positions_list.append(pre_guessed_letter_position)
             else:
-                distinct_pre_guessed_letter_position = get_distinct_num_input(
-                    pre_guessed_letter_position,
-                    pre_guessed_letters_list, last_letter_position, REPEAT_ERROR)
-            pre_guessed_letters_list.append(distinct_pre_guessed_letter_position)
-            pre_guessed_letters_list_full = len(pre_guessed_letters_list) == len(hidden_word)
+                pre_guessed_letter_positions_list_full = True
 
-    return pre_guessed_letters_list
+    return pre_guessed_letter_positions_list
 
 
 def game_run(tries_remained, hidden_word, category_name):
@@ -320,7 +309,7 @@ def game_run(tries_remained, hidden_word, category_name):
     valid_input_len_list = [1, hidden_word_len]
     enter_guess_prompt, len_error_message = get_dialog_messages(hidden_word, category_name)
     guessed_letters = []
-    pre_guessed_letters_list = get_pre_guessed_letters_idx_list(hidden_word)
+    pre_guessed_letters_list = get_pre_guessed_letter_positions_list(hidden_word)
     word_char_completion_list = get_word_char_completion_list(hidden_word, pre_guessed_letters_list)
     while not game_won and tries_remained:
         print_current_game_status(tries_remained, word_char_completion_list)
