@@ -5,14 +5,17 @@ ENTER_GUESS_PROMPT = 'Введите букву или всё слово, сос
 ENTER_PRE_GUESSED_LETTER_POSITION_PROMPT = 'Введите номер буквы, которую необходимо открыть.\n' \
                                            'Если вы хотите самостоятельно угадать ВСЕ буквы слова, нажмите ENTER:\n'
 RE_ENTER_PRE_GUESSED_LETTER_POSITION_PROMPT = 'Хотите открыть еще одну букву? ' \
-                                              'Если да - введите число - номер позиции открываемой буквы в слове:\n'
+                                              'Если да - введите число - номер позиции' \
+                                              ' открываемой буквы в слове, или ENTER для продолжения:\n'
+ENTER_NUMBER_PROMPT = 'Введите число:\n'
 WORD_DESCRIPTION_MESSAGE = 'Загаданное слово состоит из {word_len} букв и относится к категории "{category_name}"'
 WIN_MESSAGE = 'Поздравляем, вы угадали слово! Вы победили!'
 WRONG_GUESS_MESSAGE = 'Ответ неверный'
 GAME_LOST_MESSAGE = 'Вы проиграли.'
 TYPE_ERROR_MESSAGE = 'Введенные данные должны содержать только текст!\n'
 LEN_ERROR_MESSAGE = 'Введенное слово должно состоять из {word_len} букв!'
-REPEAT_ERROR = 'Вы уже вводили эту букву, попробуйте другую'
+REPEAT_LETTER_ERROR = 'Вы уже вводили эту букву, попробуйте другую'
+REPEAT_NUMBER_ERROR = 'Вы уже вводили эту цифру, попробуйте другую'
 RANGE_ERROR_MESSAGE = 'Число должно быть от 1 до {last_letter_position} включительно!'
 NON_NUMERIC_ERROR_MESSAGE = 'Введенные данные должны быть числовыми!'
 FILLING_CHAR = '_'
@@ -254,14 +257,8 @@ def get_distinct_num_input(num, num_list,
     num_distinct = False
     while not num_distinct:
         print(repeat_error)
-        num = get_num_input(ENTER_PRE_GUESSED_LETTER_POSITION_PROMPT.format(word_len=max_num),
-                            NON_NUMERIC_ERROR_MESSAGE)
-        get_constrained_num_input(num,
-                                  ENTER_PRE_GUESSED_LETTER_POSITION_PROMPT
-                                  .format(word_len=max_num),
-                                  RANGE_ERROR_MESSAGE.format
-                                  (last_letter_position=max_num),
-                                  1, max_num)
+        num = get_num_input(ENTER_NUMBER_PROMPT,
+                            NON_NUMERIC_ERROR_MESSAGE) - 1
         num_distinct = num not in num_list
     return num
 
@@ -293,6 +290,10 @@ def get_pre_guessed_letter_positions_list(hidden_word):
             pre_guessed_letter_position_str = input(RE_ENTER_PRE_GUESSED_LETTER_POSITION_PROMPT)
             if pre_guessed_letter_position_str.isdigit():
                 pre_guessed_letter_position = int(pre_guessed_letter_position_str) - 1
+                if pre_guessed_letter_position in pre_guessed_letter_positions_list:
+                    pre_guessed_letter_position = get_distinct_num_input(pre_guessed_letter_position,
+                                                                         pre_guessed_letter_positions_list,
+                                                                         last_letter_position, REPEAT_NUMBER_ERROR)
                 pre_guessed_letter_positions_list.append(pre_guessed_letter_position)
             else:
                 pre_guessed_letter_positions_list_full = True
@@ -331,7 +332,7 @@ def game_run(tries_remained, hidden_word, category_name):
                     print(WRONG_GUESS_MESSAGE)
                     tries_remained -= 1
             else:
-                print(REPEAT_ERROR)
+                print(REPEAT_LETTER_ERROR)
                 tries_remained -= 1
         else:
             print(WRONG_GUESS_MESSAGE)
