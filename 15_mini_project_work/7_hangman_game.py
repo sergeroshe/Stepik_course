@@ -252,15 +252,15 @@ def get_constrained_num_input(num, enter_letter_position_prompt, range_error_mes
     return num
 
 
-def get_distinct_letter_position(num, num_list,
+def get_distinct_letter_position(letter_position, num_list,
                                  max_num, repeat_error):
     num_distinct = False
     while not num_distinct:
         print(repeat_error)
-        num = get_num_input(ENTER_NUMBER_PROMPT,
-                            NON_NUMERIC_ERROR_MESSAGE) - 1
-        num_distinct = num not in num_list
-    return num
+        letter_position = get_num_input(ENTER_NUMBER_PROMPT,
+                                        NON_NUMERIC_ERROR_MESSAGE) - 1
+        num_distinct = letter_position not in num_list
+    return letter_position
 
 
 def get_num_input(prompt, error_message):
@@ -293,7 +293,8 @@ def get_pre_guessed_letter_positions_list(hidden_word):
                 if pre_guessed_letter_position in pre_guessed_letter_positions_list:
                     pre_guessed_letter_position = get_distinct_letter_position(pre_guessed_letter_position,
                                                                                pre_guessed_letter_positions_list,
-                                                                               last_letter_position, REPEAT_NUMBER_ERROR)
+                                                                               last_letter_position,
+                                                                               REPEAT_NUMBER_ERROR)
                 pre_guessed_letter_positions_list.append(pre_guessed_letter_position)
             else:
                 pre_guessed_letter_positions_list_full = True
