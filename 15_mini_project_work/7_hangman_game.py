@@ -239,66 +239,76 @@ def print_game_result(word_char_list, game_won):
         print(GAME_LOST_MESSAGE)
 
 
-def get_constrained_num_input(num, enter_letter_position_prompt, range_error_message,
-                              left_border, right_border):
-    is_num_valid = False
-    while not is_num_valid:
-        if left_border <= num <= right_border:
-            is_num_valid = True
-        else:
-            print(range_error_message)
-            num = int(input(enter_letter_position_prompt))
-
-    return num
-
-
 def get_distinct_letter_position(letter_position, num_list,
                                  max_num, repeat_error):
     num_distinct = False
     while not num_distinct:
         print(repeat_error)
-        letter_position = get_num_input(ENTER_NUMBER_PROMPT,
-                                        NON_NUMERIC_ERROR_MESSAGE) - 1
+        letter_position = get_constrained_num_input(letter_position, ENTER_NUMBER_PROMPT, RANGE_ERROR_MESSAGE,
+                                                    1, max_num)
         num_distinct = letter_position not in num_list
     return letter_position
 
 
-def get_num_input(prompt, error_message):
-    is_string_num = False
+def get_num_input(prompt, error_message, none_accepted):
+    is_input_valid = False
     input_string = input(prompt)
-    while not is_string_num:
+    num = None
+    while not is_input_valid:
         if input_string and input_string[0] == '-' and input_string[1:].isdigit() or input_string.isdigit():
-            is_string_num = True
+            num = int(input_string)
+            is_input_valid = True
+        elif not input_string and none_accepted:
+            is_input_valid = True
         else:
             print(error_message)
             input_string = input(prompt)
+    return num
 
-    num = int(input_string)
+
+def get_constrained_num_input(enter_base_prompt, type_error_message, base_error_message, left_border,
+                              right_border, none_accepted):
+    is_num_valid = False
+    num = get_num_input(enter_base_prompt, type_error_message, none_accepted)
+    while not is_num_valid:
+        if num and left_border <= num <= right_border:
+            is_num_valid = True
+        elif num != 0 and not num and none_accepted:
+            is_num_valid = True
+        else:
+            print(base_error_message)
+            num = get_num_input(enter_base_prompt, type_error_message, none_accepted)
+
     return num
 
 
 def get_pre_guessed_letter_positions_list(hidden_word):
     last_letter_position = len(hidden_word)
     pre_guessed_letter_positions_list = []
-    pre_guessed_letter_position_str = input(ENTER_PRE_GUESSED_LETTER_POSITION_PROMPT.
-                                            format(word_len=last_letter_position))
-    if pre_guessed_letter_position_str.isdigit():
-        pre_guessed_letter_position = int(pre_guessed_letter_position_str) - 1
-        pre_guessed_letter_positions_list.append(pre_guessed_letter_position)
-        pre_guessed_letter_positions_list_full = False
-        while not pre_guessed_letter_positions_list_full:
-            pre_guessed_letter_position_str = input(RE_ENTER_PRE_GUESSED_LETTER_POSITION_PROMPT)
-            if pre_guessed_letter_position_str.isdigit():
-                pre_guessed_letter_position = int(pre_guessed_letter_position_str) - 1
-                if pre_guessed_letter_position in pre_guessed_letter_positions_list:
-                    pre_guessed_letter_position = get_distinct_letter_position(pre_guessed_letter_position,
-                                                                               pre_guessed_letter_positions_list,
-                                                                               last_letter_position,
-                                                                               REPEAT_NUMBER_ERROR)
-                pre_guessed_letter_positions_list.append(pre_guessed_letter_position)
-            else:
-                pre_guessed_letter_positions_list_full = True
 
+    pre_guessed_letter_positions_list_full = False
+    pre_guessed_letter_position = get_constrained_num_input(ENTER_PRE_GUESSED_LETTER_POSITION_PROMPT.
+                                                            format(last_letter_position=last_letter_position),
+                                                            TYPE_ERROR_MESSAGE,
+                                                            RANGE_ERROR_MESSAGE,
+                                                            1, last_letter_position, none_accepted=True)
+    pre_guessed_letter_positions_list.append(pre_guessed_letter_position)
+    if pre_guessed_letter_positions_list:
+        while not pre_guessed_letter_positions_list_full:
+
+            if pre_guessed_letter_position not in pre_guessed_letter_positions_list:
+                pre_guessed_letter_positions_list.append(pre_guessed_letter_position)
+
+            else:
+                print(REPEAT_NUMBER_ERROR)
+                pre_guessed_letter_position = get_constrained_num_input(ENTER_PRE_GUESSED_LETTER_POSITION_PROMPT.
+                                                                        format(last_letter_position=last_letter_position),
+                                                                        TYPE_ERROR_MESSAGE,
+                                                                        RANGE_ERROR_MESSAGE,
+                                                                        1, last_letter_position, none_accepted=True)
+            pre_guessed_letter_positions_list_full = len(pre_guessed_letter_positions_list) == last_letter_position
+    else:
+        pre_guessed_letter_positions_list_full = True
     return pre_guessed_letter_positions_list
 
 
