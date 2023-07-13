@@ -271,9 +271,9 @@ def get_constrained_num_input(enter_base_prompt, type_error_message, base_error_
     is_num_valid = False
     num = get_num_input(enter_base_prompt, type_error_message, none_accepted)
     while not is_num_valid:
-        if num and left_border <= num <= right_border:
+        if num is not None and left_border <= num <= right_border:
             is_num_valid = True
-        elif num != 0 and not num and none_accepted:
+        elif num is None and none_accepted:
             is_num_valid = True
         else:
             print(base_error_message)
