@@ -1,26 +1,31 @@
-def get_num_input(prompt, error_message):
-    is_string_num = False
+def get_num_input(prompt, error_message, none_accepted):
+    is_input_valid = False
     input_string = input(prompt)
-    while not is_string_num:
+    num = None
+    while not is_input_valid:
         if input_string and input_string[0] == '-' and input_string[1:].isdigit() or input_string.isdigit():
-            is_string_num = True
+            num = int(input_string)
+            is_input_valid = True
+        elif not input_string and none_accepted:
+            is_input_valid = True
         else:
             print(error_message)
             input_string = input(prompt)
-
-    num = int(input_string)
     return num
 
 
-def get_constrained_num_input(enter_base_prompt, type_error_message, base_error_message, left_border, right_border):
+def get_constrained_num_input(enter_base_prompt, type_error_message, base_error_message, left_border,
+                              right_border, none_accepted):
     is_num_valid = False
-    num = get_num_input(enter_base_prompt, type_error_message)
+    num = get_num_input(enter_base_prompt, type_error_message, none_accepted)
     while not is_num_valid:
-        if left_border <= num <= right_border:
+        if num is not None and left_border <= num <= right_border:
+            is_num_valid = True
+        elif num is None and none_accepted:
             is_num_valid = True
         else:
             print(base_error_message)
-            num = get_num_input(enter_base_prompt, type_error_message)
+            num = get_num_input(enter_base_prompt, type_error_message, none_accepted)
 
     return num
 
