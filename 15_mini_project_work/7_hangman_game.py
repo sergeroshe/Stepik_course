@@ -245,9 +245,11 @@ def get_distinct_letter_position(letter_position, num_list,
     num_distinct = False
     while not num_distinct:
         print(repeat_error)
-        letter_position = get_constrained_num_input(enter_base_prompt, type_error_message, base_error_message,
-                                                    left_border,
-                                                    max_num, none_accepted)
+        letter_position = get_constrained_num_input(ENTER_NUMBER_PROMPT, TYPE_ERROR_MESSAGE, RANGE_ERROR_MESSAGE,
+                                                    1,
+                                                    max_num, True)
+        if letter_position not in num_list:
+            num_list.append(letter_position)
         num_distinct = letter_position not in num_list
     return letter_position
 
@@ -295,8 +297,9 @@ def get_pre_guessed_char_positions_list(hidden_word, hidden_word_relealed):
                                                               RANGE_ERROR_MESSAGE,
                                                               1, last_char_position, True)
         if pre_guessed_char_position is not None:
+            pre_guessed_char_position -= 1
             if pre_guessed_char_position not in pre_guessed_char_positions_list:
-                pre_guessed_char_positions_list.append(pre_guessed_char_position - 1)
+                pre_guessed_char_positions_list.append(pre_guessed_char_position)
             else:
                 print(REPEAT_NUMBER_ERROR)
 
