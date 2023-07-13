@@ -320,9 +320,9 @@ def game_run(tries_remained, hidden_word, category_name):
     game_won = False
     valid_input_len_list = [1, hidden_word_len]
     enter_guess_prompt, len_error_message = get_dialog_messages(hidden_word, category_name)
-    guessed_letters = []
-    pre_guessed_letters_list = get_pre_guessed_char_positions_list(hidden_word)
-    word_char_completion_list = get_word_char_completion_list(hidden_word, pre_guessed_letters_list)
+    guessed_chars = []
+    pre_guessed_char_list = get_pre_guessed_char_positions_list(hidden_word)
+    word_char_completion_list = get_word_char_completion_list(hidden_word, pre_guessed_char_list)
     while not game_won and tries_remained:
         print_current_game_status(tries_remained, word_char_completion_list)
 
@@ -331,13 +331,13 @@ def game_run(tries_remained, hidden_word, category_name):
         if input_string == hidden_word:
             game_won = True
         elif len(input_string) == 1:
-            input_letter = input_string
-            if input_letter not in guessed_letters:
-                guessed_letters.append(input_letter)
-                if input_letter in hidden_word:
-                    guessed_letter_idx_list = find_all(hidden_word, input_letter)
-                    word_char_completion_list = open_guessed_letters(guessed_letter_idx_list,
-                                                                     word_char_completion_list, input_letter)
+            input_char = input_string
+            if input_char not in guessed_chars:
+                guessed_chars.append(input_char)
+                if input_char in hidden_word:
+                    guessed_char_idx_list = find_all(hidden_word, input_char)
+                    word_char_completion_list = open_guessed_letters(guessed_char_idx_list,
+                                                                     word_char_completion_list, input_char)
                     game_won = word_char_completion_list == word_char_list
                 else:
                     print(WRONG_GUESS_MESSAGE)
