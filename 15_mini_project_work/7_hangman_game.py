@@ -244,8 +244,9 @@ def get_distinct_letter_position(letter_position, num_list,
     num_distinct = False
     while not num_distinct:
         print(repeat_error)
-        letter_position = get_constrained_num_input(letter_position, ENTER_NUMBER_PROMPT, RANGE_ERROR_MESSAGE,
-                                                    1, max_num)
+        letter_position = get_constrained_num_input(enter_base_prompt, type_error_message, base_error_message,
+                                                    left_border,
+                                                    max_num, none_accepted)
         num_distinct = letter_position not in num_list
     return letter_position
 
@@ -285,28 +286,21 @@ def get_constrained_num_input(enter_base_prompt, type_error_message, base_error_
 def get_pre_guessed_char_positions_list(hidden_word):
     last_char_position = len(hidden_word)
     pre_guessed_char_positions_list = []
-
     pre_guessed_char_positions_list_full = False
-    pre_guessed_char_position = get_constrained_num_input(ENTER_PRE_GUESSED_LETTER_POSITION_PROMPT.
-                                                          format(last_letter_position=last_char_position),
-                                                          TYPE_ERROR_MESSAGE,
-                                                          RANGE_ERROR_MESSAGE,
-                                                          1, last_char_position, True)
-
-    if pre_guessed_char_positions_list[0]:
-        while not pre_guessed_char_positions_list_full:
-
+    while not pre_guessed_char_positions_list_full:
+        pre_guessed_char_position = get_constrained_num_input(ENTER_PRE_GUESSED_LETTER_POSITION_PROMPT.
+                                                              format(last_letter_position=last_char_position),
+                                                              TYPE_ERROR_MESSAGE,
+                                                              RANGE_ERROR_MESSAGE,
+                                                              1, last_char_position, True)
+        if pre_guessed_char_position is not None:
             if pre_guessed_char_position not in pre_guessed_char_positions_list:
-                pre_guessed_char_positions_list.append(pre_guessed_char_position)
-
+                pre_guessed_char_positions_list.append(pre_guessed_char_position - 1)
             else:
                 print(REPEAT_NUMBER_ERROR)
-                pre_guessed_char_position = get_constrained_num_input(ENTER_PRE_GUESSED_LETTER_POSITION_PROMPT.
-                                                                      format(last_letter_position=last_char_position),
-                                                                      TYPE_ERROR_MESSAGE,
-                                                                      RANGE_ERROR_MESSAGE,
-                                                                      1, last_char_position, True)
-            pre_guessed_char_positions_list_full = len(pre_guessed_char_positions_list) == last_char_position
+
+        pre_guessed_char_positions_list_full = len(pre_guessed_char_positions_list) == last_char_position\
+                                               or pre_guessed_char_position is None
 
     return pre_guessed_char_positions_list
 
@@ -354,7 +348,7 @@ def game_run(tries_remained, hidden_word, category_name):
 def get_word_char_completion_list(hidden_word, preguessed_char_idx_list):
     word_completion = FILLING_CHAR * len(hidden_word)
     word_char_completion_list = list(word_completion)
-    if preguessed_char_idx_list[0]:
+    if preguessed_char_idx_list:
         for i in range(len(preguessed_char_idx_list)):
             word_char_completion_list[preguessed_char_idx_list[i]] = hidden_word[preguessed_char_idx_list[i]]
 
