@@ -288,11 +288,10 @@ def get_pre_guessed_char_positions_list(hidden_word):
 
     pre_guessed_char_positions_list_full = False
     pre_guessed_char_position = get_constrained_num_input(ENTER_PRE_GUESSED_LETTER_POSITION_PROMPT.
-                                                            format(last_letter_position=last_char_position),
-                                                            TYPE_ERROR_MESSAGE,
-                                                            RANGE_ERROR_MESSAGE,
-                                                            1, last_char_position, True)
-    pre_guessed_char_positions_list.append(pre_guessed_char_position)
+                                                          format(last_letter_position=last_char_position),
+                                                          TYPE_ERROR_MESSAGE,
+                                                          RANGE_ERROR_MESSAGE,
+                                                          1, last_char_position, True)
 
     if pre_guessed_char_positions_list[0]:
         while not pre_guessed_char_positions_list_full:
@@ -303,10 +302,10 @@ def get_pre_guessed_char_positions_list(hidden_word):
             else:
                 print(REPEAT_NUMBER_ERROR)
                 pre_guessed_char_position = get_constrained_num_input(ENTER_PRE_GUESSED_LETTER_POSITION_PROMPT.
-                                                                        format(last_letter_position=last_char_position),
-                                                                        TYPE_ERROR_MESSAGE,
-                                                                        RANGE_ERROR_MESSAGE,
-                                                                        1, last_char_position, True)
+                                                                      format(last_letter_position=last_char_position),
+                                                                      TYPE_ERROR_MESSAGE,
+                                                                      RANGE_ERROR_MESSAGE,
+                                                                      1, last_char_position, True)
             pre_guessed_char_positions_list_full = len(pre_guessed_char_positions_list) == last_char_position
 
     return pre_guessed_char_positions_list
