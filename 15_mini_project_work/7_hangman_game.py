@@ -306,11 +306,15 @@ def get_pre_guessed_char_positions_list(hidden_word, hidden_word_relealed):
                 print(REPEAT_NUMBER_ERROR)
         else:
             pre_guessed_input_complete = True
-    if len(pre_guessed_char_positions_list) == last_char_position:
-        print(HIDDEN_WORD_RELEALED_MESSAGE)
-        hidden_word_relealed = True
 
     return pre_guessed_char_positions_list, hidden_word_relealed
+
+
+def hidden_word_revelation(pre_guessed_char_positions_list, hidden_word):
+    hidden_word_revealed = len(pre_guessed_char_positions_list) == len(hidden_word)
+    print(HIDDEN_WORD_RELEALED_MESSAGE)
+    return hidden_word_revealed
+
 
 
 def game_run(tries_remained, hidden_word, category_name):
@@ -322,8 +326,9 @@ def game_run(tries_remained, hidden_word, category_name):
     valid_input_len_list = [1, hidden_word_len]
     enter_guess_prompt, len_error_message = get_dialog_messages(hidden_word, category_name)
     guessed_chars = []
-    pre_guessed_char_list, hidden_word_relealed = get_pre_guessed_char_positions_list(hidden_word, game_won)
-    if not hidden_word_relealed:
+    pre_guessed_char_list = get_pre_guessed_char_positions_list(hidden_word, game_won)
+    hidden_word_revealed = hidden_word_revelation(pre_guessed_char_list, hidden_word)
+    if not hidden_word_revealed:
         word_char_completion_list = get_word_char_completion_list(hidden_word, pre_guessed_char_list)
         while not game_won and tries_remained:
             print_current_game_status(tries_remained, word_char_completion_list)
