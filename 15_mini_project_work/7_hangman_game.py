@@ -240,20 +240,6 @@ def print_game_result(word_char_list, game_won):
         print(GAME_LOST_MESSAGE)
 
 
-def get_distinct_letter_position(letter_position, num_list,
-                                 max_num, repeat_error):
-    num_distinct = False
-    while not num_distinct:
-        print(repeat_error)
-        letter_position = get_constrained_num_input(ENTER_NUMBER_PROMPT, TYPE_ERROR_MESSAGE, RANGE_ERROR_MESSAGE,
-                                                    1,
-                                                    max_num, True)
-        if letter_position not in num_list:
-            num_list.append(letter_position)
-        num_distinct = letter_position not in num_list
-    return letter_position
-
-
 def get_num_input(prompt, error_message, none_accepted):
     is_input_valid = False
     input_string = input(prompt)
