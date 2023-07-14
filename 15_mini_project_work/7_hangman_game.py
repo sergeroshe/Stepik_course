@@ -290,9 +290,9 @@ def get_pre_guessed_input(hidden_word, hidden_word_relealed):
     last_char_position = len(hidden_word)
     pre_guessed_char_positions_list = []
     # rename var
-    pre_guessed_char_positions_list_full = False
+    pre_guessed_input_complete = False
 
-    while not pre_guessed_char_positions_list_full:
+    while not pre_guessed_input_complete:
         pre_guessed_char_position = get_constrained_num_input(ENTER_PRE_GUESSED_LETTER_POSITION_PROMPT.
                                                               format(last_letter_position=last_char_position),
                                                               TYPE_ERROR_MESSAGE,
@@ -305,7 +305,7 @@ def get_pre_guessed_input(hidden_word, hidden_word_relealed):
             else:
                 print(REPEAT_NUMBER_ERROR)
         # extra calc
-        pre_guessed_char_positions_list_full = len(pre_guessed_char_positions_list) == last_char_position\
+        pre_guessed_input_complete = len(pre_guessed_char_positions_list) == last_char_position\
                                                or pre_guessed_char_position is None
 
     if len(pre_guessed_char_positions_list) == last_char_position:
