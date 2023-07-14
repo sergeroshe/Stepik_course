@@ -289,7 +289,6 @@ def get_constrained_num_input(enter_base_prompt, type_error_message, base_error_
 def get_pre_guessed_char_positions_list(hidden_word, hidden_word_relealed):
     last_char_position = len(hidden_word)
     pre_guessed_char_positions_list = []
-    # rename var
     pre_guessed_input_complete = False
 
     while not pre_guessed_input_complete:
@@ -307,8 +306,6 @@ def get_pre_guessed_char_positions_list(hidden_word, hidden_word_relealed):
                 print(REPEAT_NUMBER_ERROR)
         else:
             pre_guessed_input_complete = True
-        # extra calc
-
     if len(pre_guessed_char_positions_list) == last_char_position:
         print(HIDDEN_WORD_RELEALED_MESSAGE)
         hidden_word_relealed = True
