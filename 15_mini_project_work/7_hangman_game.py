@@ -286,10 +286,12 @@ def get_constrained_num_input(enter_base_prompt, type_error_message, base_error_
     return num
 
 
-def get_pre_guessed_char_positions_list(hidden_word, hidden_word_relealed):
+def get_pre_guessed_input(hidden_word, hidden_word_relealed):
     last_char_position = len(hidden_word)
     pre_guessed_char_positions_list = []
+    # rename var
     pre_guessed_char_positions_list_full = False
+
     while not pre_guessed_char_positions_list_full:
         pre_guessed_char_position = get_constrained_num_input(ENTER_PRE_GUESSED_LETTER_POSITION_PROMPT.
                                                               format(last_letter_position=last_char_position),
@@ -302,8 +304,10 @@ def get_pre_guessed_char_positions_list(hidden_word, hidden_word_relealed):
                 pre_guessed_char_positions_list.append(pre_guessed_char_position)
             else:
                 print(REPEAT_NUMBER_ERROR)
+        # extra calc
         pre_guessed_char_positions_list_full = len(pre_guessed_char_positions_list) == last_char_position\
                                                or pre_guessed_char_position is None
+
     if len(pre_guessed_char_positions_list) == last_char_position:
         print(HIDDEN_WORD_RELEALED_MESSAGE)
         hidden_word_relealed = True
@@ -320,7 +324,7 @@ def game_run(tries_remained, hidden_word, category_name):
     valid_input_len_list = [1, hidden_word_len]
     enter_guess_prompt, len_error_message = get_dialog_messages(hidden_word, category_name)
     guessed_chars = []
-    pre_guessed_char_list, hidden_word_relealed = get_pre_guessed_char_positions_list(hidden_word, game_won)
+    pre_guessed_char_list, hidden_word_relealed = get_pre_guessed_input(hidden_word, game_won)
     if not hidden_word_relealed:
         word_char_completion_list = get_word_char_completion_list(hidden_word, pre_guessed_char_list)
         while not game_won and tries_remained:
