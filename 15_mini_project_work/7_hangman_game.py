@@ -302,11 +302,12 @@ def get_pre_guessed_char_positions_list(hidden_word, hidden_word_relealed):
             pre_guessed_char_position -= 1
             if pre_guessed_char_position not in pre_guessed_char_positions_list:
                 pre_guessed_char_positions_list.append(pre_guessed_char_position)
+                pre_guessed_input_complete = len(pre_guessed_char_positions_list) == last_char_position
             else:
                 print(REPEAT_NUMBER_ERROR)
         else:
+            pre_guessed_input_complete = True
         # extra calc
-            pre_guessed_input_complete = len(pre_guessed_char_positions_list) == last_char_position
 
     if len(pre_guessed_char_positions_list) == last_char_position:
         print(HIDDEN_WORD_RELEALED_MESSAGE)
