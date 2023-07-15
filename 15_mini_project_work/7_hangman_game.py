@@ -298,7 +298,6 @@ def get_pre_guessed_char_positions_list(hidden_word, hidden_word_relealed):
 
 def is_hidden_word_revealed(pre_guessed_char_positions_list, hidden_word):
     hidden_word_revealed = len(pre_guessed_char_positions_list) == len(hidden_word)
-    print(HIDDEN_WORD_RELEALED_MESSAGE)
     return hidden_word_revealed
 
 
@@ -343,6 +342,7 @@ def game_run(tries_remained, hidden_word, category_name):
 
         print_game_result(word_char_list, game_won)
     else:
+        print(HIDDEN_WORD_RELEALED_MESSAGE)
         print(*word_char_list)
 
 
