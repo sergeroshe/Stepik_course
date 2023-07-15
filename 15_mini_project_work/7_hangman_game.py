@@ -282,7 +282,8 @@ def get_pre_guessed_char_positions_list(hidden_word):
         pre_guessed_char_position = get_constrained_num_input(ENTER_PRE_GUESSED_CHAR_POSITION_PROMPT.
                                                               format(last_char_position=last_char_position),
                                                               TYPE_ERROR_MESSAGE,
-                                                              RANGE_ERROR_MESSAGE.format(last_char_position=last_char_position),
+                                                              RANGE_ERROR_MESSAGE.format
+                                                              (last_char_position=last_char_position),
                                                               1, last_char_position, True)
         if pre_guessed_char_position is not None:
             pre_guessed_char_position -= 1
