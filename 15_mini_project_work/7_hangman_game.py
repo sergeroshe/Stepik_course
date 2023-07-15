@@ -296,7 +296,7 @@ def get_pre_guessed_char_positions_list(hidden_word, hidden_word_relealed):
     return pre_guessed_char_positions_list
 
 
-def reveal_hidden_word(pre_guessed_char_positions_list, hidden_word):
+def is_hidden_word_revealed(pre_guessed_char_positions_list, hidden_word):
     hidden_word_revealed = len(pre_guessed_char_positions_list) == len(hidden_word)
     print(HIDDEN_WORD_RELEALED_MESSAGE)
     return hidden_word_revealed
@@ -312,7 +312,7 @@ def game_run(tries_remained, hidden_word, category_name):
     enter_guess_prompt, len_error_message = get_dialog_messages(hidden_word, category_name)
     guessed_chars = []
     pre_guessed_char_list = get_pre_guessed_char_positions_list(hidden_word, game_won)
-    hidden_word_revealed = reveal_hidden_word(pre_guessed_char_list, hidden_word)
+    hidden_word_revealed = is_hidden_word_revealed(pre_guessed_char_list, hidden_word)
     if not hidden_word_revealed:
         word_char_completion_list = get_word_char_completion_list(hidden_word, pre_guessed_char_list)
         while not game_won and tries_remained:
