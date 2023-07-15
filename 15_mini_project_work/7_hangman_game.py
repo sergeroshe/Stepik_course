@@ -13,7 +13,7 @@ WIN_MESSAGE = 'Поздравляем, вы угадали слово! Вы по
 WRONG_GUESS_MESSAGE = 'Ответ неверный'
 GAME_LOST_MESSAGE = 'Вы проиграли.'
 TYPE_ERROR_MESSAGE = 'Введенные данные должны содержать только текст!\n'
-HIDDEN_WORD_RELEALED_MESSAGE = 'Вы открыли все буквы слова.'
+HIDDEN_WORD_REVEALED_MESSAGE = 'Вы открыли все буквы слова.'
 LEN_ERROR_MESSAGE = 'Введенное слово должно состоять из {word_len} букв!'
 REPEAT_LETTER_ERROR = 'Вы уже вводили эту букву, попробуйте другую'
 REPEAT_NUMBER_ERROR = 'Вы уже вводили эту цифру, попробуйте другую'
@@ -342,7 +342,7 @@ def game_run(tries_remained, hidden_word, category_name):
 
         print_game_result(word_char_list, game_won)
     else:
-        print(HIDDEN_WORD_RELEALED_MESSAGE)
+        print(HIDDEN_WORD_REVEALED_MESSAGE)
         print(*word_char_list)
 
 
