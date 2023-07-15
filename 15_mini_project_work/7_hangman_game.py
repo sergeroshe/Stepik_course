@@ -311,7 +311,7 @@ def game_run(tries_remained, hidden_word, category_name):
     valid_input_len_list = [1, hidden_word_len]
     enter_guess_prompt, len_error_message = get_dialog_messages(hidden_word, category_name)
     guessed_chars = []
-    pre_guessed_char_list = get_pre_guessed_char_positions_list(hidden_word, game_won)
+    pre_guessed_char_list = get_pre_guessed_char_positions_list(hidden_word)
     hidden_word_revealed = is_hidden_word_revealed(pre_guessed_char_list, hidden_word)
     if not hidden_word_revealed:
         word_char_completion_list = get_word_char_completion_list(hidden_word, pre_guessed_char_list)
