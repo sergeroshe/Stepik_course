@@ -273,7 +273,7 @@ def get_constrained_num_input(enter_base_prompt, type_error_message, base_error_
     return num
 
 
-def get_pre_guessed_char_positions_list(hidden_word, hidden_word_relealed):
+def get_pre_guessed_char_positions_list(hidden_word):
     last_char_position = len(hidden_word)
     pre_guessed_char_positions_list = []
     pre_guessed_input_complete = False
