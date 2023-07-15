@@ -2,9 +2,9 @@ from random import choice, randrange
 
 GREETING = 'Давайте играть в угадайку слов!'
 ENTER_GUESS_PROMPT = 'Введите букву или всё слово, состоящее из {word_len} букв:\n'
-ENTER_PRE_GUESSED_LETTER_POSITION_PROMPT = 'Введите номер буквы, которую необходимо открыть.\n' \
+ENTER_PRE_GUESSED_CHAR_POSITION_PROMPT = 'Введите номер буквы, которую необходимо открыть.\n' \
                                            'Если вы хотите самостоятельно угадать ВСЕ буквы слова, нажмите ENTER:\n'
-RE_ENTER_PRE_GUESSED_LETTER_POSITION_PROMPT = 'Хотите открыть еще одну букву? ' \
+RE_ENTER_PRE_GUESSED_CHAR_POSITION_PROMPT = 'Хотите открыть еще одну букву? ' \
                                               'Если да - введите число - номер позиции' \
                                               ' открываемой буквы в слове, или ENTER для продолжения:\n'
 ENTER_NUMBER_PROMPT = 'Введите число:\n'
@@ -15,9 +15,9 @@ GAME_LOST_MESSAGE = 'Вы проиграли.'
 TYPE_ERROR_MESSAGE = 'Введенные данные должны содержать только текст!\n'
 HIDDEN_WORD_REVEALED_MESSAGE = 'Вы открыли все буквы слова.'
 LEN_ERROR_MESSAGE = 'Введенное слово должно состоять из {word_len} букв!'
-REPEAT_LETTER_ERROR = 'Вы уже вводили эту букву, попробуйте другую'
+REPEAT_CHAR_ERROR = 'Вы уже вводили эту букву, попробуйте другую'
 REPEAT_NUMBER_ERROR = 'Вы уже вводили эту цифру, попробуйте другую'
-RANGE_ERROR_MESSAGE = 'Число должно быть от 1 до {last_letter_position} включительно!'
+RANGE_ERROR_MESSAGE = 'Число должно быть от 1 до {last_char_position} включительно!'
 NON_NUMERIC_ERROR_MESSAGE = 'Введенные данные должны быть числовыми!'
 FILLING_CHAR = '_'
 NEW_GAME_PROPOSAL_MESSAGE = 'Хотите сыграть еще? \nНажмите: "1", затем: ENTER, ' \
@@ -153,7 +153,7 @@ CATEGORIZED_WORD_LIST = [['Продукты', FOODS],
                          ['Транспорт', TRANSPORT],
                          ['Музыкальные инструменты', MUSICAL_INSTRUMENTS],
                          ['Другие слова', OTHER_WORDS]]
-PREGUESSED_LETTER_IDX_LIST = [0, 2, -1]
+PREGUESSED_CHAR_IDX_LIST = [0, 2, -1]
 FATAL_GAME_STAGE = STAGES[0]
 MAX_TRIES_COUNT = len(STAGES) - 1
 
@@ -206,14 +206,15 @@ def find_all(source, symbol):
     return symbol_idx_list
 
 
-def open_guessed_letters(guessed_letter_idx_list, word_char_completion_list, guessed_letter):
-    for idx in guessed_letter_idx_list:
-        word_char_completion_list[idx] = guessed_letter
+def open_guessed_chars(guessed_char_idx_list, word_char_completion_list, guessed_char):
+    for idx in guessed_char_idx_list:
+        word_char_completion_list[idx] = guessed_char
 
     return word_char_completion_list
 
 
 def game_stage_display(tries_remained):
+
     game_current_stage = get_hangman_stage(tries_remained)
     print(game_current_stage)
 
@@ -278,10 +279,10 @@ def get_pre_guessed_char_positions_list(hidden_word, hidden_word_relealed):
     pre_guessed_input_complete = False
 
     while not pre_guessed_input_complete:
-        pre_guessed_char_position = get_constrained_num_input(ENTER_PRE_GUESSED_LETTER_POSITION_PROMPT.
-                                                              format(last_letter_position=last_char_position),
+        pre_guessed_char_position = get_constrained_num_input(ENTER_PRE_GUESSED_CHAR_POSITION_PROMPT.
+                                                              format(last_char_position=last_char_position),
                                                               TYPE_ERROR_MESSAGE,
-                                                              RANGE_ERROR_MESSAGE.format(last_letter_position=last_char_position),
+                                                              RANGE_ERROR_MESSAGE.format(last_char_position=last_char_position),
                                                               1, last_char_position, True)
         if pre_guessed_char_position is not None:
             pre_guessed_char_position -= 1
@@ -327,14 +328,14 @@ def game_run(tries_remained, hidden_word, category_name):
                     guessed_chars.append(input_char)
                     if input_char in hidden_word:
                         guessed_char_idx_list = find_all(hidden_word, input_char)
-                        word_char_completion_list = open_guessed_letters(guessed_char_idx_list,
-                                                                         word_char_completion_list, input_char)
+                        word_char_completion_list = open_guessed_chars(guessed_char_idx_list,
+                                                                       word_char_completion_list, input_char)
                         game_won = word_char_completion_list == word_char_list
                     else:
                         print(WRONG_GUESS_MESSAGE)
                         tries_remained -= 1
                 else:
-                    print(REPEAT_LETTER_ERROR)
+                    print(REPEAT_CHAR_ERROR)
                     tries_remained -= 1
             else:
                 print(WRONG_GUESS_MESSAGE)
