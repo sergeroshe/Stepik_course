@@ -297,8 +297,8 @@ def get_pre_guessed_char_idx_list(hidden_word):
     return pre_guessed_char_idx_list
 
 
-def is_hidden_word_revealed(pre_guessed_char_positions_list, hidden_word):
-    hidden_word_revealed = len(pre_guessed_char_positions_list) == len(hidden_word)
+def is_hidden_word_revealed(pre_guessed_char_idx_list, hidden_word):
+    hidden_word_revealed = len(pre_guessed_char_idx_list) == len(hidden_word)
     return hidden_word_revealed
 
 
