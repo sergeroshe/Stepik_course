@@ -326,20 +326,10 @@ def game_run(tries_remained, hidden_word, category_name):
             if input_string == hidden_word:
                 game_won = True
             elif len(input_string) == 1:
-                input_char = input_string
-                if input_char not in guessed_chars:
-                    guessed_chars.append(input_char)
-                    if input_char in hidden_word:
-                        guessed_char_idx_list = find_all(hidden_word, input_char)
-                        word_char_completion_list = open_guessed_chars(guessed_char_idx_list,
-                                                                       word_char_completion_list, input_char)
-                        game_won = word_char_completion_list == word_char_list
-                    else:
-                        print(WRONG_GUESS_MESSAGE)
-                        tries_remained -= 1
-                else:
-                    print(REPEAT_CHAR_ERROR)
-                    tries_remained -= 1
+                # process char func
+                word_char_completion_list, tries_remained = process_char(hidden_word, input_string, guessed_chars,
+                                                                         word_char_completion_list, tries_remained)
+                game_won = word_char_completion_list == word_char_list
             else:
                 print(WRONG_GUESS_MESSAGE)
                 tries_remained -= 1
@@ -347,6 +337,24 @@ def game_run(tries_remained, hidden_word, category_name):
         print_game_result(word_char_list, game_won)
     else:
         print_hidden_word_revelation(word_char_list)
+
+
+def process_char(hidden_word, input_string, guessed_chars, word_char_completion_list, tries_remained):
+    input_char = input_string
+    if input_char not in guessed_chars:
+        guessed_chars.append(input_char)
+        if input_char in hidden_word:
+            guessed_char_idx_list = find_all(hidden_word, input_char)
+            word_char_completion_list = open_guessed_chars(guessed_char_idx_list,
+                                                           word_char_completion_list, input_char)
+        else:
+            print(WRONG_GUESS_MESSAGE)
+            tries_remained -= 1
+    else:
+        print(REPEAT_CHAR_ERROR)
+        tries_remained -= 1
+
+    return word_char_completion_list, tries_remained
 
 
 def print_hidden_word_revelation(word_char_list):
