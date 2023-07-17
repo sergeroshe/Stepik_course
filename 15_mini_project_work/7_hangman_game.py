@@ -210,8 +210,7 @@ def open_guessed_chars(guessed_char_idx_list, word_char_completion_list, guessed
     return word_char_completion_list
 
 
-def game_stage_display(tries_remained):
-
+def print_game_stage(tries_remained):
     game_current_stage = get_hangman_stage(tries_remained)
     print(game_current_stage)
 
@@ -225,7 +224,7 @@ def get_dialog_messages(hidden_word, category_name):
 
 
 def print_current_game_status(tries_remained, word_completion_list):
-    game_stage_display(tries_remained)
+    print_game_stage(tries_remained)
     print(*word_completion_list)
 
 
