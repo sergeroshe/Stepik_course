@@ -273,7 +273,7 @@ def get_constrained_num_input(enter_base_prompt, type_error_message, base_error_
     return num
 
 
-def get_pre_guessed_char_positions_list(hidden_word):
+def get_pre_guessed_char_idx_list(hidden_word):
     hidden_word_len = len(hidden_word)
     pre_guessed_char_positions_list = []
     pre_guessed_char_positions_list_len = 0
@@ -287,7 +287,7 @@ def get_pre_guessed_char_positions_list(hidden_word):
                                                               (last_char_position=hidden_word_len),
                                                               1, hidden_word_len, True)
         if pre_guessed_char_position is not None:
-            pre_guessed_char_position -= 1
+            pre_guessed_char_position = pre_guessed_char_position - 1
             if pre_guessed_char_position not in pre_guessed_char_positions_list:
                 pre_guessed_char_positions_list.append(pre_guessed_char_position)
                 pre_guessed_char_positions_list_len += 1
@@ -305,16 +305,21 @@ def is_hidden_word_revealed(pre_guessed_char_positions_list, hidden_word):
     return hidden_word_revealed
 
 
+def display_word_description(hidden_word_len, category_name):
+    print(WORD_DESCRIPTION_MESSAGE.format(word_len=hidden_word_len, category_name=category_name))
+
+
 def game_run(tries_remained, hidden_word, category_name):
     print(GREETING)
+
     hidden_word_len = len(hidden_word)
-    print(WORD_DESCRIPTION_MESSAGE.format(word_len=hidden_word_len, category_name=category_name))
+    display_word_description(hidden_word_len, category_name)
     word_char_list = list(hidden_word)
     game_won = False
     valid_input_len_list = [1, hidden_word_len]
     enter_guess_prompt, len_error_message = get_dialog_messages(hidden_word, category_name)
     guessed_chars = []
-    pre_guessed_char_list = get_pre_guessed_char_positions_list(hidden_word)
+    pre_guessed_char_list = get_pre_guessed_char_idx_list(hidden_word)
     hidden_word_revealed = is_hidden_word_revealed(pre_guessed_char_list, hidden_word)
     if not hidden_word_revealed:
         word_char_completion_list = get_word_char_completion_list(hidden_word, pre_guessed_char_list)
