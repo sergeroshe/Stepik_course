@@ -306,7 +306,8 @@ def print_game_starting_status(hidden_word_len, category_name):
     print(WORD_DESCRIPTION_MESSAGE.format(word_len=hidden_word_len, category_name=category_name))
 
 
-def game_run(tries_remained, hidden_word, category_name):
+def game_run(total_tries_remained, hidden_word, category_name):
+    tries_remained = total_tries_remained
     hidden_word_len = len(hidden_word)
     print_game_starting_status(hidden_word_len, category_name)
     word_char_list = list(hidden_word)
