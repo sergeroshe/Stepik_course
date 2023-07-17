@@ -3,7 +3,7 @@ from random import choice, randrange
 GREETING = 'Давайте играть в угадайку слов!'
 ENTER_GUESS_PROMPT = 'Введите букву или всё слово, состоящее из {word_len} букв:\n'
 ENTER_PRE_GUESSED_CHAR_POSITION_PROMPT = 'Введите номер буквы, которую необходимо открыть.\n' \
-                                           'Если вы хотите самостоятельно угадать ВСЕ буквы слова, нажмите ENTER:\n'
+                                         'Если вы хотите самостоятельно угадать ВСЕ буквы слова, нажмите ENTER:\n'
 ENTER_NUMBER_PROMPT = 'Введите число:\n'
 WORD_DESCRIPTION_MESSAGE = 'Загаданное слово состоит из {word_len} букв и относится к категории "{category_name}"'
 WIN_MESSAGE = 'Поздравляем, вы угадали слово! Вы победили!'
@@ -326,8 +326,8 @@ def game_run(tries_remained, hidden_word, category_name):
             if input_string == hidden_word:
                 game_won = True
             elif len(input_string) == 1:
-                word_char_completion_list, tries_remained = process_char(hidden_word, input_string, guessed_chars,
-                                                                         word_char_completion_list, tries_remained)
+                tries_remained = process_char(hidden_word, input_string, guessed_chars,
+                                              word_char_completion_list, tries_remained)
                 game_won = word_char_completion_list == word_char_list
             else:
                 print(WRONG_GUESS_MESSAGE)
@@ -353,7 +353,7 @@ def process_char(hidden_word, input_string, guessed_chars, word_char_completion_
         print(REPEAT_CHAR_ERROR)
         tries_remained -= 1
 
-    return word_char_completion_list, tries_remained
+    return tries_remained
 
 
 def print_hidden_word_revelation(word_char_list):
