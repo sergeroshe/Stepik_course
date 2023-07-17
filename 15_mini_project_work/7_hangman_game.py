@@ -326,7 +326,6 @@ def game_run(tries_remained, hidden_word, category_name):
             if input_string == hidden_word:
                 game_won = True
             elif len(input_string) == 1:
-                # process char func
                 word_char_completion_list, tries_remained = process_char(hidden_word, input_string, guessed_chars,
                                                                          word_char_completion_list, tries_remained)
                 game_won = word_char_completion_list == word_char_list
