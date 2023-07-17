@@ -276,7 +276,7 @@ def get_constrained_num_input(enter_base_prompt, type_error_message, base_error_
 def get_pre_guessed_char_idx_list(hidden_word):
     hidden_word_len = len(hidden_word)
     pre_guessed_char_idx_list = []
-    pre_guessed_char_positions_list_len = 0
+    pre_guessed_char_idx_list_len = 0
     pre_guessed_input_complete = False
 
     while not pre_guessed_input_complete:
@@ -290,8 +290,8 @@ def get_pre_guessed_char_idx_list(hidden_word):
             pre_guessed_char_idx = pre_guessed_char_position - 1
             if pre_guessed_char_idx not in pre_guessed_char_idx_list:
                 pre_guessed_char_idx_list.append(pre_guessed_char_idx)
-                pre_guessed_char_positions_list_len += 1
-                pre_guessed_input_complete = pre_guessed_char_positions_list_len == hidden_word_len
+                pre_guessed_char_idx_list_len += 1
+                pre_guessed_input_complete = pre_guessed_char_idx_list_len == hidden_word_len
             else:
                 print(REPEAT_NUMBER_ERROR)
         else:
@@ -351,8 +351,12 @@ def game_run(tries_remained, hidden_word, category_name):
 
         print_game_result(word_char_list, game_won)
     else:
-        print(HIDDEN_WORD_REVEALED_MESSAGE)
-        print(*word_char_list)
+        hidden_word_revelation(word_char_list)
+
+
+def hidden_word_revelation(word_char_list):
+    print(HIDDEN_WORD_REVEALED_MESSAGE)
+    print(*word_char_list)
 
 
 def get_word_char_completion_list(hidden_word, preguessed_char_idx_list):
