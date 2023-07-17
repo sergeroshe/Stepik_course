@@ -316,10 +316,10 @@ def game_run(tries_remained, hidden_word, category_name):
     valid_input_len_list = [1, hidden_word_len]
     enter_guess_prompt, len_error_message = get_dialog_messages(hidden_word, category_name)
     guessed_chars = []
-    pre_guessed_char_list = get_pre_guessed_char_idx_list(hidden_word)
-    hidden_word_revealed = is_hidden_word_revealed(pre_guessed_char_list, hidden_word)
+    pre_guessed_char_idx_list = get_pre_guessed_char_idx_list(hidden_word)
+    hidden_word_revealed = is_hidden_word_revealed(pre_guessed_char_idx_list, hidden_word)
     if not hidden_word_revealed:
-        word_char_completion_list = get_word_char_completion_list(hidden_word, pre_guessed_char_list)
+        word_char_completion_list = get_word_char_completion_list(hidden_word, pre_guessed_char_idx_list)
         while not game_won and tries_remained:
             print_current_game_status(tries_remained, word_char_completion_list)
 
