@@ -338,8 +338,7 @@ def game_run(tries_remained, hidden_word, category_name):
         print_hidden_word_revelation(word_char_list)
 
 
-def process_char(hidden_word, input_string, guessed_chars, word_char_completion_list, tries_remained):
-    input_char = input_string
+def process_char(hidden_word, input_char, guessed_chars, word_char_completion_list, tries_remained):
     if input_char not in guessed_chars:
         guessed_chars.append(input_char)
         if input_char in hidden_word:
