@@ -305,15 +305,12 @@ def is_hidden_word_revealed(pre_guessed_char_positions_list, hidden_word):
     return hidden_word_revealed
 
 
-def display_word_description(hidden_word_len, category_name):
-    print(WORD_DESCRIPTION_MESSAGE.format(word_len=hidden_word_len, category_name=category_name))
-
-
 def game_run(tries_remained, hidden_word, category_name):
     print(GREETING)
-
     hidden_word_len = len(hidden_word)
-    display_word_description(hidden_word_len, category_name)
+
+    print(WORD_DESCRIPTION_MESSAGE.format(word_len=hidden_word_len, category_name=category_name))
+
     word_char_list = list(hidden_word)
     game_won = False
     valid_input_len_list = [1, hidden_word_len]
