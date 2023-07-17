@@ -274,24 +274,24 @@ def get_constrained_num_input(enter_base_prompt, type_error_message, base_error_
 
 
 def get_pre_guessed_char_positions_list(hidden_word):
-    last_char_position = len(hidden_word)
+    hidden_word_len = len(hidden_word)
     pre_guessed_char_positions_list = []
-    last_pre_guessed_char_positions_list_idx = len(pre_guessed_char_positions_list)
+    pre_guessed_char_positions_list_len = 0
     pre_guessed_input_complete = False
 
     while not pre_guessed_input_complete:
         pre_guessed_char_position = get_constrained_num_input(ENTER_PRE_GUESSED_CHAR_POSITION_PROMPT.
-                                                              format(last_char_position=last_char_position),
+                                                              format(last_char_position=hidden_word_len),
                                                               TYPE_ERROR_MESSAGE,
                                                               RANGE_ERROR_MESSAGE.format
-                                                              (last_char_position=last_char_position),
-                                                              1, last_char_position, True)
+                                                              (last_char_position=hidden_word_len),
+                                                              1, hidden_word_len, True)
         if pre_guessed_char_position is not None:
             pre_guessed_char_position -= 1
             if pre_guessed_char_position not in pre_guessed_char_positions_list:
                 pre_guessed_char_positions_list.append(pre_guessed_char_position)
-                last_pre_guessed_char_positions_list_idx += 1
-                pre_guessed_input_complete = last_pre_guessed_char_positions_list_idx == last_char_position
+                pre_guessed_char_positions_list_len += 1
+                pre_guessed_input_complete = pre_guessed_char_positions_list_len == hidden_word_len
             else:
                 print(REPEAT_NUMBER_ERROR)
         else:
