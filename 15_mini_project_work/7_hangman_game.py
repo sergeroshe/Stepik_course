@@ -348,10 +348,10 @@ def game_run(tries_remained, hidden_word, category_name):
 
         print_game_result(word_char_list, game_won)
     else:
-        hidden_word_revelation(word_char_list)
+        print_hidden_word_revelation(word_char_list)
 
 
-def hidden_word_revelation(word_char_list):
+def print_hidden_word_revelation(word_char_list):
     print(HIDDEN_WORD_REVEALED_MESSAGE)
     print(*word_char_list)
 
