@@ -344,8 +344,7 @@ def process_char(hidden_word, input_string, guessed_chars, word_char_completion_
         guessed_chars.append(input_char)
         if input_char in hidden_word:
             guessed_char_idx_list = find_all(hidden_word, input_char)
-            word_char_completion_list = open_guessed_chars(guessed_char_idx_list,
-                                                           word_char_completion_list, input_char)
+            open_guessed_chars(guessed_char_idx_list, word_char_completion_list, input_char)
         else:
             print(WRONG_GUESS_MESSAGE)
             tries_remained -= 1
