@@ -306,7 +306,7 @@ def print_game_starting_status(hidden_word_len, category_name):
     print(WORD_DESCRIPTION_MESSAGE.format(word_len=hidden_word_len, category_name=category_name))
 
 
-def game_run(total_tries_remained, hidden_word, category_name):
+def hangman_game(total_tries_remained, hidden_word, category_name):
     tries_remained = total_tries_remained
     hidden_word_len = len(hidden_word)
     print_game_starting_status(hidden_word_len, category_name)
@@ -321,7 +321,6 @@ def game_run(total_tries_remained, hidden_word, category_name):
         word_char_completion_list = get_word_char_completion_list(hidden_word, pre_guessed_char_idx_list)
         while not game_won and tries_remained:
             print_current_game_status(tries_remained, word_char_completion_list)
-
             input_string = get_constrained_alphabet_input(enter_guess_prompt, valid_input_len_list,
                                                           len_error_message, TYPE_ERROR_MESSAGE).upper()
             if input_string == hidden_word:
@@ -374,7 +373,7 @@ def main():
     game_is_going_on = True
     while game_is_going_on:
         hidden_word, category_name = get_hidden_word_with_category()
-        game_run(MAX_TRIES_COUNT, hidden_word, category_name)
+        hangman_game(MAX_TRIES_COUNT, hidden_word, category_name)
         new_game_wish = input(NEW_GAME_PROPOSAL_MESSAGE).lower()
         game_is_going_on = new_game_wish == YES_RESPONSE
 
