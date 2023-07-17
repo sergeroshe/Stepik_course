@@ -275,8 +275,8 @@ def get_constrained_num_input(enter_base_prompt, type_error_message, base_error_
 
 def get_pre_guessed_char_idx_list(hidden_word):
     hidden_word_len = len(hidden_word)
-    pre_guessed_char_positions_list = []
-    pre_guessed_char_positions_list_len = 0
+    pre_guessed_char_idx_list = []
+    pre_guessed_idx_positions_list_len = 0
     pre_guessed_input_complete = False
 
     while not pre_guessed_input_complete:
@@ -287,17 +287,17 @@ def get_pre_guessed_char_idx_list(hidden_word):
                                                               (last_char_position=hidden_word_len),
                                                               1, hidden_word_len, True)
         if pre_guessed_char_position is not None:
-            pre_guessed_char_position = pre_guessed_char_position - 1
-            if pre_guessed_char_position not in pre_guessed_char_positions_list:
-                pre_guessed_char_positions_list.append(pre_guessed_char_position)
-                pre_guessed_char_positions_list_len += 1
-                pre_guessed_input_complete = pre_guessed_char_positions_list_len == hidden_word_len
+            pre_guessed_char_idx = pre_guessed_char_position - 1
+            if pre_guessed_char_idx not in pre_guessed_char_idx_list:
+                pre_guessed_char_idx_list.append(pre_guessed_char_idx)
+                pre_guessed_idx_positions_list_len += 1
+                pre_guessed_input_complete = pre_guessed_idx_positions_list_len == hidden_word_len
             else:
                 print(REPEAT_NUMBER_ERROR)
         else:
             pre_guessed_input_complete = True
 
-    return pre_guessed_char_positions_list
+    return pre_guessed_char_idx_list
 
 
 def is_hidden_word_revealed(pre_guessed_char_positions_list, hidden_word):
