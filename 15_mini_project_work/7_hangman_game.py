@@ -306,7 +306,7 @@ def print_game_starting_status(hidden_word_len, category_name):
     print(WORD_DESCRIPTION_MESSAGE.format(word_len=hidden_word_len, category_name=category_name))
 
 
-def hangman_game(total_tries_remained, hidden_word, category_name):
+def hangman_game(max_tries_count, hidden_word, category_name):
     hidden_word_len = len(hidden_word)
     print_game_starting_status(hidden_word_len, category_name)
     word_char_list = list(hidden_word)
@@ -315,16 +315,16 @@ def hangman_game(total_tries_remained, hidden_word, category_name):
 
     if not is_hidden_word_revealed(pre_guessed_char_idx_list, hidden_word):
         word_char_completion_list = get_word_char_completion_list(hidden_word, pre_guessed_char_idx_list)
-        game_won = hangman_game_run(hidden_word, category_name, total_tries_remained, word_char_completion_list)
+        game_won = hangman_game_run(hidden_word, category_name, max_tries_count, word_char_completion_list)
         print_game_result(word_char_list, game_won)
     else:
         print_hidden_word_revelation(word_char_list)
 
 
-def hangman_game_run(hidden_word, category_name, total_tries_remained, word_char_completion_list):
+def hangman_game_run(hidden_word, category_name, max_tries_count, word_char_completion_list):
     word_char_list = list(hidden_word)
     hidden_word_len = len(hidden_word)
-    tries_remained = total_tries_remained
+    tries_remained = max_tries_count
     guessed_chars = []
     valid_input_len_list = [1, hidden_word_len]
     enter_guess_prompt, len_error_message = get_dialog_messages(hidden_word, category_name)
