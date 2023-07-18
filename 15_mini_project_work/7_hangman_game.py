@@ -370,8 +370,8 @@ def get_word_char_completion_list(hidden_word, preguessed_char_idx_list):
     word_completion = FILLING_CHAR * len(hidden_word)
     word_char_completion_list = list(word_completion)
     if preguessed_char_idx_list:
-        for i in range(len(preguessed_char_idx_list)):
-            word_char_completion_list[preguessed_char_idx_list[i]] = hidden_word[preguessed_char_idx_list[i]]
+        for idx in range(len(preguessed_char_idx_list)):
+            word_char_completion_list[idx] = hidden_word[idx]
 
     return word_char_completion_list
 
