@@ -223,7 +223,7 @@ def get_dialog_messages(hidden_word, category_name):
     return enter_guess_prompt, len_error_message
 
 
-def print_current_game_status(tries_remained, word_completion_list):
+def print_game_start_info(tries_remained, word_completion_list):
     print_game_stage(tries_remained)
     print(*word_completion_list)
 
@@ -330,7 +330,7 @@ def hangman_game_run(hidden_word, category_name, max_tries_count, word_char_comp
     enter_guess_prompt, len_error_message = get_dialog_messages(hidden_word, category_name)
     game_won = False
     while not game_won and tries_remained:
-        print_current_game_status(tries_remained, word_char_completion_list)
+        print_game_start_info(tries_remained, word_char_completion_list)
         input_string = get_constrained_alphabet_input(enter_guess_prompt, valid_input_len_list,
                                                       len_error_message, TYPE_ERROR_MESSAGE).upper()
         if input_string == hidden_word:
