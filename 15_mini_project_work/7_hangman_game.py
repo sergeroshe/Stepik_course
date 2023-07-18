@@ -319,23 +319,30 @@ def hangman_game(total_tries_remained, hidden_word, category_name):
 
     if not is_hidden_word_revealed(pre_guessed_char_idx_list, hidden_word):
         word_char_completion_list = get_word_char_completion_list(hidden_word, pre_guessed_char_idx_list)
-        while not game_won and tries_remained:
-            print_current_game_status(tries_remained, word_char_completion_list)
-            input_string = get_constrained_alphabet_input(enter_guess_prompt, valid_input_len_list,
-                                                          len_error_message, TYPE_ERROR_MESSAGE).upper()
-            if input_string == hidden_word:
-                game_won = True
-            elif len(input_string) == 1:
-                tries_remained = process_char(hidden_word, input_string, guessed_chars,
-                                              word_char_completion_list, tries_remained)
-                game_won = word_char_completion_list == word_char_list
-            else:
-                print(WRONG_GUESS_MESSAGE)
-                tries_remained -= 1
-
+        game_won = hangman_game_run(game_won, hidden_word, word_char_list, guessed_chars, tries_remained,
+                                    word_char_completion_list, enter_guess_prompt, valid_input_len_list,
+                                    len_error_message)
         print_game_result(word_char_list, game_won)
     else:
         print_hidden_word_revelation(word_char_list)
+
+
+def hangman_game_run(game_won, hidden_word, word_char_list, guessed_chars, tries_remained,
+                     word_char_completion_list, enter_guess_prompt, valid_input_len_list, len_error_message):
+    while not game_won and tries_remained:
+        print_current_game_status(tries_remained, word_char_completion_list)
+        input_string = get_constrained_alphabet_input(enter_guess_prompt, valid_input_len_list,
+                                                      len_error_message, TYPE_ERROR_MESSAGE).upper()
+        if input_string == hidden_word:
+            game_won = True
+        elif len(input_string) == 1:
+            tries_remained = process_char(hidden_word, input_string, guessed_chars,
+                                          word_char_completion_list, tries_remained)
+            game_won = word_char_completion_list == word_char_list
+        else:
+            print(WRONG_GUESS_MESSAGE)
+            tries_remained -= 1
+    return game_won
 
 
 def process_char(hidden_word, input_char, guessed_chars, word_char_completion_list, tries_remained):
