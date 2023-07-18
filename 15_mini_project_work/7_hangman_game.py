@@ -319,7 +319,7 @@ def hangman_game(total_tries_remained, hidden_word, category_name):
 
     if not is_hidden_word_revealed(pre_guessed_char_idx_list, hidden_word):
         word_char_completion_list = get_word_char_completion_list(hidden_word, pre_guessed_char_idx_list)
-        game_won = hangman_game_run(game_won, hidden_word, word_char_list, guessed_chars, tries_remained,
+        game_won = hangman_game_run(hidden_word, word_char_list, guessed_chars, tries_remained,
                                     word_char_completion_list, enter_guess_prompt, valid_input_len_list,
                                     len_error_message)
         print_game_result(word_char_list, game_won)
@@ -327,8 +327,9 @@ def hangman_game(total_tries_remained, hidden_word, category_name):
         print_hidden_word_revelation(word_char_list)
 
 
-def hangman_game_run(game_won, hidden_word, word_char_list, guessed_chars, tries_remained,
+def hangman_game_run(hidden_word, word_char_list, guessed_chars, tries_remained,
                      word_char_completion_list, enter_guess_prompt, valid_input_len_list, len_error_message):
+    game_won = False
     while not game_won and tries_remained:
         print_current_game_status(tries_remained, word_char_completion_list)
         input_string = get_constrained_alphabet_input(enter_guess_prompt, valid_input_len_list,
