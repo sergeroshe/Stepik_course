@@ -26,9 +26,9 @@ coordinates_list = []
 result_string_list = []
 for _ in range(point_amount):
     result_string_list = []
-    # coordinate_line = '{c_x} {c_y}'
-    x = str(int(input()))
-    y = str(int(input()))
+    coordinate_line_list = input().split()
+    x = int(coordinate_line_list[0])
+    y = int(coordinate_line_list[1])
     coordinate_quarter = get_coordinate_quarter(x, y)
     if coordinate_quarter:
         QUARTER_POINTS_COUNTER_LIST[coordinate_quarter - 1] += 1
@@ -40,5 +40,4 @@ for _ in range(point_amount):
             third_quarter_points_count=QUARTER_POINTS_COUNTER_LIST[2],
             forth_quarter_points_count=QUARTER_POINTS_COUNTER_LIST[3])
         result_string_list.append(current_quarter)
-# print(*QUARTER_POINTS_COUNTER_LIST)
-print(*result_string_list)
+print(*result_string_list, sep='\n')
