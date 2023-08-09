@@ -1,8 +1,3 @@
-num = int(input())
-num_string = str(num)
-reversed_num_part_string = num_string[-5:][::-1]
-unchangeable_num_part = num_string[:-5]
-result_num_string = unchangeable_num_part + reversed_num_part_string
-result_num = int(result_num_string)
+num_string = input()
+print(int(num_string[:-5] + num_string[-5:][::-1]))
 
-print(result_num)
