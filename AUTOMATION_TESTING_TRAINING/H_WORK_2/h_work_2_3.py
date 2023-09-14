@@ -1,20 +1,27 @@
-# Task 3*. Напишите декоратор который выводит имя и список аргументов функции.
-
+# # Task 3*. Напишите декоратор который выводит имя и список аргументов функции.
 
 def my_decorator(func):
-    def wrapper(y, x):
-        print(func.__name__)
-        func(y, x)
-        print(y, x)
-        return func(y, x)
+    def wrapper(*args) -> int:
+        print(f'The name of called function is: "{func.__name__}"')
+        print(f'The arguments of called function are: {[*args]}')
+        return func(*args)
+
     return wrapper
 
 
 @my_decorator
-def get_quotient(x, y):
+def get_quotient(x, y) -> float:
     return x / y
 
 
-decorated_func = my_decorator(get_quotient)
-print(decorated_func(9, 3))
-# print(get_odd_num_dict(9, 3))
+def main():
+    dividend = int(input())
+    divisor = int(input())
+
+    quotient = get_quotient(dividend, divisor)
+
+    print(f'The result of division is: {quotient}')
+
+
+main()
+

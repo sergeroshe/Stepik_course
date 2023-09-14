@@ -9,17 +9,17 @@ Y_COORDINATE_PROMPT = 'Введите число - координату "y" дл
 RADIUS_PROMPT = 'Введите число - радиус окружности:\n'
 
 
-def does_point_belong_to_circle(x, y, r):
+def point_belongs_to_circle(x, y, r):
     result = (x ** 2 + y ** 2) < r ** 2
     return result
 
 
 def main():
-    x_coordinate, y_cordinate, radius = float(input(X_COORDINATE_PROMPT)),\
-                                        float(input(Y_COORDINATE_PROMPT)),\
-                                        float(input(RADIUS_PROMPT))
+    x_coordinate = float(input(X_COORDINATE_PROMPT))
+    y_cordinate = float(input(Y_COORDINATE_PROMPT))
+    radius = float(input(RADIUS_PROMPT))
     answer = N_ANSWER
-    if does_point_belong_to_circle(x_coordinate, y_cordinate, radius):
+    if point_belongs_to_circle(x_coordinate, y_cordinate, radius):
         answer = Y_ANSWER
     print(answer)
 
