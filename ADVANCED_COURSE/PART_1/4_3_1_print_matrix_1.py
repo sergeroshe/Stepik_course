@@ -1,5 +1,7 @@
 row_amount = int(input())
 col_amount = int(input())
+# row_amount = 2
+# col_amount = 3
 
 
 matrix = []
@@ -9,15 +11,11 @@ for i in range(row_amount):
     for j in range(col_amount):
         row_list.append(input())
 
-    matrix.append(' '.join(row_list))
+    matrix.append(row_list)
     row_list = []
 
+for row in matrix:
+    for col in row:
+        print(col, end=' ')
+    print()
 
-print(*matrix, sep='\n')
-
-
-# def print_matrix(matrix, n, width=1):
-#     for r in range(n):
-#         for c in range(n):
-#             print(str(matrix[r][c]).ljust(width), end=' ')
-#         print()
