@@ -1,22 +1,14 @@
-# triangle = []
-# # row = []
-# # triangle_size = int(input())
-# size = 5
-
-
-# for i in range(triangle_size + 1):
-#     row = [1] * (i + 1)
-#     for j in range(1, i):
-#         row[j] = triangle[i - 1][j - 1] + triangle[i - 1][j]
-#     triangle.append(row)
-#
-# print(triangle[-1])
-
 def get_pascals_triangle_row(size):
-    row = [1]
-    for i in range(size):
-        row.append(row[i] * (size - i) // (i + 1))
-    return row
+    prev_row = []
+    cur_row = []
+
+    for i in range(size + 1):
+        cur_row = [1] * (i + 1)
+        for j in range(1, i):
+            cur_row[j] = prev_row[j - 1] + prev_row[j]
+        prev_row = cur_row
+
+    return cur_row
 
 
 def main():
@@ -26,3 +18,9 @@ def main():
 
 
 main()
+
+# def get_pascals_triangle_row(size):
+#     row = [1]
+#     for i in range(size):
+#         row.append(row[i] * (size - i) // (i + 1))
+#     return row
