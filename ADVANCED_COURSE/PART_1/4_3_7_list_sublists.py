@@ -1,19 +1,18 @@
-source_string = input().split()
-# source_string = 'a b c'.split()
-len_source_string = len(source_string)
+# source_string_list = input().split()
+source_string_list = 'a b c'.split()
+len_source_string = len(source_string_list)
 
-total_list = [[]]
 sub_list = []
-
+# total_list = [source_string_list[i: i + 1] for i in range(0, len(source_string_list), 1)]
+total_list = [[]]
 for i in range(len_source_string):
-    sublist_increases = True
-    j = 0
-    while sublist_increases:
-        sub_list = source_string[j: j + i + 1]
-        if len(sub_list) == i + 1:
+    sub_list_size = i + 1
+    for cur_char in range(len_source_string):
+        sub_list = source_string_list[cur_char: cur_char + sub_list_size]
+        if len(sub_list) == sub_list_size:
             total_list.append(sub_list)
-        sublist_increases = len(sub_list) == i + 1
-        j += 1
+        else:
+            break
 
 print(total_list)
 
@@ -24,3 +23,5 @@ print(total_list)
 #             total_list.append(sub_list)
 #         else:
 #             break
+
+
