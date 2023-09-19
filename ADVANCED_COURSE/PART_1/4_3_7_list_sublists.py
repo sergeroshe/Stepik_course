@@ -7,8 +7,8 @@ sub_list = []
 total_list = [[]]
 for i in range(len_source_string):
     sub_list_size = i + 1
-    for cur_char in range(len_source_string):
-        sub_list = source_string_list[cur_char: cur_char + sub_list_size]
+    for cur_char_idx in range(len_source_string):
+        sub_list = source_string_list[cur_char_idx: cur_char_idx + sub_list_size]
         if len(sub_list) == sub_list_size:
             total_list.append(sub_list)
         else:
