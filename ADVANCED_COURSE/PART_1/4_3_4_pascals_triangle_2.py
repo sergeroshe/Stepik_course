@@ -17,9 +17,7 @@ def main():
     row_number = int(input())
     for i in range(row_number):
         row = get_pascals_triangle_row(i)
-        ones, *values = row
-        unpacked_row = ones, *values
-        print(*unpacked_row)
+        print(*row)
 
 
 main()
