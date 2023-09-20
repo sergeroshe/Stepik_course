@@ -4,8 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8dde5acf-80f4-42f7-872a-f6a157d159be" name="Changes" comment="Updated dev instructions">
-      <change afterPath="$PROJECT_DIR$/15_mini_project_work/3_magic_ball.py" afterDir="false" />
+    <list default="true" id="8dde5acf-80f4-42f7-872a-f6a157d159be" name="Changes" comment="Renamed param to row_num">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -15,7 +15,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="main" />
+        <entry key="$PROJECT_DIR$" value="feature/4/3/4-pascals-triangle-2" />
       </map>
     </option>
   </component>
@@ -24,7 +24,7 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
-    "git-widget-placeholder": "feature/15/2/5/2__farewell__message"
+    "git-widget-placeholder": "main"
   }
 }]]></component>
   <component name="RecentsManager">
@@ -75,8 +75,39 @@
       <option name="project" value="LOCAL" />
       <updated>1683803196012</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="Renamed param to row_num">
+      <option name="closed" value="true" />
+      <created>1695205438045</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1695205438045</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State>
+              <option name="FILTERS">
+                <map>
+                  <entry key="branch">
+                    <value>
+                      <list>
+                        <option value="main" />
+                      </list>
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Moved: constants to main function" />
@@ -85,7 +116,8 @@
     <MESSAGE value="Draw triangle: &#10;replaced half_base param. with base" />
     <MESSAGE value="Changed PyCharm workspace.xml" />
     <MESSAGE value="Updated dev instructions" />
-    <option name="LAST_COMMIT_MESSAGE" value="Updated dev instructions" />
+    <MESSAGE value="Renamed param to row_num" />
+    <option name="LAST_COMMIT_MESSAGE" value="Renamed param to row_num" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -217,6 +249,11 @@
           <url>file://$PROJECT_DIR$/15_mini_project_work/2_num_guessing_game.py</url>
           <line>51</line>
           <option name="timeStamp" value="60" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/ADVANCED_COURSE/PART_1/4_3_3_pascals_triangle.py</url>
+          <line>6</line>
+          <option name="timeStamp" value="68" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
