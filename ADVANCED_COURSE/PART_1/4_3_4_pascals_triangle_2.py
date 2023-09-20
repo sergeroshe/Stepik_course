@@ -1,15 +1,25 @@
-def get_pascale_triangle_row(row_list):
-    row_list = [1] + row_list
-    for i in range(1, len(row_list) - 1):
-        row_list[i] += row_list[i + 1]
-    return row_list
+def get_pascals_triangle_row(row_number) -> list:
+    prev_row = []
+    cur_row = []
+
+    for i in range(row_number + 1):
+        cur_row = [1] * (i + 1)
+        for j in range(1, i):
+            cur_row[j] = prev_row[j - 1] + prev_row[j]
+        prev_row = cur_row
+
+    return cur_row
 
 
 def main():
+    triangle = []
     triangle_size = int(input())
-    row = []
-    for _ in range(triangle_size):
-        row = get_pascale_triangle_row(row)
+
+    for i in range(triangle_size):
+        row = get_pascals_triangle_row(i)
+        triangle.append(row)
+
+    for row in triangle:
         print(*row)
 
 
