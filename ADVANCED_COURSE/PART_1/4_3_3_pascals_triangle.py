@@ -1,8 +1,8 @@
-def get_pascals_triangle_row(size):
+def get_pascals_triangle_row(row_number):
     prev_row = []
     cur_row = []
 
-    for i in range(size + 1):
+    for i in range(row_number + 1):
         cur_row = [1] * (i + 1)
         for j in range(1, i):
             cur_row[j] = prev_row[j - 1] + prev_row[j]
