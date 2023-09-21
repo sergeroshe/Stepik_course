@@ -68,9 +68,8 @@ if __name__ == '__main__':
         test_class = getattr(Tests, name, None)
         if not test_class:
             print(f'Test method with name=[{name}] does not exist')
-            continue
-
-        test = test_class()
-        test.run()
-        print(f'Test {name} passed.')
+        else:
+            test = test_class()
+            test.run()
+            print(f'Test {name} passed.')
 
