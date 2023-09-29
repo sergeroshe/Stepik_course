@@ -15,3 +15,5 @@ for row in matrix:
         if col > arithmetic_mean:
             count += 1
     print(count)
+
+# TODO: create list of data, and print val after
