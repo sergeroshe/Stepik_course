@@ -20,6 +20,3 @@ for row in matrix:
     counter_list.append(counter)
 
 print(*counter_list, sep='\n')
-
-
-# TODO: create list of data, and print val after
