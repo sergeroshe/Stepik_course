@@ -9,16 +9,17 @@ for _ in range(size):
     int_row = [int(item) for item in row]
     matrix.append(int_row)
 
-
+counter_list = []
 for row in matrix:
-    counter_list = []
+
     arithmetic_mean = sum(row) // len(row)
     counter = 0
     for col in row:
         if col > arithmetic_mean:
             counter += 1
     counter_list.append(counter)
-    print(*counter_list, sep='\n')
+
+print(*counter_list, sep='\n')
 
 
 # TODO: create list of data, and print val after
