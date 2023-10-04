@@ -9,20 +9,20 @@ for _ in range(size):
 
 max_item = max([matrix[0][0]])
 
-for i in range((len(matrix) + 1) // 2):
-    for j in range(0, i + 1):
-
-        current_max = max(matrix[i][j], matrix[-(i + 1)][j],
-                          matrix[-(i + 1)][-(j + 1)], matrix[i][-(j + 1)])
-        if current_max > max_item:
-            max_item = current_max
+# for i in range((len(matrix) + 1) // 2):
+#     for j in range(0, i + 1):
+#         current_max = max(matrix[i][j], matrix[-(i + 1)][j],
+#                           matrix[-(i + 1)][-(j + 1)], matrix[i][-(j + 1)])
+#         if current_max > max_item:
+#             max_item = current_max
+for i in range(size):
+    for j in range(size):
+        if (i >= j and i + j + 1 < size) or (i <= j and i + j + 1 > size):
+            if matrix[i][j] > max_item:
+                max_item = matrix[i][j]
 
 print(max_item)
 
-# matrix = [[6, 0],
-#           [7, 9]]
-
-# print(area_list)
 
 # Выше главной диагонали: i < j,
 # Главная диагональ: i = j
@@ -34,7 +34,4 @@ print(max_item)
 
 # i > j and i + j + 1 < n
 # i < j and i + j + 1 > n
-# matrix = [[6, 0, 4, 90],
-#           [7, 9, 34, 98],
-#           [6, 0, 74, 92],
-#           [6, 0, 72, 92]]
+# if (i >= j and i + j + 1 < n) or (i <= j and i + j + 1 > n):
