@@ -27,13 +27,13 @@ for i in range(size):
         # upper quarter
         if i < j and i + j + 1 < size:
             upper_quarter_amount += matrix[i][j]
-        if i < j and i + j + 1 > size:
+        elif i < j and i + j + 1 > size:
             right_quarter_amount += matrix[i][j]
         # lower quarter
-        if i > j and i + j + 1 > size:
+        elif i > j and i + j + 1 > size:
             lower_quarter_amount += matrix[i][j]
         # left quarter
-        if i > j and i + j + 1 < size:
+        elif i > j and i + j + 1 < size:
             left_quarter_amount += matrix[i][j]
 
 print(f'{UPPER_QUARTER_AMOUNT_MSG}{upper_quarter_amount}')
