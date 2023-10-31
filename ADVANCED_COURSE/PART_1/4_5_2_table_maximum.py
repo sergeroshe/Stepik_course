@@ -1,12 +1,12 @@
-string_amount = int(input())
+row_amount = int(input())
 column_amount = int(input())
 result = ''
 matrix = []
-max_item_row_idx = 0
-max_item_col_idx = 0
+max_item_row = 0
+max_item_column = 0
 max_item = 0
 
-for i in range(string_amount):
+for i in range(row_amount):
     row = input()
     row = [int(x) for x in row.split()]
     matrix.append(row)
@@ -14,7 +14,7 @@ for i in range(string_amount):
 result = ''
 max_item = max(max(matrix, key=max))
 flag = False
-for i in range(string_amount):
+for i in range(row_amount):
     for j in range(column_amount):
         cur_item = matrix[i][j]
         if cur_item == max_item:
