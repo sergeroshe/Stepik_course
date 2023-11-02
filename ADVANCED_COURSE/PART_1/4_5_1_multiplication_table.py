@@ -10,10 +10,11 @@ mult = []
 
 for i in range(row_amount):
     row = []
+    for k in range(i):
+        row.append(mult[k][i])
     for j in range(i, column_amount):
         row.append(i * j)
-    for k in range(i):
-        row.insert(k, mult[k][i])
+
     mult.append(row)
 print()
 
