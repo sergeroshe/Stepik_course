@@ -8,7 +8,7 @@ mult = []
 # #
 # mult = []
 
-for i in range(row_amount):
+for i in range(min(row_amount, column_amount)):
     row = []
     for j in range(i):
         row.append(mult[j][i])
