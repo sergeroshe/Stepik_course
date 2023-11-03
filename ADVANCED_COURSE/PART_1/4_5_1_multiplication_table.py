@@ -1,5 +1,7 @@
-row_amount = 5
-column_amount = 15
+# row_amount = int(input())
+# column_amount = int(input())
+row_amount = 8
+column_amount = 3
 mult = []
 
 # for i in range(row_amount):
@@ -14,9 +16,10 @@ for i in range(min(row_amount, column_amount)):
         row.append(mult[j][i])
     for k in range(i, column_amount):
         row.append(i * k)
-
     mult.append(row)
-print()
+if column_amount != row_amount:
+    for i in range((row_amount % column_amount) + 1, row_amount):
+        mult.append([(i * j) for j in range(column_amount)])
 
 for row in mult:
     print(*row)
