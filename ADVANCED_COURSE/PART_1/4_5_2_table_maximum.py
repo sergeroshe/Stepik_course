@@ -1,26 +1,29 @@
 row_amount = int(input())
 column_amount = int(input())
+# column_amount = 3
+# row_amount = 3
 
-result = ''
 matrix = []
-max_item_row = 0
-max_item_column = 0
-max_item = 0
 
 for _ in range(row_amount):
     row = input()
     row = [int(x) for x in row.split()]
     matrix.append(row)
 
-max_item = max(max(matrix, key=max))
+# matrix = ['5 3 4'.split(),
+#           '2 3 0'.split(),
+#           '4 1 5'.split()]
+
+max_item = matrix[0][0]
+result = [0, 0]
 max_found = False
 i = 0
-while not max_found and i <= row_amount - 1:
+while i <= row_amount - 1:
     j = 0
-    while not max_found and j <= column_amount - 1:
-        if matrix[i][j] == max_item:
+    while j <= column_amount - 1:
+        if int(matrix[i][j]) > int(max_item):
+            max_item = matrix[i][j]
             result = [i, j]
-            max_found = True
         j += 1
 
     i += 1
