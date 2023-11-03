@@ -21,6 +21,5 @@ while is_symmetric and i < len(matrix):
 
 if not is_symmetric:
     answer = NEGATIVE_ANSWER
-    symmetric = False
 
 print(answer)
