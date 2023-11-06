@@ -21,7 +21,7 @@ i = 0
 while i <= row_amount - 1:
     j = 0
     while j <= column_amount - 1:
-        if int(matrix[i][j]) > int(max_item):
+        if matrix[i][j] > max_item:
             max_item = matrix[i][j]
             result = [i, j]
         j += 1
