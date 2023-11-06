@@ -1,7 +1,7 @@
-row_amount = int(input())
-column_amount = int(input())
-# row_amount = 8
-# column_amount = 2
+# row_amount = int(input())
+# column_amount = int(input())
+row_amount = 7
+column_amount = 7
 matrix = []
 
 # Simple but ineffective solution:
@@ -20,11 +20,10 @@ for i in range(min(row_amount, column_amount)):
     matrix.append(row)
 
 # Bellow we start filling in the matrix from the point where we stopped in the previous part.
-# For example, if row_amount is 8 and column_amount is 3, we start with 3
-# as 8 - (8 - 3) = 3, counting that 3 is the 4th element index.
+# For example, if row_amount is 8 and column_amount is 3, we start with 3, counting that 3 is the 4th element index.
 
 if column_amount < row_amount:
-    for l in range(row_amount - (row_amount - column_amount), row_amount):
+    for l in range(column_amount, row_amount):
         matrix.append([(m * l) for m in range(column_amount)])
 
 for row in matrix:
