@@ -16,7 +16,7 @@ for _ in range(row_amount):
 
 max_item = matrix[0][0]
 result = [0, 0]
-max_found = False
+
 i = 0
 while i <= row_amount - 1:
     j = 0
