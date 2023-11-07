@@ -12,8 +12,3 @@ for i in range(matrix_size // 2):
 for row in matrix:
     print(*row)
 
-
-# matrix = ['1 2 3 4'.split(),
-#           '5 6 7 8'.split(),
-#           '8 6 4 2'.split(),
-#           '3 4 5 6'.split()]
