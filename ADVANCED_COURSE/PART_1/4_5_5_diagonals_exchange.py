@@ -5,11 +5,9 @@ for _ in range(matrix_size):
     matrix.append(input().split())
 
 for i in range(matrix_size // 2):
-    matrix[i][i] = matrix[-(i + 1)][i]
-    matrix[-(i + 1)][-(i + 1)] = matrix[i][-(i + 1)]
-
-#  for i in range(n):
-#     matrix[i][i], matrix[matrix_size - i - 1][i] = matrix[matrix_size - i - 1][i], matrix[i][i]
+    back_idx = -(i + 1)
+    matrix[i][i] = matrix[back_idx][i]
+    matrix[back_idx][back_idx] = matrix[i][back_idx]
 
 for row in matrix:
     print(*row)
