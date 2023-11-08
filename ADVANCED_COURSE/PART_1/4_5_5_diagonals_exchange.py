@@ -8,6 +8,9 @@ for i in range(matrix_size // 2):
     matrix[i][i] = matrix[-(i + 1)][i]
     matrix[-(i + 1)][-(i + 1)] = matrix[i][-(i + 1)]
 
+#  for i in range(n):
+#     matrix[i][i], matrix[matrix_size - i - 1][i] = matrix[matrix_size - i - 1][i], matrix[i][i]
+
 for row in matrix:
     print(*row)
 
