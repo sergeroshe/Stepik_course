@@ -1,0 +1,13 @@
+/*Вывести автора, название, количество, цену (Розничная_цена). Для тех книг количество которых больше или равно 10, отобразить оптовую скидку 15% (Скидка), округлить до двух знаков после запятой и вывести оптовую цену с учетом скидки -15% (Оптовая_цена). Все атрибуты перевести на русский язык. Отсортировать по автору и названию книги.*/
+WITH
+  p_d AS (SELECT author, title, amount, price, 15 AS discount
+          FROM book)
+SELECT author AS Автор,
+       title AS Название_книги,
+       amount AS Количество,
+       price AS Розничная_цена,
+       IF(SUM(amount) >= 10, discount, 0) AS Скидка,
+       ROUND(IF(amount >= 10, price - price / 100 * discount, price), 2) AS Оптовая_цена
+FROM p_d
+GROUP BY author, title, amount, price, discount
+ORDER BY Автор, Название_книги;
