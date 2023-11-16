@@ -15,7 +15,7 @@ matrix[knight_y][knight_x] = CHESS_KNIGHT_POSITION_MARK
 for i in range(CHESS_BOARD_SIZE):
     row = []
     for j in range(CHESS_BOARD_SIZE):
-        if abs(knight_y - i) * abs(knight_x - j) == CHESS_KNIGHT_MOVE_RANGE:
+        if abs(knight_y - i) * abs(knight_x - j) == CHESS_KNIGHT_MOVE_RANGE:  # 2 * 1, 2 * -1, -2 * 1, -2 * -1 etc.
             matrix[i][j] = POSSIBLE_MOVE_MARK
 
 for row in matrix:
