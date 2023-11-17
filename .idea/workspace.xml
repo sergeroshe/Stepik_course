@@ -24,7 +24,7 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
-    "git-widget-placeholder": "main"
+    "git-widget-placeholder": "feature/4/5/8-magic-square"
   }
 }]]></component>
   <component name="RecentsManager">
@@ -254,6 +254,11 @@
           <url>file://$PROJECT_DIR$/ADVANCED_COURSE/PART_1/4_3_3_pascals_triangle.py</url>
           <line>6</line>
           <option name="timeStamp" value="68" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/ADVANCED_COURSE/PART_1/4_5_8_magic_square.py</url>
+          <line>48</line>
+          <option name="timeStamp" value="104" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
