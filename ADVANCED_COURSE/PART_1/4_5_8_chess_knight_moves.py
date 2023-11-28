@@ -14,13 +14,13 @@ knight_y = CHESS_BOARD_SIZE - int(position[-1])
 matrix = [list(FILLING_CHAR * CHESS_BOARD_SIZE) for _ in range(CHESS_BOARD_SIZE)]
 matrix[knight_y][knight_x] = CHESS_KNIGHT_POSITION_MARK
 
-possible_move_list = [[STRAIGHT_MOVE, TURN_MOVE], [-STRAIGHT_MOVE, TURN_MOVE],
-                      [STRAIGHT_MOVE, -TURN_MOVE], [-STRAIGHT_MOVE, -TURN_MOVE],
-                      [TURN_MOVE, STRAIGHT_MOVE], [-TURN_MOVE, STRAIGHT_MOVE],
-                      [TURN_MOVE, -STRAIGHT_MOVE], [-TURN_MOVE, -STRAIGHT_MOVE]]
-for el in possible_move_list:
-    move_y = knight_y + el[0]
-    move_x = knight_x + el[1]
+shift_list = [[STRAIGHT_MOVE, TURN_MOVE], [-STRAIGHT_MOVE, TURN_MOVE],
+              [STRAIGHT_MOVE, -TURN_MOVE], [-STRAIGHT_MOVE, -TURN_MOVE],
+              [TURN_MOVE, STRAIGHT_MOVE], [-TURN_MOVE, STRAIGHT_MOVE],
+              [TURN_MOVE, -STRAIGHT_MOVE], [-TURN_MOVE, -STRAIGHT_MOVE]]
+for shift in shift_list:
+    move_y = knight_y + shift[0]
+    move_x = knight_x + shift[1]
     if 0 <= move_x <= CHESS_BOARD_SIZE - 1 and 0 <= move_y <= CHESS_BOARD_SIZE - 1:
         matrix[move_y][move_x] = POSSIBLE_MOVE_MARK
 
