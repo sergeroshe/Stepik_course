@@ -42,8 +42,10 @@ def is_sequence_valid(mtrx, expected_min):
                     max_el = num
                 if num < min_el:
                     min_el = num
-            else:
+            elif num < expected_min or num > expected_max:
                 sequence_unique = False
+                j += 1
+            i += 1
             j += 1
         i += 1
 
