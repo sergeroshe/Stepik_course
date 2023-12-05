@@ -22,42 +22,34 @@ first_row_sum = sum(matrix[0])
 
 
 # check if all numbers are non-gap valid sequence with valid min and max, make a function
-def is_sequence_valid(sequence):
+def is_sequence_valid(mtrx, expected_min):
     checked_num_list = []
-    len_sequence = len(matrix)
-    max_element = matrix[0][0]
-    min_element = matrix[0][0]
-    first_column_amount = 0
-    main_diagonal_sum = 0
-    secondary_diagonal_sum = 0
+    mtrx_size = len(mtrx)
+    expected_max = expected_min + mtrx_size ** 2 - 1
+    max_el = mtrx[0][0]
+    min_el = mtrx[0][0]
+
     i = 0
 
-    num_valid = True
-    while i < len_sequence and num_valid:
+    sequence_unique = True
+    while i < mtrx_size and sequence_unique:
         j = 0
-        while j < len_sequence and num_valid:
-            num = matrix[i][j]
-            if i == 0:
-                first_column_amount += matrix[j][i]
+        while j < mtrx_size and sequence_unique:
+            num = mtrx[i][j]
             if num not in checked_num_list:
                 checked_num_list.append(num)
-                if num > max_element:
-                    max_element = num
-                if num < min_element:
-                    min_element = num
+                if num > max_el:
+                    max_el = num
+                if num < min_el:
+                    min_el = num
             else:
-                num_valid = False
-            if i == j:
-                main_diagonal_sum += int(matrix[i][j])
-            if i + j + 1 == matrix_size:
-                secondary_diagonal_sum += int(matrix[i][j])
-
+                sequence_unique = False
             j += 1
         i += 1
 
-    is_sequence_valid_ = max_element == len(checked_num_list) and min_element == MATRIX_MIN_ELEMENT
+    is_sequence_valid_ = max_el == expected_max and min_el == expected_min
 
-    return is_sequence_valid_, first_column_amount, main_diagonal_sum, secondary_diagonal_sum
+    return is_sequence_valid_
 
 
 result = N_ANSWER
