@@ -31,21 +31,20 @@ def is_sequence_valid(mtrx, expected_min):
 
     i = 0
 
-    sequence_unique = True
-    while i < mtrx_size and sequence_unique:
+    is_valid = True
+    while i < mtrx_size and is_valid:
         j = 0
-        while j < mtrx_size and sequence_unique:
+        while j < mtrx_size and is_valid:
             num = mtrx[i][j]
-            if num not in checked_num_list:
-                checked_num_list.append(num)
-                if num > max_el:
-                    max_el = num
-                if num < min_el:
-                    min_el = num
-            elif num < expected_min or num > expected_max:
-                sequence_unique = False
-                j += 1
-            i += 1
+            if num < expected_min or num > expected_max:
+                if num not in checked_num_list:
+                    checked_num_list.append(num)
+                    if num > max_el:
+                        max_el = num
+                    if num < min_el:
+                        min_el = num
+            else:
+                is_valid = False
             j += 1
         i += 1
 
