@@ -29,13 +29,13 @@ def is_sequence_valid(mtrx, expected_min):
     max_el = mtrx[0][0]
     min_el = mtrx[0][0]
 
-    i = 0
+    row_counter = 0
 
     is_valid = True
-    while i < mtrx_size and is_valid:
-        j = 0
-        while j < mtrx_size and is_valid:
-            num = mtrx[i][j]
+    while row_counter < mtrx_size and is_valid:
+        column_counter = 0
+        while column_counter < mtrx_size and is_valid:
+            num = mtrx[row_counter][column_counter]
             if num < expected_min or num > expected_max:
                 if num not in checked_num_list:
                     checked_num_list.append(num)
@@ -45,8 +45,8 @@ def is_sequence_valid(mtrx, expected_min):
                         min_el = num
             else:
                 is_valid = False
-            j += 1
-        i += 1
+            column_counter += 1
+        row_counter += 1
 
     is_sequence_valid_ = max_el == expected_max and min_el == expected_min
 
@@ -55,7 +55,7 @@ def is_sequence_valid(mtrx, expected_min):
 
 result = N_ANSWER
 
-# # check of matrix content requirements corresponding
+# # check of matrix content requirements correspondence
 sequence_valid, first_column_sum, main_diagonal_sum, secondary_diagonal_sum = is_sequence_valid(matrix)
 diagonals_equal = main_diagonal_sum == secondary_diagonal_sum
 
