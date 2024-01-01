@@ -1,23 +1,36 @@
 Y_ANSWER = 'YES'
 N_ANSWER = 'NO'
 MATRIX_MIN_ELEMENT = 1
-matrix_size = int(input())
-# matrix_size = 3
+# matrix_size = int(input())
+matrix_size = 3
 # convert string list to int list
-matrix = []
+# matrix = []
 #
-for _ in range(matrix_size):
-    row = input().split()
-    int_row = [int(item) for item in row]
-    matrix.append(int_row)
-#
-# matrix = [[1, 8, 6],
-#           [5, 3, 7],
-#           [9, 4, 2]]
+# for _ in range(matrix_size):
+#     row = input().split()
+#     int_row = [int(item) for item in row]
+#     matrix.append(int_row)
+
+# matrix with duplicate
 # # matrix = [[5, 3, 7],
 # #           [3, 5, 7],
 # #           [9, 4, 2]]
-
+# correct matrix
+# # matrix = [[8, 1, 6],
+# #           [3, 5, 7],
+# #           [4, 9, 2]]
+# # greater max matrix
+# # matrix = [[5, 3, 7],
+# #           [3, 5, 7],
+# #           [10, 4, 2]]
+#  less min matrix
+# matrix = [[8, 0, 6],
+#           [5, 3, 7],
+#           [9, 4, 2]]
+# correct matrix
+matrix = [[8, 1, 6],  # i = 0, j = len_mtrx - 1
+          [3, 5, 7],  # i = 1, j = len_mtrx - 2
+          [4, 9, 2]]  # i = 2, j = len_mtrx - 3
 first_row_sum = sum(matrix[0])
 
 
@@ -26,38 +39,45 @@ def is_sequence_valid(mtrx, expected_min):
     checked_num_list = []
     mtrx_size = len(mtrx)
     expected_max = expected_min + mtrx_size ** 2 - 1
-    max_el = mtrx[0][0]
-    min_el = mtrx[0][0]
 
-    row_counter = 0
+    row_ = 0
 
     is_valid = True
-    while row_counter < mtrx_size and is_valid:
-        column_counter = 0
-        while column_counter < mtrx_size and is_valid:
-            num = mtrx[row_counter][column_counter]
-            if num < expected_min or num > expected_max:
+    while row_ < mtrx_size and is_valid:
+        column = 0
+        while column < mtrx_size and is_valid:
+            num = mtrx[row_][column]
+            if expected_min <= num <= expected_max:
                 if num not in checked_num_list:
                     checked_num_list.append(num)
-                    if num > max_el:
-                        max_el = num
-                    if num < min_el:
-                        min_el = num
+                else:
+                    is_valid = False
             else:
                 is_valid = False
-            column_counter += 1
-        row_counter += 1
+            column += 1
+        row_ += 1
 
-    is_sequence_valid_ = max_el == expected_max and min_el == expected_min
-
-    return is_sequence_valid_
+    return is_valid
 
 
 result = N_ANSWER
 
-# # check of matrix content requirements correspondence
-sequence_valid, first_column_sum, main_diagonal_sum, secondary_diagonal_sum = is_sequence_valid(matrix)
-diagonals_equal = main_diagonal_sum == secondary_diagonal_sum
+
+# calculate diagonal sums
+def matrix_diagonal_sums(mtrx):
+    len_mtrx = len(mtrx)
+    main_diagonal_sum = 0
+    secondary_diagonal_sum = 0
+    for row in range(len_mtrx):
+        for column in range(len_mtrx):
+            if row == column:
+                main_diagonal_sum += mtrx[row][column]
+            if column == len_mtrx - row - 1:
+                secondary_diagonal_sum += mtrx[row][column]
+    return main_diagonal_sum, secondary_diagonal_sum
+
+
+matrix_diagonal_sums(matrix)
 
 if sequence_valid and diagonals_equal:
     rows_equal = True
