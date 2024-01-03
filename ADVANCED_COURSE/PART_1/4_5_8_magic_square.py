@@ -11,26 +11,9 @@ matrix_size = 3
 #     int_row = [int(item) for item in row]
 #     matrix.append(int_row)
 
-# matrix with duplicate
-# # matrix = [[5, 3, 7],
-# #           [3, 5, 7],
-# #           [9, 4, 2]]
-# correct matrix
-# # matrix = [[8, 1, 6],
-# #           [3, 5, 7],
-# #           [4, 9, 2]]
-# # greater max matrix
-# # matrix = [[5, 3, 7],
-# #           [3, 5, 7],
-# #           [10, 4, 2]]
-#  less min matrix
-# matrix = [[8, 0, 6],
-#           [5, 3, 7],
-#           [9, 4, 2]]
-# correct matrix
 matrix = [[8, 1, 6],  # i = 0, j = len_mtrx - 1
           [3, 5, 7],  # i = 1, j = len_mtrx - 2
-          [4, 9, 2]]  # i = 2, j = len_mtrx - 3
+          [4, 9, 1]]  # i = 2, j = len_mtrx - 3
 first_row_sum = sum(matrix[0])
 
 
@@ -77,43 +60,53 @@ def matrix_diagonal_sums(mtrx):
     return main_diagonal_sum, secondary_diagonal_sum
 
 
-matrix_diagonal_sums(matrix)
+def get_mtrx_column_sum(mtrx, col_idx):
+    column_sum = 0
+    for row in mtrx:
+        column_sum += row[col_idx]
+    return column_sum
 
-if sequence_valid and diagonals_equal:
-    rows_equal = True
-    columns_equal = True
-    row_sum_column_sum_equal = True
-    row_diagonal_sum_equal = True
 
+def is_matrix_equal(sequence, target_sum):
+    is_equal = True
     i = 0
-    while row_sum_column_sum_equal and \
-            rows_equal and columns_equal \
-            and i < matrix_size - 1:
-        prev_row_sum = first_row_sum
-        cur_row_sum = sum(matrix[i + 1])
-
-        j = 0
-        prev_column_sum = first_column_sum
-        cur_column_sum = 0
-        while row_sum_column_sum_equal and \
-                rows_equal and columns_equal \
-                and j < matrix_size:
-            # column sums calculation
-            cur_column_sum += matrix[j][i]
-
-            j += 1
-
-        # all checks after each iteration
-        rows_equal = prev_row_sum == cur_row_sum
-        columns_equal = prev_column_sum == cur_column_sum
-        row_sum_column_sum_equal = cur_column_sum == cur_row_sum
-
-        prev_row_sum = cur_row_sum
-        prev_column_sum = cur_column_sum
+    len_seq = len(sequence) - 1
+    while is_equal and i <= len_seq:
+        cur_column_sum = get_mtrx_column_sum(sequence, i)
+        row_sum = get_row_sum(matrix, i)
+        is_equal = cur_column_sum == target_sum and cur_column_sum == row_sum
 
         i += 1
+    return is_equal
+def get_row_sum(matrix, idx):
+    row_sum = sum(matrix[idx])
+    return row_sum
 
-    if rows_equal and columns_equal and row_sum_column_sum_equal:
+main_diagonal_sum, secondary_diagonal_sum = matrix_diagonal_sums(matrix)
+matrix_diagonal_sums_equal = main_diagonal_sum == secondary_diagonal_sum
+if matrix_diagonal_sums_equal:
+    matrix_all_sum_equal = is_matrix_equal(matrix, main_diagonal_sum)
+
+    if matrix_all_sum_equal:
         result = Y_ANSWER
 
 print(result)
+
+
+# matrix with duplicate
+# # matrix = [[5, 3, 7],
+# #           [3, 5, 7],
+# #           [9, 4, 2]]
+# correct matrix
+# # matrix = [[8, 1, 6],
+# #           [3, 5, 7],
+# #           [4, 9, 2]]
+# # greater max matrix
+# # matrix = [[5, 3, 7],
+# #           [3, 5, 7],
+# #           [10, 4, 2]]
+#  less min matrix
+# matrix = [[8, 0, 6],
+#           [5, 3, 7],
+#           [9, 4, 2]]
+# correct matrix
