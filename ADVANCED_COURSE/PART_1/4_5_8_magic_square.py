@@ -50,12 +50,9 @@ def matrix_diagonal_sums(mtrx):
     len_mtrx = len(mtrx)
     main_diagonal_sum = 0
     secondary_diagonal_sum = 0
-    for row in range(len_mtrx):
-        for column in range(len_mtrx):
-            if row == column:
-                main_diagonal_sum += mtrx[row][column]
-            if column == len_mtrx - row - 1:
-                secondary_diagonal_sum += mtrx[row][column]
+    for i in range(len_mtrx):
+        main_diagonal_sum += mtrx[i][i]
+        secondary_diagonal_sum += mtrx[-(i + 1)][i]
     return main_diagonal_sum, secondary_diagonal_sum
 
 
@@ -72,7 +69,7 @@ def is_matrix_equal(sequence, target_sum):
     len_seq = len(sequence) - 1
     while is_equal and i <= len_seq:
         cur_column_sum = get_mtrx_column_sum(sequence, i)
-        row_sum = get_row_sum(matrix, i)
+        row_sum = sum(sequence[i])
         is_equal = cur_column_sum == target_sum and cur_column_sum == row_sum
 
         i += 1
@@ -84,8 +81,7 @@ def get_row_sum(mtrx, idx):
     return row_sum
 
 
-sequence_valid = is_sequence_valid(matrix, MATRIX_MIN_ELEMENT)
-if sequence_valid:
+if is_sequence_valid(matrix, MATRIX_MIN_ELEMENT):
     main_diag_sum, sec_diag_sum = matrix_diagonal_sums(matrix)
     matrix_diagonal_sums_equal = main_diag_sum == sec_diag_sum
     if matrix_diagonal_sums_equal:
@@ -96,6 +92,9 @@ if sequence_valid:
 
 print(result)
 
+# If x == 1
+#    Var = true
+# Var = x == 1
 # matrix with duplicate
 # # matrix = [[5, 3, 7],
 # #           [3, 5, 7],
