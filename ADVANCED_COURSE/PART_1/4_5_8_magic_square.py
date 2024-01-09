@@ -76,11 +76,6 @@ def is_matrix_equal(sequence, target_sum):
     return is_equal
 
 
-def get_row_sum(mtrx, idx):
-    row_sum = sum(mtrx[idx])
-    return row_sum
-
-
 if is_sequence_valid(matrix, MATRIX_MIN_ELEMENT):
     main_diag_sum, sec_diag_sum = matrix_diagonal_sums(matrix)
     matrix_diagonal_sums_equal = main_diag_sum == sec_diag_sum
