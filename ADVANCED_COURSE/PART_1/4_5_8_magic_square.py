@@ -9,13 +9,13 @@ def is_sequence_valid(mtrx, expected_min):
     mtrx_size = len(mtrx)
     expected_max = expected_min + mtrx_size ** 2 - 1
 
-    row_ = 0
+    row = 0
 
     is_valid = True
-    while row_ < mtrx_size and is_valid:
+    while row < mtrx_size and is_valid:
         column = 0
         while column < mtrx_size and is_valid:
-            num = mtrx[row_][column]
+            num = mtrx[row][column]
             if expected_min <= num <= expected_max:
                 if num not in checked_num_list:
                     checked_num_list.append(num)
@@ -24,7 +24,7 @@ def is_sequence_valid(mtrx, expected_min):
             else:
                 is_valid = False
             column += 1
-        row_ += 1
+        row += 1
 
     return is_valid
 
