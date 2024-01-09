@@ -81,22 +81,7 @@ def main():
 
 
 main()
-# If x == 1
-#    Var = true
-# Var = x == 1
-# matrix with duplicate
-# # matrix = [[5, 3, 7],
-# #           [3, 5, 7],
-# #           [9, 4, 2]]
-# correct matrix
-# # matrix = [[8, 1, 6],
-# #           [3, 5, 7],
-# #           [4, 9, 2]]
-# # greater max matrix
-# # matrix = [[5, 3, 7],
-# #           [3, 5, 7],
-# #           [10, 4, 2]]
-#  less min matrix
+
 # matrix = [[8, 0, 6],
 #           [5, 3, 7],
 #           [9, 4, 2]]
