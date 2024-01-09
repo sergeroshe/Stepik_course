@@ -1,20 +1,6 @@
 Y_ANSWER = 'YES'
 N_ANSWER = 'NO'
 MATRIX_MIN_ELEMENT = 1
-matrix_size = int(input())
-# matrix_size = 3
-# convert string list to int list
-matrix = []
-
-for _ in range(matrix_size):
-    row = input().split()
-    int_row = [int(item) for item in row]
-    matrix.append(int_row)
-
-
-# matrix = [[8, 1, 6],  # i = 0, j = len_mtrx - 1
-#           [3, 5, 7],  # i = 1, j = len_mtrx - 2
-#           [4, 9, 1]]  # i = 2, j = len_mtrx - 3
 
 
 # check if all numbers are non-gap valid sequence with valid min and max, make a function
@@ -41,9 +27,6 @@ def is_sequence_valid(mtrx, expected_min):
         row_ += 1
 
     return is_valid
-
-
-result = N_ANSWER
 
 
 def matrix_diagonal_sums(mtrx):
@@ -76,17 +59,28 @@ def is_matrix_equal(sequence, target_sum):
     return is_equal
 
 
-if is_sequence_valid(matrix, MATRIX_MIN_ELEMENT):
-    main_diag_sum, sec_diag_sum = matrix_diagonal_sums(matrix)
-    matrix_diagonal_sums_equal = main_diag_sum == sec_diag_sum
-    if matrix_diagonal_sums_equal:
-        matrix_all_sum_equal = is_matrix_equal(matrix, main_diag_sum)
+def main():
+    matrix_size = int(input())
+    matrix = []
 
-        if matrix_all_sum_equal:
-            result = Y_ANSWER
+    for _ in range(matrix_size):
+        row = input().split()
+        int_row = [int(item) for item in row]
+        matrix.append(int_row)
+    result = N_ANSWER
+    if is_sequence_valid(matrix, MATRIX_MIN_ELEMENT):
+        main_diag_sum, sec_diag_sum = matrix_diagonal_sums(matrix)
+        matrix_diagonal_sums_equal = main_diag_sum == sec_diag_sum
+        if matrix_diagonal_sums_equal:
+            matrix_all_sum_equal = is_matrix_equal(matrix, main_diag_sum)
 
-print(result)
+            if matrix_all_sum_equal:
+                result = Y_ANSWER
 
+    print(result)
+
+
+main()
 # If x == 1
 #    Var = true
 # Var = x == 1
