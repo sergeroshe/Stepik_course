@@ -67,6 +67,7 @@ def main():
         row = input().split()
         int_row = [int(item) for item in row]
         matrix.append(int_row)
+
     result = N_ANSWER
     if is_sequence_valid(matrix, MATRIX_MIN_ELEMENT):
         main_diag_sum, sec_diag_sum = matrix_diagonal_sums(matrix)
