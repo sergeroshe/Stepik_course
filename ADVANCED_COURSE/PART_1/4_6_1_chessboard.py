@@ -1,8 +1,5 @@
-BLANK_CELL_FILLING_CHAR = '.'
-COLOURED_CELL_FILLING_CHAR = '*'
 COLOURS = ['.', '*']
 row_amount, column_amount = [int(el) for el in input().split()]
-
 
 matrix = []
 
@@ -15,3 +12,4 @@ for i in range(row_amount):
 
 for row in matrix:
     print(*row)
+
