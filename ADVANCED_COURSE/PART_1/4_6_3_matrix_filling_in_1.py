@@ -1,18 +1,16 @@
-row_amount = int(input())
-column_amount = int(input())
-
+row_amount, column_amount = [int(el) for el in input().split()]
 # row_amount = 3
 # column_amount = 4
 matrix = []
-k = 0
+k = 1
 
-for i in range(row_amount):
+for _ in range(row_amount):
     row = []
-    for j in range(k, k + column_amount):
-        row.append(j + 1)
-        k = j + 1
-    matrix.append(row)
+    for _ in range(column_amount):
+        row.append(k)
+        k += 1
 
+    matrix.append(row)
 
 for i in range(row_amount):
     for j in range(column_amount):
