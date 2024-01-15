@@ -8,7 +8,6 @@ for i in range(matrix_size):
     for j in range(matrix_size):
         if i + j + 1 == matrix_size or i == j:
             row.append(1)
-
         else:
             row.append(0)
     matrix.append(row)
