@@ -1,14 +1,11 @@
 row_amount, column_amount = [int(el) for el in input().split()]
-# row_amount, column_amount = 3, 7
-
+element_amount = column_amount * row_amount
 matrix = []
-k = 1
 
-for _ in range(row_amount):
+for i in range(row_amount):
     row = []
-    for j in range(k, k + (column_amount * row_amount), row_amount):
+    for j in range(i + 1, i + element_amount, row_amount):
         row.append(j)
-    k += 1
 
     matrix.append(row)
 
