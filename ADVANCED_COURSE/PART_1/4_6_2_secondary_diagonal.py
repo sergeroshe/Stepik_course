@@ -1,5 +1,4 @@
-# matrix_size = int(input())
-matrix_size = 8
+matrix_size = int(input())
 
 matrix = []
 
