@@ -3,7 +3,7 @@
 row_amount = 5
 column_amount = 3
 matrix = []
-val_list = [i * 1 for i in range(1, column_amount + 1)]
+val_list = [i for i in range(1, column_amount + 1)]
 
 val_list_idx = 0
 for i in range(row_amount):
@@ -15,11 +15,3 @@ for i in range(row_amount):
     for j in range(column_amount):
         print(str(matrix[i][j]).ljust(3), end=' ')
     print()
-
-# 1 2 3
-# 2 3 1
-# 3 1 2
-# 1 2 3
-# 2 3 1
-# 3 1 2
-# 1 2 3
