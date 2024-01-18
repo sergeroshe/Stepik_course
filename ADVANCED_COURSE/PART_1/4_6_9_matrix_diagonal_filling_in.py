@@ -3,15 +3,15 @@
 rows = 3
 cols = 4
 
-diagonal_num = 0
+diagonal_count = 0
 num = 0
 
 matrix = [[0] * cols for _ in range(rows)]
 
-for diagonal_num in range(rows + cols - 1):
+for diagonal_count in range(rows + cols - 1):
     for i in range(rows):
         for j in range(cols):
-            if i + j == diagonal_num:
+            if i + j == diagonal_count:
                 num += 1
                 matrix[i][j] = num
 
