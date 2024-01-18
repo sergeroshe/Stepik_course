@@ -1,7 +1,7 @@
-# row_amount, column_amount = [int(el) for el in input().split()]
+row_amount, column_amount = [int(el) for el in input().split()]
 #
-row_amount = 5
-column_amount = 3
+# row_amount = 5
+# column_amount = 3
 matrix = []
 val_list = [i for i in range(1, column_amount + 1)]
 
