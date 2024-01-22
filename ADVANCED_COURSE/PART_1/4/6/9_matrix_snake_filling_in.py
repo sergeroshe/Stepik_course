@@ -4,14 +4,18 @@ row_amount = 5
 column_amount = 3
 matrix = []
 k = 1
+l = 0
 
 for i in range(row_amount):
     row = []
-    for _ in range(column_amount):
-        row.append(k)
+    for j in range(column_amount):
+        if i % 2 == 0:
+            row.append(k)
+            l = k
+        else:
+            row.append(l + column_amount - j)
         k += 1
-    if i % 2 > 0:
-        row.reverse()  # last k + column_amount and down
+
     matrix.append(row)
 
 # 1   2   3
