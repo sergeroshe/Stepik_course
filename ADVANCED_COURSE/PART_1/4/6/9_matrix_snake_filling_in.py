@@ -11,19 +11,10 @@ for i in range(row_amount):
     last_col_idx = k - 1
     row_even = i % 2 == 0
     for j in range(column_amount):
-        if row_even:
-            row.append(k)
-        else:
-            row.append(last_col_idx + column_amount - j)
+        row.append(k if row_even else last_col_idx + column_amount - j)
         k += 1
 
     matrix.append(row)
-
-# 1   2   3
-# 6   5   4
-# 7   8   9
-# 12  11  10
-# 13  14  15
 
 for i in range(row_amount):
     for j in range(column_amount):
