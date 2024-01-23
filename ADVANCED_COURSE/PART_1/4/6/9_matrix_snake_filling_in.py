@@ -1,7 +1,5 @@
-# row_amount, column_amount = [int(el) for el in input().split()]
-#
-row_amount = 5
-column_amount = 3
+row_amount, column_amount = [int(el) for el in input().split()]
+
 matrix = []
 k = 1
 last_col_idx = 0
