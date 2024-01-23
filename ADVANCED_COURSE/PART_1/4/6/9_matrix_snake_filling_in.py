@@ -4,17 +4,17 @@ row_amount = 5
 column_amount = 3
 matrix = []
 k = 1
-l = 0
+last_col_idx = 0
 
 for i in range(row_amount):
     row = []
+    last_col_idx = k - 1
     row_even = i % 2 == 0
     for j in range(column_amount):
         if row_even:
             row.append(k)
-            l = k
         else:
-            row.append(l + column_amount - j)
+            row.append(last_col_idx + column_amount - j)
         k += 1
 
     matrix.append(row)
