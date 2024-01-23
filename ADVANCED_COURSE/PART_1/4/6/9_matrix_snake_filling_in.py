@@ -8,8 +8,9 @@ l = 0
 
 for i in range(row_amount):
     row = []
+    row_even = i % 2 == 0
     for j in range(column_amount):
-        if i % 2 == 0:
+        if row_even:
             row.append(k)
             l = k
         else:
