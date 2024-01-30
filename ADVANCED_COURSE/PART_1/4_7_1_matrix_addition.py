@@ -3,6 +3,7 @@ matrix_1 = []
 for _ in range(rows):
     row = [int(el) for el in input().split()]
     matrix_1.append(row)
+    # extract to func
 empty_line = input()
 matrix_2 = []
 for _ in range(rows):
