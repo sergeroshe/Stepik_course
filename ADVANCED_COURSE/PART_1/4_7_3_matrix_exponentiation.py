@@ -1,5 +1,5 @@
 
-def get_mtrx_square_pow(mtrx_1, mtrx_2):
+def matrix_mult(mtrx_1, mtrx_2):
     result_matrix = []
     mtrx_1_rows = len(mtrx_1)
     mtrx_1_cols = len(mtrx_1[0])
@@ -25,9 +25,9 @@ def main():
     matrix_power = int(input())
     matrix_size = len(matrix)
     powered_matrix = matrix
-
+# extract to func matrix_power
     for _ in range(matrix_power - 1):
-        powered_matrix = get_mtrx_square_pow(powered_matrix, matrix)
+        powered_matrix = matrix_mult(powered_matrix, matrix)
 
     for i in range(matrix_size):
         for j in range(matrix_size):
