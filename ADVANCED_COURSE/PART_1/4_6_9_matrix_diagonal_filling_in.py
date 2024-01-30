@@ -8,16 +8,13 @@ num = 0
 matrix = [[0] * cols for _ in range(rows)]
 diagonal_count = rows + cols - 1
 
-for i in range(diagonal_count):
+for i in range(cols - 1):
     inner_loop_start_range = 0
-    inner_loop_stop_range = (i + 1) % cols
+    inner_loop_stop_range = (i + 1)
     for j in range(inner_loop_start_range, inner_loop_stop_range):
         num += 1
-        if j < rows and i < inner_loop_stop_range:
-            matrix[j][i - j] = num
-        # else:
-        #     matrix[(j % rows) + j][(i % diagonal_count) - j] = num
-
+        matrix[j][i - j] = num
+# add one more loop for the movement within the last column
 for i in range(rows):
     for j in range(cols):
         print(str(matrix[i][j]).ljust(3), end=' ')
