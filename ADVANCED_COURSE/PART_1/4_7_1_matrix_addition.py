@@ -12,7 +12,8 @@ for _ in range(rows):
 
 matrix_sum = []
 for i in range(rows):
-    # extract to func
+    # extract to func matrix_add left_matrix and right_matrix
+    # -> result_matrix
     row = [(matrix_1[i][j] + matrix_2[i][j]) for j in range(columns)]
     matrix_sum.append(row)
 
