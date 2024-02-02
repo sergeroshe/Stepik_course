@@ -1,6 +1,6 @@
-rows, cols = [int(el) for el in input().split()]
-# rows = 3
-# cols = 5
+# rows, cols = [int(el) for el in input().split()]
+rows = 3
+cols = 5
 
 num = 1
 
@@ -13,11 +13,7 @@ for i in range(cols - 1):
         num += 1
 
 for i in range(rows):
-    if rows - 1 - i >= cols - 1:
-        y = cols
-
-    else:
-        y = rows - i
+    y = cols if rows - 1 - i >= cols - 1 else rows - i
     k = 0
     for j in range(i, i + y):
         matrix[j][cols - 1 - k] = num
