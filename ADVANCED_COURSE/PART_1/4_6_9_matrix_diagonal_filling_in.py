@@ -15,6 +15,10 @@ for i in range(cols - 1):
 for i in range(rows):
     y = cols if rows - 1 - i >= cols - 1 else rows - i
     k = 0
+    # the 'k' variable is needed for
+    # iteration from zero for the right to left horizontal movement
+    # whereas j is always starting
+    # from i and needed for the vertical movement
     for j in range(i, i + y):
         matrix[j][cols - 1 - k] = num
         k += 1
@@ -24,7 +28,6 @@ for i in range(rows):
     for j in range(cols):
         print(str(matrix[i][j]).ljust(3), end=' ')
     print()
-
 
 # 1  2  (# 1: i = 0, j = 0;)  # 2:  i = 0, j = 1
 # 3  4  # 3: i = 1, j = 0;  # 4:  i = 1, j = 1
