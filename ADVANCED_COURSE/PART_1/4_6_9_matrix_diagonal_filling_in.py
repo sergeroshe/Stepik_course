@@ -37,11 +37,11 @@ def main():
 
     num = 1
     matrix_left_side, num = mtrx_left_side_diag_filling(matrix_base, num)
-    complete_matrix_filling = mtrx_complete_diag_filling(matrix_left_side, num)
+    complete_matrix = mtrx_complete_diag_filling(matrix_left_side, num)
 
     for i in range(rows):
         for j in range(cols):
-            print(str(complete_matrix_filling[i][j]).ljust(3), end=' ')
+            print(str(complete_matrix[i][j]).ljust(3), end=' ')
         print()
 
 
