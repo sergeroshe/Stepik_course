@@ -14,14 +14,9 @@ for i in range(cols - 1):
 
 for i in range(rows):
     y = cols if rows - 1 - i >= cols - 1 else rows - i
-    k = 0
-    # the 'k' variable is needed for
-    # iteration from zero for the right to left horizontal movement
-    # whereas j is always starting
-    # from i and needed for the vertical movement
+
     for j in range(i, i + y):
-        matrix[j][cols - 1 - k] = num
-        k += 1
+        matrix[j][cols - 1 - (j - i)] = num
         num += 1
 
 for i in range(rows):
@@ -46,9 +41,6 @@ for i in range(rows):
 # 3   5   7
 # 6   8   10
 # 9   11  12
-
-# add one more loop for the movement within the last column
-
 
 # 1  2  4  7  10
 # 3  5  8  11 13
