@@ -1,28 +1,51 @@
-# rows, cols = [int(el) for el in input().split()]
-rows = 3
-cols = 5
+def mtrx_left_side_diag_filling(mtrx, num):
+    rows = len(mtrx)
+    cols = len(mtrx[0])
+    for i in range(cols - 1):
+        hor_move_range = i + 1 if i + 1 <= rows else rows
+        for j in range(hor_move_range):
+            vert_move = j
+            left_shift = i - j
+            mtrx[vert_move][left_shift] = num
+            num += 1
+    result_mtrx = mtrx
+    return result_mtrx, num
 
-num = 1
 
-matrix = [[0] * cols for _ in range(rows)]
+def mtrx_complete_diag_filling(mtrx_left_side, num):
+    rows = len(mtrx_left_side)
+    cols = len(mtrx_left_side[0])
+    for i in range(rows):
+        y = cols if rows - 1 - i >= cols - 1 else rows - i
 
-for i in range(cols - 1):
-    x = i + 1 if i + 1 <= rows else rows
-    for j in range(x):
-        matrix[j][i - j] = num
-        num += 1
+        for j in range(i, i + y):
+            vert_move = j
+            right_border = cols - 1
+            left_shift = j - i
+            mtrx_left_side[vert_move][right_border - left_shift] = num
+            num += 1
+    result_mtrx = mtrx_left_side
+    return result_mtrx
 
-for i in range(rows):
-    y = cols if rows - 1 - i >= cols - 1 else rows - i
 
-    for j in range(i, i + y):
-        matrix[j][cols - 1 - (j - i)] = num
-        num += 1
+def main():
+    # rows, cols = [int(el) for el in input().split()]
+    rows = 3
+    cols = 5
 
-for i in range(rows):
-    for j in range(cols):
-        print(str(matrix[i][j]).ljust(3), end=' ')
-    print()
+    matrix_base = [[0] * cols for _ in range(rows)]
+
+    num = 1
+    matrix_left_side, num = mtrx_left_side_diag_filling(matrix_base, num)
+    complete_matrix_filling = mtrx_complete_diag_filling(matrix_left_side, num)
+
+    for i in range(rows):
+        for j in range(cols):
+            print(str(complete_matrix_filling[i][j]).ljust(3), end=' ')
+        print()
+
+
+main()
 
 # 1  2  (# 1: i = 0, j = 0;)  # 2:  i = 0, j = 1
 # 3  4  # 3: i = 1, j = 0;  # 4:  i = 1, j = 1
