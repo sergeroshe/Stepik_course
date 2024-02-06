@@ -12,7 +12,7 @@ def mtrx_left_side_diag_filling(mtrx, num):
     return result_mtrx, num
 
 
-def mtrx_complete_diag_filling(mtrx_left_side, num):
+def mtrx_right_lower_corner_filling(mtrx_left_side, num):
     rows = len(mtrx_left_side)
     cols = len(mtrx_left_side[0])
     for i in range(rows):
@@ -40,7 +40,7 @@ def main():
 
     num = 1
     matrix_left_side, num = mtrx_left_side_diag_filling(matrix_base, num)
-    complete_matrix = mtrx_complete_diag_filling(matrix_left_side, num)
+    complete_matrix = mtrx_right_lower_corner_filling(matrix_left_side, num)
 
     for i in range(rows):
         for j in range(cols):
