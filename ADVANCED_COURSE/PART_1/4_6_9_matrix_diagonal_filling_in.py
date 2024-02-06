@@ -40,6 +40,7 @@ def main():
 
     num = 1
     matrix_left_side, num = mtrx_left_side_diag_filling(matrix_base, num)
+    # rename
     complete_matrix = mtrx_right_lower_corner_filling(matrix_left_side, num)
 
     for i in range(rows):
