@@ -19,6 +19,9 @@ def mtrx_complete_diag_filling(mtrx_left_side, num):
         y = cols if rows - i >= cols else rows - i
 
         for j in range(i, i + y):
+            # simplify calc
+            # rename y
+            # simply range up to y
             vert_move = j
             right_border = cols - 1
             left_shift = j - i
