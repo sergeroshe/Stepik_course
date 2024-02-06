@@ -16,7 +16,7 @@ def mtrx_complete_diag_filling(mtrx_left_side, num):
     rows = len(mtrx_left_side)
     cols = len(mtrx_left_side[0])
     for i in range(rows):
-        y = cols if rows - 1 - i >= cols - 1 else rows - i
+        y = cols if rows - i >= cols else rows - i
 
         for j in range(i, i + y):
             vert_move = j
