@@ -16,14 +16,14 @@ def mtrx_right_lower_corner_filling(mtrx_left_side, num):
     rows = len(mtrx_left_side)
     cols = len(mtrx_left_side[0])
     for i in range(rows):
-        y = cols if rows - i >= cols else rows - i
+        shift = i + cols if rows - i >= cols else rows
 
-        for j in range(i, i + y):
+        for j in range(i, shift):
             # simplify calc
             # rename y
             # simply range up to y
             vert_move = j
-            right_border = cols - 1
+            right_border = - 1
             left_shift = j - i
             mtrx_left_side[vert_move][right_border - left_shift] = num
             num += 1
@@ -33,19 +33,19 @@ def mtrx_right_lower_corner_filling(mtrx_left_side, num):
 
 def main():
     # rows, cols = [int(el) for el in input().split()]
-    rows = 3
-    cols = 5
+    rows = 8
+    cols = 3
 
     matrix_base = [[0] * cols for _ in range(rows)]
 
     num = 1
     matrix_left_side, num = mtrx_left_side_diag_filling(matrix_base, num)
     # rename
-    complete_matrix = mtrx_right_lower_corner_filling(matrix_left_side, num)
+    matrix_right_side = mtrx_right_lower_corner_filling(matrix_left_side, num)
 
     for i in range(rows):
         for j in range(cols):
-            print(str(complete_matrix[i][j]).ljust(3), end=' ')
+            print(str(matrix_right_side[i][j]).ljust(3), end=' ')
         print()
 
 
