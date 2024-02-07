@@ -1,33 +1,43 @@
+def mtrx_fill(rows):
+    mtrx = []
+    for _ in range(rows):
+        row = [int(el) for el in input().split()]
+        mtrx.append(row)
+    return mtrx
 
-def matrix_mult(mtrx_1, mtrx_2):
-    result_matrix = []
-    mtrx_1_rows = len(mtrx_1)
-    mtrx_1_cols = len(mtrx_1[0])
-    mtrx_2_cols = len(mtrx_2[0])
 
-    for k in range(mtrx_1_rows):
+def mtrx_mult(left_mtrx, right_mtrx):
+    mtrx_mult_ = []
+    left_mtrx_rows = len(left_mtrx)
+    left_mtrx_cols = len(left_mtrx[0])
+    right_mtrx_cols = len(right_mtrx[0])
+    for k in range(left_mtrx_rows):
         row = []
-        for i in range(mtrx_2_cols):
-            row_element = 0
-            for j in range(mtrx_1_cols):
-                row_element += mtrx_1[k][j] * mtrx_2[j][i]
-            row.append(row_element)
-        result_matrix.append(row)
-    return result_matrix
+        for i in range(right_mtrx_cols):
+            mult_amount = 0
+            for j in range(left_mtrx_cols):
+                matrix_1_row_el = left_mtrx[k][j]
+                matrix_2_col_el = right_mtrx[j][i]
+                mult_amount += matrix_1_row_el * matrix_2_col_el
+            row.append(mult_amount)
+        mtrx_mult_.append(row)
+    return mtrx_mult_
+
+
+def mtrx_power(mtrx, matrix_power):
+    powered_matrix = mtrx
+    for _ in range(matrix_power - 1):
+        powered_matrix = mtrx_mult(powered_matrix, mtrx)
+
+    return powered_matrix
 
 
 def main():
     matrix_size = int(input())
-    matrix = []
-    for _ in range(matrix_size):
-        row = [int(el) for el in input().split()]
-        matrix.append(row)
+    matrix = mtrx_fill(matrix_size)
     matrix_power = int(input())
-    matrix_size = len(matrix)
-    powered_matrix = matrix
-# extract to func matrix_power
-    for _ in range(matrix_power - 1):
-        powered_matrix = matrix_mult(powered_matrix, matrix)
+
+    powered_matrix = mtrx_power(matrix, matrix_power)
 
     for i in range(matrix_size):
         for j in range(matrix_size):
@@ -36,7 +46,6 @@ def main():
 
 
 main()
-
 
 # matrix = [[1, 2, 1],
 #           [3, 3, 3],
