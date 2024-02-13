@@ -9,8 +9,7 @@ def mtrx_left_upper_corner(mtrx, num):
         for j in range(hor_move_range):
             mtrx[j][i - j] = num
             num += 1
-    result_mtrx = mtrx
-    return result_mtrx, num
+    return num
 
 
 def mtrx_right_lower_corner(mtrx_left_side, num):
@@ -18,12 +17,9 @@ def mtrx_right_lower_corner(mtrx_left_side, num):
     cols = len(mtrx_left_side[0])
     for i in range(rows):
         shift = i + cols if rows - i >= cols else rows
-
         for j in range(i, shift):
             mtrx_left_side[j][-1 - (j - i)] = num
             num += 1
-    result_mtrx = mtrx_left_side
-    return result_mtrx
 
 
 def mtrx_print(mtrx, col_width):
@@ -41,10 +37,16 @@ def main():
     matrix_base = [[0] * cols for _ in range(rows)]
 
     num = 1
-    matrix_left_side, num = mtrx_left_upper_corner(matrix_base, num)
-    matrix_right_side = mtrx_right_lower_corner(matrix_left_side, num)
+    # remove mtrx return
+    mtrx_left_upper_corner(matrix_base, num)
+    num = mtrx_left_upper_corner(matrix_base, num)
+    mtrx_right_lower_corner(matrix_base, num)
+    mtrx_print(matrix_base, MTRX_COL_WIDTH)
 
-    mtrx_print(matrix_right_side, MTRX_COL_WIDTH)
+    # # matrix_left_side, num = mtrx_left_upper_corner(matrix_base, num)
+    # matrix_right_side = mtrx_right_lower_corner(matrix_left_side, num)
+    #
+    # mtrx_print(matrix_right_side, MTRX_COL_WIDTH)
 
 
 main()
