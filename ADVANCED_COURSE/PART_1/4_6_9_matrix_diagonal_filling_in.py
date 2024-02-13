@@ -1,4 +1,4 @@
-def mtrx_left_side_diag_filling(mtrx, num):
+def mtrx_left_upper_corner(mtrx, num):
     rows = len(mtrx)
     cols = len(mtrx[0])
     for i in range(cols - 1):
@@ -12,7 +12,7 @@ def mtrx_left_side_diag_filling(mtrx, num):
     return result_mtrx, num
 
 
-def mtrx_right_lower_corner_filling(mtrx_left_side, num):
+def mtrx_right_lower_corner(mtrx_left_side, num):
     rows = len(mtrx_left_side)
     cols = len(mtrx_left_side[0])
     for i in range(rows):
@@ -39,9 +39,9 @@ def main():
     matrix_base = [[0] * cols for _ in range(rows)]
 
     num = 1
-    matrix_left_side, num = mtrx_left_side_diag_filling(matrix_base, num)
+    matrix_left_side, num = mtrx_left_upper_corner(matrix_base, num)
     # rename
-    matrix_right_side = mtrx_right_lower_corner_filling(matrix_left_side, num)
+    matrix_right_side = mtrx_right_lower_corner(matrix_left_side, num)
 
     for i in range(rows):
         for j in range(cols):
