@@ -20,13 +20,7 @@ def mtrx_right_lower_corner(mtrx_left_side, num):
         shift = i + cols if rows - i >= cols else rows
 
         for j in range(i, shift):
-            # simplify calc
-            # rename y
-            # simply range up to y
-            vert_move = j
-            right_border = - 1
-            left_shift = j - i
-            mtrx_left_side[vert_move][right_border - left_shift] = num
+            mtrx_left_side[j][-1 - (j - i)] = num
             num += 1
     result_mtrx = mtrx_left_side
     return result_mtrx
