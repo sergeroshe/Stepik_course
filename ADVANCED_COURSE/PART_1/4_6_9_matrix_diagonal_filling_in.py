@@ -31,6 +31,13 @@ def mtrx_right_lower_corner(mtrx_left_side, num):
     return result_mtrx
 
 
+def mtrx_print(mtrx):
+    for row in mtrx:
+        for el in row:
+            print(str(el).ljust(3), end=' ')
+        print()
+
+
 def main():
     # rows, cols = [int(el) for el in input().split()]
     rows = 8
@@ -42,10 +49,7 @@ def main():
     matrix_left_side, num = mtrx_left_upper_corner(matrix_base, num)
     matrix_right_side = mtrx_right_lower_corner(matrix_left_side, num)
 
-    for i in range(rows):
-        for j in range(cols):
-            print(str(matrix_right_side[i][j]).ljust(3), end=' ')
-        print()
+    mtrx_print(matrix_right_side)
 
 
 main()
