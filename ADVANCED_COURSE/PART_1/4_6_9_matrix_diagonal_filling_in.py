@@ -1,3 +1,6 @@
+MTRX_COL_WIDTH = 5
+
+
 def mtrx_left_upper_corner(mtrx, num):
     rows = len(mtrx)
     cols = len(mtrx[0])
@@ -31,10 +34,10 @@ def mtrx_right_lower_corner(mtrx_left_side, num):
     return result_mtrx
 
 
-def mtrx_print(mtrx):
+def mtrx_print(mtrx, col_width):
     for row in mtrx:
         for el in row:
-            print(str(el).ljust(3), end=' ')
+            print(str(el).ljust(col_width), end=' ')
         print()
 
 
@@ -49,7 +52,7 @@ def main():
     matrix_left_side, num = mtrx_left_upper_corner(matrix_base, num)
     matrix_right_side = mtrx_right_lower_corner(matrix_left_side, num)
 
-    mtrx_print(matrix_right_side)
+    mtrx_print(matrix_right_side, MTRX_COL_WIDTH)
 
 
 main()
