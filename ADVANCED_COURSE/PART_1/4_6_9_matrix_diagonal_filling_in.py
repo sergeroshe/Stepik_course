@@ -7,9 +7,7 @@ def mtrx_left_upper_corner(mtrx, num):
     for i in range(cols - 1):
         hor_move_range = i + 1 if i + 1 <= rows else rows
         for j in range(hor_move_range):
-            vert_move = j
-            left_shift = i - j
-            mtrx[vert_move][left_shift] = num
+            mtrx[j][i - j] = num
             num += 1
     result_mtrx = mtrx
     return result_mtrx, num
