@@ -40,7 +40,6 @@ def main():
 
     num = 1
     matrix_left_side, num = mtrx_left_upper_corner(matrix_base, num)
-    # rename
     matrix_right_side = mtrx_right_lower_corner(matrix_left_side, num)
 
     for i in range(rows):
