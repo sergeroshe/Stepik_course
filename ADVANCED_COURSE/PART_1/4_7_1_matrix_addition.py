@@ -19,7 +19,7 @@ def mtrx_add(left_mtrx, right_mtrx):
 def main():
     rows, columns = [int(el) for el in input().split()]
     left_mtrx = mtrx_fill(rows)
-    empty_line = input()
+    input()
     right_mtrx = mtrx_fill(rows)
     matrix_sum = mtrx_add(left_mtrx, right_mtrx)
     for i in range(rows):
