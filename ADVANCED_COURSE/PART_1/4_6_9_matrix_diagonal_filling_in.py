@@ -37,6 +37,7 @@ def main():
     mtrx_left_upper_corner(matrix_base, num)
     num = mtrx_left_upper_corner(matrix_base, num)
     mtrx_right_lower_corner(matrix_base, num)
+
     mtrx_print(matrix_base, MTRX_COL_WIDTH)
 
 
