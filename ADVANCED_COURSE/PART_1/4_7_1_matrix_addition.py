@@ -27,10 +27,10 @@ def mtrx_print(mtrx, col_width):
 
 
 def main():
-    rows, columns = [int(el) for el in input().split()]
-    left_mtrx = mtrx_fill(rows)
+    row_amount, col_amount = [int(el) for el in input().split()]
+    left_mtrx = mtrx_fill(row_amount)
     input()
-    right_mtrx = mtrx_fill(rows)
+    right_mtrx = mtrx_fill(row_amount)
 
     result_mtrx = mtrx_add(left_mtrx, right_mtrx)
 
