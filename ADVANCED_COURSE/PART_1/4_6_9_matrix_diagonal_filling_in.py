@@ -30,10 +30,7 @@ def mtrx_print(mtrx, col_width):
 
 
 def main():
-    # rows, cols = [int(el) for el in input().split()]
-    rows = 8
-    cols = 3
-
+    rows, cols = [int(el) for el in input().split()]
     matrix_base = [[0] * cols for _ in range(rows)]
 
     num = 1
