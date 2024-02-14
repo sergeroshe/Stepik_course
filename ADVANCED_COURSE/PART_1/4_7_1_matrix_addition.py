@@ -1,20 +1,20 @@
 MTRX_COL_WIDTH = 5
 
 
-def mtrx_fill(rows):
+def mtrx_fill(row_amount):
     mtrx = []
-    for _ in range(rows):
+    for _ in range(row_amount):
         row = [int(el) for el in input().split()]
         mtrx.append(row)
     return mtrx
 
 
 def mtrx_add(left_mtrx, right_mtrx):
-    rows = len(left_mtrx)
-    cols = len(left_mtrx[0])
+    row_amount = len(left_mtrx)
+    col_amount = len(left_mtrx[0])
     result_mtrx = []
-    for i in range(rows):
-        row = [(left_mtrx[i][j] + right_mtrx[i][j]) for j in range(cols)]
+    for i in range(row_amount):
+        row = [(left_mtrx[i][j] + right_mtrx[i][j]) for j in range(col_amount)]
         result_mtrx.append(row)
     return result_mtrx
 
