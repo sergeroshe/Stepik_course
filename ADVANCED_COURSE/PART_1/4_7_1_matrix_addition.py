@@ -1,3 +1,6 @@
+MTRX_COL_WIDTH = 5
+
+
 def mtrx_fill(rows):
     mtrx = []
     for _ in range(rows):
@@ -16,16 +19,21 @@ def mtrx_add(left_mtrx, right_mtrx):
     return result_mtrx
 
 
+def mtrx_print(mtrx, col_width):
+    for row in mtrx:
+        for el in row:
+            print(str(el).ljust(col_width), end=' ')
+        print()
+
+
 def main():
     rows, columns = [int(el) for el in input().split()]
     left_mtrx = mtrx_fill(rows)
     input()
     right_mtrx = mtrx_fill(rows)
     matrix_sum = mtrx_add(left_mtrx, right_mtrx)
-    for i in range(rows):
-        for j in range(columns):
-            print(str(matrix_sum[i][j]).ljust(3), end=' ')
-        print()
+
+    mtrx_print(matrix_sum, MTRX_COL_WIDTH)
 
 
 main()
