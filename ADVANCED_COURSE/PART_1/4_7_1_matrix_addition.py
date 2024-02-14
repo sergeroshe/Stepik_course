@@ -31,9 +31,10 @@ def main():
     left_mtrx = mtrx_fill(rows)
     input()
     right_mtrx = mtrx_fill(rows)
-    matrix_sum = mtrx_add(left_mtrx, right_mtrx)
 
-    mtrx_print(matrix_sum, MTRX_COL_WIDTH)
+    result_mtrx = mtrx_add(left_mtrx, right_mtrx)
+
+    mtrx_print(result_mtrx, MTRX_COL_WIDTH)
 
 
 main()
