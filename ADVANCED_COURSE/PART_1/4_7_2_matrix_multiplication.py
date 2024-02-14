@@ -28,7 +28,7 @@ def main():
     left_mtrx_rows, left_mtrx_cols = [int(el) for el in input().split()]
 
     left_mtrx = mtrx_fill(left_mtrx_rows)
-    empty_line = input()
+    input()
     right_mtrx_rows, right_mtrx_cols = [int(el) for el in input().split()]
     right_mtrx = mtrx_fill(right_mtrx_rows)
     matrix_mult = mtrx_mult(left_mtrx, right_mtrx)
