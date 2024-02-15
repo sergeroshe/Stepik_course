@@ -1,3 +1,6 @@
+MTRX_COL_WIDTH = 5
+
+
 def mtrx_fill(rows):
     mtrx = []
     for _ in range(rows):
@@ -16,27 +19,31 @@ def mtrx_mult(left_mtrx, right_mtrx):
         for i in range(right_mtrx_col_amount):
             mult_amount = 0
             for j in range(left_mtrx_col_amount):
-                matrix_1_row_el = left_mtrx[k][j]
-                matrix_2_col_el = right_mtrx[j][i]
-                mult_amount += matrix_1_row_el * matrix_2_col_el
+                left_row_el = left_mtrx[k][j]
+                right_col_el = right_mtrx[j][i]
+                mult_amount += left_row_el * right_col_el
             row.append(mult_amount)
         mtrx_mult_.append(row)
     return mtrx_mult_
 
 
+def mtrx_print(mtrx, col_width):
+    for row in mtrx:
+        for el in row:
+            print(str(el).ljust(col_width), end=' ')
+        print()
+
+
 def main():
     left_mtrx_row_amount, left_mtrx_col_amount = [int(el) for el in input().split()]
-
     left_mtrx = mtrx_fill(left_mtrx_row_amount)
     input()
     right_mtrx_row_amount, right_mtrx_col_amount = [int(el) for el in input().split()]
     right_mtrx = mtrx_fill(right_mtrx_row_amount)
-    matrix_mult = mtrx_mult(left_mtrx, right_mtrx)
 
-    for i in range(left_mtrx_row_amount):
-        for j in range(right_mtrx_col_amount):
-            print(str(matrix_mult[i][j]).ljust(3), end=' ')
-        print()
+    result_mtrx = mtrx_mult(left_mtrx, right_mtrx)
+
+    mtrx_print(result_mtrx, MTRX_COL_WIDTH)
 
 
 main()
