@@ -17,12 +17,12 @@ def mtrx_mult(left_mtrx, right_mtrx):
     for k in range(left_mtrx_row_amount):
         row = []
         for i in range(right_mtrx_col_amount):
-            mult_amount = 0
+            row_el = 0
             for j in range(left_mtrx_col_amount):
                 left_row_el = left_mtrx[k][j]
                 right_col_el = right_mtrx[j][i]
-                mult_amount += left_row_el * right_col_el
-            row.append(mult_amount)
+                row_el += left_row_el * right_col_el
+            row.append(row_el)
         result_mtrx.append(row)
     return result_mtrx
 
