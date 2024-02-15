@@ -8,18 +8,18 @@ def mtrx_fill(rows):
 
 def mtrx_mult(left_mtrx, right_mtrx):
     mtrx_mult_ = []
-    left_mtrx_rows = len(left_mtrx)
-    left_mtrx_cols = len(left_mtrx[0])
-    right_mtrx_cols = len(right_mtrx[0])
-    for k in range(left_mtrx_rows):
+    left_mtrx_row_amount = len(left_mtrx)
+    left_mtrx_col_amount = len(left_mtrx[0])
+    right_mtrx_col_amount = len(right_mtrx[0])
+    for k in range(left_mtrx_row_amount):
         row = []
-        for i in range(right_mtrx_cols):
-            mult_amount = 0
-            for j in range(left_mtrx_cols):
-                matrix_1_row_el = left_mtrx[k][j]
-                matrix_2_col_el = right_mtrx[j][i]
-                mult_amount += matrix_1_row_el * matrix_2_col_el
-            row.append(mult_amount)
+        for i in range(right_mtrx_col_amount):
+            row_el = 0
+            for j in range(left_mtrx_col_amount):
+                left_mtrx_row_el = left_mtrx[k][j]
+                right_mtrx_col_el = right_mtrx[j][i]
+                row_el += left_mtrx_row_el * right_mtrx_col_el
+            row.append(row_el)
         mtrx_mult_.append(row)
     return mtrx_mult_
 
