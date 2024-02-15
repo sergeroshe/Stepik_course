@@ -1,3 +1,6 @@
+MTRX_COL_WIDTH = 5
+
+
 def mtrx_fill(rows):
     mtrx = []
     for _ in range(rows):
@@ -32,17 +35,21 @@ def mtrx_power(mtrx, matrix_power):
     return powered_matrix
 
 
+def mtrx_print(mtrx, col_width):
+    for row in mtrx:
+        for el in row:
+            print(str(el).ljust(col_width), end=' ')
+        print()
+
+
 def main():
     matrix_size = int(input())
     matrix = mtrx_fill(matrix_size)
     matrix_power = int(input())
 
-    powered_matrix = mtrx_power(matrix, matrix_power)
+    result_mtrx = mtrx_power(matrix, matrix_power)
 
-    for i in range(matrix_size):
-        for j in range(matrix_size):
-            print(str(powered_matrix[i][j]).ljust(3), end=' ')
-        print()
+    mtrx_print(result_mtrx, MTRX_COL_WIDTH)
 
 
 main()
