@@ -10,7 +10,7 @@ def mtrx_fill(rows):
 
 
 def mtrx_mult(left_mtrx, right_mtrx):
-    mtrx_mult_ = []
+    result_mtrx = []
     left_mtrx_row_amount = len(left_mtrx)
     left_mtrx_col_amount = len(left_mtrx[0])
     right_mtrx_col_amount = len(right_mtrx[0])
@@ -23,8 +23,8 @@ def mtrx_mult(left_mtrx, right_mtrx):
                 right_col_el = right_mtrx[j][i]
                 mult_amount += left_row_el * right_col_el
             row.append(mult_amount)
-        mtrx_mult_.append(row)
-    return mtrx_mult_
+        result_mtrx.append(row)
+    return result_mtrx
 
 
 def mtrx_print(mtrx, col_width):
