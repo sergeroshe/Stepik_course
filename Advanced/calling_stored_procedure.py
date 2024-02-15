@@ -7,10 +7,25 @@ mydb = mysql.connector.connect(
     port='3306',
     database='classicmodels'
 )
-mycursor = mydb.cursor()
-users = mycursor.fetchall()
+cursorObject = mydb.cursor()
 
-for user in users:
-    print(user)
-    print('Username: ' + user[1])
-    print('Password: ' + user[2])
+query = "CALL classicmodels.show_customers()"
+cursorObject.execute(query)
+
+query_result = cursorObject.fetchall()
+
+for el in query_result:
+    print(el)
+
+# disconnecting from server
+mydb.close()
+# show_customers_proc = 'CALL classicmodels.show_customers()'
+#
+# # table created
+# cursorObject.execute(show_customers_proc)
+#
+# # disconnecting from server
+# mydb.close()
+
+
+
