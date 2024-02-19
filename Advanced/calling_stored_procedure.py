@@ -9,7 +9,7 @@ mydb = mysql.connector.connect(
 )
 cursorObject = mydb.cursor()
 
-query = "CALL classicmodels.show_customers()"
+query = "CALL classicmodels.show_customers('USA')"
 cursorObject.execute(query)
 
 query_result = cursorObject.fetchall()
