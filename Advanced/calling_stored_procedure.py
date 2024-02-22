@@ -9,7 +9,10 @@ mydb = mysql.connector.connect(
 )
 cursorObject = mydb.cursor()
 
-query = "SELECT * FROM salePerOrder LIMIT 3;"
+query = "CALL classicmodels.show_customers('USA')"
+
+# 'VIEW'
+# query = "SELECT * FROM salePerOrder LIMIT 3;"
 cursorObject.execute(query)
 
 query_result = cursorObject.fetchall()
