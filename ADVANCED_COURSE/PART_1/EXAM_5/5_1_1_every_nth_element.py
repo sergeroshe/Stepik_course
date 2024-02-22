@@ -7,9 +7,9 @@ input_string_list_len = len(input_string_list)
 result_list = []
 for start_idx in range(skipped_el_amount):
     sublist = []
-    for j in range(start_idx, input_string_list_len, skipped_el_amount):
-        if input_string_list[j] not in result_list:
-            sublist.append(input_string_list[j])
+    for i in range(start_idx, input_string_list_len, skipped_el_amount):
+        if input_string_list[i] not in result_list:
+            sublist.append(input_string_list[i])
     result_list.append(sublist)
 
 print(result_list)
