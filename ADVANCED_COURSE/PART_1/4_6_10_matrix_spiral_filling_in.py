@@ -1,29 +1,29 @@
 MTRX_COL_WIDTH = 5
 
 
-def left_right_top_bottom_filling(mtrx, num, left, right, top, bottom):
-    for i in range(left, right + 1):
-        mtrx[top][i] = num
+def left_right_top_bottom_filling(mtrx, num, start_hor_idx, stop_hor_idx, start_vert_idx, stop_vert_idx):
+    for i in range(start_hor_idx, stop_hor_idx + 1):
+        mtrx[start_vert_idx][i] = num
         num += 1
-    top += 1
-    for i in range(top, bottom + 1):
-        mtrx[i][right] = num
+    start_vert_idx += 1
+    for i in range(start_vert_idx, stop_vert_idx + 1):
+        mtrx[i][stop_hor_idx] = num
         num += 1
-    right -= 1
-    return num, top, right
+    stop_hor_idx -= 1
+    return num, start_vert_idx, stop_hor_idx
 
 
-def right_left_bottom_top_filling(mtrx, num, left, right, top, bottom):
-    for i in range(right, left - 1, -1):
-        mtrx[bottom][i] = num
+def right_left_bottom_top_filling(mtrx, num, start_hor_idx, stop_hor_idx, start_vert_idx, stop_vert_idx):
+    for i in range(start_hor_idx, stop_hor_idx - 1, -1):
+        mtrx[start_vert_idx][i] = num
         num += 1
-    bottom -= 1
+    start_vert_idx -= 1
 
-    for i in range(bottom, top - 1, -1):
-        mtrx[i][left] = num
+    for i in range(start_vert_idx, stop_vert_idx - 1, -1):
+        mtrx[i][stop_hor_idx] = num
         num += 1
-    left += 1
-    return num, bottom, left
+    stop_hor_idx += 1
+    return num, start_vert_idx, stop_hor_idx
 
 
 def mtrx_print(mtrx, col_width):
@@ -49,7 +49,7 @@ def main():
         num, top, right = left_right_top_bottom_filling(matrix, num, left, right, top, bottom)
 
         if top <= bottom and left <= right:
-            num, bottom, left = right_left_bottom_top_filling(matrix, num, left, right, top, bottom)
+            num, bottom, left = right_left_bottom_top_filling(matrix, num, right, left, bottom, top)
 
     mtrx_print(matrix, MTRX_COL_WIDTH)
 
