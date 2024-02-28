@@ -1,47 +1,66 @@
-# rows, cols = [int(el) for el in input().split()]
+MTRX_COL_WIDTH = 5
 
-rows = 5
-cols = 7
 
-matrix = [[0] * cols for _ in range(rows)]
-
-num = 1
-top = 0
-bottom = rows - 1
-left = 0
-right = cols - 1
-
-while top <= bottom and left <= right:
+def left_right_filling(mtrx, num, left, right, top):
     for i in range(left, right + 1):
-        matrix[top][i] = num
+        mtrx[top][i] = num
         num += 1
     top += 1
+    return num, top
 
+
+def top_bottom_filling(mtrx, num, top, bottom, right):
     for i in range(top, bottom + 1):
-        matrix[i][right] = num
+        mtrx[i][right] = num
         num += 1
     right -= 1
+    return num, right
 
-    if top <= bottom:
-        for i in range(right, left - 1, -1):
-            matrix[bottom][i] = num
-            num += 1
-        bottom -= 1
 
-    if left <= right:
-        for i in range(bottom, top - 1, -1):
-            matrix[i][left] = num
-            num += 1
-        left += 1
+def right_left_filling(mtrx, num, right, left, bottom):
+    for i in range(right, left - 1, -1):
+        mtrx[bottom][i] = num
+        num += 1
+    bottom -= 1
+    return num, bottom
 
-for i in range(rows):
-    for j in range(cols):
-        print(str(matrix[i][j]).ljust(3), end=' ')
-    print()
 
-# 4 5
+def bottom_top_filling(mtrx, num, bottom, top, left):
+    for i in range(bottom, top - 1, -1):
+        mtrx[i][left] = num
+        num += 1
+    left += 1
+    return num, left
 
-# 1  2  3  4  5
-# 14 15 16 17 6
-# 13 20 19 18 7
-# 12 11 10 9  8
+
+def mtrx_print(mtrx, col_width):
+    for row in mtrx:
+        for el in row:
+            print(str(el).ljust(col_width), end=' ')
+        print()
+
+
+def main():
+    rows = 5
+    cols = 7
+    # rows, cols = [int(el) for el in input().split()]
+
+    matrix = [[0] * cols for _ in range(rows)]
+
+    num = 1
+    top = 0
+    bottom = rows - 1
+    left = 0
+    right = cols - 1
+    while top <= bottom and left <= right:
+        num, top = left_right_filling(matrix, num, left, right, top)
+        num, right = top_bottom_filling(matrix, num, top, bottom, right)
+        if top <= bottom:
+            num, bottom = right_left_filling(matrix, num, right, left, bottom)
+        if left <= right:
+            num, left = bottom_top_filling(matrix, num, bottom, top, left)
+
+    mtrx_print(matrix, MTRX_COL_WIDTH)
+
+
+main()
