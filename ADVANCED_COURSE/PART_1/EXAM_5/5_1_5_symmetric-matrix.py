@@ -12,10 +12,12 @@ def mtrx_fill(rows):
 
 def is_mtrx_symmetric(mtrx):
     is_symmetric = True
+    mtrx_len = len(mtrx)
     i = 0
-    while is_symmetric and i < len(mtrx):
+    while is_symmetric and i < mtrx_len // 2:
         j = 0
-        while is_symmetric and j < len(mtrx[i]):
+        row_len = len(mtrx[i])
+        while is_symmetric and j < row_len - i:
             mtrx_left_upper = mtrx[i][j]
             mtrx_right_lower = mtrx[-(j + 1)][-(i + 1)]
             is_symmetric = mtrx_left_upper == mtrx_right_lower
@@ -28,11 +30,11 @@ def is_mtrx_symmetric(mtrx):
 def main():
     answer = POSITIVE_ANSWER
     # mtrx_size = 3
-    mtrx_size = int(input())
-    mtrx = mtrx_fill(mtrx_size)
-    # mtrx = [[0, 3, 10],
-    #         [4, 9, 3],
-    #         [7, 4, 0]]
+    # mtrx_size = int(input())
+    # mtrx = mtrx_fill(mtrx_size)
+    mtrx = [[0, 1, 2],
+            [1, 2, 7],
+            [2, 3, 4]]
 
     if not is_mtrx_symmetric(mtrx):
         answer = NEGATIVE_ANSWER
