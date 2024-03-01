@@ -13,10 +13,11 @@ def mtrx_fill(rows):
 def is_mtrx_symmetric(mtrx):
     is_symmetric = True
     row_amount = len(mtrx)
+    col_amount = len(mtrx[0])
     i = 0
+
     while is_symmetric and i < row_amount // 2:
         j = 0
-        col_amount = len(mtrx[i])
         while is_symmetric and j < col_amount - i:
             left_upper_el = mtrx[i][j]
             right_lower_el = mtrx[-(j + 1)][-(i + 1)]
@@ -43,4 +44,3 @@ def main():
 
 
 main()
-
