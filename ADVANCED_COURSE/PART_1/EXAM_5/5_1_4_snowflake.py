@@ -15,8 +15,8 @@ def mtrx_fill(mtrx_size, filling_char):
 
 def mtrx_cross(mtrx, filling_char):
     mtrx_size = len(mtrx)
+    mtrx_mid = mtrx_size // 2
     for i in range(mtrx_size):
-        mtrx_mid = mtrx_size // 2
         mtrx[mtrx_mid][i] = filling_char
         mtrx[i][mtrx_mid] = filling_char
 
