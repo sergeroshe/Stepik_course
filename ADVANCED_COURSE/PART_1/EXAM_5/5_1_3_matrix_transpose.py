@@ -27,9 +27,6 @@ def mtrx_print(mtrx, col_width):
 def main():
     matrix_size = int(input())
     matrix = mtrx_fill(matrix_size)
-    # matrix = [[1, 2, 3],
-    #           [4, 5, 6],
-    #           [7, 8, 9]]
 
     mtrx_transpose(matrix)
 
