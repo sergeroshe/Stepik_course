@@ -28,6 +28,11 @@ def mtrx_diags(mtrx, filling_char):
         mtrx[-(i + 1)][i] = filling_char
 
 
+def mtrx_snowflake(mtrx, filling_char):
+    mtrx_cross(mtrx, filling_char)
+    mtrx_diags(mtrx, filling_char)
+
+
 def mtrx_print(mtrx, col_width):
     for row in mtrx:
         for el in row:
@@ -40,8 +45,7 @@ def main():
     # mtrx_size = 5
     mtrx = mtrx_fill(mtrx_size, MTRX_FILLING_CHAR)
 
-    mtrx_cross(mtrx, SNOWFLAKE_FILLING_CHAR)
-    mtrx_diags(mtrx, SNOWFLAKE_FILLING_CHAR)
+    mtrx_snowflake(mtrx, SNOWFLAKE_FILLING_CHAR)
 
     mtrx_print(mtrx, MTRX_COL_WIDTH)
 
