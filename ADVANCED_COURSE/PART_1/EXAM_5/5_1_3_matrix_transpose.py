@@ -9,7 +9,7 @@ def mtrx_fill(rows):
     return mtrx
 
 
-def mtrx_row_col_interchange(mtrx):
+def mtrx_transpose(mtrx):
     row_amount = len(mtrx)
     col_amount = len(mtrx[0])
     for i in range(row_amount):
@@ -31,7 +31,7 @@ def main():
     #           [4, 5, 6],
     #           [7, 8, 9]]
 
-    mtrx_row_col_interchange(matrix)
+    mtrx_transpose(matrix)
 
     mtrx_print(matrix, MTRX_COL_WIDTH)
 
