@@ -18,9 +18,9 @@ def is_mtrx_symmetric(mtrx):
         j = 0
         row_len = len(mtrx[i])
         while is_symmetric and j < row_len - i:
-            mtrx_left_upper = mtrx[i][j]
-            mtrx_right_lower = mtrx[-(j + 1)][-(i + 1)]
-            is_symmetric = mtrx_left_upper == mtrx_right_lower
+            left_upper_el = mtrx[i][j]
+            right_lower_el = mtrx[-(j + 1)][-(i + 1)]
+            is_symmetric = left_upper_el == right_lower_el
             j += 1
         i += 1
 
