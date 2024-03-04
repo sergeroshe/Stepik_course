@@ -7,6 +7,10 @@ QUEEN_POSITION_MARK = 'Q'
 FILLING_CHAR = '.'
 POSSIBLE_MOVE_MARK = '*'
 MTRX_COL_WIDTH = 3
+SHIFT_LIST = [[MOVE_FRONT, MOVE_BACK],
+              [MOVE_BACK, MOVE_FRONT],
+              [MOVE_FRONT, MOVE_FRONT],
+              [MOVE_BACK, MOVE_BACK]]
 
 
 def mtrx_fill(mtrx_size, filling_char):
@@ -14,46 +18,19 @@ def mtrx_fill(mtrx_size, filling_char):
     return mtrx
 
 
-def queen_moves(y, x, mtrx):
-
+def queen_moves(y, x, mtrx, shift_list):
     for i in range(CHESS_BOARD_SIZE):
         mtrx[y][i] = POSSIBLE_MOVE_MARK
         mtrx[i][x] = POSSIBLE_MOVE_MARK
-    MOVE_LIST = [[MOVE_FRONT, MOVE_BACK],
-                 [MOVE_BACK, MOVE_FRONT],
-                 [MOVE_FRONT, MOVE_FRONT],
-                 [MOVE_BACK, MOVE_BACK]]
 
-    y_move = y
-    x_move = x
-    while 0 <= y_move <= CHESS_BOARD_SIZE - 1\
-            and 0 <= x_move <= CHESS_BOARD_SIZE - 1:
-        mtrx[y_move][x_move] = POSSIBLE_MOVE_MARK
-        y_move += MOVE_FRONT
-        x_move += MOVE_FRONT
-
-    y_move = y
-    x_move = x
-    while 0 <= y_move <= CHESS_BOARD_SIZE - 1\
-            and 0 <= x_move <= CHESS_BOARD_SIZE - 1:
-        mtrx[y_move][x_move] = POSSIBLE_MOVE_MARK
-        y_move += MOVE_BACK
-        x_move += MOVE_BACK
-    y_move = y
-    x_move = x
-    while 0 <= y_move <= CHESS_BOARD_SIZE - 1\
-            and 0 <= x_move <= CHESS_BOARD_SIZE - 1:
-        mtrx[y_move][x_move] = POSSIBLE_MOVE_MARK
-        y_move += MOVE_FRONT
-        x_move += MOVE_BACK
-
-    y_move = y
-    x_move = x
-    while 0 <= y_move <= CHESS_BOARD_SIZE - 1\
-            and 0 <= x_move <= CHESS_BOARD_SIZE - 1:
-        mtrx[y_move][x_move] = POSSIBLE_MOVE_MARK
-        y_move += MOVE_BACK
-        x_move += MOVE_FRONT
+    for shift in shift_list:
+        y_move = y
+        x_move = x
+        while 0 <= y_move <= CHESS_BOARD_SIZE - 1 \
+                and 0 <= x_move <= CHESS_BOARD_SIZE - 1:
+            mtrx[y_move][x_move] = POSSIBLE_MOVE_MARK
+            y_move += shift[0]
+            x_move += shift[1]
 
 
 def mtrx_print(mtrx, col_width):
@@ -66,11 +43,11 @@ def mtrx_print(mtrx, col_width):
 def main():
     matrix = mtrx_fill(CHESS_BOARD_SIZE, FILLING_CHAR)
 
-    position = 'f5'
-    # position = input()
+    # position = 'd5'
+    position = input()
     queen_x = ord(position[0]) - X_COORD_SHIFT
     queen_y = CHESS_BOARD_SIZE - int(position[-1])
-    queen_moves(queen_y, queen_x, matrix)
+    queen_moves(queen_y, queen_x, matrix, SHIFT_LIST)
 
     matrix[queen_y][queen_x] = QUEEN_POSITION_MARK
 
