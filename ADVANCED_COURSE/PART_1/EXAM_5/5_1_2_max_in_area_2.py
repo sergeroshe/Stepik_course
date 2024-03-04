@@ -9,7 +9,7 @@ def mtrx_fill(rows):
 def mtrx_right_lower_corner_max(mtrx):
     max_num = mtrx[0][-1]
     row_amount = len(mtrx)
-    for i in range(row_amount):
+    for i in range(1, row_amount):
         for j in range(-(i + 1), 0):
             num = mtrx[i][j]
             if num > max_num:
