@@ -1,8 +1,8 @@
 CHESS_BOARD_SIZE = 8
 X_COORD_SHIFT = ord('a')
 
-MOVE = 1
-STAY = 0
+MOVE_FRONT = 1
+MOVE_BACK = -1
 QUEEN_POSITION_MARK = 'Q'
 FILLING_CHAR = '.'
 POSSIBLE_MOVE_MARK = '*'
@@ -19,38 +19,41 @@ def queen_moves(y, x, mtrx):
     for i in range(CHESS_BOARD_SIZE):
         mtrx[y][i] = POSSIBLE_MOVE_MARK
         mtrx[i][x] = POSSIBLE_MOVE_MARK
+    MOVE_LIST = [[MOVE_FRONT, MOVE_BACK],
+                 [MOVE_BACK, MOVE_FRONT],
+                 [MOVE_FRONT, MOVE_FRONT],
+                 [MOVE_BACK, MOVE_BACK]]
 
-    i = 0
-    y_move = y + i
-    x_move = x + i
+    y_move = y
+    x_move = x
     while 0 <= y_move <= CHESS_BOARD_SIZE - 1\
             and 0 <= x_move <= CHESS_BOARD_SIZE - 1:
         mtrx[y_move][x_move] = POSSIBLE_MOVE_MARK
-        y_move += 1
-        x_move += 1
+        y_move += MOVE_FRONT
+        x_move += MOVE_FRONT
 
-    y_move = y + i
-    x_move = x + i
+    y_move = y
+    x_move = x
     while 0 <= y_move <= CHESS_BOARD_SIZE - 1\
             and 0 <= x_move <= CHESS_BOARD_SIZE - 1:
         mtrx[y_move][x_move] = POSSIBLE_MOVE_MARK
-        y_move -= 1
-        x_move -= 1
-    y_move = y + i
-    x_move = x + i
+        y_move += MOVE_BACK
+        x_move += MOVE_BACK
+    y_move = y
+    x_move = x
     while 0 <= y_move <= CHESS_BOARD_SIZE - 1\
             and 0 <= x_move <= CHESS_BOARD_SIZE - 1:
         mtrx[y_move][x_move] = POSSIBLE_MOVE_MARK
-        y_move += 1
-        x_move -= 1
+        y_move += MOVE_FRONT
+        x_move += MOVE_BACK
 
-    y_move = y + i
-    x_move = x + i
+    y_move = y
+    x_move = x
     while 0 <= y_move <= CHESS_BOARD_SIZE - 1\
             and 0 <= x_move <= CHESS_BOARD_SIZE - 1:
         mtrx[y_move][x_move] = POSSIBLE_MOVE_MARK
-        y_move -= 1
-        x_move += 1
+        y_move += MOVE_BACK
+        x_move += MOVE_FRONT
 
 
 def mtrx_print(mtrx, col_width):
