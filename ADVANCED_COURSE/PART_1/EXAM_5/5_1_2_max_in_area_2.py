@@ -20,14 +20,8 @@ def mtrx_right_lower_corner_max(mtrx):
 
 def main():
     mtrx_size = int(input())
-    # mtrx_size = 4
+
     mtrx = mtrx_fill(mtrx_size)
-    # mtrx = [[1, 9, 5, 1, 4, 7],
-    #         [6, 9, 8, 6, 7, 4],
-    #         [1, 1, 6, 1, 1, 1],
-    #         [1, 4, 5, 8, 7, 5],
-    #         [6, 7, 8, 1, 1, 0],
-    #         [6, 1, 8, 6, 7, 7]]
 
     max_num = mtrx_right_lower_corner_max(mtrx)
 
