@@ -1,11 +1,13 @@
 MTRX_COL_WIDTH = 5
 
 
-def left_right_top_bottom_filling(mtrx, num, start_hor_idx, stop_hor_idx, start_vert_idx, stop_vert_idx):
+def left_corner_bottom_filling(mtrx, num, start_hor_idx, stop_hor_idx, start_vert_idx, stop_vert_idx):
+    # left to right movement
     for i in range(start_hor_idx, stop_hor_idx + 1):
         mtrx[start_vert_idx][i] = num
         num += 1
     start_vert_idx += 1
+    # top to bottom movement
     for i in range(start_vert_idx, stop_vert_idx + 1):
         mtrx[i][stop_hor_idx] = num
         num += 1
@@ -13,12 +15,13 @@ def left_right_top_bottom_filling(mtrx, num, start_hor_idx, stop_hor_idx, start_
     return num, start_vert_idx, stop_hor_idx
 
 
-def right_left_bottom_top_filling(mtrx, num, start_hor_idx, stop_hor_idx, start_vert_idx, stop_vert_idx):
+def right_corner_top_filling(mtrx, num, start_hor_idx, stop_hor_idx, start_vert_idx, stop_vert_idx):
+    # right to left movement
     for i in range(start_hor_idx, stop_hor_idx - 1, -1):
         mtrx[start_vert_idx][i] = num
         num += 1
     start_vert_idx -= 1
-
+    # bottom to top movement
     for i in range(start_vert_idx, stop_vert_idx - 1, -1):
         mtrx[i][stop_hor_idx] = num
         num += 1
@@ -46,10 +49,10 @@ def main():
     left = 0
     right = cols - 1
     while top <= bottom and left <= right:
-        num, top, right = left_right_top_bottom_filling(matrix, num, left, right, top, bottom)
+        num, top, right = left_corner_bottom_filling(matrix, num, left, right, top, bottom)
 
         if top <= bottom and left <= right:
-            num, bottom, left = right_left_bottom_top_filling(matrix, num, right, left, bottom, top)
+            num, bottom, left = right_corner_top_filling(matrix, num, right, left, bottom, top)
 
     mtrx_print(matrix, MTRX_COL_WIDTH)
 
