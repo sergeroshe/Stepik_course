@@ -33,9 +33,9 @@ def mtrx_print(mtrx, col_width):
 
 
 def main():
-    # rows = 1
-    # cols = 6
-    rows, cols = [int(el) for el in input().split()]
+    rows = 5
+    cols = 7
+    # rows, cols = [int(el) for el in input().split()]
 
     matrix = [[0] * cols for _ in range(rows)]
 
