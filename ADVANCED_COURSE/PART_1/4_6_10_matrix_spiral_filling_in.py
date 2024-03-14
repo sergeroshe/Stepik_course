@@ -14,15 +14,21 @@ def mtrx_spiral_filling(mtrx):
                   [-1, 0, 1, 1]]
     y = 0
     x = 0
+    i = 0
+    len_shift_list = len(shift_list)
     while (0 <= x < col_amount and 0 <= y < row_amount) and mtrx[y][x] == 0:
-        for shift in shift_list:
-            while (0 <= x < col_amount and 0 <= y < row_amount) and mtrx[y][x] == 0:
-                mtrx[y][x] = num
-                y += shift[0]
-                x += shift[1]
-                num += 1
-            y += shift[2]
-            x += shift[3]
+        if i > len_shift_list - 1:
+            i = 0
+        shift = shift_list[i]
+        while (0 <= x < col_amount and 0 <= y < row_amount) and mtrx[y][x] == 0:
+            mtrx[y][x] = num
+            y += shift[0]
+            x += shift[1]
+            num += 1
+        y += shift[2]
+        x += shift[3]
+        i += 1
+        # i += 1 if i <= len_shift_list - 1 else 0
 
 
 def mtrx_print(mtrx, col_width):
