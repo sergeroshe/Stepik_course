@@ -11,14 +11,10 @@ def mtrx_diagonals_parallel_to_main(mtrx):
     for i in range(mtrx_size):
         for j in range(mtrx_size):
             mtrx[i][i] = 0
-            num = 1
-            for k in range(i + 1, mtrx_size):
-                mtrx[i][k] = num
-                num += 1
-            num = 0
-            for l in range(i, -1, -1):
-                mtrx[i][l] = num
-                num += 1
+            if j > i:
+                mtrx[i][j] = j - i
+            elif j < i:
+                mtrx[i][j] = i - j
 
 
 def mtrx_print(mtrx, col_width):
