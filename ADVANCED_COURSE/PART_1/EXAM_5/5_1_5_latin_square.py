@@ -38,7 +38,7 @@ def is_latin_square(mtrx):
     col_valid = True
     i = 0
     mtrx_size = len(mtrx)
-    while i < mtrx_size and row_valid:
+    while i < mtrx_size and row_valid and col_valid:
         row_valid = is_sequence_valid(mtrx[i], 1)
         col = []
         len_row = len(mtrx[i])
@@ -50,15 +50,16 @@ def is_latin_square(mtrx):
         i += 1
     mtrx_valid = row_valid and col_valid
     return mtrx_valid
+    # remove extra iteration, ged rid of column list
 
 
 def main():
-    # matrix_size = int(input())
-    matrix_size = 3
-    # mtrx = mtrx_fill(matrix_size)
-    mtrx = [[1, 2, 3],
-            [3, 2, 1],
-            [2, 3, 4]]
+    matrix_size = int(input())
+    # matrix_size = 3
+    mtrx = mtrx_fill(matrix_size)
+    # mtrx = [[1, 2, 3],
+    #         [3, 2, 1],
+    #         [5, 3, 4]]
 
     answer = Y_ANSWER
 
