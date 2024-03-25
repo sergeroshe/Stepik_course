@@ -8,10 +8,10 @@ def mtrx_spiral_filling(mtrx):
     row_amount = len(mtrx)
     col_amount = len(mtrx[0])
     num = 1
-    shift_list = [[0, 1, 1, -1],
-                  [1, 0, -1, -1],
-                  [0, -1, -1, 1],
-                  [-1, 0, 1, 1]]
+    shift_list = [[0, 1],
+                  [1, 0],
+                  [0, -1],
+                  [-1, 0]]
     y = 0
     x = 0
     shift_idx = 0
