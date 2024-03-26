@@ -18,7 +18,6 @@ def mtrx_spiral_filling(mtrx):
     len_shift_list = len(shift_list)
     while (0 <= x < col_amount and 0 <= y < row_amount) and mtrx[y][x] == 0:
         shift_idx %= len_shift_list
-        # mode to use
         shift = shift_list[shift_idx]
         while (0 <= x < col_amount and 0 <= y < row_amount) and mtrx[y][x] == 0:
             mtrx[y][x] = num
@@ -29,7 +28,6 @@ def mtrx_spiral_filling(mtrx):
         x -= shift[1]
         shift_idx += 1
         shift_idx %= len_shift_list
-
         shift = shift_list[shift_idx]
         y += shift[0]
         x += shift[1]
