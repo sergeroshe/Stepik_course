@@ -25,8 +25,7 @@ def mtrx_spiral_filling(mtrx):
             num += 1
         y -= shift[0]
         x -= shift[1]
-        shift_idx += 1
-        shift_idx %= len_shift_list
+        shift_idx = (shift_idx + 1) % len_shift_list
         shift = shift_list[shift_idx]
         y += shift[0]
         x += shift[1]
