@@ -40,13 +40,15 @@ def is_latin_square(mtrx):
     mtrx_size = len(mtrx)
     while i < mtrx_size and row_valid and col_valid:
         row_valid = is_sequence_valid(mtrx[i], 1)
-        col = []
         len_row = len(mtrx[i])
         j = 0
         while j < len_row and col_valid:
-            col.append(mtrx[j][i])
+            cur_col_el = mtrx[j][i]
+            if j > 0:
+                prev_col_el = mtrx[j - 1][i]
+                col_valid = 1 <= cur_col_el <= mtrx_size and cur_col_el != prev_col_el
             j += 1
-        col_valid = is_sequence_valid(col, 1)
+
         i += 1
     mtrx_valid = row_valid and col_valid
     return mtrx_valid
@@ -55,11 +57,13 @@ def is_latin_square(mtrx):
 
 def main():
     matrix_size = int(input())
-    # matrix_size = 3
     mtrx = mtrx_fill(matrix_size)
-    # mtrx = [[1, 2, 3],
-    #         [3, 2, 1],
-    #         [5, 3, 4]]
+    matrix_size = 4
+    #
+    # mtrx = [[2, 3, 4, 1],
+    #         [3, 4, 1, 2],
+    #         [4, 1, 2, 3],
+    #         [1, 2, 3, 4]]
 
     answer = Y_ANSWER
 
