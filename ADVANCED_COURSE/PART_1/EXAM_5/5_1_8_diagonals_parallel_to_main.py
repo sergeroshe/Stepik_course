@@ -11,10 +11,8 @@ def mtrx_diagonals_parallel_to_main(mtrx):
     for i in range(mtrx_size):
         for j in range(mtrx_size):
             mtrx[i][i] = 0
-            if j > i:
-                mtrx[i][j] = j - i
-            elif j < i:
-                mtrx[i][j] = i - j
+            mtrx[i][j] = j - i
+            mtrx[i][j % (i + 1)] = i - (j % (i + 1))
 
 
 def mtrx_print(mtrx, col_width):
@@ -26,7 +24,7 @@ def mtrx_print(mtrx, col_width):
 
 def main():
     matrix_size = int(input())
-    # matrix_size = 6
+    # matrix_size = 1
     matrix = mtrx_fill(matrix_size, '*')
     mtrx_diagonals_parallel_to_main(matrix)
     mtrx_print(matrix, MTRX_COL_WIDTH)
