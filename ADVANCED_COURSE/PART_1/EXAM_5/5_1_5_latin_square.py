@@ -50,7 +50,7 @@ def is_latin_square(mtrx):
         i += 1
     mtrx_valid = row_valid and col_valid
     return mtrx_valid
-    # remove extra iteration, ged rid of column list
+    # remove extra iteration - done, ged rid of column list - ?
 
 
 def main():
