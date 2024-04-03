@@ -33,20 +33,54 @@ def is_sequence_valid(seq, expected_min):
     return is_valid
 
 
+def is_column_valid(expected_min, mtrx, col_num):
+    checked_num_list = []
+    col_valid = True
+    mtrx_size = len(mtrx)
+
+    i = 0
+    while i < mtrx_size and col_valid:
+        num = mtrx[i][col_num]
+        if expected_min <= num <= mtrx_size:
+            if num not in checked_num_list:
+                checked_num_list.append(num)
+            else:
+                col_valid = False
+        else:
+            col_valid = False
+        i += 1
+
+    return col_valid
+
+
+def is_row_valid(expected_min, mtrx, row_num):
+    checked_num_list = []
+    row_valid = True
+    mtrx_size = len(mtrx)
+
+    i = 0
+    while i < mtrx_size and row_valid:
+        num = mtrx[row_num][i]
+        if expected_min <= num <= mtrx_size:
+            if num not in checked_num_list:
+                checked_num_list.append(num)
+            else:
+                row_valid = False
+        else:
+            row_valid = False
+        i += 1
+
+    return row_valid
+
+
 def is_latin_square(mtrx):
     row_valid = True
     col_valid = True
     i = 0
     mtrx_size = len(mtrx)
     while i < mtrx_size and row_valid and col_valid:
-        row_valid = is_sequence_valid(mtrx[i], 1)
-        col = []
-        len_row = len(mtrx[i])
-        j = 0
-        while j < len_row and col_valid:
-            col.append(mtrx[j][i])
-            j += 1
-        col_valid = is_sequence_valid(col, 1)
+        row_valid = is_row_valid(1, mtrx, i)
+        col_valid = is_column_valid(1, mtrx, i)
         i += 1
     mtrx_valid = row_valid and col_valid
     return mtrx_valid
@@ -59,7 +93,7 @@ def main():
     mtrx = mtrx_fill(matrix_size)
     # mtrx = [[1, 2, 3],
     #         [3, 2, 1],
-    #         [5, 3, 4]]
+    #         [2, 3, 4]]
 
     answer = Y_ANSWER
 
