@@ -13,6 +13,7 @@ def mtrx_diagonals_parallel_to_main(mtrx):
             mtrx[i][i] = 0
             mtrx[i][j] = j - i
             mtrx[i][j % (i + 1)] = i - (j % (i + 1))
+    # calculate diagonals
 
 
 def mtrx_print(mtrx, col_width):
