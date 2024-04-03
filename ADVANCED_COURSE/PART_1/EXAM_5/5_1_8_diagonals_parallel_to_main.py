@@ -13,7 +13,7 @@ def mtrx_diagonals_parallel_to_main(mtrx):
             mtrx[i][i] = 0
             if i + j < mtrx_size:
                 mtrx[i][i + j] = j
-            if i -j >= 0:
+            if i - j >= 0:
                 mtrx[i][i - j] = j
                 # mtrx[i][i - j] = j
             # mtrx[i][j] = j - i
