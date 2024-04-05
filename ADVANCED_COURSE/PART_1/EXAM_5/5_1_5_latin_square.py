@@ -1,6 +1,8 @@
 Y_ANSWER = 'YES'
 N_ANSWER = 'NO'
 MATRIX_MIN_ELEMENT = 1
+ROW_TYPE = 0
+COL_TYPE = 1
 
 
 def mtrx_fill(rows):
@@ -11,66 +13,24 @@ def mtrx_fill(rows):
     return mtrx
 
 
-def is_sequence_valid(seq, expected_min):
+def is_sequence_valid(mtrx, seq_num, seq_type, expected_min=1):
     checked_num_list = []
-    mtrx_size = len(seq)
-    expected_max = mtrx_size
-
-    i = 0
-
-    is_valid = True
-    while i < mtrx_size and is_valid:
-        num = seq[i]
-        if expected_min <= num <= expected_max:
-            if num not in checked_num_list:
-                checked_num_list.append(num)
-            else:
-                is_valid = False
-        else:
-            is_valid = False
-        i += 1
-
-    return is_valid
-
-
-def is_column_valid(expected_min, mtrx, col_num):
-    checked_num_list = []
-    col_valid = True
+    seq_valid = True
     mtrx_size = len(mtrx)
 
     i = 0
-    while i < mtrx_size and col_valid:
-        num = mtrx[i][col_num]
+    while i < mtrx_size and seq_valid:
+        num = mtrx[seq_num][i] if seq_type == 1 else mtrx[i][seq_num]
         if expected_min <= num <= mtrx_size:
             if num not in checked_num_list:
                 checked_num_list.append(num)
             else:
-                col_valid = False
+                seq_valid = False
         else:
-            col_valid = False
+            seq_valid = False
         i += 1
 
-    return col_valid
-
-
-def is_row_valid(expected_min, mtrx, row_num):
-    checked_num_list = []
-    row_valid = True
-    mtrx_size = len(mtrx)
-
-    i = 0
-    while i < mtrx_size and row_valid:
-        num = mtrx[row_num][i]
-        if expected_min <= num <= mtrx_size:
-            if num not in checked_num_list:
-                checked_num_list.append(num)
-            else:
-                row_valid = False
-        else:
-            row_valid = False
-        i += 1
-
-    return row_valid
+    return seq_valid
 
 
 def is_latin_square(mtrx):
@@ -79,21 +39,25 @@ def is_latin_square(mtrx):
     i = 0
     mtrx_size = len(mtrx)
     while i < mtrx_size and row_valid and col_valid:
-        row_valid = is_row_valid(1, mtrx, i)
-        col_valid = is_column_valid(1, mtrx, i)
+        row_valid = is_sequence_valid(mtrx, i, ROW_TYPE)
+        col_valid = is_sequence_valid(mtrx, i, COL_TYPE)
         i += 1
     mtrx_valid = row_valid and col_valid
     return mtrx_valid
-    # remove extra iteration - done, ged rid of column list - ?
 
 
 def main():
-    matrix_size = int(input())
-    # matrix_size = 3
-    mtrx = mtrx_fill(matrix_size)
-    # mtrx = [[1, 2, 3],
-    #         [3, 2, 1],
-    #         [2, 3, 4]]
+    # matrix_size = int(input())
+    matrix_size = 4
+    # mtrx = mtrx_fill(matrix_size)
+    mtrx = [[2, 3, 4, 1],
+            [3, 4, 1, 2],
+            [4, 1, 2, 3],
+            [1, 2, 3, 4]]
+    # 2 3 4 1
+    # 3 4 1 2
+    # 4 1 2 3
+    # 1 2 3 4
 
     answer = Y_ANSWER
 
