@@ -6,19 +6,16 @@ def mtrx_fill(mtrx_size, filling_char):
     return mtrx
 
 
-def mtrx_diagonals_parallel_to_main(mtrx):
+def diagonal_move(y, x, mtrx, filling_char):
     mtrx_size = len(mtrx)
-    for i in range(mtrx_size):
-        for j in range(mtrx_size):
-            mtrx[i][i] = 0
-            if i + j < mtrx_size:
-                mtrx[i][i + j] = j
-            if i - j >= 0:
-                mtrx[i][i - j] = j
-                # mtrx[i][i - j] = j
-            # mtrx[i][j] = j - i
-            # mtrx[i][j % (i + 1)] = i - (j % (i + 1))
-    # TODO: remove ifs
+    shift = 1
+    y_move = y
+    x_move = x
+    while 0 <= y_move <= mtrx_size - 1 \
+            and 0 <= x_move <= mtrx_size - 1:
+        mtrx[y_move][x_move] = filling_char
+        y_move += shift
+        x_move += shift
 
 
 def mtrx_print(mtrx, col_width):
@@ -32,7 +29,12 @@ def main():
     matrix_size = int(input())
     # matrix_size = 7
     matrix = mtrx_fill(matrix_size, '*')
-    mtrx_diagonals_parallel_to_main(matrix)
+
+    for i in range(matrix_size):
+        start = i
+        diagonal_move(start, 0, matrix, start)
+        diagonal_move(0, start, matrix, start)
+
     mtrx_print(matrix, MTRX_COL_WIDTH)
 
 
