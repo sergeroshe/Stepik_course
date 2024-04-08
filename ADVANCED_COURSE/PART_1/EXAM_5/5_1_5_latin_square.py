@@ -20,7 +20,7 @@ def is_sequence_valid(mtrx, seq_num, seq_type, expected_min=1):
 
     i = 0
     while i < mtrx_size and seq_valid:
-        num = mtrx[seq_num][i] if seq_type == 1 else mtrx[i][seq_num]
+        num = mtrx[seq_num][i] if seq_type == COL_TYPE else mtrx[i][seq_num]
         if expected_min <= num <= mtrx_size:
             if num not in checked_num_list:
                 checked_num_list.append(num)
@@ -38,6 +38,7 @@ def is_latin_square(mtrx):
     col_valid = True
     i = 0
     mtrx_size = len(mtrx)
+
     while i < mtrx_size and row_valid and col_valid:
         row_valid = is_sequence_valid(mtrx, i, ROW_TYPE)
         col_valid = is_sequence_valid(mtrx, i, COL_TYPE)
