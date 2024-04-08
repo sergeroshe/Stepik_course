@@ -6,16 +6,17 @@ def mtrx_fill(mtrx_size, filling_char):
     return mtrx
 
 
-def diagonal_move(y, x, mtrx, filling_char):
+# extract shift for x and y to arguments
+def mtrx_line_fill(x, y, x_shift, y_shift, mtrx, filling_char):
     mtrx_size = len(mtrx)
-    shift = 1
-    y_move = y
+    shift_list = [x_shift, y_shift]
     x_move = x
+    y_move = y
     while 0 <= y_move <= mtrx_size - 1 \
             and 0 <= x_move <= mtrx_size - 1:
         mtrx[y_move][x_move] = filling_char
-        y_move += shift
-        x_move += shift
+        x_move += shift_list[0]
+        y_move += shift_list[1]
 
 
 def mtrx_print(mtrx, col_width):
@@ -26,14 +27,14 @@ def mtrx_print(mtrx, col_width):
 
 
 def main():
-    matrix_size = int(input())
-    # matrix_size = 7
+    # matrix_size = int(input())
+    matrix_size = 7
     matrix = mtrx_fill(matrix_size, '*')
 
     for i in range(matrix_size):
         start = i
-        diagonal_move(start, 0, matrix, start)
-        diagonal_move(0, start, matrix, start)
+        mtrx_line_fill(0, start, 1, 1, matrix, start)
+        mtrx_line_fill(start, 0, 1, 1, matrix, start)
 
     mtrx_print(matrix, MTRX_COL_WIDTH)
 
