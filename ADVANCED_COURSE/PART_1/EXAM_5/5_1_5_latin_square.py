@@ -19,6 +19,7 @@ def is_sequence_valid(mtrx, seq_num, seq_type, expected_min=1):
     mtrx_size = len(mtrx)
 
     i = 0
+    # extract if condition
     while i < mtrx_size and seq_valid:
         num = mtrx[seq_num][i] if seq_type == COL_TYPE else mtrx[i][seq_num]
         if expected_min <= num <= mtrx_size:
