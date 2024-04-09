@@ -10,14 +10,13 @@ def mtrx_fill(mtrx_size, filling_char):
 # extract shift for x and y to arguments
 def mtrx_line_fill(x, y, x_shift, y_shift, mtrx, filling_char):
     mtrx_size = len(mtrx)
-    shift_list = [x_shift, y_shift]
     x_move = x
     y_move = y
     while 0 <= y_move <= mtrx_size - 1 \
             and 0 <= x_move <= mtrx_size - 1:
         mtrx[y_move][x_move] = filling_char
-        x_move += shift_list[0]
-        y_move += shift_list[1]
+        x_move += x_shift
+        y_move += y_shift
 
 
 def mtrx_print(mtrx, col_width):
