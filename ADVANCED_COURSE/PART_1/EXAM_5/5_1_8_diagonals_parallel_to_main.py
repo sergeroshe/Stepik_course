@@ -32,9 +32,8 @@ def main():
     matrix = mtrx_fill(matrix_size, '*')
 
     for i in range(matrix_size):
-        start = i
-        mtrx_line_fill(0, start, 1, 1, matrix, start)
-        mtrx_line_fill(start, 0, 1, 1, matrix, start)
+        mtrx_line_fill(0, i, 1, 1, matrix, i)
+        mtrx_line_fill(i, 0, 1, 1, matrix, i)
 
     mtrx_print(matrix, MTRX_COL_WIDTH)
 
