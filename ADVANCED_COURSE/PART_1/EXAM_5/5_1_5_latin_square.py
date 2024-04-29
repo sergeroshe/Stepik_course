@@ -20,8 +20,10 @@ def is_sequence_valid(mtrx, seq_num, seq_type, expected_min=1):
 
     i = 0
     # extract if condition
+    shift = [seq_num, i] if seq_type == COL_TYPE else [i, seq_num]
     while i < mtrx_size and seq_valid:
-        num = mtrx[seq_num][i] if seq_type == COL_TYPE else mtrx[i][seq_num]
+        # shift = [seq_num, i] if seq_type == COL_TYPE else [i, seq_num]
+        num = mtrx[shift[0]][shift[1]]
         if expected_min <= num <= mtrx_size:
             if num not in checked_num_list:
                 checked_num_list.append(num)
@@ -30,6 +32,7 @@ def is_sequence_valid(mtrx, seq_num, seq_type, expected_min=1):
         else:
             seq_valid = False
         i += 1
+        j = i
 
     return seq_valid
 
