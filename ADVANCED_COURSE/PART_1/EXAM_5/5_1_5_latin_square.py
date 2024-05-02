@@ -32,7 +32,6 @@ def is_sequence_valid(mtrx, seq_num, seq_type, expected_min=1):
         else:
             seq_valid = False
         i += 1
-        j = i
 
     return seq_valid
 
