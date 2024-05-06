@@ -18,7 +18,7 @@ def is_sequence_valid(mtrx, seq_num, seq_type, expected_min=1):
     seq_valid = True
     mtrx_size = len(mtrx)
     move_x, move_y, shift = (seq_num, 0, [1, 0]) if seq_type == ROW_TYPE else (0, seq_num, [0, 1])
-    shift = [0, 1] if seq_type == COL_TYPE else [1, 0]
+
     while move_x < mtrx_size and move_y < mtrx_size and seq_valid:
         num = mtrx[move_y][move_x]
         if expected_min <= num <= mtrx_size:
