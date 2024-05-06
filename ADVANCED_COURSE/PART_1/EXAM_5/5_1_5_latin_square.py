@@ -17,10 +17,10 @@ def is_sequence_valid(mtrx, seq_num, seq_type, expected_min=1):
     checked_num_list = []
     seq_valid = True
     mtrx_size = len(mtrx)
-    move_x, move_y, shift = (seq_num, 0, [1, 0]) if seq_type == ROW_TYPE else (0, seq_num, [0, 1])
+    move_x, move_y, shift = (0, seq_num, [0, 1]) if seq_type == ROW_TYPE else (seq_num, 0, [1, 0])
 
     while move_x < mtrx_size and move_y < mtrx_size and seq_valid:
-        num = mtrx[move_y][move_x]
+        num = mtrx[move_x][move_y]
         if expected_min <= num <= mtrx_size:
             if num not in checked_num_list:
                 checked_num_list.append(num)
