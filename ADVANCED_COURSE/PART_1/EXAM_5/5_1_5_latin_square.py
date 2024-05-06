@@ -17,11 +17,7 @@ def is_sequence_valid(mtrx, seq_num, seq_type, expected_min=1):
     checked_num_list = []
     seq_valid = True
     mtrx_size = len(mtrx)
-
-    # extract if condition
-    move_x = seq_num if seq_type == ROW_TYPE else 0
-    move_y = seq_num if seq_type == COL_TYPE else 0
-
+    move_x, move_y, shift = (seq_num, 0, [1, 0]) if seq_type == ROW_TYPE else (0, seq_num, [0, 1])
     shift = [0, 1] if seq_type == COL_TYPE else [1, 0]
     while move_x < mtrx_size and move_y < mtrx_size and seq_valid:
         num = mtrx[move_y][move_x]
@@ -58,12 +54,11 @@ def main():
     mtrx = mtrx_fill(matrix_size)
     # mtrx = [[2, 3, 4, 1],   # 0, 1
     #         [3, 4, 1, 2],   # 1, 1
-    #         [4, 1, 2, 3],   # 2,
+    #         [4, 1, 2, 3],   # 2, 1
     #         [1, 2, 3, 4]]
     # mtrx = [[1, 2, 3],
     #         [3, 2, 1],
     #         [2, 3, 4]]
-
 
     answer = Y_ANSWER
 
