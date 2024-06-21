@@ -15,5 +15,4 @@ for num in num_string_list:
     else:
         answer_list.append(POSITIVE_ANSWER)
 
-# print(non_repeated_num_set)
 print(*answer_list, sep='\n')
