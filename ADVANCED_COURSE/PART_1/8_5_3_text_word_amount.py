@@ -2,6 +2,7 @@ text_string = input()
 
 word_set = set()
 for word in text_string.split():
+# use lstrip() method
     for letter in word:
         if not letter.isalpha():
             word = word.replace(letter, '')
