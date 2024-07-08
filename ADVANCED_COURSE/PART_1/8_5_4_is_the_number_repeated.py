@@ -11,9 +11,8 @@ answer_list = []
 for num in num_string_list:
     if num not in non_repeated_num_set:
         answer_list.append(NEGATIVE_ANSWER)
+        non_repeated_num_set.add(num)
     else:
         answer_list.append(POSITIVE_ANSWER)
-    non_repeated_num_set.add(num)
-
 
 print(*answer_list, sep='\n')
