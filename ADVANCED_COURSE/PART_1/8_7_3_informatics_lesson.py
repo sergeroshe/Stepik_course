@@ -1,6 +1,15 @@
 PUPIL_AMOUNT = 3
 
-pupil_marks_list = [set(input().split()) for _ in range(PUPIL_AMOUNT)]
+# pupil_marks_list = [set(input().split()) for _ in range(PUPIL_AMOUNT)]
+
+pupil_marks_list = []
+
+for _ in range(PUPIL_AMOUNT):
+    pupil_marks = set(input())
+    for mark in pupil_marks:
+        int(mark)
+    pupil_marks_list.append(pupil_marks)
+
 
 third_pupil_unique_marks = (pupil_marks_list[0] & pupil_marks_list[1]) - pupil_marks_list[2]
 
