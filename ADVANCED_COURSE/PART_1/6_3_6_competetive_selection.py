@@ -1,12 +1,13 @@
 pupil_number = int(input())
-pupil_list = [tuple(input().split()) for _ in range(pupil_number)]
-# pupil_number = 3
-# pupil_list = ['Гуев 3', 'Чаниев 5', 'Барсуков 2']
+pupil_list = [input().split() for _ in range(pupil_number)]
+
+int_pupil_list = [(pupil[:-1], int(pupil[-1])) for pupil in pupil_list]
+
 for pupil in pupil_list:
     print(*pupil)
 
 print()
 
-for pupil in pupil_list:
-    if int(pupil[-1]) > 3:
-        print(*pupil)
+for pupil in int_pupil_list:
+    if pupil[-1] > 3:
+        print(*pupil[0], pupil[-1])
