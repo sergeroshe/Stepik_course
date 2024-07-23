@@ -4,8 +4,8 @@ text = 'footballcyberpunkextraterritorial' \
 
 result = {}
 
-for letter in text:
-    if letter not in result:
-        result[letter] = result.get(letter, 0) + text.count(letter)
+for char in text:
+    if char not in result:
+        result[char] = text.count(char)
 
 print(result)
