@@ -4,14 +4,22 @@ NEGATIVE_ANSWER = 'NO'
 
 answer = POSITIVE_ANSWER
 
-word_dcts = [{} for _ in range(WORD_AMOUNT)]
+word_dct_list = []
 
-for dct in word_dcts:
+for _ in range(WORD_AMOUNT):
     word = input()
+    dct = {}
     for letter in word:
         dct[letter] = dct.get(letter, 0) + 1
+    word_dct_list.append(dct)
 
-if word_dcts[0] != word_dcts[1]:
-    answer = NEGATIVE_ANSWER
+word_dct_list_len = len(word_dct_list)
+
+i = 0
+dicts_equal = True
+while dicts_equal and i < word_dct_list_len:
+    if word_dct_list[i] != word_dct_list[i - 1]:
+        answer = NEGATIVE_ANSWER
+    i += 1
 
 print(answer)
