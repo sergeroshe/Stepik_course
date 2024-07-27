@@ -4,21 +4,23 @@ NEGATIVE_ANSWER = 'NO'
 
 answer = POSITIVE_ANSWER
 
-word_dct_list = []
+word_list = [input() for _ in range(WORD_AMOUNT)]
 
-for _ in range(WORD_AMOUNT):
-    word = input()
-    dct = {}
+word_dict_list = []
+word_list_len = len(word_list)
+
+for word in word_list:
+    cur_dict = {}
     for letter in word:
-        dct[letter] = dct.get(letter, 0) + 1
-    word_dct_list.append(dct)
+        cur_dict[letter] = cur_dict.get(letter, 0) + 1
+    word_dict_list.append(cur_dict)
 
-word_dct_list_len = len(word_dct_list)
+word_dict_list_len = len(word_dict_list)
 
 i = 0
 dicts_equal = True
-while dicts_equal and i < word_dct_list_len:
-    if word_dct_list[i] != word_dct_list[i - 1]:
+while dicts_equal and i < word_dict_list_len:
+    if word_dict_list[i] != word_dict_list[i - 1]:
         answer = NEGATIVE_ANSWER
     i += 1
 
