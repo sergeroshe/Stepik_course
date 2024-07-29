@@ -5,6 +5,8 @@ for _ in range(countries_info_amount):
     country, *cities = input().split()
     countries_info_dict[country] = cities
 
+# d = {i : j for _ in range(int(input())) for i, *j in  [input().split()]}
+
 cities_amount = int(input())
 cities_list = [input() for _ in range(cities_amount)]
 
