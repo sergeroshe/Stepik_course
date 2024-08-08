@@ -1,24 +1,22 @@
-COURSE_INFO = [{'CS101': '3004, Хайнс 8:00'},
-               {'CM241': '1411, Ли, 13:00'},
-               {'CS102': '4501, Альварадо, 9:00'},
-               {'NT110': '1244, Берк, 11:00'},
-               {'CS103': '6755, Рич, 10:00'}
-               ]
-info_dict_len = len(COURSE_INFO)
+COURSE_INFO_DICT = {'CS101': '3004, Хайнс 8:00',
+                    'CM241': '1411, Ли, 13:00',
+                    'CS102': '4501, Альварадо, 9:00',
+                    'NT110': '1244, Берк, 11:00',
+                    'CS103': '6755, Рич, 10:00'
+                    }
+course_info_len = len(COURSE_INFO_DICT)
 
-input_string = input()
+course_id = input()
 
-selected_dict = {}
-output_string = ''
 
-string_not_found = True
+course_info = ''
 
-i = 0
-while string_not_found and i < info_dict_len:
-    if input_string in COURSE_INFO[i]:
-        selected_dict = COURSE_INFO[i]
-        output_string = f'{input_string}: {selected_dict[input_string]}'
-        string_not_found = False
+course_not_found = True
+
+if course_id in COURSE_INFO_DICT[course_id]:
+        selected_dict = COURSE_INFO_DICT[i]
+        course_info = f'{course_id}: {selected_dict[course_id]}'
+        course_not_found = False
     i += 1
 
-print(output_string)
+print(course_info)
