@@ -10,16 +10,18 @@ student_list = ['Владимир Смолов',
                 'Арина Приходько',
                 'Глеб Анисимов']
 friend_list = student_list.copy()
-friend_list.reverse()
+shuffle(friend_list)
 secret_friend_set_list = []
 added_friend_list = []
 
 for student in student_list:
+    friend_list.remove(student)
     for friend in friend_list:
-        if student != friend and friend not in added_friend_list:
+        if friend not in added_friend_list:
             secret_friend_set_list.append(f'{student} - {friend}')
             added_friend_list.append(friend)
             break
+    friend_list.append(student)
 
 print(*secret_friend_set_list, sep='\n')
 # print(*added_friend_list, sep='\n')
