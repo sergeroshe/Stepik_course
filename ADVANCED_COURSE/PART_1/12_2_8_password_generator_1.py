@@ -1,5 +1,5 @@
 from string import ascii_letters as a, digits as d
-from random import sample, choice
+from random import sample
 
 IGNORE_CHARS = 'lI1Oo0'
 
