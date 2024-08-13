@@ -9,10 +9,24 @@ CHAR_TYPE_AMOUNT = 3
 
 def generate_password(pswd_length):
     pswd_list = []
-    for _ in range(pswd_length // CHAR_TYPE_AMOUNT):
-        pswd_list.append(choice(u))
-        pswd_list.append(choice(l))
-        pswd_list.append(choice(d))
+    shift_list_len = 3
+    pswd_list_full = False
+    i = 0
+    while not pswd_list_full:
+        shift_list = [choice(u), choice(l), choice(d)]
+
+        char = shift_list[i]
+        if char not in IGNORE_CHARS:
+            pswd_list.append(shift_list[i])
+            i += 1
+        if len(pswd_list) == pswd_length:
+            pswd_list_full = True
+
+        if i > shift_list_len - 1:
+            i = 0
+        print(shift_list)
+        print(char)
+
     shuffle(pswd_list)
     pswd_string = ''.join(pswd_list)
 
@@ -31,12 +45,13 @@ def get_correct_length():
 
 def main():
     # password_amount = int(input())
-    password_amount = 3
-    password_length = get_correct_length()
-    # password_length = 15
+    password_amount = 9
+    # password_length = get_correct_length()
+    password_length = 3
 
     password_list = [generate_password(password_length) for _ in range(password_amount)]
     print(*password_list, sep='\n')
 
 
 main()
+# zI2
