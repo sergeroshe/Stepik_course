@@ -8,12 +8,15 @@ CHAR_TYPE_AMOUNT = 3
 
 
 def generate_password(pswd_length):
+    suitable_upper_letter_list = [char for char in u if char not in IGNORE_CHARS]
+    suitable_lower_letter_list = [char for char in l if char not in IGNORE_CHARS]
+    suitable_digit_list = [char for char in d if char not in IGNORE_CHARS]
     pswd_list = []
     shift_list_len = 3
     pswd_list_full = False
     i = 0
     while not pswd_list_full:
-        shift_list = [choice(u), choice(l), choice(d)]
+        shift_list = [choice(suitable_upper_letter_list), choice(suitable_lower_letter_list), choice(suitable_digit_list)]
 
         char = shift_list[i]
         if char not in IGNORE_CHARS:
@@ -24,8 +27,6 @@ def generate_password(pswd_length):
 
         if i > shift_list_len - 1:
             i = 0
-        print(shift_list)
-        print(char)
 
     shuffle(pswd_list)
     pswd_string = ''.join(pswd_list)
@@ -44,10 +45,8 @@ def get_correct_length():
 
 
 def main():
-    # password_amount = int(input())
-    password_amount = 9
-    # password_length = get_correct_length()
-    password_length = 3
+    password_amount = int(input())
+    password_length = get_correct_length()
 
     password_list = [generate_password(password_length) for _ in range(password_amount)]
     print(*password_list, sep='\n')
