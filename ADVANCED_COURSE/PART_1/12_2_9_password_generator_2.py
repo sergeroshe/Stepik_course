@@ -12,21 +12,21 @@ def generate_password(pswd_length):
     suitable_lower_letter_list = [char for char in l if char not in IGNORE_CHARS]
     suitable_digit_list = [char for char in d if char not in IGNORE_CHARS]
     pswd_list = []
-    shift_list_len = 3
-    pswd_list_full = False
-    i = 0
-    while not pswd_list_full:
-        shift_list = [choice(suitable_upper_letter_list), choice(suitable_lower_letter_list), choice(suitable_digit_list)]
+    char_type_list_len = CHAR_TYPE_AMOUNT
 
-        char = shift_list[i]
-        if char not in IGNORE_CHARS:
-            pswd_list.append(shift_list[i])
-            i += 1
+    i = 0
+    pswd_list_full = False
+    while not pswd_list_full:
+        if i > char_type_list_len - 1:
+            i = 0
+        char_type_list = [choice(suitable_upper_letter_list),
+                          choice(suitable_lower_letter_list),
+                          choice(suitable_digit_list)]
+        char = char_type_list[i]
+        pswd_list.append(char)
         if len(pswd_list) == pswd_length:
             pswd_list_full = True
-
-        if i > shift_list_len - 1:
-            i = 0
+        i += 1
 
     shuffle(pswd_list)
     pswd_string = ''.join(pswd_list)
