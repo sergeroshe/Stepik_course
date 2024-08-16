@@ -8,7 +8,7 @@ PHONE_KEYS_DICT = {'.,?!:': 1,
                    'TUV': 8,
                    'WXYZ': 9,
                    ' ': 0}
-
+# TODO make a dict for every char
 # input_string = input().upper()
 input_string = 'Hello, World!'.upper()
 #
