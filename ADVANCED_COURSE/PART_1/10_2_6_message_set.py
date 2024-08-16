@@ -1,23 +1,23 @@
-PHONE_KEYS_DICT = {'.,?!:': 1,
-                   'ABC': 2,
-                   'DEF': 3,
-                   'GHI': 4,
-                   'JKL': 5,
-                   'MNO': 6,
-                   'PQRS': 7,
-                   'TUV': 8,
-                   'WXYZ': 9,
-                   ' ': 0}
-# TODO make a dict for every char
-# input_string = input().upper()
-input_string = 'Hello, World!'.upper()
-#
-output_string = ''
+PHONE_KEYS_DICT = {1: '.,?!:',
+                   2: 'ABC',
+                   3: 'DEF',
+                   4: 'GHI',
+                   5: 'JKL',
+                   6: 'MNO',
+                   7: 'PQRS',
+                   8: 'TUV',
+                   9: 'WXYZ',
+                   0: ' '}
+CHAR_KEY_PUSH_NUMBER = {char: str(number) * (value.index(char) + 1) for number, value in PHONE_KEYS_DICT.items()
+                        for char in value}
 
+input_string = input().upper()
+
+result_string = ''
 for char in input_string:
-    for key in PHONE_KEYS_DICT:
-        if char in key:
-            output_string += str(PHONE_KEYS_DICT[key]) * (key.index(char) + 1)
-            break
+    if char in CHAR_KEY_PUSH_NUMBER:
+        result_string += CHAR_KEY_PUSH_NUMBER[char]
 
-print(output_string)
+print(result_string)
+
+
