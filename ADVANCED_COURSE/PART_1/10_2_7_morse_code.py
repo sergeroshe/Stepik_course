@@ -1,4 +1,4 @@
-MORSE_CODE_DICT = {'A': '.-', 'B': '-...', 'C': '-.-.', 'D': '-..',
+MORSE_CODE_DICT = {#'A': '.-', 'B': '-...', 'C': '-.-.', 'D': '-..',
                    'E': '.', 'F': '..-.', 'G': '--.', 'H': '....',
                    'I': '..', 'J': '.---', 'K': '-.-', 'L': '.-..',
                    'M': '--', 'N': '-.', 'O': '---', 'P': '.--.',
@@ -16,8 +16,9 @@ input_string = input().upper()
 
 output_string = ''
 
-# TODO: use get method
+# make same output
 for char in input_string:
+    # output_string += ' ' + MORSE_CODE_DICT.get(char)
     if char in MORSE_CODE_DICT:
         output_string += ' ' + MORSE_CODE_DICT[char]
 
