@@ -7,10 +7,7 @@ COURSE_DICT = {'CS101': '3004, Хайнс 8:00',
 
 course_id = input()
 
-course_desc = ''
-
-if course_id in COURSE_DICT:
-    course_info = COURSE_DICT[course_id]
-    course_desc = f'{course_id}: {course_info}'
+course_info = COURSE_DICT.get(course_id, 'Unknown')
+course_desc = f'{course_id}: {course_info}'
 
 print(course_desc)
