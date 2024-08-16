@@ -9,8 +9,6 @@ course_id = input()
 
 course_desc = ''
 
-course_not_found = True
-
 if course_id in COURSE_DICT:
     course_info = COURSE_DICT[course_id]
     course_desc = f'{course_id}: {course_info}'
