@@ -7,9 +7,7 @@ for i in range(pupil_amount):
     pupil_list.append(pupil)
 
 
-result_list = []
-all_pupil_list = [pupil for pupil in pupil_list]
-result_list.append(all_pupil_list)
+result_list = [pupil_list]   # list of two lists: all pupil and excellent pupil
 
 excellent_student_list = [ex_pupil for ex_pupil in pupil_list if ex_pupil[-1] > 3]
 result_list.append(excellent_student_list)
