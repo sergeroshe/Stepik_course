@@ -16,11 +16,11 @@ for result in result_list:
 unique_correct_answer_counter = 0
 
 for result in set(result_list):
-    if result.split()[-1] == 'Correct':
+    if result.split()[-1] == CORRECT_ANSWER:
         unique_correct_answer_counter += 1
 
 if unique_correct_answer_counter:
-    correct_answer_percentage = round(correct_answer_counter / len_result_list * 100 + 0.01)
+    correct_answer_percentage = round(correct_answer_counter / len_result_list * 100 + 0.001)
     print(f'Верно решили {unique_correct_answer_counter} учащихся\n'
           f'Из всех попыток {correct_answer_percentage}% верных')
 else:
