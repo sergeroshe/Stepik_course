@@ -10,11 +10,12 @@ for _ in range(PUPIL_AMOUNT):
         int(mark)
     pupil_marks_list.append(pupil_marks)
 
+common_marks = set()
+for i in range(len(pupil_marks_list) - 2):
+    common_marks = pupil_marks_list[i] & pupil_marks_list[i + 1]  # common marks except last pupil
 
-third_pupil_unique_marks = (pupil_marks_list[0] & pupil_marks_list[1]) - pupil_marks_list[2]
+result_set = common_marks - pupil_marks_list[-1]
 
-print(*sorted(third_pupil_unique_marks, reverse=False, key=int))
-#
 # pupil_marks_list = [set('4 2 5 10 6 2'.split()),
 #                     set('10 4 7 6 3 10'.split()),
 #                     set('1 2 1 5 9 5'.split())]
