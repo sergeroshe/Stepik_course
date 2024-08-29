@@ -15,8 +15,7 @@ input_string = input().upper()
 
 result_string = ''
 for char in input_string:
-    if char in CHAR_KEY_PUSH_NUMBER:
-        result_string += CHAR_KEY_PUSH_NUMBER[char]
+    result_string += CHAR_KEY_PUSH_NUMBER.get(char, '')
 
 print(result_string)
 
