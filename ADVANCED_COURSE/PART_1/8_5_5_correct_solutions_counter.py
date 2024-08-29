@@ -9,14 +9,13 @@ result_list = [input() for _ in range(attempts_total_amount)]
 len_result_list = len(result_list)
 
 correct_answer_counter = 0
-unique_correct_answer_list = []
+unique_correct_answer_set = set()
 for result in result_list:
     if result.split()[-1] == CORRECT_ANSWER:
         correct_answer_counter += 1
-        if result not in unique_correct_answer_list:
-            unique_correct_answer_list.append(result)
+        unique_correct_answer_set.add(result)
 
-unique_correct_answer_counter = len(unique_correct_answer_list)
+unique_correct_answer_counter = len(unique_correct_answer_set)
 
 if unique_correct_answer_counter:
     correct_answer_percentage = round(correct_answer_counter / len_result_list * 100 + INACCURACY_MEASURE)
@@ -27,4 +26,4 @@ else:
 
 # result_list = ['Поколение Python: Correct', 'Вася Пупкин: Wrong', 'evil_666: Correct', 'Поколение Python: Correct',
 #                'Поколение Python: Wrong', 'Сэм Альтман: Correct']
-# attempts_total_amount = 6
+
