@@ -6,13 +6,12 @@ pupil_marks_list = []
 
 for _ in range(PUPIL_AMOUNT):
     pupil_marks = set(input())
-    for mark in pupil_marks:
-        int(mark)
     pupil_marks_list.append(pupil_marks)
 
 common_marks = set()
-for i in range(len(pupil_marks_list) - 2):
-    common_marks = pupil_marks_list[i] & pupil_marks_list[i + 1]  # common marks except last pupil
+# common marks except last pupil
+for i in range(PUPIL_AMOUNT - 2):
+    common_marks = pupil_marks_list[i] & pupil_marks_list[i + 1]
 
 result_set = common_marks - pupil_marks_list[-1]
 
