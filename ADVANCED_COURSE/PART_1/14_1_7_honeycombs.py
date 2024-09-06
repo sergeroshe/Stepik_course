@@ -1,6 +1,5 @@
 import turtle
 
-SHIFT_ANGLE = 45
 SIDE = 50
 
 
@@ -11,17 +10,25 @@ def hexagon(side):
 
 
 def honeycombs(side, num):
-    for _ in range(num):
+    right_angle = 0
+    angle = 60
+    i = 0
+    while i < num:
         hexagon(side)
-        turtle.right(120)
         turtle.forward(side)
-        turtle.left(60)
+        turtle.right(angle)
+        right_angle += angle
+        if right_angle == 360:
+            turtle.left(120)
+            turtle.forward(side)
+            turtle.right(angle)
+        i += 1
 
 
 def main():
     window = turtle.Screen()
     turtle.showturtle()
-    honeycombs(SIDE, 6)
+    honeycombs(SIDE, 10)
     turtle.hideturtle()
     window.mainloop()
 
