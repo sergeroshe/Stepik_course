@@ -14,7 +14,7 @@ for char, char_freq in char_freq_dict.items():
     for letter, letter_freq in letter_frequency_dict.items():
         if char_freq == letter_freq:
             decrypted_word_dict[char] = letter
-
+# use get
 for i in range(len(encrypted_word_list)):
     for key, value in decrypted_word_dict.items():
         if encrypted_word_list[i] == key:
@@ -22,7 +22,13 @@ for i in range(len(encrypted_word_list)):
 
 print(*encrypted_word_list, sep='')
 
-
+# input_string = input().upper()
+#
+# result_string = ''
+# for char in input_string:
+#     result_string += CHAR_KEY_PUSH_NUMBER.get(char, '')
+#
+# print(result_string)
 # dict_letter_frequency = 3
 # letter_frequency_dict = {'а': 3, 'н': 2, 'с': 1}
 # char_freq_dict = {'*': 3, '!': 2, '?': 1}
