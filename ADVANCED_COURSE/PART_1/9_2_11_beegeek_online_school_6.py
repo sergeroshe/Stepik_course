@@ -8,7 +8,7 @@ for _ in range(lesson_amount):
     general_attendance_list.append(current_lesson_attendance_set)
     # extra calc:
     all_lessons_presented_student_set = general_attendance_list[0]
-    # extra calc:
+
     all_lessons_presented_student_set &= current_lesson_attendance_set
 
 print(*sorted(all_lessons_presented_student_set), sep='\n')
