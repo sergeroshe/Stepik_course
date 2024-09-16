@@ -17,13 +17,16 @@ result_mark_set = set()
 # common marks calculation
 for pupil_marks_set in pupil_marks_set_list:
     for mark in pupil_marks_set:
-        mark_occurrience_amount = 0
+        mark_occurrence_amount = 0
 
-        for marks_set in pupil_marks_set_list:
+        for marks_set in pupil_marks_set_list[1:]:
             if mark in marks_set:
-                mark_occurrience_amount += 1
-        if mark_occurrience_amount <= MAX_COMMON_MARKS_PUPIL_AMOUNT:
+                mark_occurrence_amount += 1
+        # remove extra calc
+        if mark_occurrence_amount <= MAX_COMMON_MARKS_PUPIL_AMOUNT:
             result_mark_set.add(mark)
+        else:
+            break
 print(*sorted(result_mark_set, key=int))
 
 # make test for different pupil amount e.g. 3/2
