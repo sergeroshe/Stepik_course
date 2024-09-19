@@ -14,8 +14,7 @@ for pupil_marks_set in pupil_mark_set_list:
         while not max_mark_occurrence_exceeded and i < len_pupil_marks_set_list:
             if mark in pupil_mark_set_list[i]:
                 mark_occurrence_amount += 1
-            if mark_occurrence_amount > MAX_COMMON_MARKS_PUPIL_AMOUNT:
-                max_mark_occurrence_exceeded = True
+            max_mark_occurrence_exceeded = mark_occurrence_amount > MAX_COMMON_MARKS_PUPIL_AMOUNT
             i += 1
 
         if mark_occurrence_amount <= MAX_COMMON_MARKS_PUPIL_AMOUNT:
