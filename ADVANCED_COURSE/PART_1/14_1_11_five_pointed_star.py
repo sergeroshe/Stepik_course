@@ -1,11 +1,9 @@
 import turtle
 
 SIDE = 200
-SIDE_AMOUNT = 5
 
-
-def star(side, side_amount, angle):
-    for _ in range(side_amount):
+def star(side, angle):
+    for _ in range(5):
         turtle.forward(side)
         turtle.right(angle)
 
@@ -13,8 +11,7 @@ def star(side, side_amount, angle):
 def main():
     window = turtle.Screen()
     turtle.showturtle()
-    angle = 720 / SIDE_AMOUNT
-    star(SIDE, SIDE_AMOUNT, angle)
+    star(SIDE, 144)
     turtle.hideturtle()
     window.mainloop()
 
