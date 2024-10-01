@@ -21,8 +21,6 @@ def spiral(init_side, limit_side, shift):
         spiral_complete = size_reached and turned_up
 
 
-
-
 def main():
     window = turtle.Screen()
     turtle.showturtle()
