@@ -1,7 +1,7 @@
 import turtle
 
 INIT_SIDE = 5
-LIMIT_SIDE = 100
+LIMIT_SIDE = 300
 SHIFT = 5
 PENCOLOR_LIST = ['red', 'blue', 'yellow', 'green', 'violet', 'orange']
 
@@ -19,7 +19,9 @@ def spiral(init_side, limit_side, shift, color_list):
         if i > len(color_list):
             i = 0
         turtle.forward(side)
+        increase = i * 3
         turtle.pencolor(color_list[i])
+        pensize = turtle.pensize(increase)
         side += shift
         heading = turtle.heading()
         size_reached = side > limit_side
@@ -31,9 +33,12 @@ def spiral(init_side, limit_side, shift, color_list):
 
 def main():
     window = turtle.Screen()
+    turtle.Screen().bgcolor('green')
     turtle.showturtle()
+    turtle.shape('triangle')
     spiral(INIT_SIDE, LIMIT_SIDE, SHIFT, PENCOLOR_LIST)
-    # turtle.hideturtle()
+    turtle.done()
+    window.mainloop()
 
 
 main()
