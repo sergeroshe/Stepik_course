@@ -2,7 +2,7 @@ import turtle
 
 UMBRELLA_HEIGHT = 300
 UMBRELLA_WIDTH = 400
-RAY_AMOUNT = 4
+RAY_AMOUNT = 8
 
 
 def umbrella():
@@ -11,9 +11,11 @@ def umbrella():
     for i in range(RAY_AMOUNT):
         turtle.penup()
         turtle.goto(umbrella_top)
+        turtle.pencolor('violet')
         turtle.pendown()
+        turtle.dot(10, 'green')
         turtle.goto(UMBRELLA_WIDTH - (shift * i), 0)
-        turtle.dot(15)
+        turtle.dot(15, 'blue')
         turtle.penup()
         turtle.goto(umbrella_top)
 
