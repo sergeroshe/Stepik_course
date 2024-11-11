@@ -38,12 +38,17 @@ def snowfall():
     while True:
         current_coordinates_set = set()
         snowflake_radius = r.choice(range(10, 100))
-        coordinates_range = (range(-snowflake_radius * 10, snowflake_radius * 10, snowflake_radius))
-        coordinates = tuple(r.sample(coordinates_range, 2))
-        current_coordinates_set.add(coordinates)
+        x_coordinates_range = (range(-snowflake_radius * 10, snowflake_radius * 10, snowflake_radius))
+        y_coordinates_range = (range(-snowflake_radius * 10, snowflake_radius * 10, snowflake_radius))
+        x_coordinates = r.choice(x_coordinates_range)
+        y_coordinates = r.choice(y_coordinates_range)
+        # coordinates = tuple(x_coordinates, y_coordinates)
+        current_coordinates_set.add((x_coordinates, y_coordinates))
+        # make a square around used coordinates to use only wmpty space
         current_coordinates = r.choice(list(current_coordinates_set))
         snowflake(current_coordinates[0], current_coordinates[0], snowflake_radius)
         print(current_coordinates_set)
+
 
 def main():
     window = t.Screen()
