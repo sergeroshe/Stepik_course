@@ -2,6 +2,11 @@ import turtle as t
 import random as r
 
 
+def get_snowflake_coordinates(prev_coord, prev_snowflake_radius):
+    x_coord, y_coord = r.sample(list(range(200)), 2)
+    return x_coord, y_coord
+
+
 def snowflake(x_pos, y_pos, radius, feather_amount, color):
     feather_length = radius // 4
     t.speed(3)
@@ -45,8 +50,8 @@ def snowfall():
         snowflake_radius = r.choice(range(10, 100))
         x_coordinates_range = (range(-snowflake_radius * 10, snowflake_radius * 10, snowflake_radius))
         y_coordinates_range = (range(-snowflake_radius * 10, snowflake_radius * 10, snowflake_radius))
-        x_coordinates = r.choice(x_coordinates_range)
-        y_coordinates = r.choice(y_coordinates_range)
+        x_coordinates = get_snowflake_coordinates(0, 0)[0]
+        y_coordinates = get_snowflake_coordinates(0, 0)[1]
         # coordinates = tuple(x_coordinates, y_coordinates)
         current_coordinates_set.add((x_coordinates, y_coordinates))
         # make a square around used coordinates to use only wmpty space
