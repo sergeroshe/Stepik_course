@@ -20,4 +20,3 @@ for pupil_marks_set in pupil_mark_set_list:
         if mark_occurrence_amount <= MAX_COMMON_MARKS_PUPIL_AMOUNT:
             result_mark_set.add(mark)
 print(*sorted(result_mark_set, key=int))
-# test the code with different input data
