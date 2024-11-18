@@ -17,7 +17,7 @@ def snowflake(x_pos, y_pos, radius, feather_amount, color):
         snowflake_feather(feather_length, 3, angle, i)
 
 
-def snowflake_feather(feather_length, ray_amount, angle, i):
+def snowflake_feather(feather_length, ray_amount, angle, feather_number):
     for j in range(ray_amount):
         t.pendown()
         # step 1
@@ -33,7 +33,7 @@ def snowflake_feather(feather_length, ray_amount, angle, i):
             t.forward(feather_length)
             t.penup()
             t.goto(rod_pos)
-            t.setheading(angle * i)
+            t.setheading(angle * feather_number)
             t.pendown()
         # step 3
     t.forward(feather_length)
