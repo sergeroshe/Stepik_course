@@ -1,18 +1,19 @@
 PUPIL_AMOUNT = 3
+GROUP_ONE_PUPIL_AMOUNT = 2
+GROUP_TWO_PUPIL_AMOUNT = PUPIL_AMOUNT - GROUP_ONE_PUPIL_AMOUNT
 
-pupil_marks_set_list = [set(input().split()) for _ in range(PUPIL_AMOUNT)]
+all_pupil_mark_set_list = [set(input().split()) for _ in range(PUPIL_AMOUNT)]
 
-all_pupils_unique_marks_set = set()
+group_two_pupil_mark_set_list = all_pupil_mark_set_list[-GROUP_TWO_PUPIL_AMOUNT:]
 
-for pupil_marks_set in pupil_marks_set_list:
-    all_pupils_unique_marks_set |= pupil_marks_set
+group_one_pupil_mark_set = set()
+for mark_set in all_pupil_mark_set_list[:-GROUP_TWO_PUPIL_AMOUNT]:
+    group_one_pupil_mark_set |= mark_set
 
-third_pupil_unique_marks_set = pupil_marks_set_list[2] - \
-                               pupil_marks_set_list[0] - \
-                               pupil_marks_set_list[1]
+group_two_pupil_mark_set = set()
+for mark_set in group_two_pupil_mark_set_list[-GROUP_TWO_PUPIL_AMOUNT:]:
+    group_two_pupil_mark_set |= mark_set
 
-print(*sorted(third_pupil_unique_marks_set, key=int, reverse=True))
+group_two_unique_mark_set = group_two_pupil_mark_set - group_one_pupil_mark_set
 
-# pupil_marks_set_list = [set('1 5 4 2 5 6 6 2 3 3 5 2'.split()),
-#                         set('2 3 5 1 2 1 2 6 7 1 1 6'.split()),
-#                         set('1 4 6 9 8 7 0 9 0 9 8 10'.split())]
+print(*sorted(group_two_unique_mark_set, key=int, reverse=True))
