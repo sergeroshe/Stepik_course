@@ -12,15 +12,9 @@ MORSE_CODE_DICT = {'A': '.-', 'B': '-...', 'C': '-.-.', 'D': '-..',
 morse_code_dict_len = len(MORSE_CODE_DICT)
 
 input_string = input().upper()
-# input_string = 'Agent 007'.upper()
+# input_string = 'Interstellar'.upper()
 
-output_string = ''
+output_string_list = [MORSE_CODE_DICT.get(char) for char in input_string if char in MORSE_CODE_DICT]
 
-# make same output
-for char in input_string:
-    # output_string += ' ' + MORSE_CODE_DICT.get(char)
-    if char in MORSE_CODE_DICT:
-        output_string += ' ' + MORSE_CODE_DICT[char]
-
-print(output_string)
+print(*output_string_list, sep=' ')
 
