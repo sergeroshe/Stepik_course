@@ -14,7 +14,7 @@ morse_code_dict_len = len(MORSE_CODE_DICT)
 input_string = input().upper()
 # input_string = 'Interstellar'.upper()
 
-output_string_list = [MORSE_CODE_DICT.get(char) for char in input_string if char in MORSE_CODE_DICT]
+output_string_list = [MORSE_CODE_DICT[char] for char in input_string if char in MORSE_CODE_DICT]
 
 print(*output_string_list, sep=' ')
 
