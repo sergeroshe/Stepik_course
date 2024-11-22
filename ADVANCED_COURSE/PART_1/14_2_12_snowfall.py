@@ -28,12 +28,13 @@ def draw_snowflake(x_pos, y_pos, radius, feather_amount, color):
 
     for feather in range(feather_amount):
         t.goto(center)
-        t.setheading(angle * feather)
-        snowflake_feather(feather_length, 3, angle, feather)
+        direction = angle * feather
+        t.setheading(direction)
+        draw_snowflake_feather(feather_length, 3, angle, direction)
 
 
 # check func separately
-def snowflake_feather(feather_length, ray_amount, angle, feather_number):
+def draw_snowflake_feather(feather_length, ray_amount, angle, direction):
     # rename args
     for j in range(ray_amount):
         t.pendown()
@@ -50,13 +51,13 @@ def snowflake_feather(feather_length, ray_amount, angle, feather_number):
             t.forward(feather_length)
             t.penup()
             t.goto(rod_pos)
-            t.setheading(angle * feather_number)
+            t.setheading(direction)
             t.pendown()
         # step 3
     t.forward(feather_length)
 
 
-def snowfall():
+def cause_snowfall():
     x_pos_range = X_COORDINATES_RANGE
     y_pos_range = Y_COORDINATES_RANGE
     while x_pos_range and y_pos_range:
@@ -76,7 +77,7 @@ def main():
     t.showturtle()
     t.speed(0)
     t.pensize(1)
-    snowfall()
+    cause_snowfall()
     # t.hideturtle()
     window.mainloop()
 
