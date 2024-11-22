@@ -9,8 +9,6 @@ MORSE_CODE_DICT = {'A': '.-', 'B': '-...', 'C': '-.-.', 'D': '-..',
                    '4': '....-', '5': '.....', '6': '-....',
                    '7': '--...', '8': '---..', '9': '----.'}
 
-morse_code_dict_len = len(MORSE_CODE_DICT)
-
 input_string = input().upper()
 # input_string = 'Interstellar'.upper()
 
