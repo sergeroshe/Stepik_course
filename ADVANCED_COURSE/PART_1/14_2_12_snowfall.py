@@ -2,10 +2,14 @@ import turtle as t
 import random as r
 
 COORD_LIST = list(range(-200, 200))
+MIN_SNOWFLAKE_RADIUS = 10
+MAX_SNOWFLAKE_RADIUS = 50
 
 
-def get_coordinates(coord_list):
+def get_coordinates(coord_list, cur_radius, max_radius):
     x_pos, y_pos = r.sample(coord_list, 2)
+    del coord_list[x_pos - (cur_radius + max_radius): x_pos + (cur_radius + max_radius)]
+    del coord_list[y_pos - (cur_radius + max_radius): y_pos + (cur_radius + max_radius)]
     return x_pos, y_pos, coord_list
 
 
@@ -49,11 +53,11 @@ def draw_snowflake_feather(feather_length, ray_amount, angle, direction):
 
 
 def cause_snowfall():
-    snowflake_radius = r.choice(range(10, 50))
+    snowflake_radius = r.choice(range(MIN_SNOWFLAKE_RADIUS, MAX_SNOWFLAKE_RADIUS))
     coord_list = COORD_LIST
     while coord_list:
         # snowflake_radius = r.choice(range(10, 100))
-        x_pos, y_pos, coord_list = get_coordinates(coord_list)
+        x_pos, y_pos, coord_list = get_coordinates(coord_list, snowflake_radius, MAX_SNOWFLAKE_RADIUS)
         # make a square around used coordinates to use only wmpty space
         draw_snowflake(x_pos, y_pos, snowflake_radius, 8, 'blue')
 
