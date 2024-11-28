@@ -1,34 +1,25 @@
 import turtle as t
 import random as r
 
-X_COORDINATES_RANGE = range(-200, 200)
-Y_COORDINATES_RANGE = range(-200, 200)
+COORD_LIST = list(range(-200, 200))
 
 
-def get_coordinates(x_range, y_range, snowflake_radius):
-    x_coordinates_range_list = list(x_range)
-    y_coordinates_range_list = list(y_range)
-    x_coord = r.choice(x_coordinates_range_list)
-    y_coord = r.choice(y_coordinates_range_list)
-    taken_x_space = set(list(range(x_coord - snowflake_radius, x_coord + snowflake_radius)))
-    taken_y_space = set(list(range(y_coord - snowflake_radius, y_coord + snowflake_radius)))
-    free_x_coordinates_range = x_range - taken_x_space
-    free_y_coordinates_range = y_range - taken_y_space
-    return x_coord, y_coord, free_x_coordinates_range, free_y_coordinates_range
+def get_coordinates(coord_list):
+    x_pos, y_pos = r.sample(coord_list, 2)
+    return x_pos, y_pos, coord_list
 
 
 def draw_snowflake(x_pos, y_pos, radius, feather_amount, color):
     feather_length = radius // 4
-    t.speed(3)
+    t.speed(0)
     t.color(color)
     angle = 360 // feather_amount
     center = x_pos, y_pos
     t.penup()
-    # t.goto(center)
-
+    random_turn = r.choice(range(0, 360, angle // 2))
     for feather in range(feather_amount):
         t.goto(center)
-        direction = angle * feather
+        direction = angle * feather + random_turn
         t.setheading(direction)
         draw_snowflake_feather(feather_length, 3, angle, direction)
 
@@ -58,17 +49,14 @@ def draw_snowflake_feather(feather_length, ray_amount, angle, direction):
 
 
 def cause_snowfall():
-    x_pos_range = X_COORDINATES_RANGE
-    y_pos_range = Y_COORDINATES_RANGE
-    while x_pos_range and y_pos_range:
-        snowflake_radius = r.choice(range(10, 100))
-        x_coordinates = get_coordinates(x_pos_range, y_pos_range, snowflake_radius)[0]
-        y_coordinates = get_coordinates(x_pos_range, y_pos_range, snowflake_radius)[1]
-        x_pos_range = get_coordinates(x_coordinates, y_coordinates, snowflake_radius)[2]
-        y_pos_range = get_coordinates(x_coordinates, y_coordinates, snowflake_radius)[3]
-        # coordinates = tuple(x_coordinates, y_coordinates)
+    snowflake_radius = r.choice(range(10, 50))
+    coord_list = COORD_LIST
+    while coord_list:
+        # snowflake_radius = r.choice(range(10, 100))
+        x_pos, y_pos, coord_list = get_coordinates(coord_list)
         # make a square around used coordinates to use only wmpty space
-        draw_snowflake(x_coordinates, y_coordinates, snowflake_radius, 8, 'blue')
+        draw_snowflake(x_pos, y_pos, snowflake_radius, 8, 'blue')
+
 
 
 def main():
