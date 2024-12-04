@@ -16,7 +16,7 @@ def get_coordinates(coord_list_x, coord_list_y, max_radius):
 
 
 def draw_snowflake(x_pos, y_pos, radius, feather_amount, color):
-    feather_length = radius // 4
+    ray_length = radius // 4
     t.speed(0)
     t.color(color)
     angle = 360 // feather_amount
@@ -27,16 +27,16 @@ def draw_snowflake(x_pos, y_pos, radius, feather_amount, color):
         t.goto(center)
         direction = angle * feather + random_turn
         t.setheading(direction)
-        draw_snowflake_feather(feather_length, 3, angle, direction)
+        draw_snowflake_feather(ray_length, 3, angle, direction)
 
 
 # check func separately
-def draw_snowflake_feather(feather_length, ray_amount, angle, direction):
+def draw_snowflake_feather(ray_length, ray_amount, angle, direction):
     # rename args
     for j in range(ray_amount):
         t.pendown()
         # step 1
-        t.forward(feather_length)
+        t.forward(ray_length)
         for k in range(1, ray_amount):
             rod_pos = t.pos()[0], t.pos()[1]
             if k % 2:
@@ -45,13 +45,13 @@ def draw_snowflake_feather(feather_length, ray_amount, angle, direction):
                 t.right(angle)
             t.pendown()
             # step 2
-            t.forward(feather_length)
+            t.forward(ray_length)
             t.penup()
             t.goto(rod_pos)
             t.setheading(direction)
             t.pendown()
         # step 3
-    t.forward(feather_length)
+    t.forward(ray_length)
 
 
 def cause_snowfall():
