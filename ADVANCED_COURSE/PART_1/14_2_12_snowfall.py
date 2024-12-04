@@ -16,6 +16,7 @@ def get_coordinates(coord_list_x, coord_list_y, max_radius):
 
 
 def draw_snowflake(x_pos, y_pos, radius, feather_amount, color):
+
     ray_length = radius // 4
     t.speed(0)
     t.color(color)
@@ -54,15 +55,14 @@ def draw_snowflake_feather(ray_length, ray_amount, angle, direction):
     t.forward(ray_length)
 
 
-def cause_snowfall():
-    # snowflake_radius = r.choice(range(MIN_SNOWFLAKE_RADIUS, MAX_SNOWFLAKE_RADIUS))
+def start_snowfall():
     x_coord_list = COORD_LIST_X
     y_coord_list = COORD_LIST_Y
-    while len(x_coord_list and y_coord_list) > 2:
-        snowflake_radius = r.choice(range(10, 100))
+    # rand color, size, ray amont
+    while len(x_coord_list and y_coord_list):
+        snowflake_radius = r.choice(range(MIN_SNOWFLAKE_RADIUS, MAX_SNOWFLAKE_RADIUS))
         x_pos, y_pos, x_coord_list, y_coord_list = get_coordinates(x_coord_list, y_coord_list, MAX_SNOWFLAKE_RADIUS)
         draw_snowflake(x_pos, y_pos, snowflake_radius, 8, 'blue')
-
 
 
 def main():
@@ -71,7 +71,7 @@ def main():
     t.showturtle()
     t.speed(0)
     t.pensize(1)
-    cause_snowfall()
+    start_snowfall()
     # t.hideturtle()
     window.mainloop()
 
