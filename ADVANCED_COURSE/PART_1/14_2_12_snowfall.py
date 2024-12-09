@@ -1,5 +1,6 @@
 import turtle as t
 import random as r
+import math
 
 COORD_LIST_X = list(range(-200, 200))
 COORD_LIST_Y = list(range(-200, 200))
@@ -7,17 +8,33 @@ MIN_SNOWFLAKE_RADIUS = 10
 MAX_SNOWFLAKE_RADIUS = 50
 
 
-def get_coordinates(coord_list_x, coord_list_y, max_radius):
-    x_pos = r.choice(coord_list_x)
-    y_pos = r.choice(coord_list_y)
-    del coord_list_x[coord_list_x.index(x_pos) - max_radius:coord_list_x.index(x_pos) + max_radius]
-    del coord_list_y[coord_list_y.index(y_pos) - max_radius:coord_list_y.index(y_pos) + max_radius]
-    return x_pos, y_pos, coord_list_x, coord_list_y
+def get_coordinates(prev_x_pos, prev_y_pos, prev_radii, cur_radii):
+    x_pos = r.choice(COORD_LIST_X)
+    y_pos = r.choice(COORD_LIST_Y)
+    x_pos_list = [prev_x_pos]
+    y_pos_list = [prev_y_pos]
+    radii_list = [prev_radii]
+    distance =  math.sqrt((x_pos - prev_x_pos) ** 2 + (y_pos - prev_y_pos) ** 2)
+    free_space = prev_radii + cur_radii <= distance
+    for i in range(len(x_pos_list)):
+        while not free_space:
+            x_pos = r.choice(COORD_LIST_X)
+            y_pos = r.choice(COORD_LIST_Y)
+            x_pos_list.append(x_pos)
+            y_pos_list.append(y_pos)
+            radii_list.append(prev_radii)
+            x_pos = x_pos_list[i]
+            y_pos = y_pos_list[i]
+            prev_radii = radii_list[i]
+            distance =  math.sqrt((x_pos - prev_x_pos) ** 2 + (y_pos - prev_y_pos) ** 2)
+            if prev_radii + cur_radii <= distance:
+                free_space = True
+    return x_pos, y_pos
 
 
-def draw_snowflake(x_pos, y_pos, radius, feather_amount, color):
+def draw_snowflake(x_pos, y_pos, radii, feather_amount, color):
 
-    ray_length = radius // 4
+    ray_length = radii // 4
     t.speed(0)
     t.color(color)
     angle = 360 // feather_amount
@@ -56,13 +73,17 @@ def draw_snowflake_feather(ray_length, ray_amount, angle, direction):
 
 
 def start_snowfall():
-    x_coord_list = COORD_LIST_X
-    y_coord_list = COORD_LIST_Y
+    prev_x_pos = 0
+    prev_y_pos = 0
+    prev_radii = r.choice(range(MIN_SNOWFLAKE_RADIUS, MAX_SNOWFLAKE_RADIUS))
     # rand color, size, ray amont
-    while len(x_coord_list and y_coord_list):
-        snowflake_radius = r.choice(range(MIN_SNOWFLAKE_RADIUS, MAX_SNOWFLAKE_RADIUS))
-        x_pos, y_pos, x_coord_list, y_coord_list = get_coordinates(x_coord_list, y_coord_list, MAX_SNOWFLAKE_RADIUS)
-        draw_snowflake(x_pos, y_pos, snowflake_radius, 8, 'blue')
+    while True:
+        cur_radii = r.choice(range(MIN_SNOWFLAKE_RADIUS, MAX_SNOWFLAKE_RADIUS))
+        x_pos, y_pos = get_coordinates(prev_x_pos, prev_y_pos, prev_radii, cur_radii)
+        draw_snowflake(x_pos, y_pos, cur_radii, 8, 'blue')
+        prev_x_pos, prev_y_pos = x_pos, y_pos
+        prev_radii = cur_radii
+
 
 
 def main():
