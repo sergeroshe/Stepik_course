@@ -29,6 +29,9 @@ def get_coordinates(prev_x_pos, prev_y_pos, prev_radii, cur_radii):
             distance =  math.sqrt((x_pos - prev_x_pos) ** 2 + (y_pos - prev_y_pos) ** 2)
             if prev_radii + cur_radii <= distance:
                 free_space = True
+        x_pos_list.append(x_pos)
+        y_pos_list.append(y_pos)
+        radii_list.append(cur_radii)
     return x_pos, y_pos
 
 
