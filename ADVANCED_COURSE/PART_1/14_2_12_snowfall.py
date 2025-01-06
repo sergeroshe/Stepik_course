@@ -38,6 +38,7 @@ def get_circle(prev_circle_list):
                 i += 1
         if not overlay_found:
             print(f'Free space found!')
+            # extract return out of loop
             return x_pos, y_pos, radius
 
 
@@ -79,16 +80,16 @@ def draw_snowflake_feather(ray_length, ray_amount, angle, direction):
         # step 3
     t.forward(ray_length)
 
-
+# rename vars
 def start_snowfall():
-    value_list = [(0, 0, MIN_SNOWFLAKE_RADIUS)]
+    prev_circle_list = [(0, 0, MIN_SNOWFLAKE_RADIUS)]
     # rand color, size, ray amont
-    while len(value_list) < len(COORD_LIST_X):
-        x_pos, y_pos, cur_radius = get_circle(value_list)
+    while len(prev_circle_list) < len(COORD_LIST_X):
+        x_pos, y_pos, cur_radius = get_circle(prev_circle_list)
         draw_snowflake(x_pos, y_pos, cur_radius, 8, 'blue')
         value = (x_pos, y_pos, cur_radius)
         print(value)
-        value_list.append(value)
+        prev_circle_list.append(value)
 
 
 
