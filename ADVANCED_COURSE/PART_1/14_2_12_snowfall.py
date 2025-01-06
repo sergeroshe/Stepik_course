@@ -84,7 +84,7 @@ def draw_snowflake_feather(ray_length, ray_amount, angle, direction):
 def start_snowfall():
     prev_circle_list = []
     # rand color, size, ray amont
-    while len(prev_circle_list) < len(COORD_LIST_X):
+    while True:
         x_pos, y_pos, cur_radius = get_circle(prev_circle_list)
         draw_snowflake(x_pos, y_pos, cur_radius, 8, 'blue')
         value = (x_pos, y_pos, cur_radius)
