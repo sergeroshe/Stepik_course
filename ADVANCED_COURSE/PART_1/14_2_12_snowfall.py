@@ -80,18 +80,17 @@ def draw_snowflake_feather(ray_length, ray_amount, angle, direction):
         # step 3
     t.forward(ray_length)
 
+
 # rename vars
 def start_snowfall():
     prev_circle_list = []
     # rand color, size, ray amont
     while True:
-        x_pos, y_pos, cur_radius = get_circle(prev_circle_list)
-        draw_snowflake(x_pos, y_pos, cur_radius, 8, 'blue')
-        value = (x_pos, y_pos, cur_radius)
-        print(value)
-        prev_circle_list.append(value)
-
-
+        x_pos, y_pos, radius = get_circle(prev_circle_list)
+        draw_snowflake(x_pos, y_pos, radius, 8, 'blue')
+        circle = (x_pos, y_pos, radius)
+        print(circle)
+        prev_circle_list.append(circle)
 
 
 def main():
