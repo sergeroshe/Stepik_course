@@ -15,15 +15,15 @@ def get_random_params():
     return x_pos, y_pos, cur_radius
 
 
-def get_coordinates(value_list):
+def get_circle(prev_circle_list):
     free_space_found = False
-    value_list_len = len(value_list)
+    value_list_len = len(prev_circle_list)
     while not free_space_found:
         overlay_found = False
         x_pos, y_pos, cur_radius = get_random_params()
         i = 0
         while not overlay_found and i < value_list_len:
-            value = value_list[i]
+            value = prev_circle_list[i]
             prev_x_pos = value[0]
             prev_y_pos = value[1]
             prev_radius = value[2]
@@ -84,7 +84,7 @@ def start_snowfall():
     value_list = [(0, 0, MIN_SNOWFLAKE_RADIUS)]
     # rand color, size, ray amont
     while len(value_list) < len(COORD_LIST_X):
-        x_pos, y_pos, cur_radius = get_coordinates(value_list)
+        x_pos, y_pos, cur_radius = get_circle(value_list)
         draw_snowflake(x_pos, y_pos, cur_radius, 8, 'blue')
         value = (x_pos, y_pos, cur_radius)
         print(value)
