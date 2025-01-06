@@ -8,11 +8,11 @@ MIN_SNOWFLAKE_RADIUS = 10
 MAX_SNOWFLAKE_RADIUS = 50
 
 
-def get_random_values():
+def get_random_params():
     x_pos = r.choice(COORD_LIST_X)
     y_pos = r.choice(COORD_LIST_Y)
-    cur_radii = r.choice(range(MIN_SNOWFLAKE_RADIUS, MAX_SNOWFLAKE_RADIUS))
-    return x_pos, y_pos, cur_radii
+    cur_radius = r.choice(range(MIN_SNOWFLAKE_RADIUS, MAX_SNOWFLAKE_RADIUS))
+    return x_pos, y_pos, cur_radius
 
 
 def get_coordinates(value_list):
@@ -20,7 +20,7 @@ def get_coordinates(value_list):
     value_list_len = len(value_list)
     while not free_space_found:
         overlay_found = False
-        x_pos, y_pos, cur_radii = get_random_values()
+        x_pos, y_pos, cur_radius = get_random_params()
         i = 0
         while not overlay_found and i < value_list_len:
             value = value_list[i]
@@ -29,19 +29,19 @@ def get_coordinates(value_list):
             prev_radii = value[2]
             distance = math.sqrt((x_pos - prev_x_pos) ** 2 + (y_pos - prev_y_pos) ** 2)
             print(f'distance = {distance}')
-            print(f'prev, cur radii sum = {prev_radii + cur_radii}')
-            if prev_radii + cur_radii >= distance:
+            print(f'prev, cur radii sum = {prev_radii + cur_radius}')
+            if prev_radii + cur_radius >= distance:
                 overlay_found = True
                 print(f'overlay found!')
             else:
                 i += 1
         if not overlay_found:
             print(f'Free space found!')
-            return x_pos, y_pos, cur_radii
+            return x_pos, y_pos, cur_radius
 
 
-def draw_snowflake(x_pos, y_pos, radii, feather_amount, color):
-    ray_length = radii // 4
+def draw_snowflake(x_pos, y_pos, radius, feather_amount, color):
+    ray_length = radius // 4
     t.speed(0)
     t.color(color)
     angle = 360 // feather_amount
@@ -83,9 +83,9 @@ def start_snowfall():
     value_list = [(0, 0, MIN_SNOWFLAKE_RADIUS)]
     # rand color, size, ray amont
     while len(value_list) < len(COORD_LIST_X):
-        x_pos, y_pos, cur_radii = get_coordinates(value_list)
-        draw_snowflake(x_pos, y_pos, cur_radii, 8, 'blue')
-        value = (x_pos, y_pos, cur_radii)
+        x_pos, y_pos, cur_radius = get_coordinates(value_list)
+        draw_snowflake(x_pos, y_pos, cur_radius, 8, 'blue')
+        value = (x_pos, y_pos, cur_radius)
         print(value)
         value_list.append(value)
 
