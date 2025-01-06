@@ -17,9 +17,9 @@ def get_random_values():
 
 def get_coordinates(value_list):
     free_space_found = False
-    overlay_found = False
     value_list_len = len(value_list)
     while not free_space_found:
+        overlay_found = False
         x_pos, y_pos, cur_radii = get_random_values()
         i = 0
         while not overlay_found and i < value_list_len:
@@ -33,7 +33,6 @@ def get_coordinates(value_list):
             if prev_radii + cur_radii >= distance:
                 overlay_found = True
                 print(f'overlay found!')
-                break
             else:
                 i += 1
         if not overlay_found:
