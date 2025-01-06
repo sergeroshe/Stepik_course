@@ -20,7 +20,7 @@ def get_circle(prev_circle_list):
     value_list_len = len(prev_circle_list)
     while not free_space_found:
         overlay_found = False
-        x_pos, y_pos, cur_radius = get_random_params()
+        x_pos, y_pos, radius = get_random_params()
         i = 0
         while not overlay_found and i < value_list_len:
             value = prev_circle_list[i]
@@ -30,15 +30,15 @@ def get_circle(prev_circle_list):
             distance = math.sqrt((x_pos - prev_x_pos) ** 2 + (y_pos - prev_y_pos) ** 2)
             print(f'distance = {distance}')
             print(f'prev, cur radius'
-                  f' sum = {prev_radius + cur_radius}')
-            if prev_radius + cur_radius >= distance:
+                  f' sum = {prev_radius + radius}')
+            if prev_radius + radius >= distance:
                 overlay_found = True
                 print(f'overlay found!')
             else:
                 i += 1
         if not overlay_found:
             print(f'Free space found!')
-            return x_pos, y_pos, cur_radius
+            return x_pos, y_pos, radius
 
 
 def draw_snowflake(x_pos, y_pos, radius, feather_amount, color):
