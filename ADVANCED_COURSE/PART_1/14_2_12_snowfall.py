@@ -26,11 +26,12 @@ def get_coordinates(value_list):
             value = value_list[i]
             prev_x_pos = value[0]
             prev_y_pos = value[1]
-            prev_radii = value[2]
+            prev_radius = value[2]
             distance = math.sqrt((x_pos - prev_x_pos) ** 2 + (y_pos - prev_y_pos) ** 2)
             print(f'distance = {distance}')
-            print(f'prev, cur radii sum = {prev_radii + cur_radius}')
-            if prev_radii + cur_radius >= distance:
+            print(f'prev, cur radius'
+                  f' sum = {prev_radius + cur_radius}')
+            if prev_radius + cur_radius >= distance:
                 overlay_found = True
                 print(f'overlay found!')
             else:
