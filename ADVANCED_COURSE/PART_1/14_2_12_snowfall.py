@@ -27,35 +27,37 @@ def get_snowflake_params():
 # rename vars to concistance
 def get_circle(prev_circle_list, try_amount_limit):
     free_space_found = False
-    try_amount_limit_exceeded = False
     try_amount = 0
     prev_circle_list_len = len(prev_circle_list)
-    while not free_space_found and not try_amount_limit_exceeded:
-        overlay_found = False
-        x_pos, y_pos, radius = get_circle_space()
-        try_amount += 1
-        if try_amount > try_amount_limit:
-            try_amount_limit_exceeded = True
-        i = 0
-        while not overlay_found and i < prev_circle_list_len:
-            params = prev_circle_list[i]
-            prev_x_pos = params[0]
-            prev_y_pos = params[1]
-            prev_radius = params[2]
-            distance = math.sqrt((x_pos - prev_x_pos) ** 2 + (y_pos - prev_y_pos) ** 2)
-            print(f'distance = {distance}')
-            print(f'prev, cur radius'
-                  f' sum = {prev_radius + radius}')
-            if prev_radius + radius >= distance:
-                overlay_found = True
-                print(f'overlay found!')
+    try_limit_exceeded = False
+    while not try_limit_exceeded:
+        while not free_space_found:
+            overlay_found = False
+            x_pos, y_pos, radius = get_circle_space()
+            i = 0
+            while not overlay_found and i < prev_circle_list_len:
+                params = prev_circle_list[i]
+                prev_x_pos = params[0]
+                prev_y_pos = params[1]
+                prev_radius = params[2]
+                distance = math.sqrt((x_pos - prev_x_pos) ** 2 + (y_pos - prev_y_pos) ** 2)
+                print(f'distance = {distance}')
+                print(f'prev, cur radius'
+                      f' sum = {prev_radius + radius}')
+                if prev_radius + radius >= distance:
+                    overlay_found = True
+                    print(f'overlay found!')
+                else:
+                    i += 1
+            if not overlay_found:
+                print(f'Free space found!')
+                free_space_found = True
             else:
-                i += 1
-        if not overlay_found:
-            print(f'Free space found!')
-            free_space_found = True
+                try_amount += 1
+                if try_amount > try_amount_limit:
+                    try_limit_exceeded = True
 
-    return x_pos, y_pos, radius, try_amount_limit_exceeded
+    return x_pos, y_pos, radius, try_limit_exceeded
 
 
 def draw_snowflake(x_pos, y_pos, radius, feather_amount, color):
@@ -102,9 +104,9 @@ def draw_snowflake_feather(ray_length, ray_amount, ray_angle, direction):
 def start_snowfall():
     prev_circle_list = []
     # rand color, size, ray amont
-    try_amount_limit_exceeded = False
-    while not try_amount_limit_exceeded:
-        x_pos, y_pos, radius, try_amount_limit_exceeded = get_circle(prev_circle_list, TRY_AMOUNT_LIMIT)
+    try_limit_exceeded = False
+    while not try_limit_exceeded:
+        x_pos, y_pos, radius, try_limit_exceeded = get_circle(prev_circle_list, TRY_AMOUNT_LIMIT)
         color = get_snowflake_params()
         draw_snowflake(x_pos, y_pos, radius, 2, color)
         circle = (x_pos, y_pos, radius)
