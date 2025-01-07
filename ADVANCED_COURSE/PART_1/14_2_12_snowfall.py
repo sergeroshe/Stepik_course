@@ -8,7 +8,7 @@ COLOR_LIST = ['blue', 'red', 'green', 'grey', 'black', 'brown', 'pink']
 MIN_SNOWFLAKE_RADIUS = 10
 MAX_SNOWFLAKE_RADIUS = 50
 SNOWLAKE_FEATHER_RAY_ANGLE = 45
-TRY_AMOUNT_LIMIT = 10
+TRY_AMOUNT_LIMIT = 2
 
 
 def get_circle_space():
@@ -41,9 +41,7 @@ def get_circle(prev_circle_list, try_amount_limit):
                 prev_y_pos = params[1]
                 prev_radius = params[2]
                 distance = math.sqrt((x_pos - prev_x_pos) ** 2 + (y_pos - prev_y_pos) ** 2)
-                print(f'distance = {distance}')
-                print(f'prev, cur radius'
-                      f' sum = {prev_radius + radius}')
+
                 if prev_radius + radius >= distance:
                     overlay_found = True
                     print(f'overlay found!')
@@ -56,8 +54,9 @@ def get_circle(prev_circle_list, try_amount_limit):
                 try_amount += 1
                 if try_amount > try_amount_limit:
                     try_limit_exceeded = True
+                    print(try_amount)
 
-    return x_pos, y_pos, radius, try_limit_exceeded
+        return x_pos, y_pos, radius, try_limit_exceeded
 
 
 def draw_snowflake(x_pos, y_pos, radius, feather_amount, color):
@@ -111,6 +110,7 @@ def start_snowfall():
         draw_snowflake(x_pos, y_pos, radius, 2, color)
         circle = (x_pos, y_pos, radius)
         print(circle)
+        print(try_limit_exceeded)
         prev_circle_list.append(circle)
 
 
