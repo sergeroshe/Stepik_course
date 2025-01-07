@@ -39,7 +39,8 @@ def get_circle(prev_circle_list):
         if not overlay_found:
             print(f'Free space found!')
             # extract return out of loop
-            return x_pos, y_pos, radius
+            free_space_found = True
+    return x_pos, y_pos, radius
 
 
 def draw_snowflake(x_pos, y_pos, radius, feather_amount, color):
