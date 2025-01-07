@@ -30,33 +30,32 @@ def get_circle(prev_circle_list, try_amount_limit):
     try_amount = 0
     prev_circle_list_len = len(prev_circle_list)
     try_limit_exceeded = False
-    while not try_limit_exceeded:
-        while not free_space_found:
-            overlay_found = False
-            x_pos, y_pos, radius = get_circle_space()
-            i = 0
-            while not overlay_found and i < prev_circle_list_len:
-                params = prev_circle_list[i]
-                prev_x_pos = params[0]
-                prev_y_pos = params[1]
-                prev_radius = params[2]
-                distance = math.sqrt((x_pos - prev_x_pos) ** 2 + (y_pos - prev_y_pos) ** 2)
+    while not free_space_found and not try_limit_exceeded:
+        overlay_found = False
+        x_pos, y_pos, radius = get_circle_space()
+        i = 0
+        while not overlay_found and i < prev_circle_list_len:
+            params = prev_circle_list[i]
+            prev_x_pos = params[0]
+            prev_y_pos = params[1]
+            prev_radius = params[2]
+            distance = math.sqrt((x_pos - prev_x_pos) ** 2 + (y_pos - prev_y_pos) ** 2)
 
-                if prev_radius + radius >= distance:
-                    overlay_found = True
-                    print(f'overlay found!')
-                else:
-                    i += 1
-            if not overlay_found:
-                print(f'Free space found!')
-                free_space_found = True
+            if prev_radius + radius >= distance:
+                overlay_found = True
+                print(f'overlay found!')
             else:
-                try_amount += 1
-                if try_amount > try_amount_limit:
-                    try_limit_exceeded = True
-                    print(try_amount)
+                i += 1
+        if not overlay_found:
+            print(f'Free space found!')
+            free_space_found = True
+        else:
+            try_amount += 1
+            if try_amount > try_amount_limit:
+                try_limit_exceeded = True
+                print(try_amount)
 
-        return x_pos, y_pos, radius, try_limit_exceeded
+    return x_pos, y_pos, radius, try_limit_exceeded
 
 
 def draw_snowflake(x_pos, y_pos, radius, feather_amount, color):
@@ -107,11 +106,15 @@ def start_snowfall():
     while not try_limit_exceeded:
         x_pos, y_pos, radius, try_limit_exceeded = get_circle(prev_circle_list, TRY_AMOUNT_LIMIT)
         color = get_snowflake_params()
-        draw_snowflake(x_pos, y_pos, radius, 2, color)
-        circle = (x_pos, y_pos, radius)
-        print(circle)
-        print(try_limit_exceeded)
-        prev_circle_list.append(circle)
+        if not try_limit_exceeded:
+            draw_snowflake(x_pos, y_pos, radius, 2, color)
+            circle = (x_pos, y_pos, radius)
+            print(circle)
+            print(try_limit_exceeded)
+            prev_circle_list.append(circle)
+        else:
+            try_limit_exceeded = True
+            print(f'Try limit exceeded!')
 
 
 def main():
