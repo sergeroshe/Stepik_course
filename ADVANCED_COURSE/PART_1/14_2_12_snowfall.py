@@ -4,7 +4,8 @@ import math
 
 COORD_LIST_X = list(range(-200, 200))
 COORD_LIST_Y = list(range(-200, 200))
-COLOR_LIST = ['blue', 'red', 'green', 'grey', 'black', 'brown', 'pink']
+COLOR_LIST = ['blue', 'red', 'green', 'grey', 'black',
+              'brown', 'pink', 'yellow', 'violet']
 MIN_SNOWFLAKE_RADIUS = 10
 MAX_SNOWFLAKE_RADIUS = 50
 SNOWLAKE_FEATHER_RAY_ANGLE = 45
@@ -13,8 +14,8 @@ TRY_AMOUNT_LIMIT = 2
 
 def get_circle_space():
     # impelement random, compare with choice
-    x_pos = r.choice(COORD_LIST_X)
-    y_pos = r.choice(COORD_LIST_Y)
+    x_pos = r.random() * 100
+    y_pos = r.random() * 100
     cur_radius = r.choice(range(MIN_SNOWFLAKE_RADIUS, MAX_SNOWFLAKE_RADIUS))
     return x_pos, y_pos, cur_radius
 
@@ -53,7 +54,7 @@ def get_circle(prev_circle_list, try_amount_limit):
             try_amount += 1
             if try_amount > try_amount_limit:
                 try_limit_exceeded = True
-                print(try_amount)
+                print(f'Try amount = {try_amount}')
 
     return x_pos, y_pos, radius, try_limit_exceeded
 
@@ -109,8 +110,6 @@ def start_snowfall():
         if not try_limit_exceeded:
             draw_snowflake(x_pos, y_pos, radius, 2, color)
             circle = (x_pos, y_pos, radius)
-            print(circle)
-            print(try_limit_exceeded)
             prev_circle_list.append(circle)
         else:
             try_limit_exceeded = True
