@@ -4,30 +4,39 @@ import math
 
 COORD_LIST_X = list(range(-200, 200))
 COORD_LIST_Y = list(range(-200, 200))
+COLOR_LIST = ['blue', 'red', 'green', 'grey', 'black', 'brown', 'pink']
 MIN_SNOWFLAKE_RADIUS = 10
 MAX_SNOWFLAKE_RADIUS = 50
 SNOWLAKE_FEATHER_RAY_ANGLE = 45
+TRY_AMOUNT_LIMIT = 10
 
 
 def get_random_circle_params():
+    # impelement random, compare with choice
     x_pos = r.choice(COORD_LIST_X)
     y_pos = r.choice(COORD_LIST_Y)
     cur_radius = r.choice(range(MIN_SNOWFLAKE_RADIUS, MAX_SNOWFLAKE_RADIUS))
     return x_pos, y_pos, cur_radius
 
 
-def get_circle(prev_circle_list):
+# rename vars to concistance
+def get_circle(prev_circle_list, try_amount_limit):
     free_space_found = False
-    value_list_len = len(prev_circle_list)
-    while not free_space_found:
+    try_amount_limit_exceeded = False
+    try_amount = 0
+    prev_circle_list_len = len(prev_circle_list)
+    while not free_space_found and not try_amount_limit_exceeded:
         overlay_found = False
         x_pos, y_pos, radius = get_random_circle_params()
+        try_amount += 1
+        if try_amount > try_amount_limit:
+            try_amount_limit_exceeded = True
         i = 0
-        while not overlay_found and i < value_list_len:
-            value = prev_circle_list[i]
-            prev_x_pos = value[0]
-            prev_y_pos = value[1]
-            prev_radius = value[2]
+        while not overlay_found and i < prev_circle_list_len:
+            params = prev_circle_list[i]
+            prev_x_pos = params[0]
+            prev_y_pos = params[1]
+            prev_radius = params[2]
             distance = math.sqrt((x_pos - prev_x_pos) ** 2 + (y_pos - prev_y_pos) ** 2)
             print(f'distance = {distance}')
             print(f'prev, cur radius'
@@ -41,7 +50,6 @@ def get_circle(prev_circle_list):
             print(f'Free space found!')
             free_space_found = True
 
-    # extract return out of loop
     return x_pos, y_pos, radius
 
 
@@ -52,6 +60,7 @@ def draw_snowflake(x_pos, y_pos, radius, feather_amount, color):
     angle = 360 // feather_amount
     center = x_pos, y_pos
     t.penup()
+    # use random
     random_turn = r.choice(range(0, 360, angle // 2))
     for feather in range(feather_amount):
         t.goto(center)
@@ -92,8 +101,9 @@ def start_snowfall():
     color_list = ['blue', 'red', 'green', 'grey', 'black', 'brown', 'pink']
     color_list_len = len(color_list)
     i = 0
+    # use retry value
     while True:
-        x_pos, y_pos, radius = get_circle(prev_circle_list)
+        x_pos, y_pos, radius = get_circle(prev_circle_list, TRY_AMOUNT_LIMIT)
         draw_snowflake(x_pos, y_pos, radius, 2, color_list[i])
         circle = (x_pos, y_pos, radius)
         print(circle)
