@@ -19,6 +19,9 @@ def get_circle_space():
     return x_pos, y_pos, cur_radius
 
 
+def get_snowflake_params():
+    color = r.choice(COLOR_LIST)
+    return color
 
 
 # rename vars to concistance
@@ -106,7 +109,8 @@ def start_snowfall():
     # use retry value
     while True:
         x_pos, y_pos, radius = get_circle(prev_circle_list, TRY_AMOUNT_LIMIT)
-        draw_snowflake(x_pos, y_pos, radius, 2, color_list[i])
+        color = get_snowflake_params()
+        draw_snowflake(x_pos, y_pos, radius, 2, color)
         circle = (x_pos, y_pos, radius)
         print(circle)
         prev_circle_list.append(circle)
