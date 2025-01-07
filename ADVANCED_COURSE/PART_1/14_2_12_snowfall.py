@@ -38,8 +38,9 @@ def get_circle(prev_circle_list):
                 i += 1
         if not overlay_found:
             print(f'Free space found!')
-            # extract return out of loop
             free_space_found = True
+
+    # extract return out of loop
     return x_pos, y_pos, radius
 
 
