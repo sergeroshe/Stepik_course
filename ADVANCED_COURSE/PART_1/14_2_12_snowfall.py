@@ -6,9 +6,10 @@ COORD_LIST_X = list(range(-200, 200))
 COORD_LIST_Y = list(range(-200, 200))
 MIN_SNOWFLAKE_RADIUS = 10
 MAX_SNOWFLAKE_RADIUS = 50
+SNOWLAKE_FEATHER_RAY_ANGLE = 45
 
 
-def get_random_params():
+def get_random_circle_params():
     x_pos = r.choice(COORD_LIST_X)
     y_pos = r.choice(COORD_LIST_Y)
     cur_radius = r.choice(range(MIN_SNOWFLAKE_RADIUS, MAX_SNOWFLAKE_RADIUS))
@@ -20,7 +21,7 @@ def get_circle(prev_circle_list):
     value_list_len = len(prev_circle_list)
     while not free_space_found:
         overlay_found = False
-        x_pos, y_pos, radius = get_random_params()
+        x_pos, y_pos, radius = get_random_circle_params()
         i = 0
         while not overlay_found and i < value_list_len:
             value = prev_circle_list[i]
@@ -56,11 +57,11 @@ def draw_snowflake(x_pos, y_pos, radius, feather_amount, color):
         t.goto(center)
         direction = angle * feather + random_turn
         t.setheading(direction)
-        draw_snowflake_feather(ray_length, 3, angle, direction)
+        draw_snowflake_feather(ray_length, 3, 45, direction)
 
 
 # check func separately
-def draw_snowflake_feather(ray_length, ray_amount, angle, direction):
+def draw_snowflake_feather(ray_length, ray_amount, ray_angle, direction):
     # rename args
     for j in range(ray_amount):
         t.pendown()
@@ -69,9 +70,9 @@ def draw_snowflake_feather(ray_length, ray_amount, angle, direction):
         for k in range(1, ray_amount):
             rod_pos = t.pos()[0], t.pos()[1]
             if k % 2:
-                t.left(angle)
+                t.left(ray_angle)
             else:
-                t.right(angle)
+                t.right(ray_angle)
             t.pendown()
             # step 2
             t.forward(ray_length)
@@ -87,12 +88,13 @@ def draw_snowflake_feather(ray_length, ray_amount, angle, direction):
 def start_snowfall():
     prev_circle_list = []
     # rand color, size, ray amont
-    color_list = ['blue', 'red', 'green', 'grey', 'black']
+    # extract to const
+    color_list = ['blue', 'red', 'green', 'grey', 'black', 'brown', 'pink']
     color_list_len = len(color_list)
     i = 0
     while True:
         x_pos, y_pos, radius = get_circle(prev_circle_list)
-        draw_snowflake(x_pos, y_pos, radius, 8, color_list[i])
+        draw_snowflake(x_pos, y_pos, radius, 2, color_list[i])
         circle = (x_pos, y_pos, radius)
         print(circle)
         prev_circle_list.append(circle)
@@ -104,7 +106,7 @@ def main():
     # extract init to func
     window = t.Screen()
     t.showturtle()
-    t.speed(0)
+    t.speed(3)
     t.pensize(1)
     start_snowfall()
     # t.hideturtle()
