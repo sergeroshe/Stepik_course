@@ -12,7 +12,7 @@ SNOWLAKE_FEATHER_RAY_ANGLE = 45
 TRY_AMOUNT_LIMIT = 2
 
 
-def get_circle_space():
+def get_circle_params():
     # impelement random, compare with choice
     x_pos = r.random() * 200
     y_pos = r.random() * 200
@@ -33,7 +33,7 @@ def get_circle_space(prev_circle_list, try_amount_limit):
     try_limit_exceeded = False
     while not free_space_found and not try_limit_exceeded:
         overlay_found = False
-        x_pos, y_pos, radius = get_circle_space()
+        x_pos, y_pos, radius = get_circle_params()
         print(f'x = {x_pos}\ny = {y_pos}')
         i = 0
         while not overlay_found and i < prev_circle_list_len:
