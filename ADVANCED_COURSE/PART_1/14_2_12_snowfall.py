@@ -55,7 +55,7 @@ def get_circle(prev_circle_list, try_amount_limit):
             print(f'Free space found!')
             free_space_found = True
 
-    return x_pos, y_pos, radius
+    return x_pos, y_pos, radius, try_amount_limit_exceeded
 
 
 def draw_snowflake(x_pos, y_pos, radius, feather_amount, color):
@@ -102,9 +102,9 @@ def draw_snowflake_feather(ray_length, ray_amount, ray_angle, direction):
 def start_snowfall():
     prev_circle_list = []
     # rand color, size, ray amont
-
-    while True:
-        x_pos, y_pos, radius = get_circle(prev_circle_list, TRY_AMOUNT_LIMIT)
+    try_amount_limit_exceeded = False
+    while not try_amount_limit_exceeded:
+        x_pos, y_pos, radius, try_amount_limit_exceeded = get_circle(prev_circle_list, TRY_AMOUNT_LIMIT)
         color = get_snowflake_params()
         draw_snowflake(x_pos, y_pos, radius, 2, color)
         circle = (x_pos, y_pos, radius)
