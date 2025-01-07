@@ -42,7 +42,7 @@ def get_circle_space(prev_circle_list, try_amount_limit):
             prev_y_pos = params[1]
             prev_radius = params[2]
             distance = math.sqrt((x_pos - prev_x_pos) ** 2 + (y_pos - prev_y_pos) ** 2)
-            print(f'distance = {distance}')
+            print(f'Prev radius = {prev_radius}\nCur radius = {radius}\nDistance = {distance}')
             if prev_radius + radius >= distance:
                 overlay_found = True
                 print(f'overlay found!')
