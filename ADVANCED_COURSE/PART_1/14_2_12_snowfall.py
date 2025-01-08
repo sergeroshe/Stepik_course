@@ -9,13 +9,16 @@ COLOR_LIST = ['blue', 'red', 'green', 'grey', 'black',
 MIN_SNOWFLAKE_RADIUS = 10
 MAX_SNOWFLAKE_RADIUS = 50
 SNOWLAKE_FEATHER_RAY_ANGLE = 45
-TRY_AMOUNT_LIMIT = 2
+TRY_AMOUNT_LIMIT = 10
 
 
 def get_circle_params():
     # impelement random, compare with choice
-    x_pos = r.random() * 200
-    y_pos = r.random() * 200
+    x_pos = -201 + r.random() % 201
+    y_pos = -201 + r.random() % 201
+    # x_pos = r.choice(range(MIN_SNOWFLAKE_RADIUS, MAX_SNOWFLAKE_RADIUS))
+    # y_pos = r.choice(range(MIN_SNOWFLAKE_RADIUS, MAX_SNOWFLAKE_RADIUS))
+
     cur_radius = r.choice(range(MIN_SNOWFLAKE_RADIUS, MAX_SNOWFLAKE_RADIUS))
     return x_pos, y_pos, cur_radius
 
