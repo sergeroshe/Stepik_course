@@ -8,15 +8,14 @@ COLOR_LIST = ['blue', 'red', 'green', 'grey', 'black', 'brown', 'pink']
 MIN_SNOWFLAKE_RADIUS = 10
 MAX_SNOWFLAKE_RADIUS = 50
 SNOWLAKE_FEATHER_RAY_ANGLE = 45
-TRY_AMOUNT_LIMIT = 2
+TRY_AMOUNT_LIMIT = 10
+SNOWLAKE_FEATHER_AMOUNT = 8
 
 
 def get_circle_space():
     # impelement random, compare with choice
-    # x_pos = r.choice(COORD_LIST_X)
-    # y_pos = r.choice(COORD_LIST_Y)
-    x_pos = r.random() * 200 - 180
-    y_pos = r.random() * 200 - 180
+    x_pos = -600 + r.random() * 1200
+    y_pos = -300 + r.random() * 600
     cur_radius = r.choice(range(MIN_SNOWFLAKE_RADIUS, MAX_SNOWFLAKE_RADIUS))
     print(f'x = {x_pos}, y = {y_pos}')
 
@@ -112,14 +111,13 @@ def start_snowfall():
         x_pos, y_pos, radius, try_limit_exceeded = get_circle(prev_circle_list, TRY_AMOUNT_LIMIT)
         color = get_snowflake_params()
         if not try_limit_exceeded:
-            draw_snowflake(x_pos, y_pos, radius, 2, color)
+            draw_snowflake(x_pos, y_pos, radius, SNOWLAKE_FEATHER_AMOUNT, color)
             circle = (x_pos, y_pos, radius)
             print(try_limit_exceeded)
             prev_circle_list.append(circle)
         else:
             try_limit_exceeded = True
             print(f'Try limit exceeded!')
-            break
 
 
 def main():
