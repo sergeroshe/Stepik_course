@@ -4,9 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8dde5acf-80f4-42f7-872a-f6a157d159be" name="Changes" comment="Added comment">
+    <list default="true" id="8dde5acf-80f4-42f7-872a-f6a157d159be" name="Changes" comment="Replaced choice method with randov">
+      <change afterPath="$PROJECT_DIR$/ADVANCED_COURSE/PART_1/snowfall_wf.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_19_04_2023_21_54__Changes_.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ADVANCED_COURSE/PART_1/14_2_12_snowfall.py" beforeDir="false" afterPath="$PROJECT_DIR$/ADVANCED_COURSE/PART_1/14_2_12_snowfall.py" afterDir="false" />
     </list>
@@ -47,7 +47,7 @@
     &quot;git-widget-placeholder&quot;: &quot;feature/14/2/12__snowfall&quot;,
     &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
     &quot;last_opened_file_path&quot;: &quot;C:/src/Stepik_course&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;org.jetbrains.plugins.github.ui.GithubSettingsConfigurable&quot;
+    &quot;settings.editor.selected.configurable&quot;: &quot;com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable&quot;
   }
 }</component>
   <component name="RecentsManager">
@@ -55,7 +55,29 @@
       <recent name="C:\Users\roshc\PycharmProjects\pythonProject\14_exam_function" />
     </key>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Python.14_2_12_snowfall">
+    <configuration name="14_2_12_snowfall" type="PythonConfigurationType" factoryName="Python" nameIsGenerated="true">
+      <module name="Stepik_course" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="SDK_NAME" value="Python 3.9" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/ADVANCED_COURSE/PART_1" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/ADVANCED_COURSE/PART_1/14_2_12_snowfall.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
     <configuration name="Unnamed" type="PythonConfigurationType" factoryName="Python" nameIsGenerated="true">
       <module name="Stepik_course" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -321,7 +343,55 @@
       <option name="project" value="LOCAL" />
       <updated>1733306775989</updated>
     </task>
-    <option name="localTasksCounter" value="31" />
+    <task id="LOCAL-00031" summary="Removed extra loop">
+      <option name="closed" value="true" />
+      <created>1736259840964</created>
+      <option name="number" value="00031" />
+      <option name="presentableId" value="LOCAL-00031" />
+      <option name="project" value="LOCAL" />
+      <updated>1736259840964</updated>
+    </task>
+    <task id="LOCAL-00032" summary="Replaced choice method with random">
+      <option name="closed" value="true" />
+      <created>1736260832647</created>
+      <option name="number" value="00032" />
+      <option name="presentableId" value="LOCAL-00032" />
+      <option name="project" value="LOCAL" />
+      <updated>1736260832647</updated>
+    </task>
+    <task id="LOCAL-00033" summary="Renamed func to get_circle_space">
+      <option name="closed" value="true" />
+      <created>1736261175087</created>
+      <option name="number" value="00033" />
+      <option name="presentableId" value="LOCAL-00033" />
+      <option name="project" value="LOCAL" />
+      <updated>1736261175087</updated>
+    </task>
+    <task id="LOCAL-00034" summary="Changed log prints">
+      <option name="closed" value="true" />
+      <created>1736261336751</created>
+      <option name="number" value="00034" />
+      <option name="presentableId" value="LOCAL-00034" />
+      <option name="project" value="LOCAL" />
+      <updated>1736261336751</updated>
+    </task>
+    <task id="LOCAL-00035" summary="Removed func to get_circle_params">
+      <option name="closed" value="true" />
+      <created>1736261636989</created>
+      <option name="number" value="00035" />
+      <option name="presentableId" value="LOCAL-00035" />
+      <option name="project" value="LOCAL" />
+      <updated>1736261636989</updated>
+    </task>
+    <task id="LOCAL-00036" summary="Replaced choice method with randov">
+      <option name="closed" value="true" />
+      <created>1736330816852</created>
+      <option name="number" value="00036" />
+      <option name="presentableId" value="LOCAL-00036" />
+      <option name="project" value="LOCAL" />
+      <updated>1736330816852</updated>
+    </task>
+    <option name="localTasksCounter" value="37" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -348,12 +418,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Updated dev instructions" />
-    <MESSAGE value="Renamed param to row_num" />
-    <MESSAGE value="Added funcs: get_mtrx_column_sum, is_matrix_equal, get_row_sum" />
-    <MESSAGE value="Added one more loop for lower right corner filling out" />
-    <MESSAGE value="Refactoring" />
-    <MESSAGE value="Added explanatory comments" />
     <MESSAGE value="Removed extra var k" />
     <MESSAGE value="Extracted logical parts to funcs, added vars" />
     <MESSAGE value="Renamed var to complete_matrix" />
@@ -373,7 +437,13 @@
     <MESSAGE value="Added a separate list for each coordinate" />
     <MESSAGE value="Renamed feather length to ray length" />
     <MESSAGE value="Added comment" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added comment" />
+    <MESSAGE value="Removed extra loop" />
+    <MESSAGE value="Replaced choice method with random" />
+    <MESSAGE value="Renamed func to get_circle_space" />
+    <MESSAGE value="Changed log prints" />
+    <MESSAGE value="Removed func to get_circle_params" />
+    <MESSAGE value="Replaced choice method with randov" />
+    <option name="LAST_COMMIT_MESSAGE" value="Replaced choice method with randov" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -542,18 +612,13 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/ADVANCED_COURSE/PART_1/14_2_12_snowfall.py</url>
-          <line>10</line>
-          <option name="timeStamp" value="140" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/ADVANCED_COURSE/PART_1/14_2_12_snowfall.py</url>
-          <line>7</line>
-          <option name="timeStamp" value="141" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/ADVANCED_COURSE/PART_1/14_2_12_snowfall.py</url>
-          <line>34</line>
+          <line>39</line>
           <option name="timeStamp" value="142" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/ADVANCED_COURSE/PART_1/14_2_12_snowfall.py</url>
+          <line>119</line>
+          <option name="timeStamp" value="143" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
