@@ -109,8 +109,8 @@ def start_snowfall():
     try_limit_exceeded = False
     while not try_limit_exceeded:
         x_pos, y_pos, radius, try_limit_exceeded = get_circle(prev_circle_list, TRY_AMOUNT_LIMIT)
-        color = get_snowflake_params()
         if not try_limit_exceeded:
+            color = get_snowflake_params()
             draw_snowflake(x_pos, y_pos, radius, SNOWLAKE_FEATHER_AMOUNT, color)
             circle = (x_pos, y_pos, radius)
             print(try_limit_exceeded)
