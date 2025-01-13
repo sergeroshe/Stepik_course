@@ -48,8 +48,8 @@ def get_circle(prev_circle_list, try_amount_limit):
             if prev_radius + radius >= distance:
                 overlay_found = True
                 print(f'overlay found!')
-            else:
                 i += 1
+
         if not overlay_found:
             print(f'Free space found!')
             free_space_found = True
