@@ -116,7 +116,6 @@ def start_snowfall():
             print(try_limit_exceeded)
             prev_circle_list.append(circle)
         else:
-            try_limit_exceeded = True
             print(f'Try limit exceeded!')
 
 
