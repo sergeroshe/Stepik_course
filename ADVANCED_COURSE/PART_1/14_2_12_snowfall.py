@@ -127,7 +127,7 @@ def main():
     t.speed(3)
     t.pensize(1)
     start_snowfall()
-    # t.hideturtle()
+    t.hideturtle()
     window.mainloop()
 
 
