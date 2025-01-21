@@ -42,10 +42,12 @@ def get_circle(prev_circle_list, try_amount_limit):
         x_pos, y_pos, radius = get_circle_space()
         i = 0
         while not overlay_found and i < prev_circle_list_len:
+            # extract logic to func
             params = prev_circle_list[i]
             prev_x_pos = params[0]
             prev_y_pos = params[1]
             prev_radius = params[2]
+            # extract to func
             distance = math.sqrt((x_pos - prev_x_pos) ** 2 + (y_pos - prev_y_pos) ** 2)
             print(f'prev radius = {prev_radius}, current radius = {radius}')
             print(f'distance = {distance}')
@@ -66,13 +68,14 @@ def get_circle(prev_circle_list, try_amount_limit):
 
 
 def draw_snowflake(x_pos, y_pos, radius, feather_amount, color):
+    # make a param
     ray_length = radius // 4
     t.speed(0)
     t.color(color)
     angle = 360 // feather_amount
     center = x_pos, y_pos
     t.penup()
-    # use random
+    # make an arg of get snflk params
     random_turn = r.choice(range(0, 360, angle // 2))
     for feather in range(feather_amount):
         t.goto(center)
