@@ -45,7 +45,7 @@ def main():
     window = t.Screen()
     t.hideturtle()
     draw_house()
-    t.speed(3)
+    t.speed(0)
     t.pensize(1)
     window.mainloop()
 
