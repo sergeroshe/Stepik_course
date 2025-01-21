@@ -113,6 +113,7 @@ def start_snowfall():
     while not try_limit_exceeded:
         try_limit_exceeded, x_pos, y_pos, radius, color = get_snowflake_params(prev_circle_list, TRY_AMOUNT_LIMIT)
         if not try_limit_exceeded:
+            # make feather amount random from get snowflake params
             draw_snowflake(x_pos, y_pos, radius, SNOWLAKE_FEATHER_AMOUNT, color)
             circle = (x_pos, y_pos, radius)
             print(try_limit_exceeded)
