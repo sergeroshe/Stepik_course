@@ -28,7 +28,7 @@ def get_snowflake_params(prev_circle_list, try_amount_limit):
     if not try_limit_exceeded:
         color = r.choice(COLOR_LIST)
 
-    return x_pos, y_pos, radius, try_limit_exceeded, color
+    return try_limit_exceeded, x_pos, y_pos, radius, color
 
 
 # rename vars to concistance
@@ -111,9 +111,8 @@ def start_snowfall():
     # rand color, size, ray amont
     try_limit_exceeded = False
     while not try_limit_exceeded:
-        x_pos, y_pos, radius, try_limit_exceeded, color = get_snowflake_params(prev_circle_list, TRY_AMOUNT_LIMIT)
+        try_limit_exceeded, x_pos, y_pos, radius, color = get_snowflake_params(prev_circle_list, TRY_AMOUNT_LIMIT)
         if not try_limit_exceeded:
-            # color = get_snowflake_params()
             draw_snowflake(x_pos, y_pos, radius, SNOWLAKE_FEATHER_AMOUNT, color)
             circle = (x_pos, y_pos, radius)
             print(try_limit_exceeded)
