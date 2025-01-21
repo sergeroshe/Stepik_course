@@ -23,8 +23,11 @@ def get_circle_space():
 
 
 def get_snowflake_params(prev_circle_list, try_amount_limit):
-    color = r.choice(COLOR_LIST)
+    color = None
     x_pos, y_pos, radius, try_limit_exceeded = get_circle(prev_circle_list, try_amount_limit)
+    if not try_limit_exceeded:
+        color = r.choice(COLOR_LIST)
+
     return x_pos, y_pos, radius, try_limit_exceeded, color
 
 
