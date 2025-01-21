@@ -85,15 +85,15 @@ def draw_snowflake(x_pos, y_pos, radius, feather_amount, color):
 
 
 # check func separately
-def draw_snowflake_feather(ray_length, ray_amount, ray_angle, direction):
+def draw_snowflake_feather(ray_length, ray_pair_amount, ray_angle, direction):
     # rename args
-    for j in range(ray_amount):
+    for i in range(ray_pair_amount):
         t.pendown()
         # step 1
         t.forward(ray_length)
-        for k in range(1, ray_amount):
+        for i in range(1, ray_pair_amount):
             rod_pos = t.pos()[0], t.pos()[1]
-            if k % 2:
+            if i % 2:
                 t.left(ray_angle)
             else:
                 t.right(ray_angle)
