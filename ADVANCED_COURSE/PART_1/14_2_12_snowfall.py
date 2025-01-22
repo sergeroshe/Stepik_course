@@ -13,7 +13,6 @@ SNOWLAKE_FEATHER_AMOUNT = 8
 
 
 def get_circle_space():
-    # impelement random, compare with choice
     x_pos = -600 + r.random() * 1200
     y_pos = -300 + r.random() * 600
     cur_radius = r.choice(range(MIN_SNOWFLAKE_RADIUS, MAX_SNOWFLAKE_RADIUS))
@@ -22,16 +21,32 @@ def get_circle_space():
     return x_pos, y_pos, cur_radius
 
 
+def check_overlay(x_pos, y_pos, prev_x_pos, prev_y_pos, prev_radius, radius):
+    overlay_found = False
+    distance = math.sqrt((x_pos - prev_x_pos) ** 2 + (y_pos - prev_y_pos) ** 2)
+    print(f'prev radius = {prev_radius}, current radius = {radius}')
+    print(f'distance = {distance}')
+    if prev_radius + radius >= distance:
+        overlay_found = True
+
+    return overlay_found
+
+
 def get_snowflake_params(prev_circle_list, try_amount_limit):
     color = None
     x_pos, y_pos, radius, try_limit_exceeded = get_circle(prev_circle_list, try_amount_limit)
+    ray_length = radius // 4
+    snowlake_feather_amount = r.choice(list(range(1, 15)))
+    angle = 360 // snowlake_feather_amount
+    random_turn = r.choice(range(0, 360, angle // 2))
+
     if not try_limit_exceeded:
         color = r.choice(COLOR_LIST)
 
-    return try_limit_exceeded, x_pos, y_pos, radius, color
+    return (x_pos, y_pos, radius, color, ray_length,
+            snowlake_feather_amount, random_turn, try_limit_exceeded)
 
 
-# rename vars to concistance
 def get_circle(prev_circle_list, try_amount_limit):
     free_space_found = False
     try_amount = 0
@@ -47,13 +62,9 @@ def get_circle(prev_circle_list, try_amount_limit):
             prev_x_pos = params[0]
             prev_y_pos = params[1]
             prev_radius = params[2]
-            # extract to func
-            distance = math.sqrt((x_pos - prev_x_pos) ** 2 + (y_pos - prev_y_pos) ** 2)
-            print(f'prev radius = {prev_radius}, current radius = {radius}')
-            print(f'distance = {distance}')
-            if prev_radius + radius >= distance:
+            overlay_found = check_overlay(x_pos, y_pos, prev_x_pos, prev_y_pos, prev_radius, radius)
+            if overlay_found:
                 try_amount += 1
-                overlay_found = True
                 print(f'overlay found!')
             i += 1
 
@@ -67,16 +78,15 @@ def get_circle(prev_circle_list, try_amount_limit):
     return x_pos, y_pos, radius, try_limit_exceeded
 
 
-def draw_snowflake(x_pos, y_pos, radius, feather_amount, color):
+def draw_snowflake(x_pos, y_pos, radius, feather_amount, color, random_turn):
     # make a param
     ray_length = radius // 4
     t.speed(0)
     t.color(color)
-    angle = 360 // feather_amount
     center = x_pos, y_pos
     t.penup()
+    angle = 360 // feather_amount
     # make an arg of get snflk params
-    random_turn = r.choice(range(0, 360, angle // 2))
     for feather in range(feather_amount):
         t.goto(center)
         direction = angle * feather + random_turn
@@ -114,10 +124,12 @@ def start_snowfall():
     # rand color, size, ray amont
     try_limit_exceeded = False
     while not try_limit_exceeded:
-        try_limit_exceeded, x_pos, y_pos, radius, color = get_snowflake_params(prev_circle_list, TRY_AMOUNT_LIMIT)
+        (x_pos, y_pos, radius, color, ray_length,
+         snowlake_feather_amount, random_turn, try_limit_exceeded) = get_snowflake_params(prev_circle_list,
+                                                                                          TRY_AMOUNT_LIMIT)
         if not try_limit_exceeded:
-            # make feather amount random from get snowflake params
-            draw_snowflake(x_pos, y_pos, radius, SNOWLAKE_FEATHER_AMOUNT, color)
+            draw_snowflake(x_pos, y_pos, radius, snowlake_feather_amount,
+                           color, random_turn)
             circle = (x_pos, y_pos, radius)
             print(try_limit_exceeded)
             prev_circle_list.append(circle)
