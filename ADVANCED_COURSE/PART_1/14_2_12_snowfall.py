@@ -36,9 +36,9 @@ def get_snowflake_params(prev_circle_list, try_amount_limit):
     color = None
     x_pos, y_pos, radius, try_limit_exceeded = get_circle(prev_circle_list, try_amount_limit)
     ray_length = radius // 4
-    snowlake_feather_amount = r.choice(list(range(1, 15)))
+    snowlake_feather_amount = r.choice(list(range(2, 15)))
     angle = 360 // snowlake_feather_amount
-    random_turn = r.choice(range(0, 360, angle // 2))
+    random_turn = r.choice(range(0, 360, angle // 3))
 
     if not try_limit_exceeded:
         color = r.choice(COLOR_LIST)
@@ -81,7 +81,6 @@ def get_circle(prev_circle_list, try_amount_limit):
 def draw_snowflake(x_pos, y_pos, radius, feather_amount, color, random_turn):
     # make a param
     ray_length = radius // 4
-    t.speed(0)
     t.color(color)
     center = x_pos, y_pos
     t.penup()
