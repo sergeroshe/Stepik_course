@@ -26,12 +26,12 @@ def generate_circle_params():
 
 # order of args
 # rename params to x_1, x_2 based
-def check_circles_overlay(x_pos, y_pos, prev_x_pos, prev_y_pos, prev_radius, radius):
+def check_circles_overlay(x_1, y_1, x_2, y_2, radius_1, radius_2):
     overlay_found = False
-    distance = math.sqrt((x_pos - prev_x_pos) ** 2 + (y_pos - prev_y_pos) ** 2)
+    distance = math.sqrt((x_2 - x_1) ** 2 + (y_2 - y_1) ** 2)
     # rename params to x_1, x_2 based
     print(f'distance = {distance}')
-    overlay_found = prev_radius + radius >= distance
+    overlay_found = radius_1 + radius_2 >= distance
 
     return overlay_found
 
@@ -72,7 +72,7 @@ def get_circle(prev_circle_list, try_amount_limit):
             prev_y_pos = prev_circle_params[1]
             prev_radius = prev_circle_params[2]
             print(f'prev radius = {prev_radius}, current radius = {radius}')
-            overlay_found = check_circles_overlay(x_pos, y_pos, prev_x_pos, prev_y_pos, prev_radius, radius)
+            overlay_found = check_circles_overlay(prev_x_pos, prev_y_pos, x_pos, y_pos, prev_radius, radius)
             if overlay_found:
                 try_amount += 1
                 print(f'overlay found!')
