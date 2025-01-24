@@ -21,7 +21,9 @@ def get_circle_space():
     return x_pos, y_pos, cur_radius
 
 
-def check_overlay(x_pos, y_pos, prev_x_pos, prev_y_pos, prev_radius, radius):
+# order of args
+# rename params to x_1, x_2 based
+def check_circles_overlay(x_pos, y_pos, prev_x_pos, prev_y_pos, prev_radius, radius):
     overlay_found = False
     distance = math.sqrt((x_pos - prev_x_pos) ** 2 + (y_pos - prev_y_pos) ** 2)
     print(f'prev radius = {prev_radius}, current radius = {radius}')
@@ -62,7 +64,7 @@ def get_circle(prev_circle_list, try_amount_limit):
             prev_x_pos = params[0]
             prev_y_pos = params[1]
             prev_radius = params[2]
-            overlay_found = check_overlay(x_pos, y_pos, prev_x_pos, prev_y_pos, prev_radius, radius)
+            overlay_found = check_circles_overlay(x_pos, y_pos, prev_x_pos, prev_y_pos, prev_radius, radius)
             if overlay_found:
                 try_amount += 1
                 print(f'overlay found!')
