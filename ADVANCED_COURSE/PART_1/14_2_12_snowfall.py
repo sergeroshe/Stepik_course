@@ -36,18 +36,21 @@ def check_circles_overlay(x_pos, y_pos, prev_x_pos, prev_y_pos, prev_radius, rad
     return overlay_found
 
 
-def get_snowflake_params(prev_circle_list, try_amount_limit):
+def get_snowflake_params(prev_circle_list, color_list,
+                         ray_length_radius_proportion, max_snowlake_feather_amount,
+                         min_snowlake_feather_amount, snowflake_random_turn_precision,
+                         try_amount_limit):
     (color, ray_length,
      snowlake_feather_amount, random_turn) = None, None, None, None
     # extract to params
     x_pos, y_pos, radius, try_limit_exceeded = get_circle(prev_circle_list, try_amount_limit)
 
     if not try_limit_exceeded:
-        color = r.choice(COLOR_LIST)
-        ray_length = radius // RAY_LENGTH_RADIUS_PROPORTION
-        snowlake_feather_amount = int(r.random() * MAX_SNOWLAKE_FEATHER_AMOUNT + MIN_SNOWLAKE_FEATHER_AMOUNT)
+        color = r.choice(color_list)
+        ray_length = radius // ray_length_radius_proportion
+        snowlake_feather_amount = int(r.random() * max_snowlake_feather_amount + min_snowlake_feather_amount)
         angle = 360 // snowlake_feather_amount
-        random_turn = r.choice(range(0, 360, angle // SNOWFLAKE_RANDOM_TURN_PRECISION))
+        random_turn = r.choice(range(0, 360, angle // snowflake_random_turn_precision))
 
     return (x_pos, y_pos, radius, color, ray_length,
             snowlake_feather_amount, random_turn, try_limit_exceeded)
@@ -131,7 +134,11 @@ def start_snowfall():
     try_limit_exceeded = False
     while not try_limit_exceeded:
         (x_pos, y_pos, radius, color, ray_length,
-         snowlake_feather_amount, random_turn, try_limit_exceeded) = get_snowflake_params(prev_circle_list,
+         snowlake_feather_amount, random_turn, try_limit_exceeded) = get_snowflake_params(prev_circle_list, COLOR_LIST,
+                                                                                          RAY_LENGTH_RADIUS_PROPORTION,
+                                                                                          MAX_SNOWLAKE_FEATHER_AMOUNT,
+                                                                                          MIN_SNOWLAKE_FEATHER_AMOUNT,
+                                                                                          SNOWFLAKE_RANDOM_TURN_PRECISION,
                                                                                           TRY_AMOUNT_LIMIT)
         if not try_limit_exceeded:
             draw_snowflake(x_pos, y_pos, radius, snowlake_feather_amount,
