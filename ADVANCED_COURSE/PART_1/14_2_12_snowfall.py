@@ -57,8 +57,8 @@ def get_circle(prev_circle_list, try_amount_limit):
         overlay_found = False
         x_pos, y_pos, radius = generate_circle_params()
         i = 0
+        # extract logic to func!
         while not overlay_found and i < prev_circle_list_len:
-            # extract logic to func
             prev_circle_params = prev_circle_list[i]
             prev_x_pos = prev_circle_params[0]
             prev_y_pos = prev_circle_params[1]
