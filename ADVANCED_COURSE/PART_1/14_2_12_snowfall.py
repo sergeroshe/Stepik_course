@@ -9,7 +9,10 @@ MIN_SNOWFLAKE_RADIUS = 10
 MAX_SNOWFLAKE_RADIUS = 50
 SNOWLAKE_FEATHER_RAY_ANGLE = 45
 TRY_AMOUNT_LIMIT = 2
-SNOWLAKE_FEATHER_AMOUNT = 8
+MIN_SNOWLAKE_FEATHER_AMOUNT = 2
+MAX_SNOWLAKE_FEATHER_AMOUNT = 15
+RAY_LENGTH_RADIUS_PROPORTION = 4
+SNOWFLAKE_RANDOM_TURN_PRECISION = 3
 
 
 def generate_circle_params():
@@ -34,15 +37,17 @@ def check_circles_overlay(x_pos, y_pos, prev_x_pos, prev_y_pos, prev_radius, rad
 
 
 def get_snowflake_params(prev_circle_list, try_amount_limit):
-    color = None
+    (color, ray_length,
+     snowlake_feather_amount, random_turn) = None, None, None, None
+    # extract to params
     x_pos, y_pos, radius, try_limit_exceeded = get_circle(prev_circle_list, try_amount_limit)
-    ray_length = radius // 4
-    snowlake_feather_amount = r.choice(list(range(2, 15)))
-    angle = 360 // snowlake_feather_amount
-    random_turn = r.choice(range(0, 360, angle // 3))
 
     if not try_limit_exceeded:
         color = r.choice(COLOR_LIST)
+        ray_length = radius // RAY_LENGTH_RADIUS_PROPORTION
+        snowlake_feather_amount = int(r.random() * MAX_SNOWLAKE_FEATHER_AMOUNT + MIN_SNOWLAKE_FEATHER_AMOUNT)
+        angle = 360 // snowlake_feather_amount
+        random_turn = r.choice(range(0, 360, angle // SNOWFLAKE_RANDOM_TURN_PRECISION))
 
     return (x_pos, y_pos, radius, color, ray_length,
             snowlake_feather_amount, random_turn, try_limit_exceeded)
