@@ -1,6 +1,7 @@
 import turtle as t
 
-SIZE = 300
+TRIANGLE_SIZE = 300
+DOT_SIZE = 100
 
 
 def draw_triangle(size, color):
@@ -17,32 +18,31 @@ def draw_dots(init_position, circle_size, side, color):
         t.left(120)
 
 
-def draw_illusion(size, color):
-    start_position = (-size // 2, -size // 2)
+def draw_illusion(triangle_size, dot_size, color):
+    start_position = (-triangle_size // 2, -triangle_size // 2)
     t.goto(start_position)
     t.pendown()
-    draw_triangle(size, color)
-    second_triangle_postition = (start_position[0] + size,
-                                 start_position[1] + size * 0.60)
+    draw_triangle(triangle_size, color)
+    second_triangle_postition = (start_position[0] + triangle_size,
+                                 start_position[1] + triangle_size * 0.60)
     t.penup()
     t.goto(second_triangle_postition)
     t.right(180)
     t.pendown()
-    circle_size = 70
-    draw_dots(second_triangle_postition, circle_size, size, 'black', )
+    draw_dots(second_triangle_postition, dot_size, triangle_size, 'black', )
     t.fillcolor('white')
     t.begin_fill()
     t.penup()
-    draw_triangle(size, color)
+    draw_triangle(triangle_size, color)
     t.end_fill()
 
 def main():
     window = t.Screen()
-    # t.hideturtle()
+    t.hideturtle()
     t.penup()
     t.speed(0)
 
-    draw_illusion(SIZE, 'black')
+    draw_illusion(TRIANGLE_SIZE, DOT_SIZE, 'black')
 
     t.pensize(1)
     window.mainloop()
