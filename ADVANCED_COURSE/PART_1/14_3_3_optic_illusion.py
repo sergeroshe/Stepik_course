@@ -1,7 +1,9 @@
 import turtle as t
 
-TRIANGLE_SIZE = 300
-DOT_SIZE = 100
+TRIANGLE_SIZE = 400
+DOT_SIZE = 125
+START_POSITION = -TRIANGLE_SIZE // 2, -TRIANGLE_SIZE // 4
+
 
 
 def draw_triangle(size, color):
@@ -19,7 +21,7 @@ def draw_dots(init_position, circle_size, side, color):
 
 
 def draw_illusion(triangle_size, dot_size, color):
-    start_position = (-triangle_size // 2, -triangle_size // 2)
+    start_position = START_POSITION
     t.goto(start_position)
     t.pendown()
     draw_triangle(triangle_size, color)
