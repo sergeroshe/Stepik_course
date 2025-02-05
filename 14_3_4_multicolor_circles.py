@@ -1,10 +1,10 @@
 import turtle as t
 
-CIRCLE_MIN_SIZE = 40
-CIRCLE_MAX_SIZE = 400
+CIRCLE_MIN_SIZE = 30
+CIRCLE_MAX_SIZE = 300
 
 COLOR_LIST = ['pink', 'violet', 'blue', 'white', 'yellow', 'orange', 'red', 'green', 'brown']
-SHIFT_SIZE = 50
+SHIFT_SIZE = CIRCLE_MAX_SIZE // 8
 
 def draw_circle(size, color):
     t.fillcolor(color)
@@ -15,7 +15,7 @@ def draw_circle(size, color):
 
 # give a proper name
 def draw_picture():
-    t.goto(0, -CIRCLE_MAX_SIZE // 2)
+    t.goto(0, -CIRCLE_MAX_SIZE)
     size = CIRCLE_MAX_SIZE
     i = len(COLOR_LIST) - 1
     pos = t.pos()
