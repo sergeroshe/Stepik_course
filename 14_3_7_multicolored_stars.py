@@ -5,20 +5,17 @@ import math
 COORD_LIST_X = list(range(-200, 200))
 COORD_LIST_Y = list(range(-200, 200))
 COLOR_LIST = ['blue', 'red', 'green', 'yellow', 'grey', 'black', 'brown', 'pink']
-MIN_SNOWFLAKE_RADIUS = 10
-MAX_SNOWFLAKE_RADIUS = 50
-SNOWLAKE_FEATHER_RAY_ANGLE = 45
+MIN_STAR_RADIUS = 10
+MAX_STAR_RADIUS = 50
 TRY_AMOUNT_LIMIT = 2
-MIN_SNOWLAKE_FEATHER_AMOUNT = 2
-MAX_SNOWLAKE_FEATHER_AMOUNT = 15
 RAY_LENGTH_RADIUS_PROPORTION = 4
-SNOWFLAKE_RANDOM_TURN_PRECISION = 3
+STAR_RANDOM_TURN_PRECISION = 3
 
 
 def generate_circle_params():
     x_pos = -600 + r.random() * 1200
     y_pos = -300 + r.random() * 600
-    cur_radius = r.choice(range(MIN_SNOWFLAKE_RADIUS, MAX_SNOWFLAKE_RADIUS))
+    cur_radius = r.choice(range(MIN_STAR_RADIUS, MAX_STAR_RADIUS))
     print(f'x = {x_pos}, y = {y_pos}')
 
     return x_pos, y_pos, cur_radius
@@ -32,19 +29,14 @@ def check_segments_overlay(x_1, y_1, x_2, y_2, radius_1, radius_2):
     return overlay_found
 
 
-def get_snowflake_params(prev_circle_list, color_list,
-                         ray_length_radius_proportion, max_snowlake_feather_amount,
-                         min_snowlake_feather_amount, snowflake_random_turn_precision,
+def get_star_params(prev_circle_list, color_list, star_random_turn_precision,
                          try_amount_limit):
     (color, random_turn) = None, None
     x_pos, y_pos, size, try_limit_exceeded = get_circle(prev_circle_list, try_amount_limit)
 
     if not try_limit_exceeded:
         color = r.choice(color_list)
-        ray_length = size // ray_length_radius_proportion
-        snowlake_feather_amount = int(r.random() * max_snowlake_feather_amount + min_snowlake_feather_amount)
-        angle = 360 // snowlake_feather_amount
-        random_turn = r.choice(range(0, 360, angle // snowflake_random_turn_precision))
+        random_turn = r.choice(range(0, 360, star_random_turn_precision))
 
     return (x_pos, y_pos, size, color, random_turn, try_limit_exceeded)
 
@@ -97,17 +89,16 @@ def start_snowfall():
     try_limit_exceeded = False
     while not try_limit_exceeded:
         x_pos, y_pos, size, color, random_turn, try_limit_exceeded = (
-            get_snowflake_params(prev_circle_list, COLOR_LIST,
-                                 RAY_LENGTH_RADIUS_PROPORTION,
-                                 MAX_SNOWLAKE_FEATHER_AMOUNT,
-                                 MIN_SNOWLAKE_FEATHER_AMOUNT,
-                                 SNOWFLAKE_RANDOM_TURN_PRECISION,
+            get_star_params(prev_circle_list, COLOR_LIST,
+                                 STAR_RANDOM_TURN_PRECISION,
                                  TRY_AMOUNT_LIMIT))
         if not try_limit_exceeded:
             t.penup()
             t.fillcolor(color)
             t.begin_fill()
+
             draw_star(x_pos, y_pos, size, random_turn)
+            
             t.end_fill()
             circle = (x_pos, y_pos, size)
             print(try_limit_exceeded)
