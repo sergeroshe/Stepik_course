@@ -123,13 +123,13 @@ def draw_snowflake_feather(ray_length, ray_pair_amount, ray_angle, direction):
 
 # rename vars
 def start_snowfall():
-    prev_circle_list = []
+    prev_surrounding_circle_list = []
     # rand color, size, ray amont
     try_limit_exceeded = False
     while not try_limit_exceeded:
         (x_pos, y_pos, radius, color, ray_length,
          snowlake_feather_amount, random_turn, try_limit_exceeded) = (
-            get_snowflake_params(prev_circle_list, COLOR_LIST,
+            get_snowflake_params(prev_surrounding_circle_list, COLOR_LIST,
                                  RAY_LENGTH_RADIUS_PROPORTION,
                                  MAX_SNOWLAKE_FEATHER_AMOUNT,
                                  MIN_SNOWLAKE_FEATHER_AMOUNT,
@@ -138,9 +138,9 @@ def start_snowfall():
         if not try_limit_exceeded:
             draw_snowflake(x_pos, y_pos, snowlake_feather_amount,
                            color, ray_length, random_turn)
-            circle = (x_pos, y_pos, radius)
+            surrounding_circle = (x_pos, y_pos, radius)
             print(try_limit_exceeded)
-            prev_circle_list.append(circle)
+            prev_surrounding_circle_list.append(surrounding_circle)
         else:
             print(f'Try limit exceeded!')
 
