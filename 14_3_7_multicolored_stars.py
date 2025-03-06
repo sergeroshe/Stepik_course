@@ -24,7 +24,13 @@ def generate_circle_params():
 def check_segments_overlay(x_1, y_1, x_2, y_2, radius_1, radius_2):
     distance = math.sqrt((x_2 - x_1) ** 2 + (y_2 - y_1) ** 2)
     print(f'distance = {distance}')
+    print(f'radiuses sum = {radius_1 + radius_2}')
     overlay_found = radius_1 + radius_2 >= distance
+    if overlay_found:
+        print(f'radiuses sum is too large, overlay found!')
+    else:
+        print(f'radiuses sum is not too big, let\'s draw something!')
+    
 
     return overlay_found
 
@@ -63,16 +69,17 @@ def check_circles_overlay(x_pos, y_pos, size, prev_circle_list):
 def get_circle(prev_circle_list, try_amount_limit):
     try_amount = 0
     try_limit_exceeded = False
-    while not try_limit_exceeded:
-        x_pos, y_pos, size = generate_circle_params()
-        overlay_found = check_circles_overlay(x_pos, y_pos, size, prev_circle_list)
+    overlay_found = True
+    while not try_limit_exceeded and overlay_found:
+        x_pos, y_pos, radius = generate_circle_params()
+        overlay_found = check_circles_overlay(x_pos, y_pos, radius, prev_circle_list)
         if not overlay_found:
             print(f'Free space found!')
         elif try_amount > try_amount_limit:
             try_limit_exceeded = True
             print(f'try_amount = {try_amount}')
-
-        return x_pos, y_pos, size, try_limit_exceeded
+        
+    return x_pos, y_pos, radius, try_limit_exceeded
         
 
 def draw_star(x_pos, y_pos, ray_length, random_turn):
@@ -107,17 +114,26 @@ def start_snowfall():
             print(f'Try limit exceeded!')
 
 
+# def main():
+#     window = t.Screen()
+#     t.showturtle()
+#     t.speed(3)
+#     t.pensize(1)
+
+#     start_snowfall()
+
+#     t.hideturtle()
+#     window.mainloop()
+
 def main():
-    # extract init to func
-    window = t.Screen()
-    t.showturtle()
-    t.speed(3)
-    t.pensize(1)
-
-    start_snowfall()
-
-    t.hideturtle()
-    window.mainloop()
+    prev_circle_list = [(1, 1, 3)]
+    x_1, y_1, rad_1, try_limit = get_circle(prev_circle_list, 2)
+    x_2, y_2, rad_2 = prev_circle_list[-1]
+    circles_distance = math.sqrt((x_2 - x_1) ** 2 + (y_2 - y_1) ** 2)
+    radiuses_sum = rad_1 + rad_2
+    print(f'current coordinates and radius = {x_1, y_1, rad_1} \
+          previous coordinates and radius = {prev_circle_list[-1]}\
+            circles_distance = {circles_distance}')
 
 
 main()
