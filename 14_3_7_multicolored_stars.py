@@ -26,12 +26,7 @@ def check_segments_overlay(x_1, y_1, x_2, y_2, radius_1, radius_2):
     print(f'distance = {distance}')
     print(f'radiuses sum = {radius_1 + radius_2}')
     overlay_found = radius_1 + radius_2 >= distance
-    if overlay_found:
-        print(f'radiuses sum is too large, overlay found!')
-    else:
-        print(f'radiuses sum is not too big, let\'s draw something!')
     
-
     return overlay_found
 
 
@@ -57,7 +52,6 @@ def check_circles_overlay(x_pos, y_pos, size, prev_circle_list):
         prev_x_pos = prev_circle_params[0]
         prev_y_pos = prev_circle_params[1]
         prev_radius = prev_circle_params[2]
-        print(f'prev size = {prev_radius}, current size = {size}')
         overlay_found = check_segments_overlay(prev_x_pos, prev_y_pos, x_pos, y_pos, prev_radius, size)
         if overlay_found:
             try_amount += 1
@@ -92,7 +86,6 @@ def draw_star(x_pos, y_pos, ray_length, random_turn):
 
 def start_snowfall():
     prev_circle_list = []
-    # rand color, size, ray amont
     try_limit_exceeded = False
     while not try_limit_exceeded:
         x_pos, y_pos, size, color, random_turn, try_limit_exceeded = (
@@ -131,9 +124,19 @@ def main():
     x_2, y_2, rad_2 = prev_circle_list[-1]
     circles_distance = math.sqrt((x_2 - x_1) ** 2 + (y_2 - y_1) ** 2)
     radiuses_sum = rad_1 + rad_2
-    print(f'current coordinates and radius = {x_1, y_1, rad_1} \
-          previous coordinates and radius = {prev_circle_list[-1]}\
-            circles_distance = {circles_distance}')
+    print(f'current coordinates and radius = {x_1, y_1, rad_1}')
+    print(f'previous coordinates and radius = {prev_circle_list[-1]}')
+    print(f'circles_distance = {circles_distance}')
+    print(f'radiuses sum = {radiuses_sum}')
+    
+    if radiuses_sum <= circles_distance:
+        print(f'Since the distance between the centers\n'
+              f'of the circles is greater than the sum of the radii,\n'
+              f'there is no overlapping of the circles.')
+    else:
+        print(f'Since the distance between the centers\n'
+               'of the circles is less than the sum of the radii,\n'
+                'there is an overlap of the circles.')
 
 
 main()
