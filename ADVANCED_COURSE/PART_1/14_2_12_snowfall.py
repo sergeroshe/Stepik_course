@@ -76,7 +76,8 @@ def check_circles_overlay(x_pos, y_pos, radius, prev_circle_list):
 def get_circle(prev_circle_list, try_amount_limit):
     try_amount = 0
     try_limit_exceeded = False
-    while not try_limit_exceeded:
+    overlay_found = True
+    while not try_limit_exceeded and overlay_found:
         x_pos, y_pos, radius = generate_circle_params()
         overlay_found = check_circles_overlay(x_pos, y_pos, radius, prev_circle_list)
         if not overlay_found:
@@ -84,10 +85,8 @@ def get_circle(prev_circle_list, try_amount_limit):
         elif try_amount > try_amount_limit:
             try_limit_exceeded = True
             print(f'try_amount = {try_amount}')
-        else:
-            continue
-
-        return x_pos, y_pos, radius, try_limit_exceeded
+        
+    return x_pos, y_pos, radius, try_limit_exceeded
 
 
 def draw_snowflake(x_pos, y_pos, feather_amount, color, ray_length, random_turn):
