@@ -80,12 +80,16 @@ def get_circle(prev_circle_list, try_amount_limit):
     while not try_limit_exceeded and overlay_found:
         x_pos, y_pos, radius = generate_circle_params()
         overlay_found = check_circles_overlay(x_pos, y_pos, radius, prev_circle_list)
+
         if not overlay_found:
             print(f'Free space found!')
         elif try_amount > try_amount_limit:
             try_limit_exceeded = True
             print(f'try_amount = {try_amount}')
-        try_amount += 1
+        else:
+            try_amount += 1
+            print(f'try_amount = {try_amount}')
+
         
     return x_pos, y_pos, radius, try_limit_exceeded
 
