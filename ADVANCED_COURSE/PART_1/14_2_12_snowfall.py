@@ -85,6 +85,7 @@ def get_circle(prev_circle_list, try_amount_limit):
         elif try_amount > try_amount_limit:
             try_limit_exceeded = True
             print(f'try_amount = {try_amount}')
+        try_amount += 1
         
     return x_pos, y_pos, radius, try_limit_exceeded
 
