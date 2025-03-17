@@ -21,8 +21,10 @@ def figure(n, square, color):
   
     
 def main():
-  t.speed(0)
-  t.hideturtle()
+  window = t.Screen()
+  t.showturtle()
+  t.speed(3)
+  t.pensize(1)
 
   for y in range(130, -200, -75):
     for x in range(-150, 170, 75):
@@ -31,6 +33,9 @@ def main():
       t.pendown()
       color = r.choice(COLOR_LIST)
       figure(r.randint(3, 6), 1800, color)
+
+  t.hideturtle()
+  window.mainloop()
       
     
 main()
