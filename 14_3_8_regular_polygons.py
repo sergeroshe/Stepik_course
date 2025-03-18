@@ -3,39 +3,48 @@ import math as m
 import random as r
 
 COLOR_LIST = ['green', 'red', 'yellow', 'black', 'blue', 'brown']
+FIELD_SIZE = 200
+FIGURE_SIDE = 50
+FIGURE_SIDE_AMOUNT = 5
+STEP = 75
 
 
-def figure(n, square, color):
-  size = (square * 4 * m.tan(m.radians(180 / n)) / n) ** 0.5
+def draw_polygon(side_amount, side_length, color):
   t.fillcolor(color)
   t.begin_fill()
   
-  t.forward(size / 2)
-  t.left(360 / n)
-  for i in range(n - 1):
-    t.forward(size)
-    t.left(360 / n)
-  t.forward(size / 2)
+  for i in range(side_amount):
+    t.forward(side_length)
+    t.left(360 / side_amount)
 
   t.end_fill()
   
     
-def main():
+def draw_polygons():
   window = t.Screen()
   t.showturtle()
   t.speed(3)
   t.pensize(1)
+  side = FIGURE_SIDE
+  side_amount = r.randint(3, 10)
+  area = (side_amount * side ** 2) / (4 * m.tan(180 / side_amount))
+  step = side * 4
 
-  for y in range(130, -200, -75):
-    for x in range(-150, 170, 75):
+  for y in range(FIELD_SIZE, -FIELD_SIZE, -step):
+    for x in range(-FIELD_SIZE, FIELD_SIZE, step):
       t.penup()
       t.goto(x, y)
       t.pendown()
       color = r.choice(COLOR_LIST)
-      figure(r.randint(3, 6), 1800, color)
+      draw_polygon(side_amount, side, color)
+      print(area)
 
   t.hideturtle()
   window.mainloop()
       
-    
+
+def main():
+
+  draw_polygons()
+
 main()
