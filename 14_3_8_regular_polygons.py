@@ -2,46 +2,41 @@ import turtle as t
 import math as m
 import random as r
 
-COLOR_LIST = ['green', 'red', 'yellow', 'black', 'blue', 'brown']
 FIELD_SIZE = 200
 FIGURE_MIN_SIDE_AMOUNT = 3
-FIGURE_MAX_SIDE_AMOUNT = 9
+FIGURE_MAX_SIDE_AMOUNT = 12
 
 POLYGON_AREA = 5000
 
 
 def draw_polygon(side_amount, side_length, color):
   t.fillcolor(color)
+  # align the figure to the center
+  t.forward(side_length // 2 + 1)
+
   t.begin_fill()
-  
-  t.forward(side_length // 2)
+
   t.left(360 / side_amount)
   for i in range(side_amount - 1):
     t.forward(side_length)
     t.left(360 / side_amount)
   t.forward(side_length // 2)
   
-
   t.end_fill()
 
 
-def get_polygon_params(area, side_amount):
-  # area = (side_amount * side ** 2) / (4 * m.tan(m.radians(180) / side_amount)) 
+def get_polygon_params(area):
   radian_degrees = m.radians(180)
+  side_amount = r.randint(FIGURE_MIN_SIDE_AMOUNT, FIGURE_MAX_SIDE_AMOUNT)
+  # calculate side length through area and side amount     
   side = m.sqrt((4 * area * m.tan(radian_degrees / side_amount))/ side_amount)
-  radius = int(side / (2 * (m.sin(180 / side_amount))))
+  color = tuple((r.randint(0, 255) for _ in range(3)))
 
-  return side, radius
+  return side, side_amount, color
 
   
     
 def draw_polygons():
-  window = t.Screen()
-  t.showturtle()
-  t.speed(3)
-  t.pensize(1)
-  side, radius = get_polygon_params(POLYGON_AREA, FIGURE_MAX_SIDE_AMOUNT)
-  
   step = POLYGON_AREA // 40
 
   for y in range(FIELD_SIZE, -FIELD_SIZE, -step):
@@ -49,20 +44,24 @@ def draw_polygons():
       t.penup()
       t.goto(x, y)
       t.pendown()
-      side_amount = r.randint(3, 9)      
-      side, radius = get_polygon_params(POLYGON_AREA, side_amount)
-      color = r.choice(COLOR_LIST)
+
+      side, side_amount, color = get_polygon_params(POLYGON_AREA)
 
       draw_polygon(side_amount, side, color)
 
-      print(side, radius, step)
-
-  t.hideturtle()
-  window.mainloop()
+      print(int(side), step)
       
 
 def main():
+  window = t.Screen()
+  t.Screen().colormode(255)
+  t.showturtle()
+  t.speed(3)
+  t.pensize(1)
 
   draw_polygons()
+
+  t.hideturtle()
+  window.mainloop()
 
 main()
