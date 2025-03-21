@@ -2,11 +2,11 @@ import turtle as t
 import math as m
 import random as r
 
-FIELD_SIZE = 200
+FIELD_SIZE = 120
 FIGURE_MIN_SIDE_AMOUNT = 3
 FIGURE_MAX_SIDE_AMOUNT = 12
-
-POLYGON_AREA = 5000
+POLYGON_AREA = 2500
+STEP = POLYGON_AREA // 30
 
 
 def draw_polygon(side_amount, side_length, color):
@@ -37,10 +37,8 @@ def get_polygon_params(area):
   
     
 def draw_polygons():
-  step = POLYGON_AREA // 40
-
-  for y in range(FIELD_SIZE, -FIELD_SIZE, -step):
-    for x in range(-FIELD_SIZE, FIELD_SIZE, step):
+  for y in range(FIELD_SIZE, -FIELD_SIZE, -STEP):
+    for x in range(-FIELD_SIZE, FIELD_SIZE, STEP):
       t.penup()
       t.goto(x, y)
       t.pendown()
@@ -49,12 +47,9 @@ def draw_polygons():
 
       draw_polygon(side_amount, side, color)
 
-      print(int(side), step)
-      
 
 def main():
   window = t.Screen()
-  t.Screen().colormode(255)
   t.showturtle()
   t.speed(3)
   t.pensize(1)
