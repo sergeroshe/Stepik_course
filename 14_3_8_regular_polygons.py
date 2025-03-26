@@ -2,7 +2,7 @@ import turtle as t
 import math as m
 import random as r
 
-FIELD_SIZE = 120
+FIELD_SIZE = 300
 FIGURE_MIN_SIDE_AMOUNT = 3
 FIGURE_MAX_SIDE_AMOUNT = 12
 POLYGON_AREA = 2500
@@ -50,6 +50,7 @@ def draw_polygons():
 
 def main():
   window = t.Screen()
+  t.colormode(255)
   t.showturtle()
   t.speed(3)
   t.pensize(1)
