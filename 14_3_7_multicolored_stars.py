@@ -1,0 +1,142 @@
+import turtle as t
+import random as r
+import math
+
+COORD_LIST_X = list(range(-200, 200))
+COORD_LIST_Y = list(range(-200, 200))
+COLOR_LIST = ['blue', 'red', 'green', 'yellow', 'grey', 'black', 'brown', 'pink']
+MIN_STAR_RADIUS = 10
+MAX_STAR_RADIUS = 50
+TRY_AMOUNT_LIMIT = 2
+RAY_LENGTH_RADIUS_PROPORTION = 4
+STAR_RANDOM_TURN_PRECISION = 3
+
+
+def generate_circle_params():
+    x_pos = -600 + r.random() * 1200
+    y_pos = -300 + r.random() * 600
+    cur_radius = r.choice(range(MIN_STAR_RADIUS, MAX_STAR_RADIUS))
+    print(f'x = {x_pos}, y = {y_pos}')
+
+    return x_pos, y_pos, cur_radius
+
+
+def check_segments_overlay(x_1, y_1, x_2, y_2, radius_1, radius_2):
+    distance = math.sqrt((x_2 - x_1) ** 2 + (y_2 - y_1) ** 2)
+    print(f'distance = {distance}')
+    print(f'radiuses sum = {radius_1 + radius_2}')
+    overlay_found = radius_1 + radius_2 >= distance
+    
+    return overlay_found
+
+
+def get_star_params(prev_circle_list, color_list, star_random_turn_precision,
+                         try_amount_limit):
+    (color, random_turn) = None, None
+    x_pos, y_pos, size, try_limit_exceeded = get_circle(prev_circle_list, try_amount_limit)
+
+    if not try_limit_exceeded:
+        color = r.choice(color_list)
+        random_turn = r.choice(range(0, 360, star_random_turn_precision))
+
+    return (x_pos, y_pos, size, color, random_turn, try_limit_exceeded)
+
+
+def check_circles_overlay(x_pos, y_pos, size, prev_circle_list):
+    try_amount = 0
+    prev_circle_list_len = len(prev_circle_list)
+    overlay_found = False
+    i = 0
+    while not overlay_found and i < prev_circle_list_len:
+        prev_circle_params = prev_circle_list[i]
+        prev_x_pos = prev_circle_params[0]
+        prev_y_pos = prev_circle_params[1]
+        prev_radius = prev_circle_params[2]
+        overlay_found = check_segments_overlay(prev_x_pos, prev_y_pos, x_pos, y_pos, prev_radius, size)
+        if overlay_found:
+            try_amount += 1
+            print(f'overlay found!')
+        i += 1
+    return overlay_found
+
+
+def get_circle(prev_circle_list, try_amount_limit):
+    try_amount = 0
+    try_limit_exceeded = False
+    overlay_found = True
+    while not try_limit_exceeded and overlay_found:
+        x_pos, y_pos, radius = generate_circle_params()
+        overlay_found = check_circles_overlay(x_pos, y_pos, radius, prev_circle_list)
+        if not overlay_found:
+            print(f'Free space found!')
+        elif try_amount > try_amount_limit:
+            try_limit_exceeded = True
+            print(f'try_amount = {try_amount}')
+        
+    return x_pos, y_pos, radius, try_limit_exceeded
+        
+
+def draw_star(x_pos, y_pos, ray_length, random_turn):
+    t.goto(x_pos, y_pos)
+    t.left(random_turn)
+    for _ in range(5):
+        t.forward(ray_length)
+        t.right(144)
+
+
+def start_snowfall():
+    prev_circle_list = []
+    try_limit_exceeded = False
+    while not try_limit_exceeded:
+        x_pos, y_pos, size, color, random_turn, try_limit_exceeded = (
+            get_star_params(prev_circle_list, COLOR_LIST,
+                                 STAR_RANDOM_TURN_PRECISION,
+                                 TRY_AMOUNT_LIMIT))
+        if not try_limit_exceeded:
+            t.penup()
+            t.fillcolor(color)
+            t.begin_fill()
+
+            draw_star(x_pos, y_pos, size, random_turn)
+            
+            t.end_fill()
+            circle = (x_pos, y_pos, size)
+            print(try_limit_exceeded)
+            prev_circle_list.append(circle)
+        else:
+            print(f'Try limit exceeded!')
+
+
+# def main():
+#     window = t.Screen()
+#     t.showturtle()
+#     t.speed(3)
+#     t.pensize(1)
+
+#     start_snowfall()
+
+#     t.hideturtle()
+#     window.mainloop()
+
+def main():
+    prev_circle_list = [(1, 1, 3)]
+    x_1, y_1, rad_1, try_limit = get_circle(prev_circle_list, 2)
+    x_2, y_2, rad_2 = prev_circle_list[-1]
+    circles_distance = math.sqrt((x_2 - x_1) ** 2 + (y_2 - y_1) ** 2)
+    radiuses_sum = rad_1 + rad_2
+    print(f'current coordinates and radius = {x_1, y_1, rad_1}')
+    print(f'previous coordinates and radius = {prev_circle_list[-1]}')
+    print(f'circles_distance = {circles_distance}')
+    print(f'radiuses sum = {radiuses_sum}')
+    
+    if radiuses_sum <= circles_distance:
+        print(f'Since the distance between the centers\n'
+              f'of the circles is greater than the sum of the radii,\n'
+              f'there is no overlapping of the circles.')
+    else:
+        print(f'Since the distance between the centers\n'
+               'of the circles is less than the sum of the radii,\n'
+                'there is an overlap of the circles.')
+
+
+main()
