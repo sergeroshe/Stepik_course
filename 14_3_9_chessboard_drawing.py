@@ -36,9 +36,8 @@ def draw_squares(chessboard_size, square_side, color_list):
       t.begin_fill()
 
       draw_square(square_side)
-      
-      t.end_fill()
 
+      t.end_fill()
       t.forward(square_side)
 
       color_idx += 1
