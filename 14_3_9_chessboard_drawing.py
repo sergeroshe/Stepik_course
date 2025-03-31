@@ -25,22 +25,23 @@ def draw_squares(chessboard_size, square_side, color_list):
   t.pendown()
   setheading_list = [0, 180]
   step_list = [square_side * 2, 0]
-  color_list_idx = 0
+  color_idx = 0
 
   for i in range(chessboard_size):
     if i:
       t.forward(step_list[i % 2])    
     t.setheading(setheading_list[i % 2])
     for j in range(chessboard_size):
-      t.fillcolor(color_list[color_list_idx % 2])
-
+      t.fillcolor(color_list[color_idx % 2])
       t.begin_fill()
+
       draw_square(square_side)
+      
       t.end_fill()
 
       t.forward(square_side)
-      color_list_idx += 1
-      print(f'idx = {color_list_idx}')          
+
+      color_idx += 1
 
     t.left(90)
 
