@@ -32,7 +32,7 @@ def draw_compass(circle_size, cross_size, name_list):
     draw_circle(circle_size)
     draw_cross(center, cross_size, name_list)
 
-
+#
 def main():
   window = t.Screen()
   t.showturtle()
