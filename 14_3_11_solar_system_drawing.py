@@ -1,5 +1,12 @@
 import turtle as t
 
+PLANETS_PARAMS_DICT = {'Меркурий': ('size', 'color'), 'Венера': ('size', 'color'),
+                        'Земля': ('size', 'color'), 'Марс': ('size', 'color'), 
+                        'Юпитер': ('size', 'color'), 'Сатурн': ('size', 'color'),
+                          'Уран': ('size', 'color'), 'Нептун': ('size', 'color'), 
+                          'Плутон': ('size', 'color'), }
+
+
 def draw_solar_system():
   pass
 
